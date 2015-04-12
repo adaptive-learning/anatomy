@@ -1,0 +1,4 @@
+default:
+    proso_models:
+        predictive_model:
+            class: proso.models.prediction.PriorCurrentPredictiveModel

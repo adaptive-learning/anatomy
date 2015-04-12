@@ -1,0 +1,2 @@
+dj-database-url==0.3.0
+proso-apps==1.0.0-SNAPSHOT
