@@ -203,6 +203,8 @@ CACHES = {
         'LOCATION': os.path.join(DATA_DIR, '.django_cache'),
     }
 }
+if not ON_STAGING and not ON_PRODUCTION:
+    CACHES['default']['BACKEND'] = 'django.core.cache.backends.dummy.DummyCache'
 
 PROSO_CONFIG = {
     'path': os.path.join(BASE_DIR, 'anatomy', 'proso_config.yaml'),
