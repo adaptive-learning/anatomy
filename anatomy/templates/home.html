@@ -1,0 +1,261 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html data-ng-app="proso.anatomy" data-ng-controller="AppCtrl" lang="{{LANGUAGE_CODE}}">
+  <head>
+    <meta charset="utf-8">
+    <title ng-bind="title" ng-init="initTitle('{{ title }}')">
+      {{ map }}{% if map != ''  %} - {% endif %}{{ title }}
+    </title>
+    {% if is_production  %}
+        <script type='text/javascript'>
+        window.Muscula = { settings:{
+            logId:"c851276b-6467-4182-a63a-045d86e9974a", suppressErrors: false, branding: 'none'
+        }};
+        (function () {
+            var m = document.createElement('script'); m.type = 'text/javascript'; m.async = true;
+            m.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//musculahq.appspot.com/Muscula.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(m, s);
+            window.Muscula.run=function(c){eval(c);window.Muscula.run=function(){};};
+            window.Muscula.errors=[];window.onerror=function(){window.Muscula.errors.push(arguments);
+            return window.Muscula.settings.suppressErrors===undefined;}
+        })();
+        </script>
+	{% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% trans 'meta content' %}">
+    <meta name="keywords" content="{% trans 'meta keywords' %}" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+    <link rel="alternate" href="/cs/" hreflang="cs" />
+    <link rel="alternate" href="/en/" hreflang="en" />
+
+    <!-- Le styles -->
+    <style>
+        {% include "above-fold-bootstrap.css" %}
+        {% include "dist/above-fold.css" %}
+    </style>
+    <base href="/">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <span ng-init='configService.processConfig({{ config_json | safe }});'></span>
+  <div id="wrap">
+    <!-- <span set-place-type-names='{{placeTypeNames | safe}}'></span>-->
+    <!-- Navbar
+    ================================================== -->
+
+
+    <div class="navbar navbar-inverse">
+        <div class="container">
+
+    <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+      <a class="navbar-brand" href="/">{% trans "Anatom.cz" %}</a>
+      <div id="nav-main" class="collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav  pull-left">
+                <li ng-class="'/overview/'|isActive">
+                  <a href="/overview/">{% trans "Přehled znalostí" %}</a>
+                </li>
+        </ul>
+          ...
+            <ul class="nav ng-cloak navbar-nav pull-right"
+                ng-init='initUser( {{ user_json | safe }} )'>
+                <li class="dropdown" ng-show="!userService.status.logged && !userService.status.loading" >
+                  <a href=""
+                     role="button"
+                     track-click="login"
+                     class="drop-login atooltip"
+                     title="{% trans "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše znalosti pamatoval i příště." %}"
+                     container="body"
+                     login-button>
+                    {% trans "Přihlásit se" %}
+                  </a>
+                </li>
+                <li class="dropdown" ng-show="userService.status.logged">
+                  <a id="drop1" href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span ng-bind="userService.user.username"></span> <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                    <li>
+                    {% verbatim %}
+                      <a href="/u/{{userService.user.username}}" >
+                    {% endverbatim %}
+                        {% trans "Můj profil" %}
+                      </a>
+                    </li>
+                    <!--
+                    <li>
+                      <a href="/mistakes/" >
+                        {% trans "Moje časté chyby" %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/goals/" >
+                        {% trans "Osobní cíle" %}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/u/{{user.username}}?edit=true" >
+                        {% trans "Nastavení" %}
+                      </a>
+                    </li>
+                    -->
+                    <li class="forgot-pwd">
+                      <a href="/" ng-click="logout()">
+                        {% trans "Odhlásit se" %}
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              <li class="dropdown">
+                <a href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="flag-{{ LANGUAGE_CODE}}"></i> <b class="caret"></b>
+                  <input type="hidden" ng-init="initLanguageCode('{{ LANGUAGE_CODE }}')"/>
+                </a>
+                <ul class="dropdown-menu">
+                    {% for lang in LANGUAGES %}
+                    <li>
+                      <a class="menu-link" location-append href="/{{ lang.0 }}/">
+                        <i class="flag-{{ lang.0 }}"></i> {{ lang.1 }}
+                      </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+              </li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div>
+    <!-- Main content
+    ================================================== -->
+    <div data-ng-view id="ng-view" >
+     {% if is_homepage %}
+        {% include "generated/homepage.html" %}
+     {% elif map != '' %}
+        <div class="map-container">
+          <h1> {{map}}</h1>
+          <div class="loading-indicator"></div>
+        </div>
+     {% else %}
+        <div class="loading-indicator"></div>
+     {% endif %}
+    </div>
+  </div>
+    <div id="feedback-btn" feedback-comment email="{{email}}">
+    </div>
+
+    <div class="" id="footer">
+      <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+        <span class="col-sm-3">
+        <ul>
+          {% if LANGUAGE_CODE == "cs" %}
+          <li>
+              <a href="/about"> {% trans "O projektu" %}</a>
+          </li>
+          {% endif %}
+          <li>
+            <span feedback-comment  email="{{email}}">
+            </span>
+          </li>
+          <li>
+            <a href="https://plus.google.com/TODO/">Google+</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/TODO">Facebook</a>
+          </li>
+        </ul>
+        </span>
+        <span class="col-sm-3">
+         {% if LANGUAGE_CODE == "cs" %}
+              <div>
+                Vyzkoušejte také:
+              </div>
+            <ul>
+              <li>
+                <a href="http://slepaanatomie.cz" target="_blank">Slepá anatomie</a>
+              </li>
+              <li>
+                <a href="http://umimecesky.cz" target="_blank">Umíme česky</a>
+              </li>
+              <li>
+                <a href="http://matmat.cz/">MatMat</a>
+              </li>
+              <li>
+                <a href="http://autoskolachytre.cz/">Autoškola chytře</a>
+              </li>
+            </ul>
+          {% endif %}
+        </span>
+        <span class="col-sm-6">
+          <a href="http://www.fi.muni.cz/adaptivelearning/" class="">
+            <img src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
+          </a>
+          <a href="http://www.fi.muni.cz/" class="">
+            <img src="{% static 'img/fi-logo.png' %}" alt="FI MUNI logo"
+              height="80px"/>
+          </a>
+        </span>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    {% include "create_goal.html" %}
+
+    <script type="text/ng-template" id="loading.html">
+      <div class="loading-indicator"></div>
+    </script>
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% url 'anatomy.views.cached_javascript_catalog' %}?hack={{LANGUAGE_CODE}}"></script>
+    {% for file in js_files %}
+    <script src="{% static file %}"></script>
+    {% endfor %}
+
+    {% for file in css_files %}
+    <link href="{% static file %}" rel="stylesheet">
+    {% endfor %}
+
+    <!-- Place this tag after the last +1 button tag. -->
+    <script type="text/javascript">
+      window.___gcfg = {lang: '{{LANGUAGE_CODE}}'};
+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/{{LANGUAGE_CODE}}_CZ/all.js#xfbml=1&appId=543575712384201";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    {% if is_production  %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-43054672-1', 'slepemapy.cz');
+
+        </script>
+    {% endif %}
+  </body>
+</html>
+

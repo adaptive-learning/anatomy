@@ -1,0 +1,112 @@
+.progress-bar-learned
+  background-color: $learned
+
+.progress-bar-practiced
+  background-color: $practiced
+
+.progress-bar-unlearned
+  background-color: $unlearned
+
+.goal-progress
+  .progress-bar-learned
+    border-top: 10px solid $learned
+  .progress-bar-unlearned
+    border-top: 10px solid $unlearned
+
+.color-indicator.learned
+  background-color: $learned
+
+.label-learned
+  background-color: $learned
+
+.label-unlearned
+  background-color: $unlearned
+
+.color-indicator.practiced
+  background-color: $practiced
+
+.modal-backdrop.fade.in
+  background: rgba(0, 0, 0, 0.8)
+
+.modal-dialog
+  margin-top: 60px
+
+.map-select
+  width: 48%
+  display: inline-block
+
+.layer-select
+  float: right
+
+.icon-loading
+  display: inline-block
+  height: 14px
+  width: 14px
+  background: url(../img/ajax-loader-small.gif) no-repeat center
+
+@-webkit-keyframes fadeIn 
+  from 
+    opacity: 0
+  to
+    opacity: 1
+@-moz-keyframes fadeIn 
+  from 
+    opacity: 0
+  to
+    opacity: 1
+@keyframes fadeIn 
+  from 
+    opacity: 0
+  to
+    opacity: 1
+
+.striped-row
+  padding-left: 1000px
+  padding-right: 1000px
+  margin-left: -1000px
+  margin-right: -1000px
+  -webkit-animation: fadeIn .5s ease-out
+  -moz-animation: fadeIn .5s ease-out
+  animation: fadeIn .5s ease-out
+  -webkit-animation-fill-mode: both
+  -moz-animation-fill-mode: both
+  animation-fill-mode: both
+  @for $i from 1 through 10
+    &:nth-child(#{$i})
+      -webkit-animation-delay: .1s * $i
+      -moz-animation-delay: .1s * $i
+      animation-delay: .1s * $i
+  &:nth-child(n + 11)
+    -webkit-animation-delay: 1.1s
+    -moz-animation-delay: 1.1s
+    animation-delay: 1.1s
+.striped-row:nth-child(odd)
+  background: rgba(0,0,0,0.1)
+
+.level-wrapper
+  margin-bottom: 15px
+  text-align: center
+
+.level-progress
+  width: 80% 
+  width: calc(100% - 56px)
+  display: inline-block
+  margin: 0px -4px -5px -4px
+  border-radius: 0
+  background-color: #ddd
+  .progress-bar
+    background-color: $learned
+
+.level-start
+  background-color: $learned 
+
+.level-goal
+  background-color: #ddd
+  color: rgba(0,0,0,0.4)
+
+.level-start, .level-goal
+  font-size: 17px
+  line-height: 150%
+  border-radius: 50%
+  width: 32px
+

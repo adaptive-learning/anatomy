@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 import os
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-DATA_DIR = os.path.join(BASE_DIR, 'data')
+DATA_DIR = os.environ.get('PROSO_DATA_DIR', os.path.join(BASE_DIR, 'data'))
+MEDIA_DIR = os.environ.get('PROSO_MEDIA_DIR', DATA_DIR)
 MEDIA_URL = '/media/'
 
 SECRET_KEY = os.getenv('PROSO_SECRET_KEY', 'really secret key')
@@ -12,9 +13,9 @@ SECRET_KEY = os.getenv('PROSO_SECRET_KEY', 'really secret key')
 ON_PRODUCTION = False
 ON_STAGING = False
 
-if 'PROSO_ON_PRODUCTION' in os.environ:
+if os.environ.get('PROSO_ON_PRODUCTION', False):
     ON_PRODUCTION = True
-if 'PROSO_ON_STAGING' in os.environ:
+if os.environ.get('PROSO_ON_STAGING', False):
     ON_STAGING = True
 
 if ON_PRODUCTION:
@@ -42,11 +43,11 @@ INSTALLED_APPS = (
     'proso_common',
     'proso_models',
     'proso_questions',
-    'proso_questions_client',
     'proso_user',
     'proso_feedback',
     'proso_flashcards',
     'social_auth',
+    'anatomy',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,11 +58,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'proso_common.middleware.ToolbarMiddleware',
     'proso.django.request.RequestMiddleware',
     'proso_ab.models.ABMiddleware',
     'proso.django.cache.RequestCacheMiddleware',
     'proso.django.log.RequestLogMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'anatomy.middleware.LanguageInPathMiddleware',
+    'anatomy.middleware.AuthAlreadyAssociatedMiddleware',
 )
 
 ROOT_URLCONF = 'anatomy.urls'
@@ -71,15 +76,47 @@ WSGI_APPLICATION = 'anatomy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+if ON_PRODUCTION or ON_STAGING:
+    DATABASES = {
+        'default': {
+            'ENGINE': os.environ.get('PROSO_DATABASE_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+            'OPTIONS': {
+                'options': "-c search_path=%s" % os.environ.get('PROSO_DATABASE_SCHEMA', 'public')
+            },
+            'NAME': os.environ['PROSO_DATABASE_NAME'],
+            'USER': os.environ['PROSO_DATABASE_USER'],
+            'PASSWORD': os.environ['PROSO_DATABASE_PASSWORD'],
+            'HOST': os.environ['PROSO_DATABASE_HOST'],
+            'PORT': os.environ['PROSO_DATABASE_PORT'],
+        },
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(),
+    }
 
-DATABASES = {
-    'default': dj_database_url.config()
+DATABASES['old'] = {
+    'ENGINE': os.environ.get('GEOGRAPHY_DATABASE_ENGINE', 'django.db.backends.mysql'),
+    'NAME': os.environ.get('GEOGRAPHY_DATABASE_NAME', 'anatomy'),
+    'USER': os.environ.get('GEOGRAPHY_DATABASE_USER', 'anatomy'),
+    'PASSWORD': os.environ.get('GEOGRAPHY_DATABASE_PASSWORD', 'anatomy'),
+    'HOST': os.environ.get('GEOGRAPHY_DATABASE_HOST', 'localhost'),
+    'PORT': os.environ.get('GEOGRAPHY_DATABASE_PORT', None),
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'cd-CZ'
+LANGUAGE_CODE = 'cs'
+
+LANGUAGES = (
+    ('cs', 'Česky'),
+    ('en', 'English'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'conf', 'locale'),
+)
 
 TIME_ZONE = 'UTC'
 
@@ -93,12 +130,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'anatomy', 'static'),
+    os.path.join(BASE_DIR, 'proso_mnemonics', 'static'),
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -142,6 +185,7 @@ LOGGING = {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
+            'filters': ['require_debug_true'],
             'formatter': 'simple'
         },
         'request': {
@@ -161,8 +205,14 @@ LOGGING = {
             'propagate': True,
             'level': 'DEBUG'
         }
-    }
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }
+    },
 }
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
@@ -174,3 +224,19 @@ PROSO_CONFIG = {
     'path': os.path.join(BASE_DIR, 'anatomy', 'proso_config.yaml'),
 }
 PROSO_FLASHCARDS = {}
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'anatomy', 'templates'),
+)
+
+try:
+    from hashes import HASHES
+except ImportError:
+    HASHES = {}
+except SyntaxError:
+    HASHES = {}
+
+PROSO_JS_FILES = ['dist/js/bower-libs.js']

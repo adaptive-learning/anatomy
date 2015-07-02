@@ -1,0 +1,21 @@
+{
+  "name": "proso-geography",
+  "version": "dummy",
+  "dependencies": {
+    "proso-apps-js": "git@github.com:adaptive-learning/proso-apps-js-bower.git",
+    "angular-i18n": "~1.3.15",
+    "angular-route": "~1.3.15",
+    "angular-animate": "~1.3.15",
+    "angular-xeditable": "~0.1.9",
+    "chroma-js": "~0.6.1",
+    "kartograph.js": "git@github.com:adaptive-learning/kartograph.js.git",
+    "angular-google-experiments": "~0.0.1",
+    "bootstrap": "~3.3.4",
+    "raphael": "~2.1.4",
+    "raphael-pan-zoom": "git@github.com:adaptive-learning/raphael-pan-zoom.git",
+    "qtip2": "~2.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.3.15"
+  }
+}

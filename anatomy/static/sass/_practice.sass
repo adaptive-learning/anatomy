@@ -1,0 +1,120 @@
+.practice-container
+  .btn
+    margin-left: 10px
+    margin-bottom: 10px
+.practice
+  overflow: hidden
+  position: relative
+  min-height: 290px
+  .btn
+    margin-left: 10px
+    margin-bottom: 10px
+  .question
+    font-size: 25px
+    font-weight: bold
+    padding-left: 30px
+    margin-bottom: 10px
+    .label
+      font-size: 20px
+      line-height: 25px
+      font-weight: bold
+      padding-bottom: 5px
+    span
+      float: left
+      margin-right: 20px
+  .goal-progress
+    margin-top: 5px
+
+.quesions-progress
+  border-radius: 0
+  height: 10px
+  margin-bottom: 15px
+
+.summary-progress
+  margin-top: 6px
+
+.summary .level-wrapper
+  text-align: right
+
+@-webkit-keyframes slideIn 
+  from 
+    opacity: 0
+    left: 10%
+  to
+    left: 0
+    opacity: 1
+@-webkit-keyframes slideOut
+  from 
+    left: 0
+    opacity: 1
+  to
+    left: -10%
+    opacity: 0
+@-moz-keyframes slideIn 
+  from 
+    opacity: 0
+    left: 10%
+  to
+    left: 0
+    opacity: 1
+@-moz-keyframes slideOut
+  from 
+    left: 0
+    opacity: 1
+  to
+    opacity: 0
+    left: -10%
+@keyframes slideIn 
+  from 
+    opacity: 0
+    left: 10%
+  to
+    left: 0
+    opacity: 1
+@keyframes slideOut
+  from 
+    left: 0
+    opacity: 1
+  to
+    opacity: 0
+    left: -10%
+
+.inner-practice
+  position: absolute
+  min-height: 290px
+  background-color: #fff
+  width: 100%
+  -webkit-animation: slideIn .3s ease-out
+  -moz-animation: slideIn .3s ease-out
+  animation: slideIn .3s ease-out
+
+.slide-out
+  -webkit-animation: slideOut .3s ease-out
+  -moz-animation: slideOut .3s ease-out
+  animation: slideOut .3s ease-out
+
+.horizontal
+  .map-container
+    width: 70%
+    float: left
+  #container
+    width: 30%
+    float: right
+    .col-sm-7, .col-sm-5
+      width: 100%
+      padding: 0
+      margin-top: 30px
+    .label
+      white-space: normal
+    .btn
+      display: block
+  .practice
+    min-height: 690px
+    h2
+      padding-left: 10px
+  .inner-practice
+    min-height: 690px
+  .col-sm-6
+    width: 100%
+    padding-bottom: 10px
+

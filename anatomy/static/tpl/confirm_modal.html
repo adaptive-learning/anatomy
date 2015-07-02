@@ -1,0 +1,15 @@
+<div class="modal-body">
+  <button type="button" class="close" ng-click="cancel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h3 class="modal-title"> {{ question }} </h3>
+</div>
+<div class="modal-footer" >
+        <a class="btn btn-lg btn-default" ng-click="cancel()">
+          {{ "Ne" | trans }}
+        </a>
+        <a class="btn btn-lg btn-danger" ng-click="confirm();cancel()">
+          {{ "Ano" | trans }}
+        </a>
+</div>
+

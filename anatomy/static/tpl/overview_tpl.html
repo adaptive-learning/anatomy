@@ -1,0 +1,33 @@
+<div class="overview">
+  <h1>{{'Přehled znalostí' | trans}} {{user}}</h1>
+  <div ng-hide="mapCategories && statsLoaded" class="loading-indicator">
+  </div>
+  <div class="map-categories" ng-repeat="c in mapCategories">
+      <h2 class="col-md-offset-1" ng-hide="c.identifier == 'world'"> 
+        {{c.name}}
+      </h2>
+      <ul>
+        <li class="overview-row" ng-repeat="map in c.maps">
+          <h3 class="col-md-offset-1 col-sm-3"><a href="/view/{{map.identifier}}/{{user}}">{{map.name}}</a>
+            <div class="map-progress" count="{{map.placesTypes|sumCounts}}" 
+                 skills="{{mapSkills(map)}}">
+            </div>
+          </h3>
+          <ul class="col-sm-9 col-md-7 inline">
+            <li class="inline-block" ng-repeat="type in map.placeTypes">
+              <a href="/practice/{{map.identifier}}/{{type.identifier}}" 
+                 class="btn btn-primary"
+                 tooltip="{{'Procvičovat'| trans}}">
+                 {{type.name}}</a>
+              <div class="map-progress" 
+                   skills="{{mapSkills(map, type)}}">
+              </div>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </li>
+      </ul>
+    <div class="clearfix"></div>
+  </div>
+  <div class="clearfix"></div>
+</div>

@@ -1,0 +1,81 @@
+<div class="overview profile">
+  <div class="col-sm-offset-2 col-sm-8">
+   <form editable-form name="editableForm" onaftersave="saveUser()">
+    <h1>{{user.username}}
+      <i tooltip="{{'Upravit profil' | trans }}"
+         ng-show="editRights && !editableForm.$visible"
+         tooltip-placement="bottom"
+         ng-click="editableForm.$show()"
+         class=" pull-right glyphicon glyphicon-edit">
+      </i>
+    </h1>
+    <div ng-hide="editableForm.$visible">
+      <div class="level-progress-bar" username="{{user.username}}"></div>
+      <dl class="points" ng-show="user.points">
+        <dt>{{'Body' | trans }}</dt>
+        <dd class="badge" ng-bind="user.points"
+          tooltip="{{'přibývají za každou správnou odpověď' | trans }}" 
+          tooltip-placement="bottom" ></dd>
+      </dl>
+    </div>
+    <dl>
+      <dt>{{'Jméno' | trans }}</dt>
+      <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
+    </dl>
+    <dl>
+      <dt>{{'Příjmení' | trans }}</dt>
+      <dd editable-text="user.last_name">{{user.last_name}}</dd>
+    </dl>
+    <dl ng-show="editRights">
+      <dt>{{'E-mail' | trans }}</dt>
+      <dd editable-text="user.email">{{user.email}}</dd>
+    </dl>
+    <div class="buttons">
+      <span ng-show="editableForm.$visible">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model="user.send_emails">
+            {{'Poslat mi email při neplnění cílů' | trans}}
+        </label>
+      </div>
+        <br>
+        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
+          {{'Uložit' | trans}}
+        </button>
+        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
+          {{'Zrušit' | trans}}
+        </button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </span>
+    </div>
+    </form>
+    <div ng-show="error" error-message ></div>
+    <div ng-hide="editableForm.$visible || error">
+      <a href="/overview/{{user.username}}">
+        {{'Přehled znalostí uživatele' | trans}} {{ user.username && ' - ' + user.username }}
+      </a>
+      <div ng-show="editRights">
+        <br>
+        <h4>{{'Sdílej svůj profil' | trans }}</h4>
+        <div my-fb-share="" data-type="button" data-href="{{profileUrl}}"></div>
+        <!-- Place this tag where you want the share button to render. -->
+        <span class="g-plus-wrapper">
+          <div my-google-plus="" data-action="share"
+            data-annotation="none" data-height="24">
+          </div>
+        </span>
+        <input type="text" value="{{profileUrl}}" class="share-input"
+          tooltip-placement="right"
+          tooltip="{{'Adresa profilu' | trans}}"/>
+
+      </div>
+      <div personal-goals user="{{user.username}}"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

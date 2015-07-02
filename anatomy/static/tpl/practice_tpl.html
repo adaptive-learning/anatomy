@@ -1,0 +1,110 @@
+<div anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" ></div>
+<div class="progress quesions-progress">
+  <div class="progress-bar" style="width: {{progress}}%;"></div>
+</div>
+<div id="container" class="practice-container">
+  <div ng-hide="question || showSummary || error" class="loading-indicator">
+  </div>
+  <div ng-show="error" error-message ></div>
+  <div class="practice">
+    <div ng-repeat="question in questions"
+        ng-class="{'slide-out': question.slideOut}"
+        class="inner-practice">
+      <div class="question">
+        <span ng-bind="question | questionText"></span>
+        <span class="label label-default" ng-show="question|isFindOnMapType">
+          <i class="flag-{{question.description}}"></i> {{question.term.name}}
+        </span>
+        <span ng-show="question.answered_code && (question|isFindOnMapType) &&
+          question.answered_code != question.description">
+          <span>{{'Vybráno' | trans }}</span>
+          <span class="label label-default">
+            <i class="flag-{{question.answered_code}}"></i> {{question.answered_code|codeToName}}
+          </span>
+        </span>
+        <br class="clearfix">
+      </div>
+        <div mnemonic="{{question}}" class="col-sm-12"
+          ng-show="canNext && question.answered_code != question.description">
+        </div>
+      <span class="col-sm-7">
+        <span ng-show="question|isPickNameOfType">
+          <button ng-repeat="option in question.options"
+            class="btn btn-lg btn-default"
+            ng-click="checkAnswer(option.description)"
+            ng-class="{'btn-success': option.correct, 'btn-danger':
+            option.selected && !option.correct }"
+            ng-disabled="option.disabled">
+             <i class="flag-{{option.description}}"></i> {{option.term.name}}
+          </button>
+        </span>
+      </span>
+      <span class="col-sm-5" >
+        <button class="btn btn-lg btn-default dont-know" 
+                ng-click="checkAnswer()" 
+                ng-disabled="canNext" >
+            <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | trans }}
+        </button>
+        <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
+                ng-click="next()" 
+                ng-disabled="!canNext" >
+            <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | trans }}
+        </button>
+        <button class="btn btn-lg btn-default" 
+                ng-click="highlight()" 
+                ng-disabled="canNext"  
+                ng-show="question.options != undefined" >
+            <i class="glyphicon glyphicon-repeat"></i> {{'Znovu zvýraznit' | trans }}
+        </button>
+      </span>
+    </div>
+    <div ng-if="showSummary" class="inner-practice summary col-lg-12">
+      <div class="row">
+        <div class="col-sm-{{userService.user.username ? 6 : 12 }}">
+          <div class="summary-progress progress" ng-show="summary != undefined">
+            <div class="progress-bar progress-bar-learned" 
+                 style="width: {{summary.correctlyAnsweredRatio | percent }};">
+              {{'Úspěšnost' | trans}}: {{summary.correctlyAnsweredRatio | percent }}
+            </div>
+            <div class="progress-bar progress-bar-unlearned" 
+                 style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
+            </div>
+          </div>
+          <span ng-repeat="fc in summary.flashcards" 
+                ng-click="map.highlightState(fc.description)"
+                class="label {{fc.description != fc.answered_code &&
+                  'label-unlearned' || 'label-learned' }} ">
+            <i class="flag-{{fc.description}}"></i> {{fc.term.name}}
+          </span>
+        </div>
+        <div class="col-sm-6" ng-if="userService.user.username" >
+          <div class="level-progress-bar"></div>
+          <!--
+          <div goal-progress map="{{part}}" place-type="{{placeType}}">
+        </div>
+          -->
+        <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
+        </div>
+      </div>
+      <br>
+      <span class="pull-right" >
+      <!--
+        <a class="btn btn-lg btn-default" 
+           ng-show="user.username"
+           href="/goals/" >
+          <i class="glyphicon glyphicon-screenshot"></i> {{'Osobní cíle' | trans }}
+        </a>
+        -->
+        <a class="btn btn-lg btn-default" 
+           href="/refreshpractice/{{part}}/{{placeType}}" >
+          <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | trans }}
+        </a>
+        <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
+           href="/view/{{part}}/" >
+          <i class="glyphicon glyphicon-globe"></i> {{'Mapa znalostí' | trans }}
+        </a>
+      </span>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

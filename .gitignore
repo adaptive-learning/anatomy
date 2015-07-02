@@ -1,1 +1,13 @@
 *.pyc
+.ropeproject
+*.sw[po]
+db.sqlite
+bower_components
+.django_cache
+.ropeproject
+node_modules
+dist
+anatomy/static/css
+anatomy/.sass-cache
+anatomy/templates/generated
+*.log

@@ -1,0 +1,153 @@
+.welcome-page.jumbotron
+  background-color: #66ccff
+  background-image: url(/static/img/world-outline.png)
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: top center
+  
+  color: white
+  padding-left: 20px
+  padding-right: 20px
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8), 0 0 0px rgba(0, 0, 0, 0.075)
+  h1
+    font-size: 3em
+    text-align: center
+    position: relative
+    left: 0
+    margin-top: 0px
+  [class*="col-"]
+    float: none
+  .block-welcome_page
+    font-size: 1.25em
+    line-height: 120%
+    padding: 0
+    .flatblock-content
+      text-align: center
+      padding-bottom: 10px
+      padding-top: 10px
+
+
+.how-it-works
+  align: center
+  h2
+    text-align: center
+  background: #eee
+  margin-top: -30px
+  padding: 20px
+  li
+    list-style-type: circle
+    margin: 5px 0 5px 0px
+  .works-div
+    font-size: 1.2em
+    text-align: justify
+    margin-bottom: 60px
+    i.glyphicon
+      font-size: 2em
+      float: left
+      margin-right: 15px
+      margin-left: -10px
+  img
+    display: block
+    margin-top: 10px
+
+img
+  max-width: 100%
+
+.navbar 
+  margin-bottom: 0px
+  border-radius: 0px
+
+h1, h2, h3
+  font-weight: bold
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+  display: none
+
+.plugins-social
+  text-align: center
+  margin-top: 20px
+  min-height: 31px
+
+.btn-huge
+  text-shadow: none
+
+#feedback-btn
+  position: fixed 
+  top: 250px 
+  left: -50px
+  z-index: 999 
+  a 
+    transform: rotate(-90deg) 
+    -webkit-transform: rotate(-90deg) 
+    -moz-transform: rotate(-90deg) 
+    -o-transform: rotate(-90deg) 
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3) 
+    display: inline-block 
+    width: 140px
+    background: #428bca
+    padding: 8px 16px 
+    color: #fff 
+    text-decoration: none 
+    border: 1px solid transparent
+    border-radius: 0 0 4px 4px
+    border-color: #285e8e
+    padding: 6px 12px
+    text-align: center
+    font-size: 1.3em
+    &:hover
+      background-color: #3071a9
+      border-color: #285e8e
+
+#___plusone_0 iframe
+  position: relative !important
+  top: 6px !important
+
+.navbar
+  min-height: 53px
+
+#footer
+  display: none
+
+.loading-indicator
+  background: url(/static/img/ajax-loader.gif) no-repeat center
+  min-height: 128px
+  width: 100%
+  height: 100%
+  margin-top: 30px
+  margin-bottom: 60px
+
+
+@media (min-width: 767px)
+  $huge-radius: 9px
+  .btn-huge
+    font-size: 27.5px
+    -webkit-border-radius: $huge-radius
+    -moz-border-radius: $huge-radius
+    border-radius: $huge-radius
+    white-space: normal
+  .navbar
+    .container
+      max-width: 1170px
+      width: 100% 
+
+@media (max-width: 992px)
+  #feedback
+    display: none
+
+@media (max-width: 767px)
+  .welcome-page
+    p
+      padding: 10px
+    
+  .welcome-page.jumbotron
+    font-size: 1em
+    h1
+      font-size: 3em
+      padding-top: 10px
+    p
+      font-size: 0.65em
+      padding: 5px
+    .main-paragraph
+      font-size: 1em
+  .jumbotron 
+    padding: 0 0 20px 0

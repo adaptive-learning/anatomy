@@ -1,16 +1,29 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.autodiscover()
 
+js_info_dict = {
+    'domain': 'djangojs',
+    'packages': ('anatomy',),
+}
+
+
 urlpatterns = patterns(
     '',
-    url(r'^media/(?P<path>image/.*)$', 'django.views.static.serve',
+    url(
+        r'^media/(?P<path>image/.*)$', 'django.views.static.serve',
         {
-        'document_root': settings.MEDIA_ROOT
+            'document_root': settings.MEDIA_ROOT
         }
     ),
+    url(r'^$', 'anatomy.views.home', name='home'),
+    url(r'^(about|overview|mistakes|goals|view/\w+|u/\w+|practice/\w*/?\w*)',
+        'anatomy.views.home', name='home'),
+    url(r'^jsi18n/$', 'anatomy.views.cached_javascript_catalog', js_info_dict),
+
     url(r'^user/', include('proso_user.urls')),
     url(r'^questions/', include('proso_questions.urls')),
     url(r'^models/', include('proso_models.urls')),
@@ -22,3 +35,4 @@ urlpatterns = patterns(
     url(r'^flashcards/', include('proso_flashcards.urls')),
     url(r'', include('social_auth.urls')),
 )
+urlpatterns += staticfiles_urlpatterns()

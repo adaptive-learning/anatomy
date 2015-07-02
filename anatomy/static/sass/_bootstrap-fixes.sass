@@ -1,0 +1,43 @@
+
+.btn-block
+  display: block
+  width: 100%
+  padding-right: 0
+  padding-left: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  + .btn-block
+    margin-top: 5px
+
+input
+  &[type="submit"].btn-block, &[type="reset"].btn-block, &[type="button"].btn-block
+    width: 100%
+
+.btn-primary.active, .btn-warning.active, .btn-danger.active, .btn-success.active, .btn-info.active, .btn-inverse.active
+  color: rgba(255, 255, 255, 0.75)
+
+
+
+button.btn, input[type="submit"].btn
+  *padding-top: 3px
+  *padding-bottom: 3px
+
+button.btn::-moz-focus-inner, input[type="submit"].btn::-moz-focus-inner
+  padding: 0
+  border: 0
+
+button.btn.btn-large, input[type="submit"].btn.btn-large
+  *padding-top: 7px
+  *padding-bottom: 7px
+
+button.btn.btn-small, input[type="submit"].btn.btn-small
+  *padding-top: 3px
+  *padding-bottom: 3px
+
+button.btn.btn-mini, input[type="submit"].btn.btn-mini
+  *padding-top: 1px
+  *padding-bottom: 1px
+
+.label, .badge
+  display: inline-block
