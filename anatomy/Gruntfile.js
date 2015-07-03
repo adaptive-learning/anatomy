@@ -20,7 +20,8 @@ module.exports = function(grunt) {
                 },
                 mainFiles: {
                     'raphael-pan-zoom': 'src/raphael.pan-zoom.js',
-                    'angular-i18n': 'angular-locale_cs-cz.js'
+                    'angular-i18n': 'angular-locale_cs-cz.js',
+                    'proso-apps-js': 'proso-apps-all.js',
                 }
             }
         },
