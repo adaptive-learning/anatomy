@@ -13,8 +13,6 @@ from django.views.i18n import javascript_catalog
 def home(request, hack=None):
     JS_FILES = (
         "dist/js/bower-libs.js",
-        "dist/js/bbox.js",
-        "dist/js/jquery.qtip.min.js",
         "dist/js/anatomy.js",
         "dist/js/anatomy.html.js",
     )
