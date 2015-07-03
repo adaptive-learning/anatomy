@@ -290,32 +290,6 @@ angular.module('proso.anatomy.controllers', [])
               $scope.statsLoaded = true;
             }
         }, function(){});
-
-        $scope.mapSkills = function(map, type) {
-            if (!$scope.statsLoaded) {
-                return;
-            }
-            var defalut = {
-                count : 0
-            };
-            if (!type) {
-                return avgSkills(map);
-            }
-            return type.stats || defalut;
-        };
-
-        function avgSkills(map) {
-            var avg = {};
-            angular.forEach(map.placeTypes, function(pt) {
-              for (var i in pt.stats) {
-                if (!avg[i]) {
-                  avg[i] = 0;
-                }
-                avg[i] += pt.stats[i];
-              }
-            });
-            return avg;
-        }
     }
 ])
 

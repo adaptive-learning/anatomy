@@ -3,7 +3,7 @@
   <div ng-hide="systems && statsLoaded" class="loading-indicator">
   </div>
   <div class="row">
-    <div class="col-sm-12 col-lg-10 col-lg-offset-1">
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
       <div class="row">
         <div class="col-sm-9">
           <span ng-repeat="system in systems"
@@ -41,9 +41,9 @@
           <div class="clearfix"></div>
         </div>
         <div class="col-sm-3">
-          <span ng-repeat="bodypart in bodyparts">
+          <div ng-repeat="bodypart in bodyparts">
            <a ng-bind="bodypart.name" href="/practice/{{bodypart.identifier}}/"></a>
-          </span>
+          </div>
         </div>
       </div>
     </div>
