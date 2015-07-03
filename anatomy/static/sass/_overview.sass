@@ -48,3 +48,62 @@
 
 .map-categories:nth-child(odd)
   background: rgba(0,0,0,0.05)
+
+.tile 
+  padding: 5px
+
+
+.in-tile 
+  display: block
+  overflow: hidden
+  position: relative
+
+
+.tile a 
+  display: inline-block
+  color: #5CA03C
+  width: 100%
+  background-color: #efefef
+  background-repeat: no-repeat
+  background-size: contain
+  text-decoration: none
+
+@for $i from 1 through 9
+  .tile:nth-child(#{$i}) a 
+    background-image: url("/static/img/0#{$i}.png")
+
+@for $i from 10 through 15
+  .tile:nth-child(#{$i}) a 
+    background-image: url("/static/img/#{$i}.png")
+
+.tile a:hover 
+  background-color: #e5e5e5
+
+
+.tile a:hover h2 
+  bottom: 0px
+
+
+.tile a h2 
+  position: absolute
+  bottom: -75px
+  bottom: -5px
+  font-size: 1.4em
+  text-align: center
+  display: block
+  width: 100%
+  color: white
+  background-color: rgba(0,0,0,0.5)
+  transition: all ease-in-out 0.2s
+  margin: 0
+  padding: 15px
+  font-family: 'calibri', sans-serif
+
+.dummy 
+  margin-top: 100%
+
+.absolute 
+  position: absolute
+  top: 0px
+
+

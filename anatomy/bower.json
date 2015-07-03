@@ -10,7 +10,7 @@
     "chroma-js": "~0.6.1",
     "kartograph.js": "git@github.com:adaptive-learning/kartograph.js.git",
     "angular-google-experiments": "~0.0.1",
-    "bootstrap": "~3.3.4",
+    "bootstrap": "3.3.4",
     "raphael": "~2.1.4",
     "raphael-pan-zoom": "git@github.com:adaptive-learning/raphael-pan-zoom.git",
     "qtip2": "~2.2.1",

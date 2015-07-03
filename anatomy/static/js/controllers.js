@@ -270,9 +270,17 @@ angular.module('proso.anatomy.controllers', [])
           return ret;
         }
 
+        function getProgressRadius() {
+          var radius =  $('.tile').width() / 2;
+          return radius;
+        }
+
+
+
         $scope.user = $routeParams.user || '';
         categoryService.getAll().then(function(categories){
-            $scope.mapCategories = addNamesAndSort(categories);
+            $scope.bodyparts = categories[0].maps;
+            $scope.categories = categories[1].maps;
             var maps = [];
             for (var i = 0; i < categories.length; i++) {
               maps = maps.concat(categories[i].maps);
@@ -280,15 +288,13 @@ angular.module('proso.anatomy.controllers', [])
             var placeTypes = placeTypeService.getTypes();
             for (i = 0; i < maps.length; i++) {
               var map = maps[i];
-              for (var j = 0; j < placeTypes.length; j++) {
-                var pt = placeTypes[j];
-                var id = map.identifier + '-' + pt.identifier;
-                userStatsService.addGroup(id, {});
-                userStatsService.addGroupParams(id, undefined, [map.identifier], [pt.identifier]);
-              }
+              var id = map.identifier;
+              userStatsService.addGroup(id, {});
+              userStatsService.addGroupParams(id, [map.identifier]);
             }
 
             userStatsService.getStatsPost().success(function(data) {
+              $scope.progressRadius = getProgressRadius();
               processStats(data);
               userStatsService.getStatsPost(true).success(processStats);
             });
@@ -297,15 +303,11 @@ angular.module('proso.anatomy.controllers', [])
               $scope.userStats = data.data;
               angular.forEach(maps, function(map) {
                 map.placeTypes = [];
-                angular.forEach(angular.copy(placeTypes), function(pt) {
-                  var key = map.identifier + '-' + pt.identifier;
-                  pt.stats = data.data[key];
-                  if (pt.stats && pt.stats.number_of_flashcards > 0) {
-                    map.placeTypes.push(pt);
-                  }
-                });
+                var key = map.identifier;
+                map.stats = data.data[key];
               });
               $scope.statsLoaded = true;
+              console.log($scope.categories, $scope.bodyparts);
             }
         }, function(){});
 
