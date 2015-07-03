@@ -1,11 +1,11 @@
 <div class="overview">
   <div class="col-md-offset-2 col-md-8">
-    <h1>{{'Moje časté chyby' | trans }}</h1>
+    <h1>{{'Moje časté chyby' | translate }}</h1>
     <div ng-hide="loaded || error" class="loading-indicator">
     </div>
     <div ng-show="error" error-message ></div>
     <div class="alert alert-info" ng-show="goals.length === 0">
-      {{'Žádné časté chyby nebyly nalezeny' | trans }}
+      {{'Žádné časté chyby nebyly nalezeny' | translate }}
     </div>
     <ul>
       <li ng-repeat="place in confused | orderBy: 'mistake_count' | orderBy:
@@ -20,17 +20,17 @@
           <a href="#/practice/{{place.map_slug}}/{{place.type}}"
              tooltip="{{place.map_name}} - {{place.type_name}}"
              class="btn btn-primary btn-sm pull-right">
-             {{'Procvičovat' | trans }}
+             {{'Procvičovat' | translate }}
           </a>
           <div class="progress">
             <span style="width: {{(1 - place.wrongRatio) * 100}}%"
-              tooltip="{{'Správné odpovědi' | trans }}"
+              tooltip="{{'Správné odpovědi' | translate }}"
               tooltip-append-to-body="true"
               class="progress-bar progress-bar-success">
                 {{place.asked_count - place.mistake_count}}
             </span>
             <span style="width: {{place.wrongRatio * 100}}%"
-              tooltip="{{'Chybné odpovědi' | trans }}"
+              tooltip="{{'Chybné odpovědi' | translate }}"
               tooltip-append-to-body="true"
               class="progress-bar progress-bar-danger">
               {{place.mistake_count}}

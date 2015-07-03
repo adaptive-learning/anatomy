@@ -2,19 +2,19 @@
 /* Services */
 angular.module('proso.anatomy.services', ['ngCookies'])
 
-  .factory('places', ['$http', 'gettext', function($http, gettext) {
+  .factory('places', ['$http', 'gettextCatalog', function($http, gettextCatalog) {
     'use strict';
     var cache = {};
     var mapCache = {};
     var categoriesCache = {};
     var names = {
-        'us' : gettext('USA'),
-        'world' : gettext('Svět')
+        'us' : gettextCatalog.getString('USA'),
+        'world' : gettextCatalog.getString('Svět')
       };
     var categories = [
       {
         slug :'political',
-        name : gettext('Politická mapa'),
+        name : gettextCatalog.getString('Politická mapa'),
         types : [
           'state',
           'region',
@@ -27,12 +27,12 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         ]
       },{
         slug : 'water',
-        name : gettext('Vodstvo'),
+        name : gettextCatalog.getString('Vodstvo'),
         types : ['river', 'lake'],
         hidden:true
       },{
         slug : 'surface',
-        name : gettext('Povrch'),
+        name : gettextCatalog.getString('Povrch'),
         types : ['mountains', 'island'],
         hidden:true
       }
@@ -254,12 +254,12 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
   })
 
-  .factory('pageTitle',['places', 'gettext', function(places, gettext) {
+  .factory('pageTitle',['places', 'gettextCatalog', function(places, gettextCatalog) {
     'use strict';
 
     var titles = {
-      'static/tpl/about.html' : gettext('O prjektu') + ' - ',
-      'static/tpl/overview_tpl.html' : gettext('Přehled map') + ' - ',
+      'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
+      'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled map') + ' - ',
     };
     return function (route) {
       var title;
@@ -310,7 +310,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('categoryService', ["$http", "$q", "gettext", function ($http, $q, gettext) {
+  .factory('categoryService', ["$http", "$q", "gettextCatalog", function ($http, $q, gettextCatalog) {
     'use strict';
     var categories = [];
     var categoriesByIdentifier = {};
@@ -364,7 +364,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     var categories = [
       {
         slug :'political',
-        name : gettext('Politická mapa'),
+        name : gettextCatalog.getString('Politická mapa'),
         types : [
           'state',
           'region',
@@ -377,12 +377,12 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         ]
       },{
         slug : 'water',
-        name : gettext('Vodstvo'),
+        name : gettextCatalog.getString('Vodstvo'),
         types : ['river', 'lake'],
         hidden:true
       },{
         slug : 'surface',
-        name : gettext('Povrch'),
+        name : gettextCatalog.getString('Povrch'),
         types : ['mountains', 'island'],
         hidden:true
       }
@@ -443,22 +443,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   }])
 
 
-  .service('placeTypeService', ["gettext", function (gettext) {
+  .service('placeTypeService', ["gettextCatalog", function (gettextCatalog) {
     'use strict';
     var self = this;
     var placeTypeNames = {
-        'state' : 'Státy',
-        'region' : gettext('Regiony'),
-        'province' : gettext('Provincie'),
-        'region_cz' : gettext('Kraje'),
-        'region_it' : gettext('Oblasti'),
-        'autonomous_Comunity' : gettext('Autonomní společenství'),
-        'bundesland' : gettext('Spolkové země'),
-        'city' : gettext('Města'),
-        'river' : gettext('Řeky'),
-        'lake' : gettext('Jezera'),
-        'mountains' : gettext('Pohoří'),
-        'island' : gettext('Ostrovy'),
     };
     var placeTypes = [];
     for(var i in placeTypeNames) {

@@ -8,20 +8,20 @@
         ng-class="'/view/'+part+'/'|isActive"
         tooltip-append-to-body="true"
         tooltip-placement="right"
-        tooltip="{{'Moje znalosti' | trans }}">
+        tooltip="{{'Moje znalosti' | translate }}">
       <i class="glyphicon glyphicon-user"></i>
     </a>
     <a class="btn btn-default" href="/view/{{part}}/average"
         ng-class="'/view/'+part+'/average'|isActive"
         tooltip-append-to-body="true"
         tooltip-placement="right"
-        tooltip="{{'Průměrný nový uživatel' | trans }}">
+        tooltip="{{'Průměrný nový uživatel' | translate }}">
       <i class="glyphicon glyphicon-globe"></i>
     </a>
   </div>
   <div class="btn-group zoom-btn"
     tooltip-placement="right"
-    tooltip="{{'Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem.' | trans }}"
+    tooltip="{{'Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem.' | translate }}"
     show-after-x-answers="11"
     ng-show="!loading"> 
     <a class="btn btn-default" id="zoom-out"> 

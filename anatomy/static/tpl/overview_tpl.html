@@ -1,33 +1,51 @@
 <div class="overview">
-  <h1>{{'Přehled znalostí' | trans}} {{user}}</h1>
-  <div ng-hide="mapCategories && statsLoaded" class="loading-indicator">
+  <h1>{{'Přehled znalostí' | translate}} {{user}}</h1>
+  <div ng-hide="categories && statsLoaded" class="loading-indicator">
   </div>
-  <div class="map-categories" ng-repeat="c in mapCategories">
-      <h2 class="col-md-offset-1" ng-hide="c.identifier == 'world'"> 
-        {{c.name}}
-      </h2>
-      <ul>
-        <li class="overview-row" ng-repeat="map in c.maps">
-          <h3 class="col-md-offset-1 col-sm-3"><a href="/view/{{map.identifier}}/{{user}}">{{map.name}}</a>
-            <div class="map-progress" count="{{map.placesTypes|sumCounts}}" 
-                 skills="{{mapSkills(map)}}">
-            </div>
-          </h3>
-          <ul class="col-sm-9 col-md-7 inline">
-            <li class="inline-block" ng-repeat="type in map.placeTypes">
-              <a href="/practice/{{map.identifier}}/{{type.identifier}}" 
-                 class="btn btn-primary"
-                 tooltip="{{'Procvičovat'| trans}}">
-                 {{type.name}}</a>
-              <div class="map-progress" 
-                   skills="{{mapSkills(map, type)}}">
-              </div>
-            </li>
-          </ul>
+  <div class="row">
+    <div class="col-sm-12 col-lg-10 col-lg-offset-1">
+      <div class="row">
+        <div class="col-sm-9">
+          <span ng-repeat="category in categories"
+            class="col-xs-6 col-sm-3 tile">
+            <span class="in-tile">
+              <a href="/practice/{{category.identifier}}/">
+                <div class="dummy"></div>
+                <div class="absolute">
+                  <div round-progress
+                      max="category.stats.number_of_flashcards"
+                      current="category.stats.number_of_mastered_flashcards + category.stats.number_of_practiced_flashcards"
+                      color="#fe3"
+                      bgcolor="rgba(150,150,150,0.5)"
+                      radius="{{progressRadius}}"
+                      stroke="15"
+                      iterations="50"
+                      animation="easeInOutQuart"></div>
+                </div>
+                <div class="absolute">
+                  <div round-progress
+                      max="category.stats.number_of_flashcards"
+                      current="category.stats.number_of_mastered_flashcards"
+                      color="#5CA03C"
+                      bgcolor="rgba(0,0,0,0)"
+                      radius="{{progressRadius}}"
+                      stroke="15"
+                      iterations="50"
+                      animation="easeInOutQuart"></div>
+                </div>
+                <h2 ng-bind="category.name"></h2>
+              </a>
+            </span>
+          </span>
           <div class="clearfix"></div>
-        </li>
-      </ul>
-    <div class="clearfix"></div>
+        </div>
+        <div class="col-sm-3">
+          <span ng-repeat="bodypart in bodyparts">
+           <a ng-bind="bodypart.name" href="/practice/{{bodypart.identifier}}/"></a>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>

@@ -60,16 +60,16 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
-  .filter('questionText', function(gettext) {
+  .filter('questionText', function(gettextCatalog) {
     return function(question) {
       if (question && question.direction == "t2d") {
         if (question.options) {
-          return gettext("Ze zvýrazněných objektů na obrázku vyber");
+          return gettextCatalog.getString("Ze zvýrazněných objektů na obrázku vyber");
         } else {
-          return gettext("Vyber na obrázku");
+          return gettextCatalog.getString("Vyber na obrázku");
         }
       } else if (question && question.direction == "d2t") {
-        return gettext("Jak se jmenuje objekt zvýrazněný na obrázku?");
+        return gettextCatalog.getString("Jak se jmenuje objekt zvýrazněný na obrázku?");
       }
       return "Error";
     };
@@ -90,12 +90,6 @@ angular.module('proso.anatomy.filters', [])
     return function(code) {
       var fc = flashcardService.getFlashcardByDescription(code);
       return fc ? fc.term.name : "Neznámý";
-    };
-  }])
-
-  .filter('trans',['gettext', function(gettext) {
-    return function(msgid) {
-      return gettext(msgid);
     };
   }])
 

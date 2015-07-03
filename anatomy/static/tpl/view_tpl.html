@@ -13,7 +13,7 @@
       <a href="/practice/{{part}}/{{typeCat.slug}}" 
          class="btn btn-primary pull-right" 
          ng-hide="typeCat.hidden || filteredTypes.length == 1" >
-        <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | trans }}
+        <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | translate }}
       </a>
       -->
       <h2>
@@ -36,7 +36,7 @@
           </h3>
           <a href="/practice/{{part}}/{{type.identifier}}" 
              class="btn btn-primary pull-right"  >
-            <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | trans }}
+            <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | translate }}
           </a>
           <div class="clearfix"></div>
         </div>
@@ -48,7 +48,7 @@
              } }}"></div>
         <div class="view-places" collapse="type.hidden">
           <div ng-hide="(type.places|filter:{practiced:true}).length" class="alert alert-info">
-            {{'Zde zatím nebylo nic procvičováno.' | trans }}
+            {{'Zde zatím nebylo nic procvičováno.' | translate }}
           </div>
           <span ng-repeat="place in type.places|filter:{practiced:true}"
                 ng-click="placeClick(place)"

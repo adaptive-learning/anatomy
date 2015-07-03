@@ -1,7 +1,7 @@
 /* Directives */
 angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
-  .directive('placeLabel', ['colorScale', 'gettext', function(colorScale, gettext) {
+  .directive('placeLabel', ['colorScale', 'gettextCatalog', function(colorScale, gettextCatalog) {
     return {
       restrict : 'A',
       template : '<i class="flag-{{place.description}}"></i> {{place.term.name}}',
@@ -13,7 +13,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           placement: 'bottom',
           container: 'body',
           title : '<div class="skill-tooltip">' +
-                gettext('Odhad znalosti') +
+                gettextCatalog.getString('Odhad znalosti') +
                 ' <span class="badge badge-default">' +
                   '<i class="color-indicator" style="background-color :' +
                   colorScale($scope.place.prediction).hex() + '"></i>' +
@@ -406,7 +406,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('mapProgress', ['gettext', function(gettext) {
+  .directive('mapProgress', ['gettextCatalog', function(gettextCatalog) {
     return {
       restrict : 'C',
       template : '<div class="progress overview-progress">' +
@@ -430,7 +430,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 placement: 'bottom',
                 container: 'body',
                 title : '<div class="skill-tooltip">' +
-                       gettext('Naučeno') + ' ' +
+                       gettextCatalog.getString('Naučeno') + ' ' +
                        '<span class="badge badge-default">' +
                          '<i class="color-indicator learned"></i>' +
                          $scope.skills.number_of_mastered_flashcards + ' / ' +
@@ -438,7 +438,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                        '</span>' +
                      '</div>' +
                      '<div class="skill-tooltip">' +
-                       gettext('Procvičováno') + ' ' +
+                       gettextCatalog.getString('Procvičováno') + ' ' +
                        '<span class="badge badge-default">' +
                          '<i class="color-indicator practiced"></i>' +
                          ($scope.skills.number_of_nonmastered_practiced_flashcards || 0) + ' / ' +
@@ -453,8 +453,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('levelProgressBar',['userService', '$timeout', 'gettext',
-      function(userService, $timeout, gettext) {
+  .directive('levelProgressBar',['userService', '$timeout', 'gettextCatalog',
+      function(userService, $timeout, gettextCatalog) {
 
     function getLevelInfo(user) {
       var points = user.number_of_correct_answers || 0;
@@ -481,19 +481,19 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       restrict : 'C',
       template : '<span class="badge level-start" ' +
                    'tooltip-append-to-body="true" ' +
-                   'ng-bind="level.level" tooltip="' + gettext('Aktuální úroveň') + '">' +
+                   'ng-bind="level.level" tooltip="' + gettextCatalog.getString('Aktuální úroveň') + '">' +
                  '</span>' +
                  '<div class="progress level-progress" ' +
                      'tooltip-append-to-body="true" ' +
                      'tooltip="{{level.points}} / {{level.range}} ' +
-                     gettext('bodů do příští úrovně') + '">' +
+                     gettextCatalog.getString('bodů do příští úrovně') + '">' +
                    '<div class="progress-bar progress-bar-warning" ' +
                         'style="width: {{(level.points/level.range)|percent}};">' +
                    '</div>' +
                  '</div>' +
                  '<span class="badge level-goal" ' +
                      'tooltip-append-to-body="true" ' +
-                     'ng-bind="level.level+1" tooltip="' + gettext('Příští úroveň') + '">' +
+                     'ng-bind="level.level+1" tooltip="' + gettextCatalog.getString('Příští úroveň') + '">' +
                  '</span>',
       link : function($scope, elem, attrs) {
         elem.addClass('level-wrapper');
@@ -593,11 +593,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('errorMessage', ['gettext', function (gettext) {
+  .directive('errorMessage', ['gettextCatalog', function (gettextCatalog) {
     return {
       restrict : 'A',
       template: '<div class="alert alert-danger">' +
-                  gettext("V aplikaci bohužel nastala chyba.") +
+                  gettextCatalog.getString("V aplikaci bohužel nastala chyba.") +
                 '</div>',
     };
   }])

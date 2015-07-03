@@ -2,7 +2,7 @@
   <div class="col-sm-offset-2 col-sm-8">
    <form editable-form name="editableForm" onaftersave="saveUser()">
     <h1>{{user.username}}
-      <i tooltip="{{'Upravit profil' | trans }}"
+      <i tooltip="{{'Upravit profil' | translate }}"
          ng-show="editRights && !editableForm.$visible"
          tooltip-placement="bottom"
          ng-click="editableForm.$show()"
@@ -12,22 +12,22 @@
     <div ng-hide="editableForm.$visible">
       <div class="level-progress-bar" username="{{user.username}}"></div>
       <dl class="points" ng-show="user.points">
-        <dt>{{'Body' | trans }}</dt>
+        <dt>{{'Body' | translate }}</dt>
         <dd class="badge" ng-bind="user.points"
-          tooltip="{{'přibývají za každou správnou odpověď' | trans }}" 
+          tooltip="{{'přibývají za každou správnou odpověď' | translate }}" 
           tooltip-placement="bottom" ></dd>
       </dl>
     </div>
     <dl>
-      <dt>{{'Jméno' | trans }}</dt>
+      <dt>{{'Jméno' | translate }}</dt>
       <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
     </dl>
     <dl>
-      <dt>{{'Příjmení' | trans }}</dt>
+      <dt>{{'Příjmení' | translate }}</dt>
       <dd editable-text="user.last_name">{{user.last_name}}</dd>
     </dl>
     <dl ng-show="editRights">
-      <dt>{{'E-mail' | trans }}</dt>
+      <dt>{{'E-mail' | translate }}</dt>
       <dd editable-text="user.email">{{user.email}}</dd>
     </dl>
     <div class="buttons">
@@ -35,15 +35,15 @@
       <div class="checkbox">
         <label>
           <input type="checkbox" ng-model="user.send_emails">
-            {{'Poslat mi email při neplnění cílů' | trans}}
+            {{'Poslat mi email při neplnění cílů' | translate}}
         </label>
       </div>
         <br>
         <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-          {{'Uložit' | trans}}
+          {{'Uložit' | translate}}
         </button>
         <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-          {{'Zrušit' | trans}}
+          {{'Zrušit' | translate}}
         </button>
         <br>
         <br>
@@ -57,11 +57,11 @@
     <div ng-show="error" error-message ></div>
     <div ng-hide="editableForm.$visible || error">
       <a href="/overview/{{user.username}}">
-        {{'Přehled znalostí uživatele' | trans}} {{ user.username && ' - ' + user.username }}
+        {{'Přehled znalostí uživatele' | translate}} {{ user.username && ' - ' + user.username }}
       </a>
       <div ng-show="editRights">
         <br>
-        <h4>{{'Sdílej svůj profil' | trans }}</h4>
+        <h4>{{'Sdílej svůj profil' | translate }}</h4>
         <div my-fb-share="" data-type="button" data-href="{{profileUrl}}"></div>
         <!-- Place this tag where you want the share button to render. -->
         <span class="g-plus-wrapper">
@@ -71,7 +71,7 @@
         </span>
         <input type="text" value="{{profileUrl}}" class="share-input"
           tooltip-placement="right"
-          tooltip="{{'Adresa profilu' | trans}}"/>
+          tooltip="{{'Adresa profilu' | translate}}"/>
 
       </div>
       <div personal-goals user="{{user.username}}"></div>

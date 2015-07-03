@@ -4,23 +4,23 @@ window.gettext = window.gettext || function(x){return x;};
 
 // Declare app level module which depends on filters, and services
 angular.module('proso.anatomy', [
+    'angulartics',
+    'angulartics.google.analytics',
+    'angular-svg-round-progress',
+    'gettext',
+    'googleExperiments',
+    'ngRoute',
+    'ngAnimate',
     'proso.anatomy.filters',
     'proso.anatomy.services',
     'proso.anatomy.directives',
     'proso.anatomy.controllers',
     'proso.anatomy.map',
     'proso.anatomy.templates',
-    'ngRoute',
-    'ngAnimate',
-    'angulartics',
-    'angulartics.google.analytics',
-    'ui.bootstrap',
-    'googleExperiments',
-    'xeditable',
     'proso.apps',
+    'ui.bootstrap',
+    'xeditable',
 ])
-
-.value('gettext', gettext || function(x) {return x;})
 
 .constant('domain', window.domain || '')
 

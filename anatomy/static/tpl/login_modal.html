@@ -2,19 +2,19 @@
   <button type="button" class="close" ng-click="cancel()">
     <span aria-hidden="true">&times;</span>
   </button>
-  <h3 class="modal-title"> {{ "Přihlásit se" | trans }} </h3>
+  <h3 class="modal-title"> {{ "Přihlásit se" | translate }} </h3>
 </div>
 <div class="modal-body">
   <a class="btn btn-danger btn-lg btn-block"
     track-click="login"
     href="/login/google-oauth2/">
-    <i class="social-google"></i> {{ "přes Google" | trans }}
+    <i class="social-google"></i> {{ "přes Google" | translate }}
   </a>
   <br>
   <a class="btn btn-primary btn-lg btn-block"
     track-click="login"
     href="/login/facebook/">
-    <i class="social-facebook"></i>{{ "přes Facebook" | trans }}
+    <i class="social-facebook"></i>{{ "přes Facebook" | translate }}
   </a>
 
   <br>
@@ -24,24 +24,24 @@
   <form role="form" ng-submit="login()">
     <div class="form-group">
       <input type="text" class="form-control" ng-model="credentials.username" 
-      placeholder="{{ 'Uživatelské jméno' | trans }}">
+      placeholder="{{ 'Uživatelské jméno' | translate }}">
     </div>
     <div class="form-group">
       <input type="password" class="form-control" ng-model="credentials.password"
-      placeholder="{{ 'Heslo' | trans }}">
+      placeholder="{{ 'Heslo' | translate }}">
     </div>
     <alert ng-repeat="alert in alerts" type="{{alert.type}}"
       close="closeAlert($index)">{{alert.msg}}</alert>
     <button ng-disabled="loading" type="submit"
       class="btn btn-primary btn-block btn-lg">
-      {{ 'Přihlásit se' | trans }}
+      {{ 'Přihlásit se' | translate }}
     </button>
 
   </form>
 </div>
 <div class="modal-footer" >
     <a class="btn btn-link" ng-click="cancel();signupModal.open()">
-      {{ 'Registrovat se' | trans }}
+      {{ 'Registrovat se' | translate }}
     </a>
 
 </div>

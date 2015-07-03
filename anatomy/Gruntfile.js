@@ -107,7 +107,7 @@ module.exports = function(grunt) {
               options: {
                 replacements: [
                   {
-                      pattern: /\{\{\s*(("[^"]+")|('[^']+'))\s*\|\s*trans\s*\}\}/g,
+                      pattern: /\{\{\s*(("[^"]+")|('[^']+'))\s*\|\s*translate\s*\}\}/g,
                       replacement: '{% trans $1 %}'
                   }
                 ]

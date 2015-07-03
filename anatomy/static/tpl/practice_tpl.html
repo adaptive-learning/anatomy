@@ -17,7 +17,7 @@
         </span>
         <span ng-show="question.answered_code && (question|isFindOnMapType) &&
           question.answered_code != question.description">
-          <span>{{'Vybráno' | trans }}</span>
+          <span>{{'Vybráno' | translate }}</span>
           <span class="label label-default">
             <i class="flag-{{question.answered_code}}"></i> {{question.answered_code|codeToName}}
           </span>
@@ -43,18 +43,18 @@
         <button class="btn btn-lg btn-default dont-know" 
                 ng-click="checkAnswer()" 
                 ng-disabled="canNext" >
-            <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | trans }}
+            <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
         </button>
         <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
                 ng-click="next()" 
                 ng-disabled="!canNext" >
-            <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | trans }}
+            <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
         </button>
         <button class="btn btn-lg btn-default" 
                 ng-click="highlight()" 
                 ng-disabled="canNext"  
                 ng-show="question.options != undefined" >
-            <i class="glyphicon glyphicon-repeat"></i> {{'Znovu zvýraznit' | trans }}
+            <i class="glyphicon glyphicon-repeat"></i> {{'Znovu zvýraznit' | translate }}
         </button>
       </span>
     </div>
@@ -64,7 +64,7 @@
           <div class="summary-progress progress" ng-show="summary != undefined">
             <div class="progress-bar progress-bar-learned" 
                  style="width: {{summary.correctlyAnsweredRatio | percent }};">
-              {{'Úspěšnost' | trans}}: {{summary.correctlyAnsweredRatio | percent }}
+              {{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}
             </div>
             <div class="progress-bar progress-bar-unlearned" 
                  style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
@@ -92,16 +92,16 @@
         <a class="btn btn-lg btn-default" 
            ng-show="user.username"
            href="/goals/" >
-          <i class="glyphicon glyphicon-screenshot"></i> {{'Osobní cíle' | trans }}
+          <i class="glyphicon glyphicon-screenshot"></i> {{'Osobní cíle' | translate }}
         </a>
         -->
         <a class="btn btn-lg btn-default" 
            href="/refreshpractice/{{part}}/{{placeType}}" >
-          <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | trans }}
+          <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
         </a>
         <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
            href="/view/{{part}}/" >
-          <i class="glyphicon glyphicon-globe"></i> {{'Mapa znalostí' | trans }}
+          <i class="glyphicon glyphicon-globe"></i> {{'Mapa znalostí' | translate }}
         </a>
       </span>
     </div>
