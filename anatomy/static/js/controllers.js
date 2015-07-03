@@ -278,18 +278,21 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.user = $routeParams.user || '';
         categoryService.getAll().then(function(categories){
-            $scope.bodyparts = categories[0].maps;
-            $scope.categories = categories[1].maps;
-            var maps = [];
+            var categoriesByType = {};
             for (var i = 0; i < categories.length; i++) {
-              maps = maps.concat(categories[i].maps);
+              if (!categoriesByType[categories[i].type]) {
+                categoriesByType[categories[i].type] = [];
+              }
+              categoriesByType[categories[i].type].push(categories[i]);
             }
+            $scope.bodyparts = categoriesByType.location;
+            $scope.systems = categoriesByType.system;
             var placeTypes = placeTypeService.getTypes();
-            for (i = 0; i < maps.length; i++) {
-              var map = maps[i];
-              var id = map.identifier;
+            for (i = 0; i < categories.length; i++) {
+              var cat = categories[i];
+              var id = cat.identifier;
               userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [map.identifier]);
+              userStatsService.addGroupParams(id, [cat.identifier]);
             }
 
             userStatsService.getStatsPost().success(function(data) {
@@ -300,7 +303,7 @@ angular.module('proso.anatomy.controllers', [])
 
             function processStats(data) {
               $scope.userStats = data.data;
-              angular.forEach(maps, function(map) {
+              angular.forEach(categories, function(map) {
                 map.placeTypes = [];
                 var key = map.identifier;
                 map.stats = data.data[key];

@@ -323,22 +323,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       };
       httpPromise = $http.get('/flashcards/categorys', {params: filter}).success(function(data) {
         categories = data.data;
-        var categoriesByType = {};
         for (var i = 0; i < data.data.length; i++) {
           categoriesByIdentifier[data.data[i].identifier] = data.data[i];
-          if (!categoriesByType[data.data[i].type]) {
-            categoriesByType[data.data[i].type] = [];
-          }
-          categoriesByType[data.data[i].type].push(data.data[i]);
         }
-        var allCategories = [];
-        for (i in categoriesByType) {
-          allCategories.push({
-            maps: categoriesByType[i],
-            identifier: i,
-          });
-        }
-        deferredCategory.resolve(allCategories);
+        deferredCategory.resolve(data.data);
       }).error(function(error){
         console.error("Something went wrong while loading categories from backend.");
         deferredCategory.reject(error);
@@ -356,8 +344,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('flashcardService', ["$http", "$q",
-      function ($http, $q) {
+  .factory('flashcardService', ["$http", "$q", "gettextCatalog",
+      function ($http, $q, gettextCatalog) {
     'use strict';
     var flashcardCache = {};
     var categoriesCache = {};

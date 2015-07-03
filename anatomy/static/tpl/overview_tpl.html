@@ -1,20 +1,21 @@
 <div class="overview">
   <h1>{{'Přehled znalostí' | translate}} {{user}}</h1>
-  <div ng-hide="categories && statsLoaded" class="loading-indicator">
+  <div ng-hide="systems && statsLoaded" class="loading-indicator">
   </div>
   <div class="row">
     <div class="col-sm-12 col-lg-10 col-lg-offset-1">
       <div class="row">
         <div class="col-sm-9">
-          <span ng-repeat="category in categories"
+          <span ng-repeat="system in systems"
             class="col-xs-6 col-sm-3 tile">
             <span class="in-tile">
-              <a href="/practice/{{category.identifier}}/">
+              <a href="/practice/{{system.identifier}}/">
                 <div class="dummy"></div>
                 <div class="absolute">
                   <div round-progress
-                      max="category.stats.number_of_flashcards"
-                      current="category.stats.number_of_mastered_flashcards + category.stats.number_of_practiced_flashcards"
+                      max="system.stats.number_of_flashcards"
+                      current="system.stats.number_of_mastered_flashcards +
+                      system.stats.number_of_practiced_flashcards"
                       color="#fe3"
                       bgcolor="rgba(150,150,150,0.5)"
                       radius="{{progressRadius}}"
@@ -24,8 +25,8 @@
                 </div>
                 <div class="absolute">
                   <div round-progress
-                      max="category.stats.number_of_flashcards"
-                      current="category.stats.number_of_mastered_flashcards"
+                      max="system.stats.number_of_flashcards"
+                      current="system.stats.number_of_mastered_flashcards"
                       color="#5CA03C"
                       bgcolor="rgba(0,0,0,0)"
                       radius="{{progressRadius}}"
@@ -33,7 +34,7 @@
                       iterations="50"
                       animation="easeInOutQuart"></div>
                 </div>
-                <h2 ng-bind="category.name"></h2>
+                <h2 ng-bind="system.name"></h2>
               </a>
             </span>
           </span>
