@@ -76,24 +76,9 @@ WSGI_APPLICATION = 'anatomy.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-if ON_PRODUCTION or ON_STAGING:
-    DATABASES = {
-        'default': {
-            'ENGINE': os.environ.get('PROSO_DATABASE_ENGINE', 'django.db.backends.postgresql_psycopg2'),
-            'OPTIONS': {
-                'options': "-c search_path=%s" % os.environ.get('PROSO_DATABASE_SCHEMA', 'public')
-            },
-            'NAME': os.environ['PROSO_DATABASE_NAME'],
-            'USER': os.environ['PROSO_DATABASE_USER'],
-            'PASSWORD': os.environ['PROSO_DATABASE_PASSWORD'],
-            'HOST': os.environ['PROSO_DATABASE_HOST'],
-            'PORT': os.environ['PROSO_DATABASE_PORT'],
-        },
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(),
-    }
+DATABASES = {
+    'default': dj_database_url.config(),
+}
 
 DATABASES['old'] = {
     'ENGINE': os.environ.get('GEOGRAPHY_DATABASE_ENGINE', 'django.db.backends.mysql'),
