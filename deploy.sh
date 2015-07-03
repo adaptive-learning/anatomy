@@ -13,5 +13,10 @@ pip install -r $DIR/requirements.txt
 python $DIR/manage.py syncdb
 python $DIR/manage.py migrate
 
+cd $DIR/anatomy
+npm install
+grunt
+cd $DIR
+
 # static files
 python $DIR/manage.py collectstatic --noinput
