@@ -126,7 +126,6 @@ STATICFILES_FINDERS = (
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'anatomy', 'static'),
-    os.path.join(BASE_DIR, 'proso_mnemonics', 'static'),
 )
 
 AUTHENTICATION_BACKENDS = (
