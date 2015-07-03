@@ -149,7 +149,10 @@
      {% endif %}
     </div>
   </div>
-    <div id="feedback-btn" feedback-comment email="{{email}}">
+    <div id="feedback-btn">
+      <a feedback-comment email="{{email}}" href="">
+       {% trans "Napište nám" %}
+     </a>
     </div>
 
     <div class="" id="footer">
@@ -162,8 +165,9 @@
           </li>
           {% endif %}
           <li>
-            <span feedback-comment  email="{{email}}">
-            </span>
+            <a feedback-comment  email="{{email}}" href="">
+               {% trans "Napište nám" %}
+            </a>
           </li>
           <li>
             <a href="https://plus.google.com/TODO/">Google+</a>
