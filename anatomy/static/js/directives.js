@@ -163,12 +163,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var p = image.paths[i];
               var simplePathString = p.d;
               var path = r.path(simplePathString);
-              var color = attrs.tagging ? p.color : colorService.toGrayScale(p.color);
+              var color = colorService.toGrayScale(p.color);
               path.attr({
                 'fill' : color,
                 'opacity' : p.opacity,
                 'stroke-width' : p.stroke_width,
-                'stroke' : p.stroke,
+                'stroke' : p.stroke && colorService.toGrayScale(p.stroke),
                 'cursor' : p.disabled ? 'default' : 'pointer',
               });
               path.data('id', p.id);
