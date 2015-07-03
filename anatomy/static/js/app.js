@@ -1,7 +1,3 @@
-
-/* global gettext */
-window.gettext = window.gettext || function(x){return x;};
-
 // Declare app level module which depends on filters, and services
 angular.module('proso.anatomy', [
     'angulartics',
@@ -81,8 +77,8 @@ angular.module('proso.anatomy', [
     }
 ])
 
-.run(['$rootScope', '$analytics', 'editableOptions', 'places',
-    function($rootScope, $analytics, editableOptions, places) {
+.run(['$rootScope', '$analytics', 'editableOptions',
+    function($rootScope, $analytics, editableOptions) {
         'use strict';
         $analytics.settings.pageTracking.autoTrackFirstPage = false;
 
