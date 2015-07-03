@@ -17,7 +17,7 @@
     "sass": "~0.5.0",
     "grunt-contrib-watch": "~0.6.1",
     "bower": "~1.4.1",
-    "angular-gettext": "~2.1.0"
+    "grunt-angular-gettext": "~2.1.0"
   },
   "license": "MIT"
 }
