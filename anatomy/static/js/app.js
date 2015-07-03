@@ -90,6 +90,6 @@ angular.module('proso.anatomy', [
                 $("#nav-main").collapse('hide');
             }
         });
-        
+
     }
 ]);

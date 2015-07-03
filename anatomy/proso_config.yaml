@@ -7,7 +7,7 @@ default:
             parameters:
                 allow_zero_options_restriction: true
     proso_flashcards:
-        practice:       
+        practice:
             common:
                 set_length: 10
                 fc_queue_size_max: 1
