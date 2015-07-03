@@ -160,7 +160,7 @@ LOGGING = {
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'filters': ['require_debug_true'],
+            'filters': [],
             'formatter': 'simple'
         },
         'request': {
@@ -179,11 +179,6 @@ LOGGING = {
             'handlers': ['console', 'request'],
             'propagate': True,
             'level': 'DEBUG'
-        }
-    },
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
         }
     },
 }
