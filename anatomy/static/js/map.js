@@ -11,8 +11,6 @@ angular.module('proso.anatomy.map', [])
 
   .value('$K', window.kartograph)
 
-  .value('bboxCache', bboxCache)
-
   .value('colors', {
     'GOOD': '#5CA03C',
     'BAD': '#e23',
@@ -202,14 +200,10 @@ angular.module('proso.anatomy.map', [])
     };
   }])
 
-  .factory('mapFunctions', ['$timeout', '$', 'stateAlternatives', 'bboxCache',
-      function($timeout, $, stateAlternatives, bboxCache){
+  .factory('mapFunctions', ['$timeout', '$', 'stateAlternatives',
+      function($timeout, $, stateAlternatives){
     var that = {
       getZoomRatio : function(placePath) {
-        if (!bboxCache.get(placePath.data.code)) {
-          bboxCache.set(placePath.data.code, placePath.svgPath.getBBox());
-        }
-        bboxCache.setKey(placePath.svgPath.node.id, placePath.data.code);
         var bbox = placePath.svgPath.getBBox();
         var bboxArea = bbox.width * bbox.height;
         var zoomRatio = Math.max(1.2, 70 / Math.sqrt(bboxArea));

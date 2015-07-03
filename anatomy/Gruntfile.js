@@ -2,13 +2,6 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
-        bboxcache: {
-            default: {
-                files: {
-                    'static/dist/bboxcache.json': ['static/map/*.svg'],
-                },
-            },
-        },
         bower_concat: {
             all: {
                 dest: 'static/dist/js/bower-libs.js',
@@ -68,7 +61,6 @@ module.exports = function(grunt) {
                 "browser": true,
                 "globals": {
                     "angular": false,
-                    "bboxCache": false,
                     "chroma": false,
                     "console": false,
                     "gettext": false,
@@ -131,16 +123,6 @@ module.exports = function(grunt) {
               src: ['static/tpl/homepage.html'],
               dest: 'templates/generated/homepage.html',
             },
-            bboxcache: {
-                options: {
-                    replacements: [{
-                        pattern: '{{bboxes}}',
-                        replacement: "<%= grunt.file.read('static/dist/bboxcache.json') %>"
-                    }]
-                },
-                src: ['static/jstpl/bbox.js'],
-                dest: 'static/dist/js/bbox.js',
-            }
         },
         uglify: {
             libs: {
@@ -203,86 +185,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-angular-gettext');
 
-    grunt.registerTask('bboxcache-all', ['bboxcache', 'string-replace:bboxcache']);
     grunt.registerTask('collect-libs', ['bower_concat:all', 'uglify:libs', 'copy:fonts']);
     grunt.registerTask('prepare-libs', ['shell:bower_install', 'collect-libs']);
     grunt.registerTask('prepare', ['jshint','string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy', 'sass:anatomy', 'copy:above-fold', 'copy:images']);
-    grunt.registerTask('default', ['bboxcache-all', 'prepare-libs', 'prepare']);
-
-    /* CUSTOM TASKS */
-
-    grunt.registerMultiTask('bboxcache', 'Precompute bbox of svg paths.', function() {
-
-        var raphael = require('node-raphael');
-        var DomJS = require("dom-js").DomJS;
-        var RANDOM_CONST = 42;
-
-        function mapNameFromFilepath (filepath) {
-            var splittedPath = filepath.split('/');
-            var filename = splittedPath[splittedPath.length -1];
-            return filename.split('.')[0];
-        }
-
-        // Iterate over all specified file groups.
-        this.files.forEach(function(f) {
-            var cache = {
-                bboxes : {},
-                maps : {},
-            };
-
-            f.src.filter(function(filepath) {
-                // Warn on and remove invalid source files (if nonull was set).
-                if (!grunt.file.exists(filepath)) {
-                    grunt.log.warn('Source file "' + filepath + '" not found.');
-                    return false;
-                } else {
-                    return true;
-                }
-            }).map(function(filepath) {
-
-                var domjs = new DomJS();
-
-                domjs.parse(grunt.file.read(filepath), function(err, dom) {
-                    var mapName = mapNameFromFilepath(filepath);
-                    var map = {
-                        width :  parseInt(dom.attributes.width),
-                        height :  parseInt(dom.attributes.height),
-                    };
-                    cache.maps[mapName] = map;
-
-                    raphael.generate(RANDOM_CONST, RANDOM_CONST, function draw(paper) {
-                        dom.children.filter(function(e) {
-                            return e.name == 'g';
-                        }).map(function (e) {
-                            return e.children.filter(function(ch) {
-                                return ch.name == 'path' && ch.attributes['data-code'];
-                            }).map(function(ch) {
-                                var d = ch.attributes.d;
-                                var code = ch.attributes['data-code'];
-                                if (code) {
-                                    var path = paper.path(d);
-                                    var bbox =  path.getBBox();
-                                    var keys = ['x', 'y', 'cx', 'cy', 'x2', 'y2', 'width', 'height'];
-                                    for (var j = 0; j < keys.length; j++) {
-                                        bbox[keys[j]] = Math.round(bbox[keys[j]]);
-                                    }
-                                    bbox.map = mapName;
-                                    if (!cache.bboxes[code]) {
-                                        cache.bboxes[code] = bbox;
-                                    }
-                                }
-                            });
-                        });
-                    });
-                });
-                return;
-            });
-
-            // Write the destination file.
-            grunt.file.write(f.dest, JSON.stringify(cache));
-
-            // Print a success message.
-            grunt.log.writeln('File "' + f.dest + '" created.');
-        });
-    });
+    grunt.registerTask('default', ['prepare-libs', 'prepare']);
 }
