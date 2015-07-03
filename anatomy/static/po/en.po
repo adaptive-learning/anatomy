@@ -1,0 +1,674 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-07 11:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: geography.js:441 geography.js.c:1123 static/js/directives.js:16
+#: static/js/map.js:266
+msgid "Odhad znalosti"
+msgstr "Knowledge estimate"
+
+#: geography.js:546 static/js/directives.js:124
+msgid "Naučeno"
+msgstr "Learned"
+
+#: geography.js:553 static/js/directives.js:132
+msgid "Procvičováno"
+msgstr "Practiced"
+
+#: geography.js:572 static/js/directives.js:176
+msgid "Aktuální úroveň"
+msgstr "Current level"
+
+#: geography.js:577 static/js/directives.js:181
+msgid "bodů do příští úrovně"
+msgstr "points to the next level"
+
+#: geography.js:584 static/js/directives.js:188
+msgid "Příští úroveň"
+msgstr "Next level"
+
+#: geography.js:688 static/js/controllers.js:393 static/js/directives.js:292
+msgid "V aplikaci bohužel nastala chyba."
+msgstr "Unfortunately there has been an error in the app."
+
+#: geography.js:781
+msgid "Ze zvýrazněných položek na mapě vyber"
+msgstr "Out of the highlighted items on the map choose"
+
+#: geography.js:783 static/js/filters.js:69
+msgid "Vyber na mapě"
+msgstr "Choose on the map"
+
+#: geography.js:786
+msgid "Jak se jmenuje položka zvýrazněná na mapě?"
+msgstr "What is the name of the object highlighted on the map?"
+
+#: geography.js:1129 static/js/map.js:272
+msgid "Počet obyvatel"
+msgstr "Population"
+
+#: geography.js:1136 static/js/map.js:279
+msgid "Neprocvičováno"
+msgstr "Unpracticed"
+
+#: geography.js:1412 static/js/services.js:11
+msgid "USA"
+msgstr "U.S."
+
+#: geography.js:1413 static/js/services.js:12
+msgid "Svět"
+msgstr "World"
+
+#: geography.js:1418 geography.js.c:1752 static/js/services.js:17
+#: static/js/services.js.c:367
+msgid "Politická mapa"
+msgstr "Political map"
+
+#: geography.js:1431 geography.js.c:1765 static/js/services.js:30
+#: static/js/services.js.c:380
+msgid "Vodstvo"
+msgstr "Water"
+
+#: geography.js:1436 geography.js.c:1770 static/js/services.js:35
+#: static/js/services.js.c:385
+msgid "Povrch"
+msgstr "Surface"
+
+#: geography.js:1658 static/js/services.js:261
+msgid "O prjektu"
+msgstr "About"
+
+#: geography.js:1659 static/hack/geography/static/tpl/overview_tpl.js:1
+#: static/hack/tpl/overview_tpl.js:1 static/js/services.js:262
+msgid "Přehled map"
+msgstr "Maps overview"
+
+#: static/hack/geography/static/tpl/confirm_modal.js:1
+#: static/hack/tpl/confirm_modal.js:1
+msgid "Ne"
+msgstr "No"
+
+#: static/hack/geography/static/tpl/confirm_modal.js:2
+#: static/hack/tpl/confirm_modal.js:2
+msgid "Ano"
+msgstr "Yes"
+
+#: static/hack/geography/static/tpl/confused_tpl.js:1
+#: static/hack/tpl/confused_tpl.js:1
+msgid "Moje časté chyby"
+msgstr "My frequent mistakes"
+
+#: static/hack/geography/static/tpl/confused_tpl.js:2
+#: static/hack/tpl/confused_tpl.js:2
+msgid "Žádné časté chyby nebyly nalezeny"
+msgstr "No frequent mistakes have been found"
+
+#: static/hack/geography/static/tpl/confused_tpl.js:3
+#: static/hack/geography/static/tpl/overview_tpl.js:2
+#: static/hack/geography/static/tpl/view_tpl.js:1
+#: static/hack/geography/static/tpl/view_tpl.js:2
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:7
+#: static/hack/tpl/confused_tpl.js:3 static/hack/tpl/overview_tpl.js:2
+#: static/hack/tpl/personal-goals_tpl.js:7 static/hack/tpl/view_tpl.js:1
+#: static/hack/tpl/view_tpl.js.c:2
+msgid "Procvičovat"
+msgstr "Practice"
+
+#: static/hack/geography/static/tpl/confused_tpl.js:4
+#: static/hack/tpl/confused_tpl.js:4
+msgid "Správné odpovědi"
+msgstr "Correct answers"
+
+#: static/hack/geography/static/tpl/confused_tpl.js:5
+#: static/hack/tpl/confused_tpl.js:5
+msgid "Chybné odpovědi"
+msgstr "Incorrect answers"
+
+#: static/hack/geography/static/tpl/homepage.js:1
+#: static/hack/tpl/homepage.js:1
+msgid "Slepé Mapy"
+msgstr "Outline maps"
+
+#: static/hack/geography/static/tpl/homepage.js:2
+#: static/hack/tpl/homepage.js:2
+msgid "Vyberte si mapu k procvičování:"
+msgstr "Choose a map to practice:"
+
+#: static/hack/geography/static/tpl/homepage.js:3
+#: static/hack/tpl/homepage.js:3
+msgid "Státy Evropy"
+msgstr "Europe states"
+
+#: static/hack/geography/static/tpl/homepage.js:4
+#: static/hack/tpl/homepage.js:4
+msgid "Řeky ČR"
+msgstr "Czech rivers"
+
+#: static/hack/geography/static/tpl/homepage.js:5
+#: static/hack/tpl/homepage.js:5
+msgid "Státy USA"
+msgstr "US states"
+
+#: static/hack/geography/static/tpl/homepage.js:6
+#: static/hack/tpl/homepage.js:6
+msgid "Pohoří ČR"
+msgstr "Czech mountains"
+
+#: static/hack/geography/static/tpl/homepage.js:7
+#: static/hack/tpl/homepage.js:7
+msgid "Státy Asie"
+msgstr "Asian states"
+
+#: static/hack/geography/static/tpl/homepage.js:8
+#: static/hack/tpl/homepage.js:8
+msgid "Řeky Afriky"
+msgstr "African rivers"
+
+#: static/hack/geography/static/tpl/homepage.js:9
+#: static/hack/tpl/homepage.js:9
+msgid "Chcete jinou? Podívejte se na"
+msgstr "Do you want another one? See"
+
+#: static/hack/geography/static/tpl/homepage.js:10
+#: static/hack/tpl/homepage.js:10
+msgid "další mapy"
+msgstr "more maps"
+
+#: static/hack/geography/static/tpl/homepage.js:12
+#: static/hack/tpl/homepage.js:12
+msgid "Jak to funguje?"
+msgstr "How does it work?"
+
+#: static/hack/geography/static/tpl/homepage.js:14
+#: static/hack/tpl/homepage.js:14
+msgid "Zeměpis hrou"
+msgstr "Geography game"
+
+#: static/hack/geography/static/tpl/homepage.js:16
+#: static/hack/tpl/homepage.js:16
+msgid "Zeměpis hrou - text"
+msgstr ""
+"Practice your geography knowledge in a playful way. Can you colour green the "
+"map of Europe? Or map of the US? And what about the whole world?"
+
+#: static/hack/geography/static/tpl/homepage.js:18
+#: static/hack/tpl/homepage.js:18
+msgid "Adaptabilní procvičování"
+msgstr "Adaptive practice"
+
+#: static/hack/geography/static/tpl/homepage.js:20
+#: static/hack/tpl/homepage.js:20
+msgid "Adaptabilní procvičování - text"
+msgstr ""
+"The application examines your knowledge of maps adaptively - type of "
+"questions (how many options etc.) and repeat frequency is chosen based on "
+"your previousanswers. Thus it asks you about the countries that you need to "
+"practice the most."
+
+#: static/hack/geography/static/tpl/homepage.js:21
+#: static/hack/tpl/homepage.js:21
+msgid "Ukázka procvičování"
+msgstr "Practice illustration"
+
+#: static/hack/geography/static/tpl/homepage.js:23
+#: static/hack/tpl/homepage.js:23
+msgid "Specializovaný systém"
+msgstr "Specialized system"
+
+#: static/hack/geography/static/tpl/homepage.js:25
+#: static/hack/tpl/homepage.js:25
+msgid "Specializovaný systém - text"
+msgstr ""
+"There are many other learning systems that provide outline maps practice, "
+"but they usually cover also many other areas. Our system focuses exclusively "
+"on outline maps, which allows it to be optimized for this area."
+
+#: static/hack/geography/static/tpl/homepage.js:27
+#: static/hack/tpl/homepage.js:27
+msgid "Vizualizace znalostí"
+msgstr "Knowledge visualization"
+
+#: static/hack/geography/static/tpl/homepage.js:28
+#: static/hack/tpl/homepage.js:28
+msgid "Vizualizace znalostí - text"
+msgstr ""
+"Based on your answers the system estimates your knowledge and displays it is "
+"a form of map, which can help you to realize what you actually know."
+
+#: static/hack/geography/static/tpl/homepage.js:29
+#: static/hack/tpl/homepage.js:29
+msgid "Ukázka mapy znalostí"
+msgstr "Knowledge map illustration"
+
+#: static/hack/geography/static/tpl/homepage.js:31
+#: static/hack/tpl/homepage.js:31
+msgid "Učení z dat"
+msgstr "Data mining"
+
+#: static/hack/geography/static/tpl/homepage.js:33
+#: static/hack/tpl/homepage.js:33
+msgid "Učení z dat - text"
+msgstr ""
+"The application learns from data of all users. Question choice is based on "
+"this data, instead of being based on knowledge of an geography expert who "
+"\"knows\" whether it's generally more difficult to know Kenya or Nigeria."
+
+#: static/hack/geography/static/tpl/login_modal.js:1
+#: static/hack/geography/static/tpl/login_modal.js:8
+#: static/hack/proso_auth/static/tpl/login_modal.js:1
+#: static/hack/proso_auth/static/tpl/login_modal.js:8
+#: static/hack/tpl/login_modal.js:1 static/hack/tpl/login_modal.js.c:8
+msgid "Přihlásit se"
+msgstr "Log in"
+
+#: static/hack/geography/static/tpl/login_modal.js:2
+#: static/hack/geography/static/tpl/signup_modal.js:4
+#: static/hack/proso_auth/static/tpl/login_modal.js:2
+#: static/hack/proso_auth/static/tpl/signup_modal.js:4
+#: static/hack/tpl/login_modal.js:2 static/hack/tpl/signin_modal.js:5
+#: static/hack/tpl/signup_modal.js:4
+msgid "přes Google"
+msgstr "with Google"
+
+#: static/hack/geography/static/tpl/login_modal.js:3
+#: static/hack/geography/static/tpl/signup_modal.js:5
+#: static/hack/proso_auth/static/tpl/login_modal.js:3
+#: static/hack/proso_auth/static/tpl/signup_modal.js:5
+#: static/hack/tpl/login_modal.js:3 static/hack/tpl/signin_modal.js:6
+#: static/hack/tpl/signup_modal.js:5
+msgid "přes Facebook"
+msgstr "with Facebook"
+
+#: static/hack/geography/static/tpl/login_modal.js:6
+#: static/hack/geography/static/tpl/signup_modal.js:9
+#: static/hack/proso_auth/static/tpl/login_modal.js:6
+#: static/hack/proso_auth/static/tpl/signup_modal.js:9
+#: static/hack/tpl/login_modal.js:6 static/hack/tpl/signin_modal.js:10
+#: static/hack/tpl/signup_modal.js:9
+msgid "Uživatelské jméno"
+msgstr "User name"
+
+#: static/hack/geography/static/tpl/login_modal.js:7
+#: static/hack/geography/static/tpl/signup_modal.js:10
+#: static/hack/proso_auth/static/tpl/login_modal.js:7
+#: static/hack/proso_auth/static/tpl/signup_modal.js:10
+#: static/hack/tpl/login_modal.js:7 static/hack/tpl/signin_modal.js:11
+#: static/hack/tpl/signup_modal.js:10
+msgid "Heslo"
+msgstr "Password"
+
+#: static/hack/geography/static/tpl/login_modal.js:10
+#: static/hack/geography/static/tpl/signup_modal.js:12
+#: static/hack/proso_auth/static/tpl/login_modal.js:10
+#: static/hack/proso_auth/static/tpl/signup_modal.js:12
+#: static/hack/tpl/login_modal.js:10 static/hack/tpl/signup_modal.js:12
+msgid "Registrovat se"
+msgstr "Sign up"
+
+#: static/hack/geography/static/tpl/map_tpl.js:1 static/hack/tpl/map_tpl.js:1
+msgid "Moje znalosti"
+msgstr "My knowledge"
+
+#: static/hack/geography/static/tpl/map_tpl.js:2 static/hack/tpl/map_tpl.js:2
+msgid "Průměrný nový uživatel"
+msgstr "Average new user"
+
+#: static/hack/geography/static/tpl/map_tpl.js:3
+msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
+msgstr "You can zoom the map with mouse wheel or touch pinch gesture."
+
+#: static/hack/geography/static/tpl/practice_tpl.js:1
+#: static/hack/tpl/practice_tpl.js:1
+msgid "Vybráno"
+msgstr "Selected"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:2
+#: static/hack/tpl/practice_tpl.js:2
+msgid "Nevím"
+msgstr "Don't know"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:3
+#: static/hack/tpl/practice_tpl.js:3
+msgid "Pokračovat"
+msgstr "Continue"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:4
+#: static/hack/tpl/practice_tpl.js:4
+msgid "Znovu zvýraznit"
+msgstr "Highlight again"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:5
+#: static/hack/tpl/practice_tpl.js:5
+msgid "Úspěšnost"
+msgstr "Success rate"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:6
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:1
+#: static/hack/tpl/personal-goals_tpl.js:1 static/hack/tpl/practice_tpl.js:6
+msgid "Osobní cíle"
+msgstr "Personal goals"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:7
+#: static/hack/tpl/practice_tpl.js:7
+msgid "Znovu procvičovat"
+msgstr "Practice again"
+
+#: static/hack/geography/static/tpl/practice_tpl.js:8
+#: static/hack/tpl/practice_tpl.js:8
+msgid "Mapa znalostí"
+msgstr "Knowledge map"
+
+#: static/hack/geography/static/tpl/signup_modal.js:1
+#: static/hack/proso_auth/static/tpl/signup_modal.js:1
+#: static/hack/tpl/signin_modal.js:1 static/hack/tpl/signup_modal.js:1
+msgid "Registrujte se"
+msgstr "Sign up"
+
+#: static/hack/geography/static/tpl/signup_modal.js:2
+#: static/hack/proso_auth/static/tpl/signup_modal.js:2
+#: static/hack/tpl/signin_modal.js:2 static/hack/tpl/signup_modal.js:2
+msgid " a získejte všechny výhody registrovaných uživatelů."
+msgstr " and get all the advantages of registered users."
+
+#: static/hack/geography/static/tpl/signup_modal.js:3
+#: static/hack/proso_auth/static/tpl/signup_modal.js:3
+#: static/hack/tpl/signin_modal.js:3 static/hack/tpl/signup_modal.js:3
+msgid "Co získám?"
+msgstr "What do I get?"
+
+#: static/hack/geography/static/tpl/signup_modal.js:6
+#: static/hack/proso_auth/static/tpl/signup_modal.js:6
+#: static/hack/tpl/signin_modal.js:7 static/hack/tpl/signup_modal.js:6
+msgid "přes E-mail"
+msgstr "with E-mail"
+
+#: static/hack/geography/static/tpl/signup_modal.js:8
+#: static/hack/geography/static/tpl/user_tpl.js:6
+#: static/hack/proso_auth/static/tpl/signup_modal.js:8
+#: static/hack/proso_auth/static/tpl/user_tpl.js:6
+#: static/hack/tpl/edit-profile_tpl.js:3 static/hack/tpl/signin_modal.js:9
+#: static/hack/tpl/signup_modal.js:8 static/hack/tpl/user_tpl.js:6
+msgid "E-mail"
+msgstr "E-mail"
+
+#: static/hack/geography/static/tpl/signup_modal.js:11
+#: static/hack/proso_auth/static/tpl/signup_modal.js:11
+#: static/hack/tpl/signin_modal.js:12 static/hack/tpl/signup_modal.js:11
+msgid "Heslo znovu"
+msgstr "Password again"
+
+#: static/hack/geography/static/tpl/signup_modal.js:13
+#: static/hack/proso_auth/static/tpl/signup_modal.js:13
+#: static/hack/tpl/signup_modal.js:13
+msgid "Registrace proběhla úspěšně. Můžete pokračovat v používání aplikace."
+msgstr "Registration successful. You can continue using the app."
+
+#: static/hack/geography/static/tpl/user_tpl.js:1
+#: static/hack/proso_auth/static/tpl/user_tpl.js:1
+#: static/hack/tpl/user_tpl.js:1
+msgid "Upravit profil"
+msgstr "Edit profile"
+
+#: static/hack/geography/static/tpl/user_tpl.js:2
+#: static/hack/proso_auth/static/tpl/user_tpl.js:2
+#: static/hack/tpl/user_tpl.js:2
+msgid "Body"
+msgstr "Points"
+
+#: static/hack/geography/static/tpl/user_tpl.js:3
+#: static/hack/proso_auth/static/tpl/user_tpl.js:3
+#: static/hack/tpl/user_tpl.js:3
+msgid "přibývají za každou správnou odpověď"
+msgstr "for corrects answers"
+
+#: static/hack/geography/static/tpl/user_tpl.js:4
+#: static/hack/proso_auth/static/tpl/user_tpl.js:4
+#: static/hack/tpl/edit-profile_tpl.js:1 static/hack/tpl/user_tpl.js:4
+msgid "Jméno"
+msgstr "First name"
+
+#: static/hack/geography/static/tpl/user_tpl.js:5
+#: static/hack/proso_auth/static/tpl/user_tpl.js:5
+#: static/hack/tpl/edit-profile_tpl.js:2 static/hack/tpl/user_tpl.js:5
+msgid "Příjmení"
+msgstr "Surname"
+
+#: static/hack/geography/static/tpl/user_tpl.js:7
+#: static/hack/proso_auth/static/tpl/user_tpl.js:7
+#: static/hack/tpl/user_tpl.js:7
+msgid "Poslat mi email při neplnění cílů"
+msgstr "Send me e-mail if I'm behind schedule with personal goals"
+
+#: static/hack/geography/static/tpl/user_tpl.js:8
+#: static/hack/proso_auth/static/tpl/user_tpl.js:8
+#: static/hack/tpl/user_tpl.js:8
+msgid "Uložit"
+msgstr "Save"
+
+#: static/hack/geography/static/tpl/user_tpl.js:9
+#: static/hack/proso_auth/static/tpl/user_tpl.js:9
+#: static/hack/tpl/user_tpl.js:9
+msgid "Zrušit"
+msgstr "Cancel"
+
+#: static/hack/geography/static/tpl/user_tpl.js:10
+#: static/hack/proso_auth/static/tpl/user_tpl.js:10
+#: static/hack/tpl/user_tpl.js:10
+msgid "Přehled znalostí uživatele"
+msgstr "Knowledge overview of user"
+
+#: static/hack/geography/static/tpl/user_tpl.js:11
+#: static/hack/proso_auth/static/tpl/user_tpl.js:11
+#: static/hack/tpl/user_tpl.js:11
+msgid "Sdílej svůj profil"
+msgstr "Share your profile"
+
+#: static/hack/geography/static/tpl/user_tpl.js:12
+#: static/hack/proso_auth/static/tpl/user_tpl.js:12
+#: static/hack/tpl/user_tpl.js:12
+msgid "Adresa profilu"
+msgstr "Profile address"
+
+#: static/hack/geography/static/tpl/view_tpl.js:3
+#: static/hack/tpl/view_tpl.js:3
+msgid "Zde zatím nebylo nic procvičováno."
+msgstr "Nothing has been practiced here."
+
+#: static/hack/proso_feedback/static/tpl/feedback_modal.js:1
+msgid "Napište nám"
+msgstr "Feedback"
+
+#: static/hack/proso_feedback/static/tpl/feedback_modal.js:2
+msgid "Feedback text label"
+msgstr ""
+"Did you find a bug in the app? Do you have an improvement idea? Or any other "
+"comment? We are eager to hear anything you'd like to tell us."
+
+#: static/hack/proso_feedback/static/tpl/feedback_modal.js:3
+msgid "Vaše emailová adresa (nepovinné)"
+msgstr "Your email address (optional)"
+
+#: static/hack/proso_feedback/static/tpl/feedback_modal.js:4
+msgid "Odeslat"
+msgstr "Send"
+
+#: static/hack/proso_feedback/static/tpl/feedback_modal.js:5
+msgid "Zavřít"
+msgstr "Close"
+
+#: static/hack/proso_goals/static/tpl/goal-progress_tpl.js:1
+#: static/hack/tpl/goal-progress_tpl.js:1
+msgid "Postup plnění cíle"
+msgstr "Goal progress"
+
+#: static/hack/proso_goals/static/tpl/goal-progress_tpl.js:2
+#: static/hack/tpl/goal-progress_tpl.js:2
+msgid "Splněno"
+msgstr "Accomplished"
+
+#: static/hack/proso_goals/static/tpl/goal-progress_tpl.js:3
+#: static/hack/tpl/goal-progress_tpl.js:3
+msgid "Dnešní nesplněné procvičování"
+msgstr "Today practice to be done"
+
+#: static/hack/proso_goals/static/tpl/goal-progress_tpl.js:4
+#: static/hack/tpl/goal-progress_tpl.js:4
+msgid "Více než den nesplněného procvičování"
+msgstr "More than a day of practice to be done"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:2
+#: static/hack/tpl/personal-goals_tpl.js:2
+msgid "Chceš se naučit některou mapu do určitého data?"
+msgstr "Do you want to learn a map till a certain date?"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:3
+#: static/hack/tpl/personal-goals_tpl.js:3
+msgid ""
+"Nastav si cíl a systém ti podle tvých aktuálních znalostí rozloží "
+"procvičování na jednotlivé dny."
+msgstr ""
+"Set up a goal for yourself and the app will split the practice into "
+"individualdays, based on your current knowledge"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:4
+#: static/hack/tpl/personal-goals_tpl.js:4
+msgid "Vytvořit cíl"
+msgstr "Create goal"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:5
+#: static/hack/tpl/personal-goals_tpl.js:5
+msgid "Žádné cíle zatím nebyly stanoveny"
+msgstr "No goals have been set"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:6
+#: static/hack/tpl/personal-goals_tpl.js:6
+msgid "Dnes již není třeba procvičovat"
+msgstr "No need to practice anymore today"
+
+#: static/hack/proso_goals/static/tpl/personal-goals_tpl.js:8
+#: static/hack/tpl/personal-goals_tpl.js:8
+msgid "Odstranit cíl"
+msgstr "Remove goal"
+
+#: static/js/controllers.js:261
+msgid "Státy"
+msgstr "States"
+
+#: static/js/controllers.js:262
+msgid "Kontinenty"
+msgstr "Continents"
+
+#: static/js/controllers.js:380
+msgid "Hledaný profil neexistuje."
+msgstr "The profile does not exist."
+
+#: static/js/filters.js:67
+msgid "Ze zvýrazněných objektů na mapě vyber"
+msgstr "Out of the highlighted objects on the map choose"
+
+#: static/js/filters.js:72
+msgid "Jak se jmenuje objekt zvýrazněný na mapě?"
+msgstr "What is the name of the object highlighted on the map?"
+
+#: static/js/services.js:450
+msgid "Regiony"
+msgstr "Regions"
+
+#: static/js/services.js:451
+msgid "Provincie"
+msgstr "Provinces"
+
+#: static/js/services.js:452
+msgid "Kraje"
+msgstr "Regions"
+
+#: static/js/services.js:453
+msgid "Oblasti"
+msgstr "Provinces"
+
+#: static/js/services.js:454
+msgid "Autonomní společenství"
+msgstr "Autonomous Comuninities"
+
+#: static/js/services.js:455
+#, fuzzy
+#| msgid "Spolkové Země"
+msgid "Spolkové země"
+msgstr "States"
+
+#: static/js/services.js:456
+msgid "Města"
+msgstr "Cities"
+
+#: static/js/services.js:457
+msgid "Řeky"
+msgstr "Rivers"
+
+#: static/js/services.js:458
+msgid "Jezera"
+msgstr "Lakes"
+
+#: static/js/services.js:459
+msgid "Pohoří"
+msgstr "Mountains"
+
+#: static/js/services.js:460
+msgid "Ostrovy"
+msgstr "Islands"
+
+#~ msgid "Jak těžké jsou kladené otázky?"
+#~ msgstr "How hard are the questions?"
+
+#~ msgid "Svou odpovědí nám pomáháte přizpůsobovat obtížnost otázek."
+#~ msgstr "Your answer helps us adjust difficulty of questions."
+
+#~ msgid "Příliš lehké"
+#~ msgstr "Too easy"
+
+#~ msgid "Tak akorát"
+#~ msgstr "Just right"
+
+#~ msgid "Příliš těžké"
+#~ msgstr "Too hard"
+
+#~ msgid "Nevím / nechci odpovídat"
+#~ msgstr "Don't know / Don't want to rate"
+
+#~ msgid "Opravdu chcete cíl smazat?"
+#~ msgstr "Do you really want to delete the goal?"
+
+#~ msgid "Cíl byl vytvořen"
+#~ msgstr "Goal has been created"
+
+#~ msgid "Tip na zapamatování:"
+#~ msgstr "Mnemonic:"
+
+#~ msgid "Státy světa"
+#~ msgstr "World states"
+
+#~ msgid "Kraje ČR"
+#~ msgstr "Czech regions"
+
+#~ msgid "Města ČR"
+#~ msgstr "Czech cities"
+
+#~ msgid "Vyber na mapě %(place_singular)s"
+#~ msgstr "Choose on the map %(place_singular)s"
+
+#~ msgid "Jak se jmenuje %(place_singular)s %(highlighted)s na mapě?"
+#~ msgstr "What is the name of %(place_singular)s %(highlighted)s on the map?"

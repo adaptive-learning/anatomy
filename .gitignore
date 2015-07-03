@@ -11,3 +11,4 @@ anatomy/static/css
 anatomy/.sass-cache
 anatomy/templates/generated
 *.log
+*.mo

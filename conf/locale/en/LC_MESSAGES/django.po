@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-02 15:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/create_goal.html:5
+msgid "Vytvořit cíl"
+msgstr "Create goal"
+
+#: templates/create_goal.html:9
+msgid "Mapa"
+msgstr "Map"
+
+#: templates/create_goal.html:36
+msgid "Datum splnění cíle"
+msgstr "Goal completion date"
+
+#: templates/create_goal.html:64
+msgid "Vytvořit"
+msgstr "Create"
+
+#: templates/create_goal.html:67
+msgid "Zavřít"
+msgstr "Close"
+
+#: templates/generated/homepage.html:19 templates/home.html:60 views.py:35
+msgid "Slepé Mapy"
+msgstr "Outline maps"
+
+#: templates/generated/homepage.html:21
+msgid "Vyberte si mapu k procvičování:"
+msgstr "Choose a map to practice:"
+
+#: templates/generated/homepage.html:26
+msgid "Státy Evropy"
+msgstr "Europe states"
+
+#: templates/generated/homepage.html:31
+msgid "Řeky ČR"
+msgstr "Czech rivers"
+
+#: templates/generated/homepage.html:36
+msgid "Státy USA"
+msgstr "US states"
+
+#: templates/generated/homepage.html:41
+msgid "Pohoří ČR"
+msgstr "Czech mountains"
+
+#: templates/generated/homepage.html:46
+msgid "Státy Asie"
+msgstr "Asian states"
+
+#: templates/generated/homepage.html:51
+msgid "Řeky Afriky"
+msgstr "African rivers"
+
+#: templates/generated/homepage.html:54
+msgid "Chcete jinou? Podívejte se na"
+msgstr "Do you want another one? See"
+
+#: templates/generated/homepage.html:57
+msgid "další mapy"
+msgstr "more maps"
+
+#: templates/generated/homepage.html:67
+msgid "Jak to funguje?"
+msgstr "How does it work?"
+
+#: templates/generated/homepage.html:71
+msgid "Zeměpis hrou"
+msgstr "Geography game"
+
+#: templates/generated/homepage.html:72
+msgid "Zeměpis hrou - text"
+msgstr ""
+"Practice your geography knowledge in a playful way. Can you colour green the "
+"map of Europe? Or map of the US? And what about the whole world?"
+
+#: templates/generated/homepage.html:76
+msgid "Adaptabilní procvičování"
+msgstr "Adaptive practice"
+
+#: templates/generated/homepage.html:77
+msgid "Adaptabilní procvičování - text"
+msgstr ""
+"The application examines your knowledge of maps adaptively - type of "
+"questions (how many options etc.) and repeat frequency is chosen based on "
+"what you knew. Thus it asks you about the countries that you need to "
+"practice the most."
+
+#: templates/generated/homepage.html:79
+msgid "Ukázka procvičování"
+msgstr "Practice example"
+
+#: templates/generated/homepage.html:83
+msgid "Specializovaný systém"
+msgstr "Specialized system"
+
+#: templates/generated/homepage.html:84
+msgid "Specializovaný systém - text"
+msgstr ""
+"There are many other learning systems that provide outline maps practice, "
+"but they usually cover also many other areas. Our system focuses exclusively "
+"on outline maps, which allows it to be optimized for this area."
+
+#: templates/generated/homepage.html:88
+msgid "Vizualizace znalostí"
+msgstr "Knowledge visualization"
+
+#: templates/generated/homepage.html:89
+msgid "Vizualizace znalostí - text"
+msgstr ""
+"Based on your answers the system estimates your knowledge and displays it in "
+"form of a map, which can help you realize what you actually know."
+
+#: templates/generated/homepage.html:91
+msgid "Ukázka mapy znalostí"
+msgstr "Knowledge visualization example"
+
+#: templates/generated/homepage.html:95
+msgid "Učení z dat"
+msgstr "Data mining"
+
+#: templates/generated/homepage.html:96
+msgid "Učení z dat - text"
+msgstr ""
+"The application learns from data of all users. Question choice is based on "
+"this data, instead of being based on knowledge of an geography expert who "
+"\"knows\" whether it's generally more difficult to know Kenya or Nigeria."
+
+#: templates/home.html:27
+msgid "meta content"
+msgstr ""
+"Inteligent application for practicing states, cities, mountains and rivers "
+"on outline maps of the world, Europe, Asia, Africa, America, US and other "
+"countries"
+
+#: templates/home.html:28
+msgid "meta keywords"
+msgstr ""
+"geography games, outline maps, map outlines, countries, states, cities, "
+"world, europe, america, africa, asia, mountains, rivers, usa"
+
+#: templates/home.html:64
+msgid "Svět"
+msgstr "World"
+
+#: templates/home.html:68
+msgid "Kontinenty"
+msgstr "Continents"
+
+#: templates/home.html:78
+msgid "Státy"
+msgstr "States"
+
+#: templates/home.html:87
+msgid "Přehled map"
+msgstr "Maps overview"
+
+#: templates/home.html:98
+msgid ""
+"Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
+"znalosti pamatoval i příště."
+msgstr ""
+"Sign in simply via Google or Facebook, so the system remembers your "
+"knowledge next time."
+
+#: templates/home.html:101
+msgid "Přihlásit se"
+msgstr "Sign in"
+
+#: templates/home.html:114
+msgid "Můj profil"
+msgstr "My  profile"
+
+#: templates/home.html:120
+msgid "Moje časté chyby"
+msgstr "My frequent mistakes"
+
+#: templates/home.html:125
+msgid "Osobní cíle"
+msgstr "Personal goals"
+
+#: templates/home.html:130
+msgid "Nastavení"
+msgstr "Settings"
+
+#: templates/home.html:136
+msgid "Odhlásit se"
+msgstr "Sign out"
+
+#: templates/home.html:177 templates/home.html.py:192
+msgid "Napište nám"
+msgstr "Feedback"
+
+#: templates/home.html:187
+msgid "O projektu"
+msgstr "About"
+
+#: views.py:35
+msgid "inteligentní aplikace na procvičování zeměpisu"
+msgstr "intelligent geography practice app"
+
+#~ msgid "Neznámé"
+#~ msgstr "Unknown"
+
+#~ msgid "Města"
+#~ msgstr "Cities"
+
+#~ msgid "Řeky"
+#~ msgstr "Rivers"
+
+#~ msgid "Jezera"
+#~ msgstr "Lakes"
+
+#~ msgid "Kraje"
+#~ msgstr "Regions"
+
+#~ msgid "Spolkové Země"
+#~ msgstr "States"
+
+#~ msgid "Provincie"
+#~ msgstr "Provinces"
+
+#~ msgid "Oblasti"
+#~ msgstr "Provinces"
+
+#~ msgid "Regiony"
+#~ msgstr "Regions"
+
+#~ msgid "Autonomní společenství"
+#~ msgstr "Autonomous Comuninities"
+
+#~ msgid "Pohoří"
+#~ msgstr "Mountains"
+
+#~ msgid "Ostrovy"
+#~ msgstr "Islands"
+
+#~ msgid "Politická mapa"
+#~ msgstr "Political map"
+
+#~ msgid "Vodstvo"
+#~ msgstr "Water"
+
+#~ msgid "Povrch"
+#~ msgstr "Surface"
+
+#~ msgctxt "state"
+#~ msgid "zvýrazněný"
+#~ msgstr "highlighted"
+
+#~ msgctxt "city"
+#~ msgid "zvýrazněné"
+#~ msgstr "highlighted"
+
+#~ msgctxt "river"
+#~ msgid "zvýrazněná"
+#~ msgstr "highlighted"
+
+#~ msgctxt "lake"
+#~ msgid "zvýrazněné"
+#~ msgstr "highlighted"
+
+#~ msgctxt "region_cz"
+#~ msgid "zvýrazněný"
+#~ msgstr "highlighted"
+
+#~ msgctxt "bundesland"
+#~ msgid "zvýrazněná"
+#~ msgstr "highlighted"
+
+#~ msgctxt "province"
+#~ msgid "zvýrazněná"
+#~ msgstr "highlighted"
+
+#~ msgctxt "region_it"
+#~ msgid "zvýrazněná"
+#~ msgstr "highlighted"
+
+#~ msgctxt "region"
+#~ msgid "zvýrazněný"
+#~ msgstr "highlighted"
+
+#~ msgctxt "autonomous_comunity"
+#~ msgid "zvýrazněná"
+#~ msgstr "highlighted"
+
+#~ msgctxt "mountains"
+#~ msgid "zvýrazněné"
+#~ msgstr "highlighted"
+
+#~ msgctxt "island"
+#~ msgid "zvýrazněný"
+#~ msgstr "highlighted"
+
+#~ msgid "unknown"
+#~ msgstr "unknown"
+
+#~ msgid "stát"
+#~ msgstr "state"
+
+#~ msgid "město"
+#~ msgstr "city"
+
+#~ msgid "řeka"
+#~ msgstr "river"
+
+#~ msgid "jezero"
+#~ msgstr "lake"
+
+#~ msgid "kraj"
+#~ msgstr "region"
+
+#~ msgid "spolková země"
+#~ msgstr "state"
+
+#~ msgid "provincie"
+#~ msgstr "province"
+
+#~ msgid "oblast"
+#~ msgstr "region"
+
+#~ msgid "region"
+#~ msgstr "region"
+
+#~ msgid "autonomní společenství"
+#~ msgstr "autonomous comunity"
+
+#~ msgctxt "singular"
+#~ msgid "pohoří"
+#~ msgstr "mountain range"
+
+#~ msgid "ostrov"
+#~ msgstr "island"
+
+#~ msgid "spolkovou zemi"
+#~ msgstr "state"
+
+#~ msgid "provincii"
+#~ msgstr "province"
+
+#~ msgid "řeku"
+#~ msgstr "river"
+
+#~ msgid "států"
+#~ msgstr "states"
+
+#~ msgid "měst"
+#~ msgstr "cities"
+
+#~ msgid "řek"
+#~ msgstr "rivers"
+
+#~ msgid "jezer"
+#~ msgstr "lakes"
+
+#~ msgid "regionů"
+#~ msgstr "regions"
+
+#~ msgid "spolkových zemí"
+#~ msgstr "states"
+
+#~ msgid "provincií"
+#~ msgstr "provinces"
+
+#~ msgid "oblastí"
+#~ msgstr "regions"
+
+#~ msgid "autonomních společenství"
+#~ msgstr "autonomous comunities"
+
+#~ msgctxt "plural"
+#~ msgid "pohoří"
+#~ msgstr "mountain ranges"
+
+#~ msgid "ostrovů"
+#~ msgstr "islands"
+
+#~ msgid "Ze zvýrazněných %(place_plural)s na mapě vyber"
+#~ msgstr "Out of highlighted %(place_plural)s on the map choose"
+
+#~ msgid "Vyber na mapě %(place_singular)s"
+#~ msgstr "Choose on the map %(place_singular)s"
+
+#~ msgid "Jak se jmenuje %(place_singular)s %(highlighted)s na mapě?"
+#~ msgstr "What is the name of %(place_singular)s %(highlighted)s on the map?"
+
+#~ msgid "Heslo je správné, ale účet není aktivovaný."
+#~ msgstr "The password is correct, but the account hasn't been activated."
+
+#~ msgid "Nesprávné jméno nebo heslo"
+#~ msgstr "Incorrect user name or password"
+
+#~ msgid "Je nutné vyplnit uživatelské jméno."
+#~ msgstr "You have to fill in a user name"
+
+#~ msgid "Je nutné vyplnit email."
+#~ msgstr "You have to fill in an e-mail address"
+
+#~ msgid "Je nutné vyplnit heslo."
+#~ msgstr "You have to fill in a password"
+
+#~ msgid "Hesla se neshodují."
+#~ msgstr "Passwords don't match"
+
+#~ msgid "Účet se zadaným uživatelským jménem už existuje."
+#~ msgstr "An account with given user name already exists"
+
+#~ msgid "Účet se zadaným emailem už existuje."
+#~ msgstr "An account with given email already exists"
+
+#~ msgid "Feedback confirmed"
+#~ msgstr "Thank you for the message. User feedback is very important for us."
+
+#~ msgid "Děkujeme za hodnocení."
+#~ msgstr "Thank you for the rating"
+
+#~ msgid "Je čas procvičovat slepé mapy"
+#~ msgstr "It's time to practice map outlines"
+
+#~ msgid "Je nejvyšší čas pokračovat v plnění osobních cílů!"
+#~ msgstr "It's about time to continue with personal goals"
+
+#~ msgid "Procvičovat"
+#~ msgstr "Practice"
+
+#~ msgid "Změnit nastavení E-mailů"
+#~ msgstr "Change e-mail settings"
+
+#~ msgid "Cíl byl vytvořen"
+#~ msgstr "Goal has been set up"
+
+#~ msgid "Státy světa"
+#~ msgstr "World states"
+
+#~ msgid "Kraje ČR"
+#~ msgstr "Czech regions"
+
+#~ msgid "Města ČR"
+#~ msgstr "Czech cities"
+
+#~ msgid "Pohoří Evropy"
+#~ msgstr "Europe mountains"
+
+#~ msgid "Body - přibývají za každou správnou odpověď"
+#~ msgstr "Points - gained per each correct answer"

@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-02 15:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/create_goal.html:5
+msgid "Vytvořit cíl"
+msgstr ""
+
+#: templates/create_goal.html:9
+msgid "Mapa"
+msgstr ""
+
+#: templates/create_goal.html:36
+msgid "Datum splnění cíle"
+msgstr ""
+
+#: templates/create_goal.html:64
+msgid "Vytvořit"
+msgstr ""
+
+#: templates/create_goal.html:67
+msgid "Zavřít"
+msgstr ""
+
+#: templates/generated/homepage.html:19 templates/home.html:60 views.py:35
+msgid "Slepé Mapy"
+msgstr "Slepé Mapy"
+
+#: templates/generated/homepage.html:21
+msgid "Vyberte si mapu k procvičování:"
+msgstr ""
+
+#: templates/generated/homepage.html:26
+msgid "Státy Evropy"
+msgstr "Státy Evropy"
+
+#: templates/generated/homepage.html:31
+msgid "Řeky ČR"
+msgstr ""
+
+#: templates/generated/homepage.html:36
+msgid "Státy USA"
+msgstr "Státy USA"
+
+#: templates/generated/homepage.html:41
+msgid "Pohoří ČR"
+msgstr ""
+
+#: templates/generated/homepage.html:46
+msgid "Státy Asie"
+msgstr ""
+
+#: templates/generated/homepage.html:51
+msgid "Řeky Afriky"
+msgstr ""
+
+#: templates/generated/homepage.html:54
+msgid "Chcete jinou? Podívejte se na"
+msgstr ""
+
+#: templates/generated/homepage.html:57
+msgid "další mapy"
+msgstr ""
+
+#: templates/generated/homepage.html:67
+msgid "Jak to funguje?"
+msgstr ""
+
+#: templates/generated/homepage.html:71
+msgid "Zeměpis hrou"
+msgstr ""
+
+#: templates/generated/homepage.html:72
+msgid "Zeměpis hrou - text"
+msgstr ""
+"Procvičte si své znalosti zeměpisu hravou formou. V aktuální verzi zatím "
+"soutěžíte jen sami se sebou, respektive proti systému. Dokážete obarvit na "
+"zeleno celou mapu Evropy? Celou ČR? A co celý svět?"
+
+#: templates/generated/homepage.html:76
+msgid "Adaptabilní procvičování"
+msgstr ""
+
+#: templates/generated/homepage.html:77
+msgid "Adaptabilní procvičování - text"
+msgstr ""
+"Každá slepá mapa nabízí adaptabilní procvičování  - podle toho, jaké máte "
+"vědomosti, aplikace volí podobu otázek (otevřená, výběr z možností) a "
+"frekvenci opakování. Aplikace vám tak předkládá státy, jejichž procvičení je "
+"pro vás nejužitečnější."
+
+#: templates/generated/homepage.html:79
+msgid "Ukázka procvičování"
+msgstr ""
+
+#: templates/generated/homepage.html:83
+msgid "Specializovaný systém"
+msgstr ""
+
+#: templates/generated/homepage.html:84
+msgid "Specializovaný systém - text"
+msgstr ""
+"Procvičování slepých map nabízí i řada jiných výukových systémů, ty však "
+"většinou pokrývají mnoho dílčích oblastí. Náš systém se soustředí pouze na "
+"slepé mapy, díky čemuž je pro učení v této oblasti optimalizovaný."
+
+#: templates/generated/homepage.html:88
+msgid "Vizualizace znalostí"
+msgstr ""
+
+#: templates/generated/homepage.html:89
+msgid "Vizualizace znalostí - text"
+msgstr ""
+"Na základě odpovědí systém odhadne jak dobře znáte různé státy a znázorní "
+"vám mapu vašich znalostí, což vám pomůže ujasnit si, co vlastně umíte."
+
+#: templates/generated/homepage.html:91
+msgid "Ukázka mapy znalostí"
+msgstr ""
+
+#: templates/generated/homepage.html:95
+msgid "Učení z dat"
+msgstr ""
+
+#: templates/generated/homepage.html:96
+msgid "Učení z dat - text"
+msgstr ""
+"Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto "
+"datech, nikoliv na znalostech experta na zeměpis, který \"ví\", jestli je "
+"těžší poznat Keňu nebo Nigérii."
+
+#: templates/home.html:27
+msgid "meta content"
+msgstr ""
+"Inteligentní aplikace na procvičování států, měst, pohoří a řek na slepé "
+"mapě světa, Evropy, Asie, Afriky, Ameriky, ČR, USA a dalších států"
+
+#: templates/home.html:28
+msgid "meta keywords"
+msgstr ""
+"slepá mapa, státy, města, čr, svět, evrovpa, amerika, afrika, asie, pohoří, "
+"řeky, zeměpis, usa, hry"
+
+#: templates/home.html:64
+msgid "Svět"
+msgstr ""
+
+#: templates/home.html:68
+msgid "Kontinenty"
+msgstr ""
+
+#: templates/home.html:78
+msgid "Státy"
+msgstr ""
+
+#: templates/home.html:87
+msgid "Přehled map"
+msgstr ""
+
+#: templates/home.html:98
+msgid ""
+"Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
+"znalosti pamatoval i příště."
+msgstr ""
+
+#: templates/home.html:101
+msgid "Přihlásit se"
+msgstr "Přihlásit se"
+
+#: templates/home.html:114
+msgid "Můj profil"
+msgstr ""
+
+#: templates/home.html:120
+msgid "Moje časté chyby"
+msgstr ""
+
+#: templates/home.html:125
+msgid "Osobní cíle"
+msgstr ""
+
+#: templates/home.html:130
+msgid "Nastavení"
+msgstr ""
+
+#: templates/home.html:136
+msgid "Odhlásit se"
+msgstr ""
+
+#: templates/home.html:177 templates/home.html.py:192
+msgid "Napište nám"
+msgstr ""
+
+#: templates/home.html:187
+msgid "O projektu"
+msgstr ""
+
+#: views.py:35
+msgid "inteligentní aplikace na procvičování zeměpisu"
+msgstr ""
+
+#~ msgid "Feedback confirmed"
+#~ msgstr ""
+#~ "Děkujeme Vám za zaslané informace. Feedback od uživatelů je k nezaplacení."
