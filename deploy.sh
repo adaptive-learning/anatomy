@@ -15,7 +15,7 @@ python $DIR/manage.py migrate
 
 cd $DIR/anatomy
 npm install
-grunt
+grunt --verbose
 cd $DIR
 
 # static files
