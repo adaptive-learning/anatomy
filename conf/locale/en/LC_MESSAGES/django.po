@@ -169,8 +169,8 @@ msgid "Státy"
 msgstr "States"
 
 #: templates/home.html:87
-msgid "Přehled map"
-msgstr "Maps overview"
+msgid "Přehled znalostí"
+msgstr "Knowledge Overview"
 
 #: templates/home.html:98
 msgid ""

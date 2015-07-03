@@ -169,7 +169,7 @@ msgid "Státy"
 msgstr ""
 
 #: templates/home.html:87
-msgid "Přehled map"
+msgid "Přehled znalostí"
 msgstr ""
 
 #: templates/home.html:98

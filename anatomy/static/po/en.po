@@ -47,16 +47,16 @@ msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
 #: geography.js:781
-msgid "Ze zvýrazněných položek na mapě vyber"
-msgstr "Out of the highlighted items on the map choose"
+msgid "Ze zvýrazněných položek na obrázku vyber"
+msgstr "Out of the highlighted items on the image choose"
 
 #: geography.js:783 static/js/filters.js:69
-msgid "Vyber na mapě"
-msgstr "Choose on the map"
+msgid "Vyber na obrázku"
+msgstr "Choose on the image"
 
 #: geography.js:786
-msgid "Jak se jmenuje položka zvýrazněná na mapě?"
-msgstr "What is the name of the object highlighted on the map?"
+msgid "Jak se jmenuje položka zvýrazněná na obrázku?"
+msgstr "What is the name of the object highlighted on the image?"
 
 #: geography.js:1129 static/js/map.js:272
 msgid "Počet obyvatel"
@@ -66,37 +66,14 @@ msgstr "Population"
 msgid "Neprocvičováno"
 msgstr "Unpracticed"
 
-#: geography.js:1412 static/js/services.js:11
-msgid "USA"
-msgstr "U.S."
-
-#: geography.js:1413 static/js/services.js:12
-msgid "Svět"
-msgstr "World"
-
-#: geography.js:1418 geography.js.c:1752 static/js/services.js:17
-#: static/js/services.js.c:367
-msgid "Politická mapa"
-msgstr "Political map"
-
-#: geography.js:1431 geography.js.c:1765 static/js/services.js:30
-#: static/js/services.js.c:380
-msgid "Vodstvo"
-msgstr "Water"
-
-#: geography.js:1436 geography.js.c:1770 static/js/services.js:35
-#: static/js/services.js.c:385
-msgid "Povrch"
-msgstr "Surface"
-
 #: geography.js:1658 static/js/services.js:261
 msgid "O prjektu"
 msgstr "About"
 
 #: geography.js:1659 static/hack/geography/static/tpl/overview_tpl.js:1
 #: static/hack/tpl/overview_tpl.js:1 static/js/services.js:262
-msgid "Přehled map"
-msgstr "Maps overview"
+msgid "Přehled znalostí"
+msgstr "Knowledge Overview"
 
 #: static/hack/geography/static/tpl/confirm_modal.js:1
 #: static/hack/tpl/confirm_modal.js:1
@@ -138,16 +115,6 @@ msgstr "Correct answers"
 #: static/hack/tpl/confused_tpl.js:5
 msgid "Chybné odpovědi"
 msgstr "Incorrect answers"
-
-#: static/hack/geography/static/tpl/homepage.js:1
-#: static/hack/tpl/homepage.js:1
-msgid "Slepé Mapy"
-msgstr "Outline maps"
-
-#: static/hack/geography/static/tpl/homepage.js:2
-#: static/hack/tpl/homepage.js:2
-msgid "Vyberte si mapu k procvičování:"
-msgstr "Choose a map to practice:"
 
 #: static/hack/geography/static/tpl/homepage.js:3
 #: static/hack/tpl/homepage.js:3
@@ -578,58 +545,12 @@ msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
 #: static/js/filters.js:67
-msgid "Ze zvýrazněných objektů na mapě vyber"
-msgstr "Out of the highlighted objects on the map choose"
+msgid "Ze zvýrazněných objektů na obrázku vyber"
+msgstr "Out of the highlighted objects on the image choose"
 
 #: static/js/filters.js:72
-msgid "Jak se jmenuje objekt zvýrazněný na mapě?"
-msgstr "What is the name of the object highlighted on the map?"
-
-#: static/js/services.js:450
-msgid "Regiony"
-msgstr "Regions"
-
-#: static/js/services.js:451
-msgid "Provincie"
-msgstr "Provinces"
-
-#: static/js/services.js:452
-msgid "Kraje"
-msgstr "Regions"
-
-#: static/js/services.js:453
-msgid "Oblasti"
-msgstr "Provinces"
-
-#: static/js/services.js:454
-msgid "Autonomní společenství"
-msgstr "Autonomous Comuninities"
-
-#: static/js/services.js:455
-#, fuzzy
-#| msgid "Spolkové Země"
-msgid "Spolkové země"
-msgstr "States"
-
-#: static/js/services.js:456
-msgid "Města"
-msgstr "Cities"
-
-#: static/js/services.js:457
-msgid "Řeky"
-msgstr "Rivers"
-
-#: static/js/services.js:458
-msgid "Jezera"
-msgstr "Lakes"
-
-#: static/js/services.js:459
-msgid "Pohoří"
-msgstr "Mountains"
-
-#: static/js/services.js:460
-msgid "Ostrovy"
-msgstr "Islands"
+msgid "Jak se jmenuje objekt zvýrazněný na obrázku?"
+msgstr "What is the name of the object highlighted on the image?"
 
 #~ msgid "Jak těžké jsou kladené otázky?"
 #~ msgstr "How hard are the questions?"

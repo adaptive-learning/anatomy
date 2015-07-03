@@ -47,16 +47,16 @@ msgid "V aplikaci bohužel nastala chyba."
 msgstr "V aplikaci bohužel nastala chyba."
 
 #: geography.js:781
-msgid "Ze zvýrazněných položek na mapě vyber"
-msgstr "Ze zvýrazněných položek na mapě vyber"
+msgid "Ze zvýrazněných položek na obrázku vyber"
+msgstr "Ze zvýrazněných položek na obrázku vyber"
 
 #: geography.js:783 static/js/filters.js:69
-msgid "Vyber na mapě"
-msgstr "Vyber na mapě"
+msgid "Vyber na obrázku"
+msgstr "Vyber na obrázku"
 
 #: geography.js:786
-msgid "Jak se jmenuje položka zvýrazněná na mapě?"
-msgstr "Jak se jmenuje položka zvýrazněná na mapě?"
+msgid "Jak se jmenuje položka zvýrazněná na obrázku?"
+msgstr "Jak se jmenuje položka zvýrazněná na obrázku?"
 
 #: geography.js:1129 static/js/map.js:272
 msgid "Počet obyvatel"
@@ -66,37 +66,14 @@ msgstr "Počet obyvatel"
 msgid "Neprocvičováno"
 msgstr "Neprocvičováno"
 
-#: geography.js:1412 static/js/services.js:11
-msgid "USA"
-msgstr "USA"
-
-#: geography.js:1413 static/js/services.js:12
-msgid "Svět"
-msgstr "Svět"
-
-#: geography.js:1418 geography.js.c:1752 static/js/services.js:17
-#: static/js/services.js.c:367
-msgid "Politická mapa"
-msgstr "Politická mapa"
-
-#: geography.js:1431 geography.js.c:1765 static/js/services.js:30
-#: static/js/services.js.c:380
-msgid "Vodstvo"
-msgstr "Vodstvo"
-
-#: geography.js:1436 geography.js.c:1770 static/js/services.js:35
-#: static/js/services.js.c:385
-msgid "Povrch"
-msgstr "Povrch"
-
 #: geography.js:1658 static/js/services.js:261
 msgid "O prjektu"
 msgstr "O projektu"
 
 #: geography.js:1659 static/hack/geography/static/tpl/overview_tpl.js:1
 #: static/hack/tpl/overview_tpl.js:1 static/js/services.js:262
-msgid "Přehled map"
-msgstr "Přehled map"
+msgid "Přehled znalostí"
+msgstr "Přehled znalostí"
 
 #: static/hack/geography/static/tpl/confirm_modal.js:1
 #: static/hack/tpl/confirm_modal.js:1
@@ -579,12 +556,12 @@ msgid "Hledaný profil neexistuje."
 msgstr "Hledaný profil neexistuje."
 
 #: static/js/filters.js:67
-msgid "Ze zvýrazněných objektů na mapě vyber"
-msgstr "Ze zvýrazněných objektů na mapě vyber"
+msgid "Ze zvýrazněných objektů na obrázku vyber"
+msgstr "Ze zvýrazněných objektů na obrázku vyber"
 
 #: static/js/filters.js:72
-msgid "Jak se jmenuje objekt zvýrazněný na mapě?"
-msgstr "Jak se jmenuje objekt zvýrazněný na mapě?"
+msgid "Jak se jmenuje objekt zvýrazněný na obrázku?"
+msgstr "Jak se jmenuje objekt zvýrazněný na obrázku?"
 
 #: static/js/services.js:450
 msgid "Regiony"
