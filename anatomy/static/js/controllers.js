@@ -246,28 +246,9 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'placeTypeService',
-    function($scope, $routeParams, categoryService, userStatsService, placeTypeService) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService',
+    function($scope, $routeParams, categoryService, userStatsService) {
         'use strict';
-
-        // var mapSkills = {};
-        function addNamesAndSort(categories) {
-          var categoryNames = {
-          };
-          var categoriesByIdentifier = {};
-          for (var i = 0; i < categories.length; i++) {
-            categories[i].name = categoryNames[categories[i].identifier];
-            categoriesByIdentifier[categories[i].identifier] = categories[i];
-          }
-          var categoryTypes = ['world', 'continent', 'state'];
-          var ret = [];
-          for (i = 0; i < categoryTypes.length; i++) {
-            if (categoriesByIdentifier[categoryTypes[i]]) {
-              ret.push(categoriesByIdentifier[categoryTypes[i]]);
-            }
-          }
-          return ret;
-        }
 
         function getProgressRadius() {
           var radius =  $('.tile').width() / 2;
@@ -287,7 +268,6 @@ angular.module('proso.anatomy.controllers', [])
             }
             $scope.bodyparts = categoriesByType.location;
             $scope.systems = categoriesByType.system;
-            var placeTypes = placeTypeService.getTypes();
             for (i = 0; i < categories.length; i++) {
               var cat = categories[i];
               var id = cat.identifier;
@@ -356,14 +336,14 @@ angular.module('proso.anatomy.controllers', [])
     }
 ])
 
-.controller('AppUser', ['$scope', 'userService', '$routeParams', '$location', 
+.controller('AppUser', ['$scope', 'userService', '$routeParams', '$location',
     '$timeout', 'gettextCatalog',
     function($scope, userService, $routeParams, $location, $timeout, gettextCatalog) {
 
   $scope.profileUrl = $location.absUrl();
   if ($routeParams.user == userService.user.username) {
     $scope.user = userService.user;
-    $scope.editRights = true; 
+    $scope.editRights = true;
     if ($routeParams.edit !== undefined && $scope.editRights) {
       $timeout(function() {
         $scope.editableForm.$show();
@@ -373,7 +353,7 @@ angular.module('proso.anatomy.controllers', [])
     $scope.user = {username: $routeParams.user};
     userService.getUserProfile($routeParams.username, true).success(function(response){
       $scope.user = response.data;
-    }).error(function(response) {
+    }).error(function() {
       $scope.error = gettextCatalog.getString("Hledaný profil neexistuje.");
       console.error($scope.error);
     });
@@ -383,9 +363,9 @@ angular.module('proso.anatomy.controllers', [])
     // $scope.user already updated!
     return userService.updateProfile($scope.user).error(function(err) {
       if(err.field && err.msg) {
-        // err like {field: "name", msg: "Server-side error for this username!"} 
+        // err like {field: "name", msg: "Server-side error for this username!"}
         $scope.editableForm.$setError(err.field, err.msg);
-      } else { 
+      } else {
         // unknown error
         $scope.editableForm.$setError('name', gettextCatalog.getString("V aplikaci bohužel nastala chyba."));
       }

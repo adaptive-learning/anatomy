@@ -310,7 +310,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('categoryService', ["$http", "$q", "gettextCatalog", function ($http, $q, gettextCatalog) {
+  .factory('categoryService', ["$http", "$q", function ($http, $q) {
     'use strict';
     var categories = [];
     var categoriesByIdentifier = {};
@@ -431,7 +431,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   }])
 
 
-  .service('placeTypeService', ["gettextCatalog", function (gettextCatalog) {
+  .service('placeTypeService', [function () {
     'use strict';
     var self = this;
     var placeTypeNames = {
@@ -456,10 +456,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       var green = parseInt(c.substr(3, 2), 16);
       var blue = parseInt(c.substr(5, 2), 16);
       return [red, green, blue];
-    },
-    getDominantColor : function(c) {
-      var rgb = that.hexToRgb(c);
-      return rgb.indexOf(Math.max.apply(Math, arr));
     },
     isGray : function(c) {
       var rgb = that.hexToRgb(c);

@@ -52,8 +52,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             element[0].innerHTML = "";
             var r = Raphael(element[0]);
             var clickFn;
-            
-            
+
+
             function practiceClickHandler(){
               var clickedCode = this.data('code');
               if (!clickedCode || scope.$parent.canNext) {
@@ -69,13 +69,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             var highlightInProgress = false;
             var ANIMATION_TIME_MS = 500;
 
-            var that = { 
+            var that = {
               onClick: function(callback) {
                 clickFn = callback;
               },
               _next : function() {
                 if (highlightQueue.length > 0) {
-                  item = highlightQueue.shift();
+                  var item = highlightQueue.shift();
                   that._highlightTerm(item[0], item[1]);
                   $timeout(that._next, ANIMATION_TIME_MS / 2);
                 } else {
@@ -95,8 +95,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 var centerX = Math.floor(bbox.x + bbox.width / 2);
                 var centerY = Math.floor(bbox.y + bbox.height / 2);
                 var clones = [];
-                for (var i = 0; i < paths.length; i++) {
-                  var clone = paths[i].clone();
+                var processClone = function(clone) {
                   clone.click(clickHandler);
                   clone.hover(hoverInHandler, hoverOutHandler);
                   clone.data('id', paths[i].data('id'));
@@ -110,13 +109,14 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   var animAttrs = {
                     transform : 's' + [1.5, 1.5, centerX, centerY].join(','),
                   };
-                  (function(clone){
-                    clone.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
-                      clone.animate({
-                        transform : '',
-                      }, ANIMATION_TIME_MS / 2, '<');
-                    });
-                  })(clone);
+                  clone.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
+                    clone.animate({
+                      transform : '',
+                    }, ANIMATION_TIME_MS / 2, '<');
+                  });
+                };
+                for (var i = 0; i < paths.length; i++) {
+                  processClone(paths[i].clone());
                 }
                 highlightsByCode[code] = clones;
                 highlights = highlights.concat(clones);
@@ -137,11 +137,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             var hoverOpacity = 0;
             clickHandler = practiceClickHandler;
             hoverOpacity = 0.2;
-            
-            hoverInHandler = function() {
+
+            var hoverInHandler = function() {
               setLowerOpacity(this, hoverOpacity);
             };
-            hoverOutHandler = function() {
+            var hoverOutHandler = function() {
               setLowerOpacity(this, 0);
             };
 
@@ -161,8 +161,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
             for (var i = 0; i < image.paths.length; i++) {
               var p = image.paths[i];
-              simplePathString = p.d;
-              path = r.path(simplePathString);
+              var simplePathString = p.d;
+              var path = r.path(simplePathString);
               var color = attrs.tagging ? p.color : colorService.toGrayScale(p.color);
               path.attr({
                 'fill' : color,
@@ -211,16 +211,16 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             var initMapZoom = function(paper, options) {
               var panZoom = paper.panzoom(options);
               panZoom.enable();
-        
+
               $('#zoom-in').click(function(e) {
                 panZoom.zoomIn(1);
                 e.preventDefault();
-              }); 
-        
+              });
+
               $('#zoom-out').click(function(e) {
                 panZoom.zoomOut(1);
                 e.preventDefault();
-              }); 
+              });
               return panZoom;
             };
             var panZoomOptions = {
@@ -230,7 +230,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
              }
             };
 
-            $('#init-zoom').click(function(e) {
+            $('#init-zoom').click(function() {
               initMapZoom(r, panZoomOptions);
               scope.zoomInited = true;
               $(this).hide();
@@ -279,10 +279,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var rPath = rPathsObj[path.id];
               animateFocusRect(path.bbox);
               focused.push(rPath);
-              var focusAttr = {
-                'stroke-width' : '3',
-                'stroke' : 'red',
-              };
+              //var focusAttr = {
+              //  'stroke-width' : '3',
+              //  'stroke' : 'red',
+              //};
               //rPath.animate(focusAttr, 500, '>');
               var glow = rPath.glow({
                 'color': 'red',
@@ -421,9 +421,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         attrs.$observe('skills', function(skills) {
           if(skills !== '') {
             $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_flashcards = 
-              Math.max(0, $scope.skills.number_of_practiced_flashcards - 
-              ($scope.skills.number_of_mastered_flashcards || 0)); 
+            $scope.skills.number_of_nonmastered_practiced_flashcards =
+              Math.max(0, $scope.skills.number_of_practiced_flashcards -
+              ($scope.skills.number_of_mastered_flashcards || 0));
             if($scope.skills.number_of_mastered_flashcards !== undefined) {
               elem.tooltip({
                 html : true,
@@ -475,7 +475,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         levelRange += rangeIncrease;
         rangeIncrease += 10;
       }
-      
+
     }
     return {
       restrict : 'C',
