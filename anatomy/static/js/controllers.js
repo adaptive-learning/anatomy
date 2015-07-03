@@ -125,7 +125,6 @@ angular.module('proso.anatomy.controllers', [])
             if ($filter('isFindOnMapType')($scope.question) && active.options) {
                 var codes = active.options.map(function(option) {
                     var code = option.description;
-                    console.log(option);
                     $scope.imageController.highlightItem(code, colors.NEUTRAL);
                     return code;
                 });
@@ -307,7 +306,6 @@ angular.module('proso.anatomy.controllers', [])
                 map.stats = data.data[key];
               });
               $scope.statsLoaded = true;
-              console.log($scope.categories, $scope.bodyparts);
             }
         }, function(){});
 
