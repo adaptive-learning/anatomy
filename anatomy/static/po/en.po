@@ -46,17 +46,9 @@ msgstr "Next level"
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
-#: geography.js:781
-msgid "Ze zvýrazněných položek na obrázku vyber"
-msgstr "Out of the highlighted items on the image choose"
-
 #: geography.js:783 static/js/filters.js:69
 msgid "Vyber na obrázku"
-msgstr "Choose on the image"
-
-#: geography.js:786
-msgid "Jak se jmenuje položka zvýrazněná na obrázku?"
-msgstr "What is the name of the object highlighted on the image?"
+msgstr "Choose in the picture"
 
 #: geography.js:1129 static/js/map.js:272
 msgid "Počet obyvatel"
@@ -546,11 +538,11 @@ msgstr "The profile does not exist."
 
 #: static/js/filters.js:67
 msgid "Ze zvýrazněných objektů na obrázku vyber"
-msgstr "Out of the highlighted objects on the image choose"
+msgstr "Out of the highlighted objects in the picture choose"
 
 #: static/js/filters.js:72
 msgid "Jak se jmenuje objekt zvýrazněný na obrázku?"
-msgstr "What is the name of the object highlighted on the image?"
+msgstr "What is the name of the object highlighted in the picture?"
 
 #~ msgid "Jak těžké jsou kladené otázky?"
 #~ msgstr "How hard are the questions?"
