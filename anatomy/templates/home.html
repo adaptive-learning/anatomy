@@ -221,7 +221,6 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% url 'anatomy.views.cached_javascript_catalog' %}?hack={{LANGUAGE_CODE}}"></script>
     {% for file in js_files %}
     <script src="{% static file %}"></script>
     {% endfor %}
