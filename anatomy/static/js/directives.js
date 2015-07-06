@@ -201,8 +201,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             image.bbox = viewBox;
 
             function onWidowResize(){
+              angular.element('#ng-view').removeClass('horizontal');
+
+              var imageAspectRatio = viewBox.height / viewBox.width;
+              var screenAspectRatio = $window.innerHeight / $window.innerWidth;
+              var newHeight;
+              if (screenAspectRatio - imageAspectRatio < -0.2) {
+                angular.element('#ng-view').addClass('horizontal');
+                paper.height = $window.innerHeight - 8;
+                paper.width = $window.innerWidth  * 0.7;
+              } else {
+                paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
               paper.width = $window.innerWidth ;
-              paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
+              }
+
               r.setSize(paper.width, paper.height);
               r.setViewBox(viewBox.x, viewBox.y, viewBox.width, viewBox.height, true);
             }
@@ -210,6 +222,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             angular.element($window).bind('resize', function() {
               onWidowResize();
             });
+            if (attrs.practice || true) { // TODO change this when using for preview
+              angular.element("html, body").animate({
+                scrollTop: (angular.element('.navbar').height() - 8) + "px"
+              });
+            }
 
 
 
