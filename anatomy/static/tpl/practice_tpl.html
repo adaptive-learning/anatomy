@@ -13,7 +13,7 @@
       <div class="question">
         <span ng-bind="question | questionText"></span>
         <span class="label label-default" ng-show="question|isFindOnMapType">
-          <i class="flag-{{question.description}}"></i> {{question.term.name}}
+          {{question.term.name}}
         </span>
         <span ng-show="question.answered_code && (question|isFindOnMapType) &&
           question.answered_code != question.description">
