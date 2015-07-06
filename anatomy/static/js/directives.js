@@ -45,6 +45,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           dset: '='
       },
       link: function(scope, element, attrs) {
+          element.addClass('anatomy-image');
           scope.$parent.initImage = function(image){
             viewBox = image.bbox;
             var paper = {
