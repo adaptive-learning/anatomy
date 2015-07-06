@@ -254,20 +254,19 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
   })
 
-  .factory('pageTitle',['places', 'gettextCatalog', function(places, gettextCatalog) {
+  .factory('pageTitle',['categoryService', 'gettextCatalog', function(categoryService, gettextCatalog) {
     'use strict';
 
     var titles = {
       'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
-      'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled map') + ' - ',
+      'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí') + ' - ',
     };
     return function (route) {
-      var title;
+      var title = "";
       if (route.controller == "AppView" || route.controller == "AppPractice") {
-        title = places.getName(route.params.part) + ' - ';
-        var typeName = places.getPlaceTypeName(route.params.place_type);
-        if (typeName) {
-          title += typeName + ' - ';
+        var category = categoryService.getCategory(route.params.part);
+        if (category) {
+          title = category.name + ' - ';
         }
       } else if (route.controller == "AppUser") {
         title = route.params.user + ' - ';
