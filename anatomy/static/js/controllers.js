@@ -95,12 +95,10 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter',
-    'practiceService', 'userService', 'events', 'colors', '$', 'highlighted',
-    'categoryService', 'flashcardService',
+    'practiceService', 'userService', 'events', 'colors', 'flashcardService',
 
     function($scope, $routeParams, $timeout, $filter,
-        practiceService, userService, events, colors, $, highlighted,
-        categoryService, flashcardService) {
+        practiceService, userService, events, colors, flashcardService) {
         'use strict';
 
         $scope.part = $routeParams.part;
@@ -109,7 +107,6 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.highlight = function() {
             var active = $scope.question;
-            //$scope.imageController.placeToFront(active.description);
             if ($filter('isPickNameOfType')($scope.question)) {
                 $scope.imageController.highlightItem(active.description, colors.NEUTRAL);
             }
@@ -172,7 +169,7 @@ angular.module('proso.anatomy.controllers', [])
             //$scope.imageController.showSummaryTooltips($scope.summary.flashcards);
             angular.forEach($scope.summary.flashcards, function(q) {
                 var correct = q.description == q.answered_code;
-                $scope.imageController.showLayerContaining(q.description);
+                //$scope.imageController.showLayerContaining(q.description);
                 $scope.imageController.highlightItem(q.description, correct ? colors.GOOD : colors.BAD, 1);
             });
             $("html, body").animate({ scrollTop: "0px" });
