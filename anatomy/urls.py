@@ -22,7 +22,6 @@ urlpatterns = patterns(
     url(r'^$', 'anatomy.views.home', name='home'),
     url(r'^(about|overview|mistakes|goals|view/\w+|u/\w+|practice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
-    url(r'^jsi18n/$', 'anatomy.views.cached_javascript_catalog', js_info_dict),
 
     url(r'^user/', include('proso_user.urls')),
     url(r'^questions/', include('proso_questions.urls')),
