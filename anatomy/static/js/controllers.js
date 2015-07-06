@@ -32,8 +32,8 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', '$filter', 'flashcardService', 'mapTitle', 'placeTypeService',
-    function($scope, $routeParams, $filter, flashcardService, mapTitle, placeTypeService) {
+.controller('AppView', ['$scope', '$routeParams', '$filter', 'flashcardService', 'mapTitle',
+    function($scope, $routeParams, $filter, flashcardService, mapTitle) {
         'use strict';
         $scope.part = $routeParams.part;
         var user = $routeParams.user || '';
@@ -54,16 +54,7 @@ angular.module('proso.anatomy.controllers', [])
               }
               flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
             });
-            var placeTypes = placeTypeService.getTypes();
-            placeTypes = placeTypes.map(function(pt) {
-                pt.places = data.filter(function(fc) {
-                    return fc.term.type == pt.identifier;
-                });
-                return pt;
-            }).filter(function(pt) {
-                return pt.places.length;
-            });
-            updateItems(placeTypes);
+            updateItems();
         }, function(){
             $scope.error = true;
         });
