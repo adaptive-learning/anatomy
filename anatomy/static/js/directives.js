@@ -205,7 +205,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
               var imageAspectRatio = viewBox.height / viewBox.width;
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
-              var newHeight;
               if (screenAspectRatio - imageAspectRatio < -0.2) {
                 angular.element('#ng-view').addClass('horizontal');
                 paper.height = $window.innerHeight - 8;

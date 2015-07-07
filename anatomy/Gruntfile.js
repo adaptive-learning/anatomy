@@ -67,10 +67,10 @@ module.exports = function(grunt) {
                     "$": false,
                     "Raphael": false,
                 },
-                "maxcomplexity": 6,
+                "maxcomplexity": 7,
                 "indent": 2,
                 "maxdepth" : 3,
-                "maxparams": 12,
+                "maxparams": 9,
             },
             dist: {
                 src: 'static/js/',
