@@ -204,7 +204,7 @@ msgstr ""
 
 #: templates/home.html:177 templates/home.html.py:192
 msgid "Napište nám"
-msgstr ""
+msgstr "Napiš nám"
 
 #: templates/home.html:187
 msgid "O projektu"
