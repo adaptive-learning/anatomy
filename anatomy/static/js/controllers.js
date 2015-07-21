@@ -32,65 +32,45 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', '$filter', 'flashcardService', 'mapTitle',
-    function($scope, $routeParams, $filter, flashcardService, mapTitle) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService',
+    function($scope, $routeParams, contextService, flashcardService, categoryService) {
         'use strict';
-        $scope.part = $routeParams.part;
-        var user = $routeParams.user || '';
-        $scope.typeCategories = flashcardService.getCategories($scope.part);
+        categoryService.getAll().then(function(){
+          $scope.category = categoryService.getCategory($routeParams.category);
+          console.log($scope.category);
+          var user = $routeParams.user || '';
 
-        var filter = {
-            contexts : [$routeParams.part],
-        };
-        if ($routeParams.user == 'average') {
-          filter.new_user_predictions = true;
-        }
+          var filter = {
+              categories : [$routeParams.category],
+          };
 
-        flashcardService.getFlashcards(filter).then(function(data) {
-            angular.forEach(data, function(flashcard) {
-              if (filter.new_user_predictions) {
-                flashcard.prediction = flashcard.new_user_prediction;
-                flashcard.practiced = true;
-              }
-              flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
-            });
-            updateItems();
-        }, function(){
-            $scope.error = true;
+          contextService.getContexts(filter).then(function(data) {
+            $scope.contexts = data;
+          });
+
+          $scope.typeCategories = flashcardService.getCategories($routeParams.category);
+
+          if ($routeParams.user == 'average') {
+            filter.new_user_predictions = true;
+          }
+
+          flashcardService.getFlashcards(filter).then(function(data) {
+              angular.forEach(data, function(flashcard) {
+                if (filter.new_user_predictions) {
+                  flashcard.prediction = flashcard.new_user_prediction;
+                  flashcard.practiced = true;
+                }
+                flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
+              });
+          }, function(){
+              $scope.error = true;
+          });
         });
 
-        $scope.placeClick = function(place) {
-            $scope.imageController.highlightItem(place.description);
+        $scope.activateContext = function(context) {
+          $scope.activeContext = $scope.activateContext !== context ? context : undefined;
         };
 
-        $scope.updateMap = function(type) {
-            type.hidden = !type.hidden;
-            $scope.imageController.updateItems($scope.placesTypes);
-        };
-
-        $scope.updateCat = function(category) {
-            var newHidden = !category.hidden;
-            angular.forEach($scope.typeCategories, function(type) {
-                type.hidden = true;
-            });
-            angular.forEach($scope.placesTypes, function(type) {
-                type.hidden = true;
-            });
-            category.hidden = newHidden;
-            updateItems($scope.placesTypes);
-        };
-
-        function updateItems(data) {
-            $scope.placesTypes = data;
-            angular.forEach($scope.typeCategories, function(category) {
-                var filteredTypes = $filter('isTypeCategory')($scope.placesTypes, category);
-                angular.forEach(filteredTypes, function(type) {
-                    type.hidden = category.hidden;
-                });
-            });
-            $scope.imageController.updateItems($scope.placesTypes);
-            $scope.name = mapTitle($scope.part, user);
-        }
     }
 ])
 

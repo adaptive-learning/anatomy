@@ -32,7 +32,7 @@ angular.module('proso.anatomy', [
             templateUrl : 'static/tpl/about.html'
         }).when('/view/', {
             redirectTo : '/view/world/'
-        }).when('/view/:part/:user?', {
+        }).when('/view/:category/:user?', {
             controller : 'AppView',
             templateUrl : 'static/tpl/view_tpl.html'
         }).when('/practice/', {

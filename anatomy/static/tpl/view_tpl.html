@@ -1,64 +1,42 @@
-<blind-map code="{{part}}" show-tooltips="true" map="imageController" ></blind-map>
-<div id="container">
-  <div ng-hide="placesTypes || error" class="loading-indicator">
-  </div>
-  <div ng-show="error" error-message ></div>
-  <div ng-show="placesTypes.length" class="layers-tabs">
-    <div class="tab col-sm-{{(typeCategories | filter:{'empty' : false}).length|colNum}}"
-        ng-class="{'active' : !typeCat.hidden}"
-        ng-repeat="typeCat in typeCategories" 
-        ng-hide="typeCat.empty = ((placesTypes|isTypeCategory:typeCat).length == 0)"
-        ng-click="typeCat.hidden && updateCat(typeCat)">
-        <!-- TODO this practice doesn't work yet
-      <a href="/practice/{{part}}/{{typeCat.slug}}" 
-         class="btn btn-primary pull-right" 
-         ng-hide="typeCat.hidden || filteredTypes.length == 1" >
-        <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | translate }}
-      </a>
-      -->
-      <h2>
-        {{typeCat.name}}
-      </h2>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <ul ng-show="placesTypes.length && (filteredTypes = (placesTypes|isTypeCategory:typeCat)).length" 
-      class="thumbnails fade-show-hide"
-      ng-repeat="typeCat in typeCategories">
-    <div collapse="typeCat.hidden">
-      <li class="col-sm-{{filteredTypes.length|colNum}}" 
-          ng-repeat="type in filteredTypes">
-        <div ng-click="updateMap(type)"
-            class="collapse-control">
-          <h3>
-            <i class="glyphicon {{type.hidden && 'glyphicon-plus-sign' || 'glyphicon-minus-sign'}}"></i>
-            {{type.name}}
-          </h3>
-          <a href="/practice/{{part}}/{{type.identifier}}" 
-             class="btn btn-primary pull-right"  >
-            <i class="glyphicon glyphicon-check"></i> {{'Procvičovat' | translate }}
-          </a>
-          <div class="clearfix"></div>
-        </div>
-        <div class="map-progress" 
-             skills="{{ {
-               number_of_flashcards: type.places.length,
-               number_of_practiced_flashcards: (type.places|filter:{practiced:true}).length,
-               number_of_mastered_flashcards: (type.places|filter:{mastered:true, practiced:true}).length
-             } }}"></div>
-        <div class="view-places" collapse="type.hidden">
-          <div ng-hide="(type.places|filter:{practiced:true}).length" class="alert alert-info">
-            {{'Zde zatím nebylo nic procvičováno.' | translate }}
-          </div>
-          <span ng-repeat="place in type.places|filter:{practiced:true}"
-                ng-click="placeClick(place)"
-                style="border-bottom: 5px solid {{place.prediction|probColor}};"
-                place-label>
-          </span>
-          <div class="clearfix"></div>
-        </div>
-      </li>
-    </div>
-  </ul>
-  <div class="clearfix"></div>
+<div class="row table-row">
+  <h1 class="col-sm-12" ng-bind="category.name"></h1>
 </div>
+<div ng-hide="contexts || error" class="loading-indicator"></div>
+<div class="table table-striped col-sm-12">
+    <div class="row table-row" ng-repeat="context in contexts ">
+      <a class="col-sm-5" ng-click="activateContext(context)" href="">
+        {{context.name || '[MISSING]'}}
+      </a>
+      <span class="col-sm-5">
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar"
+            style="width: {{context.paths_progress}}%;">
+            <span ng-if="context.paths_progress != 0">
+            {{context.paths_count - context.untagged_paths_count}} /
+            {{context.paths_count}}
+            </span>
+          </div>
+        </div>
+      </span>
+      <span class="col-sm-2">
+       <!--
+        <a class="btn btn-primary" href="practice/{{context.identifier}}">
+          Procvičovat
+        </a>
+        -->
+      </span>
+      <div class="clearfix"></div>
+      <div ng-if="activeContext==context">
+          <div anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" context='{{context.content}}' ></div>
+        <div class="col-sm-5" ng-hide="loading">
+          <div ng-repeat="term in terms" class="">
+              <span class="btn btn-default btn-block"
+                ng-class="{'btn-info' : term == activeTerm}"
+                ng-click="clickTerm(term)"
+                ng-bind="term.name_la" ></span>
+          </div>
+        
+      </div>
+    </div>
+</div>
+
