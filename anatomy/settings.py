@@ -65,8 +65,8 @@ MIDDLEWARE_CLASSES = (
     'proso.django.log.RequestLogMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'anatomy.middleware.LanguageInPathMiddleware',
-    'anatomy.middleware.AuthAlreadyAssociatedMiddleware',
+    'proso_common.middleware.LanguageInPathMiddleware',
+    'proso_common.middleware.AuthAlreadyAssociatedMiddleware',
 )
 
 ROOT_URLCONF = 'anatomy.urls'
