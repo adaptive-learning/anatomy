@@ -32,12 +32,11 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService',
-    function($scope, $routeParams, contextService, flashcardService, categoryService) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService',
+    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService) {
         'use strict';
         categoryService.getAll().then(function(){
           $scope.category = categoryService.getCategory($routeParams.category);
-          console.log($scope.category);
           var user = $routeParams.user || '';
 
           var filter = {
@@ -48,11 +47,17 @@ angular.module('proso.anatomy.controllers', [])
             $scope.contexts = data;
           });
 
-          $scope.typeCategories = flashcardService.getCategories($routeParams.category);
 
           if ($routeParams.user == 'average') {
             filter.new_user_predictions = true;
           }
+          var catId = $routeParams.category;
+          userStatsService.addGroup(catId, {});
+          userStatsService.addGroupParams(catId, [$routeParams.category]);
+
+          userStatsService.getStatsPost(true).success(function(data) {
+            $scope.stats = data.data[catId];
+          });
 
           flashcardService.getFlashcards(filter).then(function(data) {
               angular.forEach(data, function(flashcard) {
@@ -250,15 +255,25 @@ angular.module('proso.anatomy.controllers', [])
 
             function processStats(data) {
               $scope.userStats = data.data;
+              $scope.stats = {};
               angular.forEach(categories, function(map) {
                 map.placeTypes = [];
                 var key = map.identifier;
                 map.stats = data.data[key];
+                addToStats(data.data[key]);
               });
               $scope.statsLoaded = true;
             }
         }, function(){});
+
+      function addToStats(stats) {
+        for (var i in stats) {
+          $scope.stats[i] = $scope.stats[i] || 0;
+          $scope.stats[i] += stats[i];
+        }
+      }
     }
+
 ])
 
 .controller('AppConfused', ['$scope', '$http',

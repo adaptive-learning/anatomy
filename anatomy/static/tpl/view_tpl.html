@@ -1,8 +1,24 @@
-<div class="row table-row">
-  <h1 class="col-sm-12" ng-bind="category.name"></h1>
+<div class="row header">
+  <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <h1 ng-bind="category.name"></h1>
+    <span class="col-sm-9">
+      <div category-progress skills="{{stats}}"></div>
+    </span>
+    <span class="col-sm-3">
+      <a href="/practice/{{category.identifier}}/" 
+        class="btn btn-default btn-lg" 
+        translate
+        track-click="overview practice" >
+        Procvičovat
+      </a>
+      <br>
+      <br>
+    </span>
+  </div>
 </div>
 <div ng-hide="contexts || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
+<br>
     <div class="row table-row" ng-repeat="context in contexts ">
       <a class="col-sm-5" ng-click="activateContext(context)" href="">
         {{context.name || '[MISSING]'}}

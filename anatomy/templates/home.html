@@ -140,10 +140,12 @@
      {% if is_homepage %}
         {% include "generated/homepage.html" %}
      {% elif map != '' %}
-        <div class="map-container">
-          <h1> {{map}}</h1>
-          <div class="loading-indicator"></div>
+        <div class="row header">
+          <div class="col-sm-12">
+            <h1> {{map}}</h1>
+          </div>
         </div>
+          <div class="loading-indicator"></div>
      {% else %}
         <div class="loading-indicator"></div>
      {% endif %}

@@ -1,61 +1,81 @@
-<div class="overview">
-  <div ng-hide="systems && statsLoaded" class="loading-indicator">
-  </div>
-  <div class="row">
+<div class="container-fluid">
+  <div class="row header">
     <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <div class="row">
-        <div class="col-sm-9">
-          <span ng-repeat="system in systems"
-            class="col-xs-6 col-sm-3 tile">
-            <span class="in-tile">
-              <a href="/practice/{{system.identifier}}/" class="tile-link"
-                style="background-image: url('/static/img/{{system.identifier}}.png');" >
-                <div class="dummy"></div>
-                <div class="absolute">
-                  <div round-progress
-                      max="system.stats.number_of_flashcards"
-                      current="system.stats.number_of_mastered_flashcards +
-                      system.stats.number_of_practiced_flashcards"
-                      color="#fe3"
-                      bgcolor="rgba(150,150,150,0.5)"
-                      radius="{{progressRadius}}"
-                      stroke="15"
-                      iterations="50"
-                      animation="easeInOutQuart"></div>
-                </div>
-                <div class="absolute">
-                  <div round-progress
-                      max="system.stats.number_of_flashcards"
-                      current="system.stats.number_of_mastered_flashcards"
-                      color="#5CA03C"
-                      bgcolor="rgba(0,0,0,0)"
-                      radius="{{progressRadius}}"
-                      stroke="15"
-                      iterations="50"
-                      animation="easeInOutQuart"></div>
-                </div>
-                <h2 ng-bind="system.name"></h2>
-              </a>
-               <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span class="glyphicon glyphicon-option-vertical"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="/practice/{{system.identifier}}/" translate >Procvičovat</a></li>
-                  <li><a href="/view/{{system.identifier}}/" translate>Prohlížet</a></li>
-                </ul>
-              </div> 
+        <h1 translate>Přehled znalostí</h1>
+      <span class="col-sm-9">
+        <div category-progress skills="{{stats}}"></div>
+      </span>
+      <span class="col-sm-3">
+        <a href="/practice/" 
+          class="btn btn-default btn-lg" 
+          translate
+          track-click="overview practice" >
+          Procvičovat
+        </a>
+        <br>
+        <br>
+      </span>
+    </div>
+  </div>
+  <div class="overview">
+    <div ng-hide="systems && statsLoaded" class="loading-indicator">
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-sm-9">
+            <span ng-repeat="system in systems"
+              class="col-xs-6 col-sm-3 tile">
+              <span class="in-tile">
+                <a href="/practice/{{system.identifier}}/" class="tile-link"
+                  style="background-image: url('/static/img/{{system.identifier}}.png');" >
+                  <div class="dummy"></div>
+                  <div class="absolute">
+                    <div round-progress
+                        max="system.stats.number_of_flashcards"
+                        current="system.stats.number_of_mastered_flashcards +
+                        system.stats.number_of_practiced_flashcards"
+                        color="#fe3"
+                        bgcolor="rgba(150,150,150,0.5)"
+                        radius="{{progressRadius}}"
+                        stroke="15"
+                        iterations="50"
+                        animation="easeInOutQuart"></div>
+                  </div>
+                  <div class="absolute">
+                    <div round-progress
+                        max="system.stats.number_of_flashcards"
+                        current="system.stats.number_of_mastered_flashcards"
+                        color="#5CA03C"
+                        bgcolor="rgba(0,0,0,0)"
+                        radius="{{progressRadius}}"
+                        stroke="15"
+                        iterations="50"
+                        animation="easeInOutQuart"></div>
+                  </div>
+                  <h2 ng-bind="system.name"></h2>
+                </a>
+                 <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="glyphicon glyphicon-option-vertical"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="/practice/{{system.identifier}}/" translate >Procvičovat</a></li>
+                    <li><a href="/view/{{system.identifier}}/" translate>Prohlížet</a></li>
+                  </ul>
+                </div> 
+              </span>
             </span>
-          </span>
-          <div class="clearfix"></div>
-        </div>
-        <div class="col-sm-3">
-          <div ng-repeat="bodypart in bodyparts">
-           <a ng-bind="bodypart.name" href="/practice/{{bodypart.identifier}}/"></a>
+            <div class="clearfix"></div>
+          </div>
+          <div class="col-sm-3">
+            <div ng-repeat="bodypart in bodyparts">
+             <a ng-bind="bodypart.name" href="/practice/{{bodypart.identifier}}/"></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="clearfix"></div>
   </div>
-  <div class="clearfix"></div>
 </div>
