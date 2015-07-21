@@ -57,9 +57,13 @@
   display: block
   overflow: hidden
   position: relative
+  .dropdown
+    position: absolute
+    top: 5px
+    left: 5px
 
 
-.tile a 
+.tile a.tile-link
   display: inline-block
   color: #5CA03C
   width: 100%
@@ -68,23 +72,15 @@
   background-size: contain
   text-decoration: none
 
-@for $i from 1 through 9
-  .tile:nth-child(#{$i}) a 
-    background-image: url("/static/img/0#{$i}.png")
-
-@for $i from 10 through 15
-  .tile:nth-child(#{$i}) a 
-    background-image: url("/static/img/#{$i}.png")
-
-.tile a:hover 
+.tile a.tile-link:hover 
   background-color: #e5e5e5
 
 
-.tile a:hover h2 
+.tile a.tile-link:hover h2 
   bottom: 0px
 
 
-.tile a h2 
+.tile a.tile-link h2 
   position: absolute
   bottom: -75px
   bottom: -5px

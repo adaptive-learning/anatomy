@@ -8,7 +8,8 @@
           <span ng-repeat="system in systems"
             class="col-xs-6 col-sm-3 tile">
             <span class="in-tile">
-              <a href="/practice/{{system.identifier}}/">
+              <a href="/practice/{{system.identifier}}/" class="tile-link"
+                style="background-image: url('/static/img/{{system.identifier}}.png');" >
                 <div class="dummy"></div>
                 <div class="absolute">
                   <div round-progress
@@ -35,6 +36,15 @@
                 </div>
                 <h2 ng-bind="system.name"></h2>
               </a>
+               <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="glyphicon glyphicon-option-vertical"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="/practice/{{system.identifier}}/" translate >Procvičovat</a></li>
+                  <li><a href="/view/{{system.identifier}}/" translate>Prohlížet</a></li>
+                </ul>
+              </div> 
             </span>
           </span>
           <div class="clearfix"></div>

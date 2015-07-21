@@ -311,6 +311,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             }
 
           };
+          if (attrs.context) {
+            scope.$parent.initImage(angular.fromJson(attrs.context));
+          }
       }
   };
 })
