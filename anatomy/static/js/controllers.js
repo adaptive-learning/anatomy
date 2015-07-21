@@ -105,7 +105,7 @@ angular.module('proso.anatomy.controllers', [])
             $scope.question.answered_code = selected;
             $scope.question.responseTime += new Date().valueOf();
             var selectedFC = flashcardService.getFlashcardByDescription(selected);
-            practiceService.saveAnswerToCurrentFC(selectedFC.id, $scope.question.responseTime);
+            practiceService.saveAnswerToCurrentFC(selectedFC && selectedFC.id, $scope.question.responseTime);
             $scope.progress = 100 * (practiceService.getSummary().count / practiceService.getConfig().set_length);
             //user.addAnswer(asked == selected);
             if (asked == selected) {
