@@ -394,11 +394,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict : 'A',
       template : '<div class="progress overview-progress">' +
+                    '<div class="progress-bar progress-bar-practiced" style="' +
+                        'width: {{100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards}}%;">' +
+                    '</div>' +
                     '<div class="progress-bar progress-bar-learned" style="' +
                         'width: {{100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards}}%;">' +
-                    '</div>' +
-                    '<div class="progress-bar progress-bar-practiced" style="' +
-                        'width: {{100 * skills.number_of_nonmastered_practiced_flashcards / skills.number_of_flashcards}}%;">' +
                     '</div>' +
                   '</div>' + 
                   '<div class="text-center">' +
