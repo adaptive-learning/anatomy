@@ -390,7 +390,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('categoryProgress', ['gettextCatalog', function(gettextCatalog) {
+  .directive('categoryProgress', [function() {
     return {
       restrict : 'A',
       template : '<div class="progress overview-progress">' +

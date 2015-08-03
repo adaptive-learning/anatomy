@@ -64,7 +64,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           //db_orderby : 'name',
         });
         var deferredContext = $q.defer();
-        var httpPromise = $http.get('/flashcards/contexts', {params: filter}).success(function(data) {
+        $http.get('/flashcards/contexts', {params: filter}).success(function(data) {
           deferredContext.resolve(data.data);
         }).error(function(error){
           console.error("Something went wrong while loading contexts from backend.");

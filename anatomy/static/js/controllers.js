@@ -37,7 +37,6 @@ angular.module('proso.anatomy.controllers', [])
         'use strict';
         categoryService.getAll().then(function(){
           $scope.category = categoryService.getCategory($routeParams.category);
-          var user = $routeParams.user || '';
 
           var filter = {
               categories : [$routeParams.category],
