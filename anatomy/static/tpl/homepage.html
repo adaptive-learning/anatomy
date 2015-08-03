@@ -16,15 +16,20 @@
   {% load i18n %}
     -->
   <div class="welcome-page jumbotron">
-      <h1 >{{ "Anatom.cz"|translate }}</h1>
       <div class="flatblock block-welcome_page col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
-        <div class="flatblock-content">{{ "TODO" | translate }}
+        <div class="flatblock-content">
+          <img src="/static/img/02.png" class="hidden-xxs"  />
+          <img src="/static/img/09.png" />
+          <img src="/static/img/12.png" class="hidden-xs" />
+        </div>
+      <h1 >{{ "Anatom.cz"|translate }}</h1>
+        <div class="flatblock-content">{{ "Procvičování anatomtie na míru tvým znalostem." | translate }}
         </div>
         <div class="flatblock-content">
           <a href="/practice/" 
             class="btn btn-default btn-lg btn-huge" 
             track-click="homepage practice" >
-            {{"Procvičovat" | translate }}
+            {{"Začít procvičovat" | translate }}
           </a>
         </div>
         <div class="plugins-social">
