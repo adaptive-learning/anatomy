@@ -43,7 +43,8 @@
                         iterations="50"
                         animation="easeInOutQuart"></div>
                   </div>
-                  <div class="absolute">
+                  <div class="absolute"
+                    ng-if="system.stats.number_of_mastered_flashcards">
                     <div round-progress
                         max="system.stats.number_of_flashcards"
                         current="system.stats.number_of_mastered_flashcards"
