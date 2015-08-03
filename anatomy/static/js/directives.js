@@ -94,16 +94,22 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               _highlightTerm : function(code, color) {
                 var paths = pathsByCode[code] || [];
                 var bbox = getBBox(paths.map(function(p) {return p.getBBox();}));
-                var centerX = Math.floor(bbox.x + bbox.width / 2);
-                var centerY = Math.floor(bbox.y + bbox.height / 2);
                 var clones = [];
-                for (var i = 0; i < paths.length; i++) {
-                  var clone = clonePath(paths[i], code, color);
-                  animateClone(clone, centerX, centerY);
-                  clones.push(clone);
+                if (!highlightsByCode[code]) {
+                  for (var i = 0; i < paths.length; i++) {
+                    var clone = clonePath(paths[i], code, color);
+                    clones.push(clone);
+                  }
+                  highlightsByCode[code] = clones;
+                  highlights = highlights.concat(clones);
                 }
-                highlightsByCode[code] = clones;
-                highlights = highlights.concat(clones);
+                angular.forEach(highlightsByCode[code], function(clone) {
+                  clone.data('color', color);
+                  clone.attr({
+                    'fill' : color,
+                  });
+                  animateClone(clone, bbox);
+                });
               },
 
               clearHighlights : function() {
@@ -138,10 +144,22 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               });
               return clone;
             }
+
+            function getZoomRatio(bbox) {
+              var widthRatio =  image.bbox.width / bbox.width;
+              var heightRatio = image.bbox.height / bbox.height;
+              var minRatio = Math.min(widthRatio, heightRatio);
+              var zoomRatio = Math.max(1.1, minRatio / 2);
+              console.log('zoom', minRatio, zoomRatio, image.bbox);
+              return zoomRatio;
+            }
             
-            function animateClone(clone, centerX, centerY) {
+            function animateClone(clone, bbox) {
+              var centerX = Math.floor(bbox.x + bbox.width / 2);
+              var centerY = Math.floor(bbox.y + bbox.height / 2);
+              var zoomRatio = getZoomRatio(bbox);
               var animAttrs = {
-                transform : 's' + [1.5, 1.5, centerX, centerY].join(','),
+                transform : 's' + [zoomRatio, zoomRatio, centerX, centerY].join(','),
               };
               clone.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
                 clone.animate({
