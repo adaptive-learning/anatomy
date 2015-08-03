@@ -405,13 +405,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                      '<span class="badge badge-default">' +
                        '<i class="color-indicator learned"></i>' +
                        '<span translate>Naučeno</span>: ' +
-                       '{{skills.number_of_mastered_flashcards || "..."}} / ' +
+                       '{{skills.number_of_mastered_flashcards !== undefined ? skills.number_of_mastered_flashcards : "..."}} / ' +
                        '{{skills.number_of_flashcards || 0}}' +
                      '</span> ' +
                      '<span class="badge badge-default">' +
                        '<i class="color-indicator practiced"></i>' +
                        '<span translate>Procvičováno</span>: ' +
-                       '{{skills.number_of_nonmastered_practiced_flashcards || "..."}} / ' +
+                       '{{skills.number_of_nonmastered_practiced_flashcards !== undefined ? skills.number_of_nonmastered_practiced_flashcards : "..."}} / ' +
                        '{{skills.number_of_flashcards || 0}}' +
                      '</span>' +
                    '</div>',
