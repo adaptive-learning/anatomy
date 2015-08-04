@@ -220,16 +220,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
             function onWidowResize(){
               angular.element('#ng-view').removeClass('horizontal');
-
-              var imageAspectRatio = viewBox.height / viewBox.width;
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
-              if (screenAspectRatio < imageAspectRatio) {
+
+              if (screenAspectRatio < 1) {
                 angular.element('#ng-view').addClass('horizontal');
                 paper.height = $window.innerHeight - 8;
                 paper.width = $window.innerWidth  * 0.7;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
-              paper.width = $window.innerWidth ;
+                paper.width = $window.innerWidth ;
               }
 
               r.setSize(paper.width, paper.height);
