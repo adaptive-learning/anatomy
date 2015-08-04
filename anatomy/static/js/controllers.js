@@ -259,6 +259,7 @@ angular.module('proso.anatomy.controllers', [])
             }
             $scope.bodyparts = categoriesByType.location;
             $scope.systems = categoriesByType.system;
+            userStatsService.addGroup('all', {});
             for (i = 0; i < categories.length; i++) {
               var cat = categories[i];
               var id = cat.identifier;
@@ -279,18 +280,11 @@ angular.module('proso.anatomy.controllers', [])
                 map.placeTypes = [];
                 var key = map.identifier;
                 map.stats = data.data[key];
-                addToStats(data.data[key]);
               });
+              $scope.stats = data.data.all;
               $scope.statsLoaded = true;
             }
         }, function(){});
-
-      function addToStats(stats) {
-        for (var i in stats) {
-          $scope.stats[i] = $scope.stats[i] || 0;
-          $scope.stats[i] += stats[i];
-        }
-      }
     }
 
 ])
