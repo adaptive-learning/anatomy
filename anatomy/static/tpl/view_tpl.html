@@ -19,7 +19,8 @@
 <div ng-hide="contexts || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
 <br>
-    <div class="row table-row" ng-repeat="context in contexts ">
+    <div class="row table-row {{activeContext==context && 'active'}}"
+      ng-repeat="context in contexts">
       <a class="col-sm-5" ng-click="activateContext(context)" href="">
         {{context.name || '[MISSING]'}}
       </a>
@@ -43,16 +44,17 @@
       </span>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context">
-          <div anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" context='{{context.content}}' ></div>
-        <div class="col-sm-5" ng-hide="loading">
-          <div ng-repeat="term in terms" class="">
-              <span class="btn btn-default btn-block"
-                ng-class="{'btn-info' : term == activeTerm}"
-                ng-click="clickTerm(term)"
-                ng-bind="term.name_la" ></span>
-          </div>
-        
-      </div>
+        <span anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" context='{{context.content}}' ></span>
+        <span ng-hide="loading" class="terms-container">
+          <span class="label label-default"
+            ng-repeat="flashcard in context.flashcards"
+            ng-class="{'btn-info' : flashcard.term == activeTerm}"
+            ng-click="clickTerm(flashcard.term)"
+            style="border-bottom: 5px solid {{flashcard.prediction|probColor}};"
+            term-label
+            ng-bind="flashcard.term.name" >
+          </span>
+        </span>
     </div>
 </div>
 

@@ -1,10 +1,10 @@
 /* Directives */
 angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
-  .directive('placeLabel', ['colorScale', 'gettextCatalog', function(colorScale, gettextCatalog) {
+  .directive('termLabel', ['colorScale', 'gettextCatalog', function(colorScale, gettextCatalog) {
     return {
       restrict : 'A',
-      template : '{{place.term.name}}',
+      template : '{{flashcard.term.name}}',
       link : function($scope, elem) {
         elem.addClass('label');
         elem.addClass('label-default');
@@ -16,8 +16,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 gettextCatalog.getString('Odhad znalosti') +
                 ' <span class="badge badge-default">' +
                   '<i class="color-indicator" style="background-color :' +
-                  colorScale($scope.place.prediction).hex() + '"></i>' +
-                  (10 * $scope.place.prediction) + ' / 10 ' +
+                  colorScale($scope.flashcard.prediction).hex() + '"></i>' +
+                  (10 * $scope.flashcard.prediction) + ' / 10 ' +
                 '</span>' +
                '</div>'
         });
@@ -238,7 +238,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             angular.element($window).bind('resize', function() {
               onWidowResize();
             });
-            if (attrs.practice || true) { // TODO change this when using for preview
+            if (attrs.practice) {
               angular.element("html, body").animate({
                 scrollTop: (angular.element('.navbar').height() - 8) + "px"
               });

@@ -73,8 +73,19 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.activateContext = function(context) {
           $scope.activeContext = $scope.activateContext !== context ? context : undefined;
+          var filter = {
+              contexts : [context.identifier],
+          };
+          flashcardService.getFlashcards(filter).then(function(data) {
+             context.flashcards = data;
+          });
         };
 
+        $scope.clickTerm = function(term) {
+          // TODO this doesn't work
+          console.log('click term', term);
+          $scope.imageController.highlightItem(term, colors.GOOD);
+        };
     }
 ])
 
