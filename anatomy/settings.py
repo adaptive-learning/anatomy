@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['anatom.cz']
 # Application definition
 
 INSTALLED_APPS = (
+    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
