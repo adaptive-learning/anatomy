@@ -72,8 +72,8 @@
               </div>
             </div>
             <span ng-repeat="fc in summary.flashcards" 
-                  ng-click="map.highlightState(fc.description)"
-                  class="label {{fc.description != fc.answered_code &&
+                  ng-click="highlightFlashcard(fc)"
+                  class="label label-clickable {{fc.description != fc.answered_code &&
                     'label-unlearned' || 'label-learned' }} ">
                {{fc.term.name}}
             </span>

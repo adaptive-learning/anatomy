@@ -144,6 +144,15 @@ angular.module('proso.anatomy.controllers', [])
             }
         };
 
+        $scope.highlightFlashcard = function(fc) {
+            console.log('fc', fc);
+            $scope.initImage(angular.fromJson(fc.context.content));
+            $scope.imageController.highlightItem(fc.description, fc.answer.correct ? colors.GOOD : colors.BAD);
+            if (!fc.answer.correct) {
+              $scope.imageController.highlightItem(fc.answered_code, colors.GOOD);
+            }
+        };
+
         function highlightAnswer (asked, selected) {
             if ($filter('isFindOnMapType')($scope.question)) {
                 $scope.imageController.highlightItem(asked, colors.GOOD);
