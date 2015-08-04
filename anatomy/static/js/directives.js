@@ -415,7 +415,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                         'width: {{100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards}}%;">' +
                     '</div>' +
                     '<div class="progress-bar progress-bar-learned" style="' +
-                        'width: {{100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards}}%;">' +
+                        'width: {{100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards}}%;"' +
+                        'ng-if="skills.number_of_mastered_flashcards">' +
                     '</div>' +
                   '</div>' + 
                   '<div class="text-center">' +
