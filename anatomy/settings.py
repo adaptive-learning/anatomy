@@ -25,6 +25,12 @@ else:
 
 TEMPLATE_DEBUG = DEBUG
 
+ADMINS = (
+    ('Vít Stanislav', 'slaweet@gmail.com'),
+    ('Jan Papoušek', 'jan.papousek@gmail.com'),
+)
+
+
 ALLOWED_HOSTS = ['anatom.cz']
 
 
