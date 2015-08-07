@@ -174,7 +174,12 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'proso.django.log.RequestHandler',
             'formatter': 'simple'
-        }
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
     },
     'formatters': {
         'simple': {
@@ -188,6 +193,12 @@ LOGGING = {
             'level': 'DEBUG'
         }
     },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+
 }
 
 CACHES = {
