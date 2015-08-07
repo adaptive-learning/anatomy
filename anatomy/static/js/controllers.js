@@ -107,7 +107,6 @@ angular.module('proso.anatomy.controllers', [])
             }
             if ($filter('isFindOnMapType')($scope.question) && $scope.question.options) {
               for (var i = 0; i < $scope.question.options.length; i++) {
-                console.log($scope.question, $scope.question.options[i].description);
                 $scope.imageController.highlightItem(
                   $scope.question.options[i].description, colors.HIGHLIGHTS[i]);
               }
