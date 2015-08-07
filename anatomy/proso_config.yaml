@@ -21,4 +21,7 @@ default:
                 fc_queue_size_min: 3
                 save_answer_immediately: true
                 cache_context: true
+    proso_feedback:
+        domain: anatom.cz
+        to: [anatom@googlegroups.com]
 
