@@ -50,7 +50,7 @@ angular.module('proso.anatomy.controllers', [])
               var context = data[i];
               var id = context.identifier;
               userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [], [context.identifier]);
+              userStatsService.addGroupParams(id, [$routeParams.category], [context.identifier]);
             }
 
             userStatsService.getStatsPost(true).success(function(data) {
@@ -59,6 +59,7 @@ angular.module('proso.anatomy.controllers', [])
                 var key = context.identifier;
                 context.stats = data.data[key];
               });
+              $scope.statsLoaded = true;
             });
 
 

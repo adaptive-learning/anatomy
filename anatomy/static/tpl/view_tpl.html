@@ -16,11 +16,12 @@
     </span>
   </div>
 </div>
-<div ng-hide="contexts || error" class="loading-indicator"></div>
+<div ng-hide="(contexts && statsLoaded) || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
 <br>
     <div class="row table-row {{activeContext==context && 'active'}}"
       ng-click="activateContext(context)" 
+      ng-if="context.stats && context.stats.number_of_flashcards"
       ng-repeat="context in contexts">
       <a class="col-sm-6" href="">
         {{context.name || '[MISSING]'}}
