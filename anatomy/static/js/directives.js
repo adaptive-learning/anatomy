@@ -88,10 +88,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 }
               },
               highlightItem : function(code, color) {
-                highlightQueue.push([code, color]);
-                if (!highlightInProgress) {
-                  highlightInProgress = true;
-                  that._next();
+                if (code) {
+                  highlightQueue.push([code, color]);
+                  if (!highlightInProgress) {
+                    highlightInProgress = true;
+                    that._next();
+                  }
                 }
               },
               _highlightTerm : function(code, color) {
