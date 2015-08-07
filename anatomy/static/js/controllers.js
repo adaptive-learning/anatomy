@@ -91,7 +91,7 @@ angular.module('proso.anatomy.controllers', [])
         });
 
         $scope.activateContext = function(context) {
-          $scope.activeContext = $scope.activateContext !== context ? context : undefined;
+          $scope.activeContext = $scope.activeContext !== context ? context : undefined;
           var filter = {
               contexts : [context.identifier],
           };

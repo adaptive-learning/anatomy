@@ -23,10 +23,10 @@
       ng-click="activateContext(context)" 
       ng-if="context.stats && context.stats.number_of_flashcards"
       ng-repeat="context in contexts">
-      <a class="col-sm-6" href="">
+      <a class="col-sm-5 col-sm-offset-1" href="">
         {{context.name || '[MISSING]'}}
       </a>
-      <span class="col-sm-6">
+      <span class="col-sm-5">
         <div category-progress skills="{{context.stats}}"
           hide-labels="{{activeContext!=context}}"></div>
       </span>
