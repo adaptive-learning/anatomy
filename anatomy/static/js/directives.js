@@ -25,7 +25,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-.directive('anatomyImage', function(imageService, $window, $, colorService, $timeout) {
+.directive('anatomyImage', [
+    'imageService', '$window', '$', 'colorService', '$timeout', '$filter',
+    function(imageService, $window, $, colorService, $timeout, $filter) {
   var paths = [];
   var pathsObj = {};
   var pathsByCode = {};
@@ -124,11 +126,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             scope.$parent.imageController = that;
 
             function hoverInHandler() {
-              setLowerOpacity(this, HOVER_OPACITY);
+              setHoverColor(this, true);
             }
 
             function hoverOutHandler() {
-              setLowerOpacity(this, 0);
+              setHoverColor(this, false);
             }
 
             function clonePath(path, code, color) {
@@ -167,16 +169,23 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               });
             }
 
-            function setLowerOpacity(path, decrease) {
+            function setHoverColor(path, lower) {
                 var code = path.data('code');
-                if (!code) {
+                if (!code || 
+                    !$filter('isFindOnMapType')(scope.$parent.question) ||
+                    scope.$parent.canNext ||
+                    !$filter('isAllowedOption')(scope.$parent.question, code)) {
                   return;
                 }
                 var paths = (pathsByCode[code] || []).concat(
                     highlightsByCode[code] || []);
                 for (var i = 0; i < paths.length; i++) {
+                  var newColor = lower ?
+                    chroma(paths[i].data('color')).darken().hex() :
+                    paths[i].data('color');
                   paths[i].attr({
-                    'opacity' : paths[i].data('opacity') - decrease,
+                    'fill' : newColor,
+                    'cursor' : lower ? 'pointer' : 'default',
                   });
                 }
             }
@@ -191,7 +200,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 'opacity' : p.opacity,
                 'stroke-width' : p.stroke_width,
                 'stroke' : p.stroke && colorService.toGrayScale(p.stroke),
-                'cursor' : p.disabled ? 'default' : 'pointer',
               });
               path.data('id', p.id);
               path.data('color', color);
@@ -332,7 +340,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
       }
   };
-})
+}])
 
   .directive('blindMap', ['mapControler', 'places', 'singleWindowResizeFn',
         'getMapResizeFunction', '$parse',
