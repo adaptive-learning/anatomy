@@ -284,13 +284,10 @@ angular.module('proso.anatomy.controllers', [])
               userStatsService.addGroupParams(id, [cat.identifier]);
             }
 
-            userStatsService.getStatsPost().success(function(data) {
-              $scope.progressRadius = getProgressRadius();
-              processStats(data);
-              userStatsService.getStatsPost(true).success(processStats);
-            });
+            userStatsService.getStatsPost(true).success(processStats);
 
             function processStats(data) {
+              $scope.progressRadius = getProgressRadius();
               $scope.userStats = data.data;
               $scope.stats = {};
               angular.forEach(categories, function(map) {
