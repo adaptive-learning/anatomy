@@ -8,6 +8,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       link : function($scope, elem) {
         elem.addClass('label');
         elem.addClass('label-default');
+        elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
         elem.tooltip({
           html : true,
           placement: 'bottom',
@@ -16,8 +17,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 gettextCatalog.getString('Odhad znalosti') +
                 ' <span class="badge badge-default">' +
                   '<i class="color-indicator" style="background-color :' +
-                  colorScale($scope.flashcard.prediction).hex() + '"></i>' +
-                  (10 * $scope.flashcard.prediction) + ' / 10 ' +
+                  colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex() + '"></i>' +
+                  (Math.ceil(10 * $scope.flashcard.prediction)) + ' / 10 ' +
                 '</span>' +
                '</div>'
         });
@@ -426,7 +427,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                         'ng-if="skills.number_of_mastered_flashcards">' +
                     '</div>' +
                   '</div>' + 
-                  '<div class="text-center">' +
+                  '<div class="text-center" ng-hide="hideLabels">' +
                      '<span class="badge badge-default">' +
                        '<i class="color-indicator learned"></i>' +
                        '<span translate>Naučeno</span>: ' +
@@ -441,6 +442,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                      '</span>' +
                    '</div>',
       link : function($scope, elem, attrs) {
+        $scope.skills = undefined;
         attrs.$observe('skills', function(skills) {
           if(skills !== '') {
             $scope.skills = angular.fromJson(skills);
@@ -448,6 +450,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               Math.max(0, $scope.skills.number_of_practiced_flashcards -
               ($scope.skills.number_of_mastered_flashcards || 0));
           }
+        });
+        attrs.$observe('hideLabels', function(hideLabels) {
+          console.log('hideLabels', hideLabels);
+          $scope.hideLabels = hideLabels;
         });
       }
     };

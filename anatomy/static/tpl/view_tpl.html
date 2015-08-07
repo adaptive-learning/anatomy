@@ -20,27 +20,14 @@
 <div class="table table-striped col-sm-12">
 <br>
     <div class="row table-row {{activeContext==context && 'active'}}"
+      ng-click="activateContext(context)" 
       ng-repeat="context in contexts">
-      <a class="col-sm-5" ng-click="activateContext(context)" href="">
+      <a class="col-sm-6" href="">
         {{context.name || '[MISSING]'}}
       </a>
-      <span class="col-sm-5">
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar"
-            style="width: {{context.paths_progress}}%;">
-            <span ng-if="context.paths_progress != 0">
-            {{context.paths_count - context.untagged_paths_count}} /
-            {{context.paths_count}}
-            </span>
-          </div>
-        </div>
-      </span>
-      <span class="col-sm-2">
-       <!--
-        <a class="btn btn-primary" href="practice/{{context.identifier}}">
-          Procvičovat
-        </a>
-        -->
+      <span class="col-sm-6">
+        <div category-progress skills="{{context.stats}}"
+          hide-labels="{{activeContext!=context}}"></div>
       </span>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context">
@@ -50,7 +37,6 @@
             ng-repeat="flashcard in context.flashcards"
             ng-class="{'btn-info' : flashcard.term == activeTerm}"
             ng-click="clickTerm(flashcard.term)"
-            style="border-bottom: 5px solid {{flashcard.prediction|probColor}};"
             term-label
             ng-bind="flashcard.term.name" >
           </span>

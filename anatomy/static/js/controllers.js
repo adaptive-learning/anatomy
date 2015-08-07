@@ -44,19 +44,37 @@ angular.module('proso.anatomy.controllers', [])
 
           contextService.getContexts(filter).then(function(data) {
             $scope.contexts = data;
-          });
 
+            userStatsService.clean();
+            for (var i = 0; i < data.length; i++) {
+              var context = data[i];
+              var id = context.identifier;
+              userStatsService.addGroup(id, {});
+              userStatsService.addGroupParams(id, [], [context.identifier]);
+            }
+
+            userStatsService.getStatsPost(true).success(function(data) {
+              angular.forEach($scope.contexts, function(context) {
+                context.placeTypes = [];
+                var key = context.identifier;
+                context.stats = data.data[key];
+              });
+            });
+
+
+          });
 
           if ($routeParams.user == 'average') {
             filter.new_user_predictions = true;
           }
+
           var catId = $routeParams.category;
           userStatsService.addGroup(catId, {});
           userStatsService.addGroupParams(catId, [$routeParams.category]);
-
           userStatsService.getStatsPost(true).success(function(data) {
             $scope.stats = data.data[catId];
           });
+
 
           flashcardService.getFlashcards(filter).then(function(data) {
               angular.forEach(data, function(flashcard) {
