@@ -48,7 +48,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           dset: '='
       },
       link: function(scope, element, attrs) {
-          element.addClass('anatomy-image');
+          element.parent().addClass('anatomy-image');
           scope.$parent.initImage = function(image){
             viewBox = image.bbox;
             var paper = {
@@ -233,8 +233,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
               if (screenAspectRatio < 1) {
+                var headerHeight = angular.element('.header-practice').height() || 0;
                 angular.element('#ng-view').addClass('horizontal');
-                paper.height = $window.innerHeight - 78;
+                paper.height = $window.innerHeight - (8 + headerHeight);
                 paper.width = $window.innerWidth  * 0.7;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
