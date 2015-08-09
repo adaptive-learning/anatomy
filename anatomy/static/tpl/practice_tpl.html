@@ -1,4 +1,13 @@
+<div class="container-fluid">
+  <div class="row header header-practice">
+    <div class="col-sm-12 ">
+      <h1>{{categoryId | categoryIdToName}} - {{question.context.name}}</h1>
+    </div>
+  </div>
+</div>
+<div>
 <div anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" practice="true" ></div>
+</div>
 <div class="practice-with-progress">
   <div class="progress quesions-progress">
     <div class="progress-bar" style="width: {{progress}}%;"></div>
@@ -90,7 +99,7 @@
           </a>
           -->
           <a class="btn btn-lg btn-default" 
-             href="/refreshpractice/{{part}}/{{placeType}}" >
+             href="/refreshpractice/{{categoryId}}/" >
             <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
           </a>
           <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 

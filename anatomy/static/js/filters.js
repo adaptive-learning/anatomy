@@ -86,6 +86,13 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
+  .filter('categoryIdToName',['categoryService', function(categoryService) {
+    return function(id) {
+      var category = categoryService.getCategory(id);
+      return category ? category.name : '';
+    };
+  }])
+
   .filter('codeToName',['flashcardService', function(flashcardService) {
     return function(code) {
       var fc = flashcardService.getFlashcardByDescription(code);

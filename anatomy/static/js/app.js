@@ -38,9 +38,9 @@ angular.module('proso.anatomy', [
         }).when('/practice/', {
             controller : 'AppPractice',
             templateUrl : 'static/tpl/practice_tpl.html'
-        }).when('/refreshpractice/:part?/:place_type?', {
-            redirectTo : '/practice/:part/:place_type'
-        }).when('/practice/:part?/:place_type?', {
+        }).when('/refreshpractice/:category?/', {
+            redirectTo : '/practice/:category/'
+        }).when('/practice/:category?/', {
             controller : 'AppPractice',
             templateUrl : 'static/tpl/practice_tpl.html'
         }).when('/overview/:user?', {

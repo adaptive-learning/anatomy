@@ -234,7 +234,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
               if (screenAspectRatio < 1) {
                 angular.element('#ng-view').addClass('horizontal');
-                paper.height = $window.innerHeight - 8;
+                paper.height = $window.innerHeight - 78;
                 paper.width = $window.innerWidth  * 0.7;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
@@ -454,7 +454,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
         });
         attrs.$observe('hideLabels', function(hideLabels) {
-          console.log('hideLabels', hideLabels);
           $scope.hideLabels = hideLabels;
         });
       }

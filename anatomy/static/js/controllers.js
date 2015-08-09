@@ -115,8 +115,7 @@ angular.module('proso.anatomy.controllers', [])
         practiceService, userService, events, colors, flashcardService) {
         'use strict';
 
-        $scope.part = $routeParams.part;
-        $scope.placeType = $routeParams.place_type;
+        $scope.categoryId = $routeParams.category;
         $scope.progress = 0;
 
         $scope.highlight = function() {
@@ -235,11 +234,14 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback = function() {
             practiceService.initSet('common');
             var filter = {};
-            if ($routeParams.part) {
-                filter.categories = [$routeParams.part];
+            if ($routeParams.categories) {
+                filter.categories = $routeParams.categories;
             }
-            if ($routeParams.place_type) {
-                filter.types = [$routeParams.place_type];
+            if ($routeParams.category) {
+                filter.categories = [$routeParams.category];
+            }
+            if ($routeParams.context) {
+                filter.contexts = [$routeParams.context];
             }
             flashcardService.getFlashcards(filter);
             practiceService.setFilter(filter);
