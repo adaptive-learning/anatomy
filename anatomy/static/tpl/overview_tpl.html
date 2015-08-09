@@ -16,25 +16,37 @@
         <br>
       </span>
     </div>
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation"
+          ng-repeat="categoryType in categoriesByType" 
+          ng-class="{'active' : categoryType.isActive}">
+          <a href="" ng-click="activateCatType(categoryType)" >
+            <h2> {{categoryType.name}}<h2>
+          </a>
+            <div class="clearfix"></div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="overview">
     <div ng-hide="systems" class="loading-indicator">
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-10 col-md-offset-1">
-        <div class="row">
-          <div class="col-sm-9">
-            <span ng-repeat="system in systems"
+        <div ng-repeat="categoryType in categoriesByType"
+            ng-show="categoryType.isActive">
+            <span ng-repeat="category in categoryType.categories"
               class="col-xs-6 col-sm-3 tile">
               <span class="in-tile">
-                <a href="/practice/{{system.identifier}}/" class="tile-link"
-                  style="background-image: url('/static/img/{{system.identifier}}.png');" >
+                <a href="/practice/{{category.identifier}}/" class="tile-link"
+                  style="background-image: url('/static/img/{{category.identifier}}.png');" >
                   <div class="dummy"></div>
                   <div class="absolute">
                     <div round-progress
-                        max="system.stats.number_of_flashcards"
-                        current="system.stats.number_of_mastered_flashcards +
-                        system.stats.number_of_practiced_flashcards"
+                        max="category.stats.number_of_flashcards"
+                        current="category.stats.number_of_mastered_flashcards +
+                        category.stats.number_of_practiced_flashcards"
                         color="#fe3"
                         bgcolor="rgba(150,150,150,0.1)"
                         radius="{{progressRadius}}"
@@ -44,10 +56,10 @@
                         animation="easeInOutQuart"></div>
                   </div>
                   <div class="absolute"
-                    ng-if="system.stats.number_of_mastered_flashcards">
+                    ng-if="category.stats.number_of_mastered_flashcards">
                     <div round-progress
-                        max="system.stats.number_of_flashcards"
-                        current="system.stats.number_of_mastered_flashcards"
+                        max="category.stats.number_of_flashcards"
+                        current="category.stats.number_of_mastered_flashcards"
                         color="#5CA03C"
                         bgcolor="rgba(0,0,0,0)"
                         radius="{{progressRadius}}"
@@ -56,26 +68,20 @@
                         iterations="50"
                         animation="easeInOutQuart"></div>
                   </div>
-                  <h2 ng-bind="system.name"></h2>
+                  <h2 ng-bind="category.name"></h2>
                 </a>
                  <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <span class="glyphicon glyphicon-option-vertical"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="/practice/{{system.identifier}}/" translate >Procvičovat</a></li>
-                    <li><a href="/view/{{system.identifier}}/" translate>Prohlížet</a></li>
+                    <li><a href="/practice/{{category.identifier}}/" translate >Procvičovat</a></li>
+                    <li><a href="/view/{{category.identifier}}/" translate>Prohlížet</a></li>
                   </ul>
                 </div> 
               </span>
             </span>
             <div class="clearfix"></div>
-          </div>
-          <div class="col-sm-3">
-            <div ng-repeat="bodypart in bodyparts">
-             <a ng-bind="bodypart.name" href="/practice/{{bodypart.identifier}}/"></a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

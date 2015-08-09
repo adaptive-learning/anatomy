@@ -264,7 +264,11 @@ angular.module('proso.anatomy.controllers', [])
           return radius;
         }
 
-
+        $scope.activateCatType = function(categoryType) {
+          angular.forEach($scope.categoriesByType, function(ct) {
+            ct.isActive = ct == categoryType;
+          });
+        };
 
         $scope.user = $routeParams.user || '';
         categoryService.getAll().then(function(categories){
@@ -275,7 +279,14 @@ angular.module('proso.anatomy.controllers', [])
               }
               categoriesByType[categories[i].type].push(categories[i]);
             }
-            $scope.bodyparts = categoriesByType.location;
+            $scope.categoriesByType = [{
+              name: 'Systémy',
+              categories : categoriesByType.system,
+              isActive : true,
+            }, {
+              name: 'Části těla',
+              categories : categoriesByType.location,
+            }];
             $scope.systems = categoriesByType.system;
             userStatsService.addGroup('all', {});
             for (i = 0; i < categories.length; i++) {

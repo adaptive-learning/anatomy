@@ -114,6 +114,9 @@ div#footer
   color: white
   h1
     text-align: center
+  h1, h2
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8), 0 0 0px rgba(0, 0, 0, 0.075)
+
 
 .terms-container
   margin: 10px
@@ -131,3 +134,24 @@ div#footer
 
 .label-clickable
   cursor: pointer
+
+.nav 
+  margin-bottom: -30px
+
+.nav-tabs > li > a
+  color: #fff
+  h2
+    margin: 0
+
+.nav-tabs > li > a:hover, .nav-tabs > li > a:focus
+  color: #000
+  h2
+    text-shadow: none
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus
+  background-color: #e6e7e8
+  h2
+    text-shadow: none
+
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus
+  border-bottom-color: #e6e7e8
