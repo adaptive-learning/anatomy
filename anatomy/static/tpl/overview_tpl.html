@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row header">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <h1 translate>Přehled znalostí</h1>
       <span class="col-sm-9">
         <div category-progress skills="{{stats}}"></div>
@@ -16,7 +16,7 @@
         <br>
       </span>
     </div>
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <ul class="nav nav-tabs nav-justified">
         <li role="presentation"
           ng-repeat="categoryType in categoriesByType" 
@@ -33,9 +33,9 @@
     <div ng-hide="systems" class="loading-indicator">
     </div>
     <div class="row">
-      <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div ng-repeat="categoryType in categoriesByType"
-            ng-show="categoryType.isActive">
+            ng-if="categoryType.isActive">
             <span ng-repeat="category in categoryType.categories"
               class="col-xs-6 col-sm-3 tile">
               <span class="in-tile">
