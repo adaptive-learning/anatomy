@@ -226,42 +226,29 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 })
 
 .service('imageService', function($http, $location ,$cookies) {
-  var focusListeners = [];
-  var promises = {};
+  var image;
+  var callback;
+  var callback2;
+
   return {
-    all : function(cached) {
-      var url = '/imagejson/';
-      if (cached && promises[url]){
-        return promises[url];
-      }
-      var promise = $http.get(url);
-      promises[url] = promise;
-      return promise;
-    },
-    get : function(imageSlug) {
-      var urlParts = $location.absUrl().split('/');
-      var url = '/imagejson/' + (imageSlug || urlParts[urlParts.length - 1]);
-      var promise = promises[url] || $http.get(url);
-      promises[url] = promise;
-      return promise;
-    },
-    bindFocus : function(callback) {
-      focusListeners.push(callback);
-    },
-    focus : function(path) {
-      for (var i = 0; i < focusListeners.length; i++) {
-        focusListeners[i](path);
+    setImage : function(i, fn) {
+      if (callback) {
+        fn(callback(i));
+        callback = undefined;
+      } else {
+        image = i;
+        callback2 = fn;
       }
     },
-    save : function(image, paths) {
-      var url = "/image/update";
-      var data = {
-        image: image,
-        paths: paths,
-      };
-      $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
-      return $http.post(url, data);
-    }
+    getImage : function(fn) {
+      if (image) {
+        callback2(fn(image));
+        image = undefined;
+        callback2 = undefined;
+      } else {
+        callback = fn;
+      }
+    },
   };
 })
 

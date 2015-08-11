@@ -29,16 +29,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 .directive('anatomyImage', [
     'imageService', '$window', '$', 'colorService', '$timeout', '$filter',
     function(imageService, $window, $, colorService, $timeout, $filter) {
-  var paths = [];
-  var pathsObj = {};
-  var pathsByCode = {};
-  var rPathsObj = {};
-  var viewBox = {
-    x : 0,
-    y : 0,
-  };
-  var focused = [];
-  var glows = [];
   var HOVER_OPACITY = 0.2;
   var ANIMATION_TIME_MS = 500;
 
@@ -49,8 +39,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       link: function(scope, element, attrs) {
           element.parent().addClass('anatomy-image');
-          scope.$parent.initImage = function(image){
-            viewBox = image.bbox;
+          var initImage = function(image){
             var paper = {
               x : 0,
               y : 0,
@@ -68,6 +57,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               if (clickFn) clickFn(clickedCode);
               scope.$parent.$apply();
             }
+
+            var paths = [];
+            var pathsObj = {};
+            var pathsByCode = {};
+            var rPathsObj = {};
+            var focused = [];
+            var glows = [];
 
             var highlights = [];
             var highlightsByCode = {};
@@ -109,10 +105,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   highlights = highlights.concat(clones);
                 }
                 angular.forEach(highlightsByCode[code], function(clone) {
-                  clone.data('color', color);
-                  clone.attr({
-                    'fill' : color,
-                  });
+                  if (color) {
+                    clone.data('color', color);
+                    clone.attr({
+                      'fill' : color,
+                    });
+                  }
                   animateClone(clone, bbox);
                 });
               },
@@ -124,19 +122,31 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 highlights = [];
                 highlightsByCode = {};
               },
+              setColor : function(code, color) {
+                var paths = pathsByCode[code] || [];
+                for (var i = 0; i < paths.length; i++) {
+                  paths[i].data('color', color);
+                  paths[i].attr({
+                    'fill' : color,
+                  });
+                }
+              },
+              hoverIn : hoverInHandler,
+              hoverOut : hoverOutHandler,
             };
 
-            scope.$parent.imageController = that;
-
-            function hoverInHandler() {
-              setHoverColor(this, true);
+            function hoverInHandler(pathCode) {
+              var path = pathsByCode[pathCode] && pathsByCode[pathCode][0] || this;
+              setHoverColor(path, true);
             }
 
-            function hoverOutHandler() {
-              setHoverColor(this, false);
+            function hoverOutHandler(pathCode) {
+              var path = pathsByCode[pathCode] && pathsByCode[pathCode][0] || this;
+              setHoverColor(path, false);
             }
 
             function clonePath(path, code, color) {
+              color = color || path.attr('fill');
               var clone = path.clone();
               clone.click(clickHandler);
               clone.hover(hoverInHandler, hoverOutHandler);
@@ -174,10 +184,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
             function setHoverColor(path, lower) {
                 var code = path.data('code');
-                if (!code || 
-                    !$filter('isFindOnMapType')(scope.$parent.question) ||
-                    scope.$parent.canNext ||
-                    !$filter('isAllowedOption')(scope.$parent.question, code)) {
+                if (!code || (
+                    attrs.practiced && (
+                      !$filter('isFindOnMapType')(scope.$parent.question) ||
+                      scope.$parent.canNext ||
+                      !$filter('isAllowedOption')(scope.$parent.question, code)
+                     )
+                    )) {
                   return;
                 }
                 var paths = (pathsByCode[code] || []).concat(
@@ -192,6 +205,24 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   });
                 }
             }
+
+            function getBBox(bboxes) {
+              var xs = bboxes.map(function(b){return b.x;});
+              var minX = Math.min.apply(Math, xs);
+              var ys = bboxes.map(function(b){return b.y;});
+              var minY = Math.min.apply(Math, ys);
+              var x2s = bboxes.map(function(b){return b.x2;});
+              var maxX = Math.max.apply(Math, x2s);
+              var y2s = bboxes.map(function(b){return b.y2;});
+              var maxY = Math.max.apply(Math, y2s);
+              return {
+                x : minX,
+                y : minY,
+                width : maxX - minX,
+                height : maxY - minY,
+              };
+            }
+
 
             for (var i = 0; i < image.paths.length; i++) {
               var p = image.paths[i];
@@ -221,12 +252,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               pathsObj[p.id] = p;
             }
 
-            viewBox = getBBox(image.paths.map(function(p) {
+            image.bbox = getBBox(image.paths.map(function(p) {
               p.bbox.x2 = p.bbox.x + p.bbox.width;
               p.bbox.y2 = p.bbox.y + p.bbox.height;
               return p.bbox;
             }));
-            image.bbox = viewBox;
 
             function onWidowResize(){
               angular.element('#ng-view').removeClass('horizontal');
@@ -243,7 +273,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               }
 
               r.setSize(paper.width, paper.height);
-              r.setViewBox(viewBox.x, viewBox.y, viewBox.width, viewBox.height, true);
+              r.setViewBox(image.bbox.x, image.bbox.y, image.bbox.width, image.bbox.height, true);
             }
             onWidowResize();
             angular.element($window).bind('resize', function() {
@@ -255,93 +285,17 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               });
             }
 
-
-
-            var initMapZoom = function(paper, options) {
-              var panZoom = paper.panzoom(options);
-              panZoom.enable();
-
-              $('#zoom-in').click(function(e) {
-                panZoom.zoomIn(1);
-                e.preventDefault();
-              });
-
-              $('#zoom-out').click(function(e) {
-                panZoom.zoomOut(1);
-                e.preventDefault();
-              });
-              return panZoom;
-            };
-            var panZoomOptions = {
-             initialPosition : {
-               x : viewBox.x,
-               y : viewBox.y,
-             }
-            };
-
-            $('#init-zoom').click(function() {
-              initMapZoom(r, panZoomOptions);
-              scope.zoomInited = true;
-              $(this).hide();
-            });
-
-            imageService.bindFocus(function(pathOrByColor) {
-              clearFocused();
-              if (pathOrByColor.d) {
-                focusPath(pathOrByColor);
-              }
-            });
-
-            function clearFocused() {
-              for (var i = 0; i < glows.length; i++) {
-                glows[i].remove();
-              }
-              glows = [];
-              for (i = 0; i < focused.length; i++) {
-                var p = pathsObj[focused[i].data('id')];
-                focused[i].attr('stroke-width', p.stroke_width);
-                focused[i].attr('stroke', p.stroke);
-              }
-              focused = [];
-            }
-
-            function focusPath(path) {
-              if (path.isTooSmall) {
-                return;
-              }
-              var rPath = rPathsObj[path.id];
-              focused.push(rPath);
-              var glow = rPath.glow({
-                'color': 'red',
-                'opacity': 1,
-                'width': 5,
-              });
-              glow.toFront();
-              glows.push(glow);
-              return path.bbox;
-            }
-
-            function getBBox(bboxes) {
-              var xs = bboxes.map(function(b){return b.x;});
-              var minX = Math.min.apply(Math, xs);
-              var ys = bboxes.map(function(b){return b.y;});
-              var minY = Math.min.apply(Math, ys);
-              var x2s = bboxes.map(function(b){return b.x2;});
-              var maxX = Math.max.apply(Math, x2s);
-              var y2s = bboxes.map(function(b){return b.y2;});
-              var maxY = Math.max.apply(Math, y2s);
-              return {
-                x : minX,
-                y : minY,
-                width : maxX - minX,
-                height : maxY - minY,
-              };
-            }
-
+            return that;
           };
-          if (attrs.context) {
-            scope.$parent.initImage(angular.fromJson(attrs.context));
-          }
+
+          attrs.$observe('code', function(value) {
+            if (value) {
+              imageService.getImage(function(i) {
+                return initImage(i);
+              });
+            }
+          });
+          
       }
   };
 }])

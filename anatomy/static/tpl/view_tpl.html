@@ -20,24 +20,29 @@
 <div class="table table-striped col-sm-12">
 <br>
     <div class="row table-row {{activeContext==context && 'active'}}"
-      ng-click="activateContext(context)" 
       ng-if="context.stats && context.stats.number_of_flashcards"
       ng-repeat="context in contexts">
-      <a class="col-sm-5 col-sm-offset-1" href="">
+      <a class="col-sm-5 col-sm-offset-1" href=""
+        ng-click="activateContext(context)" >
         {{context.name || '[MISSING]'}}
       </a>
-      <span class="col-sm-5">
+      <span class="col-sm-5"
+        ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
           hide-labels="{{activeContext!=context}}"></div>
       </span>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context">
-        <span anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" context='{{context.content}}' ></span>
+        <span>
+        <span anatomy-image code="{{context.identifier}}" ></span>
+        </span>
         <span ng-hide="loading" class="terms-container">
           <span class="label label-default"
             ng-repeat="flashcard in context.flashcards"
             ng-class="{'btn-info' : flashcard.term == activeTerm}"
-            ng-click="clickTerm(flashcard.term)"
+            ng-click="imageController.clearHighlights();imageController.highlightItem(flashcard.description)"
+            ng-mouseenter="imageController.hoverIn(flashcard.description)"
+            ng-mouseleave="imageController.hoverOut(flashcard.description)"
             term-label
             ng-bind="flashcard.term.name" >
           </span>

@@ -32,87 +32,97 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService',
-    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', '$location', 'imageService', 'colorScale',
+    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, $location, imageService, colorScale) {
         'use strict';
-        categoryService.getAll().then(function(){
-          $scope.category = categoryService.getCategory($routeParams.category);
+      categoryService.getAll().then(function(){
+        $scope.category = categoryService.getCategory($routeParams.category);
+      });
 
-          var filter = {
-              categories : [$routeParams.category],
-          };
+      var filter = {
+          categories : [$routeParams.category],
+      };
 
-          contextService.getContexts(filter).then(function(data) {
-            $scope.contexts = data;
+      contextService.getContexts(filter).then(function(data) {
+        $scope.contexts = data;
 
-            userStatsService.clean();
-            for (var i = 0; i < data.length; i++) {
-              var context = data[i];
-              var id = context.identifier;
-              userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [$routeParams.category], [context.identifier]);
-            }
-
-            userStatsService.getStatsPost(true).success(function(data) {
-              angular.forEach($scope.contexts, function(context) {
-                context.placeTypes = [];
-                var key = context.identifier;
-                context.stats = data.data[key];
-              });
-              $scope.statsLoaded = true;
-            });
-
-
-          });
-
-          if ($routeParams.user == 'average') {
-            filter.new_user_predictions = true;
+        userStatsService.clean();
+        for (var i = 0; i < data.length; i++) {
+          var context = data[i];
+          var id = context.identifier;
+          userStatsService.addGroup(id, {});
+          userStatsService.addGroupParams(id, [$routeParams.category], [context.identifier]);
+          if ($routeParams.context && $routeParams.context == id) {
+            $scope.activateContext(context);
           }
+        }
 
-          var catId = $routeParams.category;
-          userStatsService.addGroup(catId, {});
-          userStatsService.addGroupParams(catId, [$routeParams.category]);
-          userStatsService.getStatsPost(true).success(function(data) {
-            $scope.stats = data.data[catId];
+        userStatsService.getStatsPost(true).success(function(data) {
+          angular.forEach($scope.contexts, function(context) {
+            context.placeTypes = [];
+            var key = context.identifier;
+            context.stats = data.data[key];
           });
-
-
-          flashcardService.getFlashcards(filter).then(function(data) {
-              angular.forEach(data, function(flashcard) {
-                if (filter.new_user_predictions) {
-                  flashcard.prediction = flashcard.new_user_prediction;
-                  flashcard.practiced = true;
-                }
-                flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
-              });
-          }, function(){
-              $scope.error = true;
-          });
+          $scope.statsLoaded = true;
         });
+      });
 
-        $scope.activateContext = function(context) {
-          $scope.activeContext = $scope.activeContext !== context ? context : undefined;
-          var filter = {
-              contexts : [context.identifier],
-          };
-          flashcardService.getFlashcards(filter).then(function(data) {
-             context.flashcards = data;
+      if ($routeParams.user == 'average') {
+        filter.new_user_predictions = true;
+      }
+
+      var catId = $routeParams.category;
+      userStatsService.addGroup(catId, {});
+      userStatsService.addGroupParams(catId, [$routeParams.category]);
+      userStatsService.getStatsPost(true).success(function(data) {
+        $scope.stats = data.data[catId];
+      });
+
+
+      flashcardService.getFlashcards(filter).then(function(data) {
+        /*
+          angular.forEach(data, function(flashcard) {
+            if (filter.new_user_predictions) {
+              flashcard.prediction = flashcard.new_user_prediction;
+              flashcard.practiced = true;
+            }
+            flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
           });
-        };
+          */
+      }, function(){
+          $scope.error = true;
+      });
 
-        $scope.clickTerm = function(term) {
-          // TODO this doesn't work
-          console.log('click term', term);
-          $scope.imageController.highlightItem(term, colors.GOOD);
-        };
+      $scope.activateContext = function(context) {
+        $scope.activeContext = $scope.activeContext !== context ? context : undefined;
+        //$location.search('context', context.identifier);
+        if ($scope.activeContext) {
+          imageService.setImage(
+            angular.fromJson($scope.activeContext.content), 
+            function(ic) {
+              $scope.imageController = ic;
+
+              var filter = {
+                  contexts : [context.identifier],
+              };
+              flashcardService.getFlashcards(filter).then(function(data) {
+                 context.flashcards = data;
+                 for (var i = 0; i < data.length; i++) {
+                   var fc = data[i];
+                   $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
+                 }
+              });
+            });
+        }
+      };
     }
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter',
-    'practiceService', 'userService', 'events', 'colors', 'flashcardService',
+    'practiceService', 'userService', 'events', 'colors', 'flashcardService', 'imageService',
 
     function($scope, $routeParams, $timeout, $filter,
-        practiceService, userService, events, colors, flashcardService) {
+        practiceService, userService, events, colors, flashcardService, imageService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -162,12 +172,7 @@ angular.module('proso.anatomy.controllers', [])
         };
 
         $scope.highlightFlashcard = function(fc) {
-            console.log('fc', fc);
-            $scope.initImage(angular.fromJson(fc.context.content));
-            $scope.imageController.highlightItem(fc.description, fc.answer.correct ? colors.GOOD : colors.BAD);
-            if (!fc.answer.correct) {
-              $scope.imageController.highlightItem(fc.answered_code, colors.GOOD);
-            }
+          $scope.activeQuestion = fc;
         };
 
         function highlightAnswer (asked, selected) {
@@ -186,13 +191,6 @@ angular.module('proso.anatomy.controllers', [])
             $scope.summary.correctlyAnsweredRatio = $scope.summary.correct / $scope.summary.count;
             console.log($scope.summary);
             $scope.showSummary = true;
-            $scope.imageController.clearHighlights();
-            //$scope.imageController.showSummaryTooltips($scope.summary.flashcards);
-            angular.forEach($scope.summary.flashcards, function(q) {
-                var correct = q.description == q.answered_code;
-                //$scope.imageController.showLayerContaining(q.description);
-                $scope.imageController.highlightItem(q.description, correct ? colors.GOOD : colors.BAD, 1);
-            });
             $("html, body").animate({ scrollTop: "0px" });
             //TODO fix this when answered_count available
             // events.emit('questionSetFinished', userService.getUser().answered_count);
@@ -200,26 +198,33 @@ angular.module('proso.anatomy.controllers', [])
 
         function setQuestion(active) {
             console.log(active);
-            $scope.initImage(angular.fromJson(active.context.content));
             if ($scope.question) {
                 $scope.question.slideOut = true;
             }
             $scope.question = active;
+            $scope.activeQuestion = active;
             $scope.question.responseTime = - new Date().valueOf();
             $scope.questions.push(active);
-            $scope.imageController.clearHighlights();
-            $scope.highlight();
-            $scope.canNext = false;
 
-            $scope.imageController.onClick(function(code) {
-                if ($filter('isFindOnMapType')($scope.question) &&
-                    !$scope.canNext &&
-                    $filter('isAllowedOption')($scope.question, code)) {
+            imageService.setImage(
+              angular.fromJson(active.context.content),
+              function(ic) {
+                $scope.imageController = ic;
 
-                    $scope.checkAnswer(code);
-                    $scope.$apply();
-                }
-            });
+                $scope.imageController.clearHighlights();
+                $scope.highlight();
+                $scope.canNext = false;
+
+                $scope.imageController.onClick(function(code) {
+                    if ($filter('isFindOnMapType')($scope.question) &&
+                        !$scope.canNext &&
+                        $filter('isAllowedOption')($scope.question, code)) {
+
+                        $scope.checkAnswer(code);
+                        $scope.$apply();
+                    }
+                });
+              });
         }
 
         function highlightOptions(selected) {

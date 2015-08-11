@@ -6,7 +6,10 @@
   </div>
 </div>
 <div>
-<div anatomy-image code="{{part}}" map="imageController" callback="mapCallback()" practice="true" ></div>
+<div ng-repeat="question in questions"
+    ng-show="question.description == activeQuestion.description">
+  <div anatomy-image code="{{question.context.identifier}}" practice="true" ></div>
+  </div>
 </div>
 <div class="practice-with-progress">
   <div class="progress quesions-progress">
