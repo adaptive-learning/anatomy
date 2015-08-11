@@ -1,6 +1,6 @@
 *.pyc
 .ropeproject
-*.sw[po]
+*.sw[pon]
 db.sqlite
 bower_components
 .django_cache
