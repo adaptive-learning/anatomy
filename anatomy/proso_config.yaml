@@ -1,5 +1,7 @@
 default:
     proso_models:
+        random_test:
+            nth: 10
         predictive_model:
             class: proso.models.prediction.PriorCurrentPredictiveModel
         option_selector:

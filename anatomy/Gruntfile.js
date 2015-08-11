@@ -160,7 +160,7 @@ module.exports = function(grunt) {
         watch: {
             'anatomy-js': {
                 files: 'static/js/*.js',
-                tasks: ['concat:anatomy', 'uglify:anatomy']
+                tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy']
             },
             'anatomy-css': {
                 files: 'static/sass/*.sass',
