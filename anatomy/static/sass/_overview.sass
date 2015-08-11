@@ -57,8 +57,40 @@
 .map-categories:nth-child(odd)
   background: rgba(0,0,0,0.05)
 
+@-webkit-keyframes fadeIn 
+  from 
+    opacity: 0
+  to  
+    opacity: 1
+@-moz-keyframes fadeIn 
+  from 
+    opacity: 0
+  to  
+    opacity: 1
+@keyframes fadeIn 
+  from 
+    opacity: 0
+  to  
+    opacity: 1
+
 .tile 
   padding: 5px
+  -webkit-animation: fadeIn .5s ease-out
+  -moz-animation: fadeIn .5s ease-out
+  animation: fadeIn .5s ease-out
+  -webkit-animation-fill-mode: both
+  -moz-animation-fill-mode: both
+  animation-fill-mode: both
+  @for $i from 1 through 11
+    &:nth-child(#{$i})
+      -webkit-animation-delay: .05s * $i
+      -moz-animation-delay: .05s * $i
+      animation-delay: .05s * $i
+  &:nth-child(n + 12) 
+    -webkit-animation-delay: .6s
+    -moz-animation-delay: .6s
+    animation-delay: .6s
+
 
 
 .in-tile 
