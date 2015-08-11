@@ -262,8 +262,8 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService',
-    function($scope, $routeParams, categoryService, userStatsService) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog',
+    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog) {
         'use strict';
 
         function getProgressRadius() {
@@ -287,11 +287,11 @@ angular.module('proso.anatomy.controllers', [])
               categoriesByType[categories[i].type].push(categories[i]);
             }
             $scope.categoriesByType = [{
-              name: 'Systémy',
+              name: gettextCatalog.getString('Oragánové systémy'),
               categories : categoriesByType.system,
               isActive : true,
             }, {
-              name: 'Části těla',
+              name: gettextCatalog.getString('Části těla'),
               categories : categoriesByType.location,
             }];
             $scope.systems = categoriesByType.system;
