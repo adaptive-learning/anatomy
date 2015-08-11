@@ -30,6 +30,7 @@ ADMINS = (
     ('Jan Papoušek', 'jan.papousek@gmail.com'),
 )
 
+EMAIL_SUBJECT_PREFIX = '[anatom.cz] '
 
 ALLOWED_HOSTS = ['anatom.cz']
 
@@ -188,7 +189,7 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['console', 'request'],
+            'handlers': ['console', 'request', 'mail_admins'],
             'propagate': True,
             'level': 'DEBUG'
         }
