@@ -1,7 +1,17 @@
 <div class="container-fluid">
   <div class="row header header-practice">
     <div class="col-sm-12 ">
-      <h1>{{categoryId | categoryIdToName}} {{question.context.name}}</h1>
+      <h1>
+        {{categoryId | categoryIdToName}} {{question.context.name}}
+        <a ng-if="userService.user.staff && categoryId"
+          href="/view/{{categoryId}}/?context={{question.context.identifier}}">
+          <i class="glyphicon glyphicon-picture" ></i>
+        </a>
+        <a ng-if="userService.user.staff"
+          href="http://znackuj.anatom.cz/image/{{question.context.identifier}}">
+          <i class="glyphicon glyphicon-edit" ></i>
+        </a>
+      </h1>
     </div>
   </div>
 </div>

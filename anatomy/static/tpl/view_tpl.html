@@ -22,10 +22,22 @@
     <div class="row table-row {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_flashcards"
       ng-repeat="context in contexts">
-      <a class="col-sm-5 col-sm-offset-1" href=""
+      <span class="col-sm-5 col-sm-offset-1"
         ng-click="activateContext(context)" >
-        {{context.name || '[MISSING]'}}
-      </a>
+        <a href="">
+          {{context.name || '[MISSING]'}}
+        </a>
+        <a ng-if="userService.user.staff"
+          class="pull-right"
+          href="http://znackuj.anatom.cz/image/{{context.identifier}}">
+          <i class="glyphicon glyphicon-edit" ></i>
+        </a>
+        <a ng-if="userService.user.staff"
+          class="pull-right"
+          href="/practice/{{category.identifier}}/?context={{question.context.identifier}}">
+          <i class="glyphicon glyphicon-check" ></i>
+        </a>
+      </span>
       <span class="col-sm-5"
         ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
