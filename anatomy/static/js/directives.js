@@ -260,9 +260,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
               if (screenAspectRatio < 1) {
-                var headerHeight = angular.element('.header-practice').height() || 0;
                 angular.element('#ng-view').addClass('horizontal');
-                paper.height = $window.innerHeight - (8 + headerHeight);
+                if (attrs.practice) {
+                  var headerHeight = angular.element('.header-practice').height() || 0;
+                  paper.height = $window.innerHeight - (8 + headerHeight);
+                } else {
+                  paper.height = $window.innerHeight * 0.7;
+                }
                 paper.width = $window.innerWidth  * 0.7;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
