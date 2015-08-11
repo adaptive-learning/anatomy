@@ -64,7 +64,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           //db_orderby : 'name',
         });
         var deferredContext = $q.defer();
-        $http.get('/flashcards/contexts', {params: filter}).success(function(data) {
+        $http.get('/flashcards/contexts', {params: filter, cache: true}
+        ).success(function(data) {
           deferredContext.resolve(data.data);
         }).error(function(error){
           console.error("Something went wrong while loading contexts from backend.");
@@ -87,7 +88,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         all : 'True',
         db_orderby : 'name',
       };
-      httpPromise = $http.get('/flashcards/categorys', {params: filter}).success(function(data) {
+      httpPromise = $http.get('/flashcards/categorys', {params: filter, cache: true}
+      ).success(function(data) {
         categories = data.data;
         for (var i = 0; i < data.data.length; i++) {
           categoriesByIdentifier[data.data[i].identifier] = data.data[i];
