@@ -227,7 +227,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   return that;
 })
 
-.service('imageService', function($http, $location ,$cookies) {
+.service('imageService', function() {
   var image;
   var callback;
   var callback2;

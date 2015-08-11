@@ -29,7 +29,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 .directive('anatomyImage', [
     'imageService', '$window', '$', 'colorService', '$timeout', '$filter',
     function(imageService, $window, $, colorService, $timeout, $filter) {
-  var HOVER_OPACITY = 0.2;
   var ANIMATION_TIME_MS = 500;
 
   return {
@@ -62,8 +61,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             var pathsObj = {};
             var pathsByCode = {};
             var rPathsObj = {};
-            var focused = [];
-            var glows = [];
 
             var highlights = [];
             var highlightsByCode = {};

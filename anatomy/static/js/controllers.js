@@ -79,7 +79,7 @@ angular.module('proso.anatomy.controllers', [])
       });
 
 
-      flashcardService.getFlashcards(filter).then(function(data) {
+      flashcardService.getFlashcards(filter).then(function() {
         /*
           angular.forEach(data, function(flashcard) {
             if (filter.new_user_predictions) {
