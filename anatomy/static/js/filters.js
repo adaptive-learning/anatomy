@@ -91,7 +91,7 @@ angular.module('proso.anatomy.filters', [])
   .filter('categoryIdToName',['categoryService', function(categoryService) {
     return function(id) {
       var category = categoryService.getCategory(id);
-      return category ? category.name : '';
+      return category ? category.name + ' - ' : '';
     };
   }])
 
