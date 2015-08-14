@@ -57,14 +57,19 @@ angular.module('proso.anatomy.controllers', [])
           }
         }
 
-        userStatsService.getStatsPost(true).success(function(data) {
+        userStatsService.getStatsPost().success(function(data) {
+          resolveContexts(data);
+          userStatsService.getStatsPost(true).success(resolveContexts);
+        });
+
+        function resolveContexts(data) {
           angular.forEach($scope.contexts, function(context) {
             context.placeTypes = [];
             var key = context.identifier;
             context.stats = data.data[key];
           });
           $scope.statsLoaded = true;
-        });
+        }
       });
 
       if ($routeParams.user == 'average') {
@@ -78,42 +83,28 @@ angular.module('proso.anatomy.controllers', [])
         $scope.stats = data.data[catId];
       });
 
-
-      flashcardService.getFlashcards(filter).then(function() {
-        /*
-          angular.forEach(data, function(flashcard) {
-            if (filter.new_user_predictions) {
-              flashcard.prediction = flashcard.new_user_prediction;
-              flashcard.practiced = true;
-            }
-            flashcard.prediction = Math.ceil(flashcard.prediction * 10) / 10;
-          });
-          */
-      }, function(){
-          $scope.error = true;
-      });
-
       $scope.activateContext = function(context) {
         $scope.activeContext = $scope.activeContext !== context ? context : undefined;
         //$location.search('context', context.identifier);
         if ($scope.activeContext) {
-          imageService.setImage(
-            angular.fromJson($scope.activeContext.content), 
-            function(ic) {
-              $scope.imageController = ic;
-
-              var filter = {
-                  contexts : [context.identifier],
-                  stats : true,
-              };
-              flashcardService.getFlashcards(filter).then(function(data) {
-                 context.flashcards = data;
-                 for (var i = 0; i < data.length; i++) {
-                   var fc = data[i];
-                   $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
-                 }
-              });
+          var filter = {
+            contexts : [context.identifier],
+            stats : true,
+          };
+          flashcardService.getFlashcards(filter).then(function(data) {
+            context.flashcards = data;
+            contextService.getContext(context.id).then(function(fullContext) {
+              $scope.activeContext.content = fullContext.content;
+              imageService.setImage(
+                angular.fromJson($scope.activeContext.content), function(ic) {
+                  $scope.imageController = ic;
+                  for (var i = 0; i < context.flashcards.length; i++) {
+                    var fc = context.flashcards[i];
+                    $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
+                  }
+                });
             });
+          });
         }
       };
     }
