@@ -33,8 +33,8 @@ ADMINS = (
 EMAIL_SUBJECT_PREFIX = '[anatom.cz] '
 
 ALLOWED_HOSTS = [
-    'www.anatom.cz',
-    'www.practiceanatomy.com',
+    'anatom.cz',
+    'practiceanatomy.com',
 ]
 
 
