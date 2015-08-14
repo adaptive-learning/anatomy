@@ -32,7 +32,10 @@ ADMINS = (
 
 EMAIL_SUBJECT_PREFIX = '[anatom.cz] '
 
-ALLOWED_HOSTS = ['anatom.cz']
+ALLOWED_HOSTS = [
+    'anatom.cz',
+    'practiceanatomy.com',
+]
 
 
 # Application definition
