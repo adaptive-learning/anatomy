@@ -180,7 +180,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             }
 
             function setHoverColor(path, lower) {
-                var code = path.data('code');
+                var code = path && path.data('code');
                 if (!code || (
                     attrs.practiced && (
                       !$filter('isFindOnMapType')(scope.$parent.question) ||

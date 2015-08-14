@@ -135,6 +135,7 @@ angular.module('proso.anatomy.controllers', [])
             }
             if ($filter('isFindOnMapType')($scope.question) && $scope.question.options) {
               for (var i = 0; i < $scope.question.options.length; i++) {
+                $scope.question.options[i].color = colors.HIGHLIGHTS[i];
                 $scope.imageController.highlightItem(
                   $scope.question.options[i].description, colors.HIGHLIGHTS[i]);
               }
@@ -180,9 +181,7 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.imageController.highlightItem(asked, colors.GOOD);
             }
             $scope.imageController.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
-            if ($filter('isPickNameOfType')($scope.question) && $scope.question.options) {
-                highlightOptions(selected);
-            }
+            highlightOptions(selected);
         }
 
         function setupSummary() {
@@ -228,9 +227,12 @@ angular.module('proso.anatomy.controllers', [])
         }
 
         function highlightOptions(selected) {
-            $scope.question.options.map(function(o) {
+            ($scope.question.options || []).map(function(o) {
                 o.correct = o.description == $scope.question.description;
                 o.selected = o.description == selected;
+                if (o.selected || o.correct) {
+                  o.color = undefined;
+                }
                 o.disabled = true;
                 return o;
             });

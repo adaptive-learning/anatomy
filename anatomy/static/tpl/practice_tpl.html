@@ -32,13 +32,13 @@
     <div class="practice">
       <div ng-repeat="question in questions"
           ng-class="{'slide-out': question.slideOut}"
-          class="inner-practice">
-        <div class="question">
+          class="inner-practice row">
+        <div class="question col-sm-12">
           <span ng-bind="question | questionText"></span>
           <span class="label label-default" ng-show="question|isFindOnMapType">
             {{question.term.name}}
           </span>
-          <span ng-show="question.answered_code && (question|isFindOnMapType) &&
+          <span ng-show="question.answered_code && !question.options.length &&
             question.answered_code != question.description">
             <span>{{'Vybráno' | translate }}</span>
             <span class="label label-default">
@@ -47,18 +47,20 @@
           </span>
           <br class="clearfix">
         </div>
-          <div mnemonic="{{question}}" class="col-sm-12"
-            ng-show="canNext && question.answered_code != question.description">
-          </div>
         <span class="col-sm-7">
-          <span ng-show="question|isPickNameOfType">
+          <span>
             <button ng-repeat="option in question.options"
               class="btn btn-lg btn-default"
               ng-click="checkAnswer(option.description)"
               ng-class="{'btn-success': option.correct, 'btn-danger':
               option.selected && !option.correct }"
-              ng-disabled="option.disabled">
-               {{option.term.name}}
+              ng-mouseenter="(question|isFindOnMapType) && imageController.hoverIn(option.description)"
+              ng-mouseleave="(question|isFindOnMapType) && imageController.hoverOut(option.description)"
+              style="background-color:{{(question|isFindOnMapType) && option.color}}"
+              ng-disabled="option.disabled">&nbsp;
+               <span ng-show="(question|isPickNameOfType) || question.answered_code">
+                 {{option.term.name}}
+               </span>&nbsp;
             </button>
           </span>
         </span>
@@ -81,36 +83,27 @@
           </button>
         </span>
       </div>
-      <div ng-if="showSummary" class="inner-practice summary col-lg-12">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="summary-progress progress" ng-show="summary != undefined">
-              <div class="progress-bar progress-bar-learned" 
-                   style="width: {{summary.correctlyAnsweredRatio | percent }};">
-                {{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}
-              </div>
-              <div class="progress-bar progress-bar-unlearned" 
-                   style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
-              </div>
+      <div ng-if="showSummary" class="inner-practice summary row">
+        <div class="col-sm-12">
+          <div class="summary-progress progress" ng-show="summary != undefined">
+            <div class="progress-bar progress-bar-learned" 
+                 style="width: {{summary.correctlyAnsweredRatio | percent }};">
+              {{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}
             </div>
-            <span ng-repeat="fc in summary.flashcards" 
-                  ng-click="highlightFlashcard(fc)"
-                  class="label label-clickable {{fc.description != fc.answered_code &&
-                    'label-unlearned' || 'label-learned' }} ">
-               {{fc.term.name}}
-            </span>
+            <div class="progress-bar progress-bar-unlearned" 
+                 style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
+            </div>
           </div>
-          <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
+          <span ng-repeat="fc in summary.flashcards" 
+                ng-click="highlightFlashcard(fc)"
+                class="label label-clickable {{fc.description != fc.answered_code &&
+                  'label-unlearned' || 'label-learned' }} ">
+             {{fc.term.name}}
+          </span>
         </div>
+        <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
         <br>
-        <span class="pull-right" >
-        <!--
-          <a class="btn btn-lg btn-default" 
-             ng-show="user.username"
-             href="/goals/" >
-            <i class="glyphicon glyphicon-screenshot"></i> {{'Osobní cíle' | translate }}
-          </a>
-          -->
+        <span class="col-sm-5 col-sm-offset-7" >
           <a class="btn btn-lg btn-default" 
              href="/refreshpractice/{{categoryId}}/" >
             <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
