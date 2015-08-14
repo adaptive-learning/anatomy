@@ -158,7 +158,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           filter[i] = angular.toJson(filter[i]);
         }
         filter.all = 'True';
-        filter.stats = 'True';
         filter.without_contexts = 'True';
         $http.get('/flashcards/flashcards', {
           params: filter

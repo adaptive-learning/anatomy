@@ -104,6 +104,7 @@ angular.module('proso.anatomy.controllers', [])
 
               var filter = {
                   contexts : [context.identifier],
+                  stats : true,
               };
               flashcardService.getFlashcards(filter).then(function(data) {
                  context.flashcards = data;
