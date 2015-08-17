@@ -145,16 +145,11 @@ msgstr ""
 
 #: templates/home.html:27
 msgid "meta content"
-msgstr ""
-"Inteligent application for practicing states, cities, mountains and rivers "
-"on outline maps of the world, Europe, Asia, Africa, America, US and other "
-"countries"
+msgstr "Intelligent application for practicing anatomy"
 
 #: templates/home.html:28
 msgid "meta keywords"
-msgstr ""
-"geography games, outline maps, map outlines, countries, states, cities, "
-"world, europe, america, africa, asia, mountains, rivers, usa"
+msgstr "anatomy, practice"
 
 #: templates/home.html:64
 msgid "Svět"

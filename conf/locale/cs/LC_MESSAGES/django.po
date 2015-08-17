@@ -147,14 +147,11 @@ msgstr ""
 #: templates/home.html:27
 msgid "meta content"
 msgstr ""
-"Inteligentní aplikace na procvičování států, měst, pohoří a řek na slepé "
-"mapě světa, Evropy, Asie, Afriky, Ameriky, ČR, USA a dalších států"
+"Inteligentní aplikace na procvičování anatomie"
 
 #: templates/home.html:28
 msgid "meta keywords"
-msgstr ""
-"slepá mapa, státy, města, čr, svět, evrovpa, amerika, afrika, asie, pohoří, "
-"řeky, zeměpis, usa, hry"
+msgstr "anatomie, procvičování"
 
 #: templates/home.html:64
 msgid "Svět"
