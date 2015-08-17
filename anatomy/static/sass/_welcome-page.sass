@@ -41,7 +41,12 @@ h1, h2, h3, .navbar-brand
 .how-it-works
   align: center
   h2
+    font-size: 2.5em
     text-align: center
+    padding-top: 40px
+    padding-bottom: 30px
+    &:nth-child(2n)
+      background: #ddd
   background: #eee
   margin-top: -30px
   padding: 20px
@@ -51,15 +56,22 @@ h1, h2, h3, .navbar-brand
   .works-div
     font-size: 1.2em
     text-align: justify
-    margin-bottom: 60px
+    padding-top: 160px
+    padding-bottom: 160px
     i.glyphicon
       font-size: 2em
       float: left
       margin-right: 15px
       margin-left: -10px
+    &:nth-child(2n)
+      background: rgba(0,0,0,0.05)
   img
     display: block
     margin-top: 10px
+
+.how-it-works.exceptional
+  background: #ccc
+  
 
 img
   max-width: 100%
