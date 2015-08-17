@@ -22,7 +22,7 @@
     <div class="row table-row {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_flashcards"
       ng-repeat="context in contexts">
-      <span class="col-sm-5 col-sm-offset-1"
+      <span class="col-md-5 col-md-offset-1 col-sm-6"
         ng-click="activateContext(context)" >
         <a href="">
           {{context.name || '[MISSING]'}}
@@ -38,7 +38,7 @@
           <i class="glyphicon glyphicon-check" ></i>
         </a>
       </span>
-      <span class="col-sm-5"
+      <span class="col-md-5 col-sm-6"
         ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
           hide-labels="{{activeContext!=context}}"></div>
@@ -46,7 +46,7 @@
       <div class="clearfix"></div>
       <div ng-if="activeContext==context">
         <span>
-        <span anatomy-image code="{{context.identifier}}" ></span>
+          <span anatomy-image code="{{context.identifier}}" ></span>
         </span>
         <span ng-hide="loading" class="terms-container">
           <span class="label label-default"
