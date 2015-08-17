@@ -36,13 +36,13 @@
         <div class="question col-sm-12">
           <span ng-bind="question | questionText"></span>
           <span class="label label-default" ng-show="question|isFindOnMapType">
-            {{question.term.name}}
+            {{question.term.name | stripAlternatives}}
           </span>
           <span ng-show="question.answered_code && !question.options.length &&
             question.answered_code != question.description">
             <span>{{'Vybráno' | translate }}</span>
             <span class="label label-default">
-               {{question.answered_code|codeToName}}
+               {{question.answered_code | codeToName | stripAlternatives}}
             </span>
           </span>
           <br class="clearfix">
@@ -59,7 +59,7 @@
               style="background-color:{{(question|isFindOnMapType) && option.color}}"
               ng-disabled="option.disabled">&nbsp;
                <span ng-show="(question|isPickNameOfType) || question.answered_code">
-                 {{option.term.name}}
+                 {{option.term.name | stripAlternatives}}
                </span>&nbsp;
             </button>
           </span>
@@ -98,7 +98,7 @@
                 ng-click="highlightFlashcard(fc)"
                 class="label label-clickable {{fc.description != fc.answered_code &&
                   'label-unlearned' || 'label-learned' }} ">
-             {{fc.term.name}}
+             {{fc.term.name | stripAlternatives}}
           </span>
         </div>
         <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>

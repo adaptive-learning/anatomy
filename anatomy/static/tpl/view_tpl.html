@@ -56,7 +56,7 @@
             ng-mouseenter="imageController.hoverIn(flashcard.description)"
             ng-mouseleave="imageController.hoverOut(flashcard.description)"
             term-label
-            ng-bind="flashcard.term.name" >
+            ng-bind="flashcard.term.name | stripAlternatives" >
           </span>
         </span>
     </div>

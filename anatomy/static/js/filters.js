@@ -108,6 +108,12 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
+  .filter('stripAlternatives', [ function() {
+    return function(name) {
+      return name.split(';')[0];
+    };
+  }])
+
   .filter('sumCounts', [ function() {
     return function(layers) {
       if (!layers || layers.length === 0) {
