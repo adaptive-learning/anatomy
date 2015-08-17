@@ -263,11 +263,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 angular.element('#ng-view').addClass('horizontal');
                 if (attrs.practice) {
                   var headerHeight = angular.element('.header-practice').height() || 0;
-                  paper.height = $window.innerHeight - (8 + headerHeight);
+                  paper.height = $window.innerHeight - (25 + headerHeight);
                 } else {
-                  paper.height = $window.innerHeight * 0.7;
+                  paper.height = $window.innerHeight * 0.7 - 20;
                 }
-                paper.width = $window.innerWidth  * 0.7;
+                paper.width = $window.innerWidth  * 0.7 - 20;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
                 paper.width = $window.innerWidth ;
