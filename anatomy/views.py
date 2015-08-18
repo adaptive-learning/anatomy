@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 import json
 from django.utils.translation import ugettext as _
 from django.utils.translation import get_language
@@ -23,6 +23,8 @@ def home(request, hack=None):
         user = ''
         email = ''
     else:
+        if hack is None:
+            return redirect('/overview/')
         user = json.dumps(request.user.userprofile.to_json(stats=True))
         email = request.user.email
     c = {
