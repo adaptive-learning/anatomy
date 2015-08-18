@@ -110,10 +110,10 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter',
-    'practiceService', 'userService', 'events', 'colors', 'flashcardService', 'imageService',
+    'practiceService', 'userService', 'colors', 'flashcardService', 'imageService',
 
     function($scope, $routeParams, $timeout, $filter,
-        practiceService, userService, events, colors, flashcardService, imageService) {
+        practiceService, userService, colors, flashcardService, imageService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;

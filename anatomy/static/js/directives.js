@@ -179,27 +179,32 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               });
             }
 
+            function canBeSelected(code) {
+              return $filter('isFindOnMapType')(scope.$parent.question) &&
+                !scope.$parent.canNext &&
+                $filter('isAllowedOption')(scope.$parent.question, code);
+            }
+
             function setHoverColor(path, lower) {
                 var code = path && path.data('code');
-                if (!code || (
-                    attrs.practiced && (
-                      !$filter('isFindOnMapType')(scope.$parent.question) ||
-                      scope.$parent.canNext ||
-                      !$filter('isAllowedOption')(scope.$parent.question, code)
-                     )
-                    )) {
-                  return;
-                }
-                var paths = (pathsByCode[code] || []).concat(
-                    highlightsByCode[code] || []);
-                for (var i = 0; i < paths.length; i++) {
-                  var newColor = lower ?
-                    chroma(paths[i].data('color')).darken().hex() :
-                    paths[i].data('color');
-                  paths[i].attr({
-                    'fill' : newColor,
-                    'cursor' : lower ? 'pointer' : 'default',
-                  });
+                if (code && (!attrs.practice || canBeSelected(code))) {
+                  var paths = (pathsByCode[code] || []).concat(
+                      highlightsByCode[code] || []);
+                  for (var i = 0; i < paths.length; i++) {
+                    var attr;
+                    if (lower) {
+                      attr = {
+                        'fill' : chroma(paths[i].data('color')).darken().hex(),
+                        'cursor' : 'pointer',
+                      };
+                    } else {
+                      attr = {
+                        'fill' : paths[i].data('color'),
+                        'cursor' : 'default',
+                      };
+                    }
+                    paths[i].attr(attr);
+                  }
                 }
             }
 
