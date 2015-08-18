@@ -46,6 +46,7 @@
       <div class="clearfix"></div>
       <div ng-if="activeContext==context">
         <span>
+          <span page-number="{{context.content.meta['textbook-page']}}"></span>
           <span anatomy-image code="{{context.identifier}}" ></span>
         </span>
         <span ng-hide="loading" class="terms-container">

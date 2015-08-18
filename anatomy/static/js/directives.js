@@ -565,6 +565,26 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('pageNumber', [function () {
+    return {
+      restrict : 'A',
+      scope : true,
+      template: '<span ng-show="pageNumber" class="page-number" translate>' +
+                  ' Zdroj: ' +
+                  ' <a href="http://anatomie.memorix.cz">Memorix anatomie</a>,' +
+                  ' str. {{pageNumber}}' +
+                ' </span>',
+      link : function($scope, elem, attrs) {
+        $scope.pageNumber = attrs.pageNumber;
+        attrs.$observe('pageNumber', function(value) {
+          if (value) {
+            $scope.pageNumber = value;
+          }
+        });
+      },
+    };
+  }])
+
   .directive('showAfterXAnswers', ['$timeout', 'events', function($timeout, events) {
     return {
       scope : true,

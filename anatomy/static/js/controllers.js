@@ -95,8 +95,7 @@ angular.module('proso.anatomy.controllers', [])
             context.flashcards = data;
             contextService.getContext(context.id).then(function(fullContext) {
               $scope.activeContext.content = fullContext.content;
-              imageService.setImage(
-                angular.fromJson($scope.activeContext.content), function(ic) {
+              imageService.setImage($scope.activeContext.content, function(ic) {
                   $scope.imageController = ic;
                   for (var i = 0; i < context.flashcards.length; i++) {
                     var fc = context.flashcards[i];
@@ -196,9 +195,9 @@ angular.module('proso.anatomy.controllers', [])
             $scope.activeQuestion = active;
             $scope.question.responseTime = - new Date().valueOf();
             $scope.questions.push(active);
+            active.context.content = angular.fromJson(active.context.content);
 
-            imageService.setImage(
-              angular.fromJson(active.context.content),
+            imageService.setImage(active.context.content,
               function(ic) {
                 $scope.imageController = ic;
 

@@ -79,6 +79,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         var deferredContext = $q.defer();
         $http.get('/flashcards/context/' + id, {cache: true}
         ).success(function(data) {
+          if (data.data.content) {
+            data.data.content = angular.fromJson(data.data.content);
+          }
           deferredContext.resolve(data.data);
         }).error(function(error){
           console.error("Something went wrong while loading contexts from backend.");

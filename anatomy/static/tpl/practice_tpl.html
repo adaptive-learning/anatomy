@@ -18,6 +18,7 @@
 <div>
 <div ng-repeat="question in questions"
     ng-show="question.description == activeQuestion.description">
+  <span page-number="{{question.context.content.meta['textbook-page']}}"></span>
   <div anatomy-image code="{{question.context.identifier}}" practice="true" ></div>
   </div>
 </div>
