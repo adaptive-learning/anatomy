@@ -184,6 +184,13 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
+        'anatomy_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(DATA_DIR, 'anatomy.log'),
+            'formatter': 'simple',
+        }
+
     },
     'formatters': {
         'simple': {
@@ -192,7 +199,7 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['console', 'request', 'mail_admins'],
+            'handlers': ['console', 'request', 'mail_admins', 'anatomy_file'],
             'propagate': True,
             'level': 'DEBUG'
         }
