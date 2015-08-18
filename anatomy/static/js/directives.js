@@ -565,7 +565,21 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict : 'A',
       template: '<div class="alert alert-danger">' +
+                  '<p><strong>' +
                   gettextCatalog.getString("V aplikaci bohužel nastala chyba.") +
+                  '</strong></p>' +
+                  '<ul><li>' +
+                    gettextCatalog.getString('Pro vyřešení problému zkuste') +
+                    ' <a href="" onClick="window.location.href=window.location.href" ' +
+                        'class="btn btn-default">' +
+                      gettextCatalog.getString('obnovit stránku') +
+                    '</a>' +
+                  '</li><li>' +
+                    gettextCatalog.getString("Pokud problém přetrval zkuste to znovu později nebo") +
+                    ' <a feedback-comment class="btn btn-default" email="{{email}}" href=""> ' +
+                       gettextCatalog.getString('nám napiště')  +
+                    '</a>' +
+                  '</li></ul>' +
                 '</div>',
     };
   }])
