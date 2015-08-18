@@ -73,7 +73,7 @@
           </button>
           <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
                   ng-click="next()" 
-                  ng-disabled="!canNext" >
+                  ng-disabled="!canNext || error" >
               <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
           </button>
           <button class="btn btn-lg btn-default" 
