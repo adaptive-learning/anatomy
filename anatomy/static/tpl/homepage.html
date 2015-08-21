@@ -16,7 +16,7 @@
   {% load i18n %}
     -->
   <div class="welcome-page jumbotron">
-      <div class="flatblock block-welcome_page col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+      <div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8">
         <div class="flatblock-content" >
           <img src="/static/img/02.png" />
           <img src="/static/img/09.png" />
@@ -43,24 +43,37 @@
 <h2>{{"Jak to funguje?" | translate }}</h2>
 
   <div class="row works-div">
-    <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+    <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
       <h3>{{"1. Vybereš si orgánový systém nebo část těla" | translate }}</h3>
+      <p translate>
+      Můžeš si vybrat, co chceš procvičovat. Obrázky jsou setřízeny podle
+      orgánového systému a základního umístění na těle.
+      </p>
       <img src="/static/img/select.png"/>
     </div>
     <div class="clearfix"></div>
   </div>
 
   <div class="row works-div">
-    <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+    <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
       <h3>{{"2. Poznáváš anatomické struktury a názvy" | translate }}</h3>
+      <p translate>
+      Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?
+      Po odpovědi se okamžitě dozvíš správnou odpověď.
+      </p>
       <img src="/static/img/practice.png"/>
     </div>
     <div class="clearfix"></div>
   </div>
 
   <div class="row works-div">
-      <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+      <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
       <h3>{{"3. Sleduješ, jak ti rostou znalosti" | translate }}</h3>
+      <p translate>
+      Cvičením a opakováním rostou Tvoje znalosti. V 
+      <a href="/overview/">přehledu znalostí</a> vidíš,
+      co Ti jde dobře a co je potřeba ještě cvičit. 
+      </p>
       <img src="/static/img/knowledge.png"/>
     </div>
     <div class="clearfix"></div>
@@ -72,16 +85,17 @@
 <h2>{{"V čem je Anatom.cz výjimečný?" | translate }}</h2>
 
 <div class="row works-div">
-  <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
-    <span class="col-sm-8" >
+  <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
+    <span class="col-sm-7" >
       <h3>{{"Kvalitní obrázky" | translate }}</h3>
       <p translate>
         Přehledná anatomické schámata z úspěšné učebnice 
-        <a href="http://memorix.cz/">Memorix Anatomie</a>
-        pro medičky a mediky.
+        <a href="http://memorix.cz/">Memorix Anatomie</a>.
+        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které
+        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie.
       </p>
     </span>
-    <span class="col-sm-4" >
+    <span class="col-sm-4 col-sm-offset-1" >
       <a href="http://memorix.cz/">
         <img src="/static/img/book.png"/>
       </a>
@@ -91,9 +105,24 @@
 </div>
 
 <div class="row works-div">
-  <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+  <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
+    <h3>{{"Data od všech uživatelů" | translate }}</h3>
+    {{"Díky tomu, že má aplikace uložené odpovědi od všech uživatelů, kteří ji
+    použili před Tebou, může vyhodnotit, které struktury jsou obecně lehké a
+    které těžké. Díky tomu má aplikace již po několika Tvých odpovědích slušnou
+    představu jak dobré jsou Tvoje znalosti a adekvátně tomu volit další
+    otázky." | translate }}
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row works-div">
+  <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
     <h3>{{"Otázky Tobě na míru" | translate }}</h3>
-    {{"Systém sleduje, co ti jak jde, a podle toho vybírá další otázky." | translate }}
+    {{"Systém sleduje, co ti jak jde, a podle toho vybírá další otázky. Pokud
+    hned zvládáš i těžké otázky, nemá smysl Tě zdržovat s jednoduchými. Když
+    ale máš problémy i s jednoduchými, aplikace se nebude pouštět hned do
+    těžkých. Obtížnost otázek se tak přizpůsobuje Tvým vědomostem." | translate }}
   </div>
   <div class="clearfix"></div>
 </div>
