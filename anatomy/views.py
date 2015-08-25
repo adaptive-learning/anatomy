@@ -10,8 +10,9 @@ from proso_flashcards.models import Category
 
 def home(request, hack=None):
     JS_FILES = (
-        "dist/js/bower-libs.js",
-        "dist/js/anatomy.js",
+        "dist/js/bower-libs.min.js",
+        "dist/js/proso-apps-all.js",
+        "dist/js/anatomy.min.js",
         "dist/js/anatomy.html.js",
     )
     CSS_FILES = (

@@ -15,7 +15,8 @@ module.exports = function(grunt) {
                     'raphael-pan-zoom': 'src/raphael.pan-zoom.js',
                     'angular-i18n': 'angular-locale_cs-cz.js',
                     'proso-apps-js': 'proso-apps-all.js',
-                }
+                },
+                exclude: ['proso-apps-js']
             }
         },
         concat: {
@@ -40,6 +41,10 @@ module.exports = function(grunt) {
                 cwd: 'bower_components/bootstrap/fonts/',
                 src: ['**'],
                 dest: 'static/dist/fonts/'
+            },
+            'proso-apps-js': {
+                src: 'bower_components/proso-apps-js/proso-apps-all.js',
+                dest: 'static/dist/js/proso-apps-all.js'
             }
         },
         html2js: {
@@ -185,7 +190,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-angular-gettext');
 
-    grunt.registerTask('collect-libs', ['bower_concat:all', 'uglify:libs', 'copy:fonts']);
+    grunt.registerTask('collect-libs', ['bower_concat:all', 'uglify:libs', 'copy:fonts', 'copy:proso-apps-js']);
     grunt.registerTask('prepare-libs', ['shell:bower_install', 'collect-libs']);
     grunt.registerTask('prepare', ['jshint','string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy', 'sass:anatomy', 'copy:above-fold', 'copy:images']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
