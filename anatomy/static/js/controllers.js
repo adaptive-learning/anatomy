@@ -280,7 +280,7 @@ angular.module('proso.anatomy.controllers', [])
               categoriesByType[categories[i].type].push(categories[i]);
             }
             $scope.categoriesByType = [{
-              name: gettextCatalog.getString('Oragánové systémy'),
+              name: gettextCatalog.getString('Orgánové systémy'),
               categories : categoriesByType.system,
               isActive : true,
             }, {
