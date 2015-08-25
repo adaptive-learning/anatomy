@@ -62,7 +62,7 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
-  .filter('questionText', function(gettextCatalog) {
+  .filter('questionText', ['gettextCatalog', function(gettextCatalog) {
     return function(question) {
       if (question && question.direction == "t2d") {
         if (question.options && question.options.length > 0) {
@@ -75,7 +75,7 @@ angular.module('proso.anatomy.filters', [])
       }
       return "Error";
     };
-  })
+  }])
 
   .filter('isTypeCategory', function() {
     return function(types, category) {
