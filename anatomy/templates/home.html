@@ -7,22 +7,6 @@
     <title ng-bind="title" ng-init="initTitle('{{ title }}')">
       {{ map }}{% if map != ''  %} - {% endif %}{{ title }}
     </title>
-    {% if is_production  %}
-        <script type='text/javascript'>
-        window.Muscula = { settings:{
-            logId:"c851276b-6467-4182-a63a-045d86e9974a", suppressErrors: false, branding: 'none'
-        }};
-        (function () {
-            var m = document.createElement('script'); m.type = 'text/javascript'; m.async = true;
-            m.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') +
-                '//musculahq.appspot.com/Muscula.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(m, s);
-            window.Muscula.run=function(c){eval(c);window.Muscula.run=function(){};};
-            window.Muscula.errors=[];window.onerror=function(){window.Muscula.errors.push(arguments);
-            return window.Muscula.settings.suppressErrors===undefined;}
-        })();
-        </script>
-	{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% trans 'meta content' %}">
     <meta name="keywords" content="{% trans 'meta keywords' %}" />
