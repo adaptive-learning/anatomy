@@ -214,6 +214,13 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   }])
 
 .service('colorService', function() {
+  function lowerContrast(grayValue) {
+    grayValue = grayValue - 128;
+    grayValue = grayValue * 0.5;
+    grayValue = grayValue + 128;
+    return grayValue;
+  }
+
   var that = {
     hexToRgb : function(c) {
       var red = parseInt(c.substr(1, 2), 16);
@@ -235,7 +242,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       for (var i = 0; i < rgb.length; i++) {
         graySum += 3.7 * rgb[i] * weights[i];
       }
-      var grayAverageHex = Math.round(graySum / 3).toString(16);
+      var grayAverage = Math.min(235, Math.round(lowerContrast(graySum / 3)));
+      var grayAverageHex = grayAverage.toString(16);
       return '#' + grayAverageHex + grayAverageHex + grayAverageHex;
     },
   };
