@@ -381,15 +381,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('categoryProgress', [function() {
     return {
       restrict : 'A',
-      template : '<div class="progress overview-progress">' +
-                    '<div class="progress-bar progress-bar-practiced" style="' +
-                        'width: {{100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards}}%;">' +
-                    '</div>' +
-                    '<div class="progress-bar progress-bar-learned" style="' +
-                        'width: {{100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards}}%;"' +
+      template : '<progress class="overview-progress">' +
+                    '<bar class="progress-bar-practiced" ' +
+                        'value="100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards">' +
+                    '</bar>' +
+                    '<bar class="progress-bar-learned" ' +
+                        'value="100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards"' +
                         'ng-if="skills.number_of_mastered_flashcards">' +
-                    '</div>' +
-                  '</div>' + 
+                    '</bar>' +
+                  '</progress>' + 
                   '<div class="text-center" ng-hide="hideLabels">' +
                      '<span class="badge badge-default">' +
                        '<i class="color-indicator learned"></i>' +
