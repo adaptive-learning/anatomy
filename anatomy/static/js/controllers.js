@@ -77,6 +77,7 @@ angular.module('proso.anatomy.controllers', [])
       }
 
       var catId = $routeParams.category;
+      userStatsService.clean();
       userStatsService.addGroup(catId, {});
       userStatsService.addGroupParams(catId, [$routeParams.category]);
       userStatsService.getStatsPost(true).success(function(data) {
@@ -288,6 +289,7 @@ angular.module('proso.anatomy.controllers', [])
               categories : categoriesByType.location,
             }];
             $scope.systems = categoriesByType.system;
+            userStatsService.clean();
             userStatsService.addGroup('all', {});
             for (i = 0; i < categories.length; i++) {
               var cat = categories[i];
