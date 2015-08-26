@@ -43,6 +43,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               x : 0,
               y : 0,
             };
+            element.attr("oncontextmenu", "return false;");
             element[0].innerHTML = "";
             var r = Raphael(element[0]);
             var clickFn;
