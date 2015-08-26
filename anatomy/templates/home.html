@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title ng-bind="title" ng-init="initTitle('{{ title }}')">
-      {{ map }}{% if map != ''  %} - {% endif %}{{ title }}
+      {{ headline }}{% if headline != ''  %} - {% endif %}{{ title }}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% trans 'meta content' %}">
@@ -130,10 +130,10 @@
     <div data-ng-view id="ng-view" >
      {% if is_homepage %}
         {% include "generated/homepage.html" %}
-     {% elif map != '' %}
+     {% elif headline != '' %}
         <div class="row header">
           <div class="col-sm-12">
-            <h1> {{map}}</h1>
+            <h1> {{headline}}</h1>
           </div>
         </div>
           <div class="loading-indicator"></div>
