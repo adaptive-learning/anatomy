@@ -18,7 +18,6 @@ def home(request, hack=None):
     CSS_FILES = (
         "dist/css/bower-libs.css",
         "dist/css/app.css",
-        "dist/css/map.css"
     )
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
         user = ''
