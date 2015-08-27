@@ -7,9 +7,7 @@ module.exports = function(grunt) {
                 dest: 'static/dist/js/bower-libs.js',
                 cssDest: 'static/dist/css/bower-libs.css',
                 dependencies: {
-                    'kartograph.js': ['jquery'],
-                    'qtip2': ['jquery'],
-                    'raphael-pan-zoom': ['raphael'],
+                    'angular': ['jquery'],
                 },
                 mainFiles: {
                     'raphael-pan-zoom': 'src/raphael.pan-zoom.js',
