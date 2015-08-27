@@ -15,7 +15,6 @@ def home(request, hack=None):
         "dist/js/bower-libs.min.js",
         "dist/js/proso-apps-all.js",
         "dist/js/anatomy.min.js",
-        "dist/js/anatomy.html.js",
     )
     CSS_FILES = (
         "dist/css/bower-libs.css",

@@ -19,7 +19,11 @@ module.exports = function(grunt) {
         },
         concat: {
             anatomy: {
-                src: ['static/js/*.js', 'static/dist/js/translations.js'],
+                src: [
+                  'static/js/*.js',
+                  'static/dist/js/translations.js',
+                  'static/dist/js/anatomy.html.js',
+                ],
                 dest: 'static/dist/js/anatomy.js'
             }
         },
