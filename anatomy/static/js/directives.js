@@ -173,6 +173,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var animAttrs = {
                 transform : 's' + [zoomRatio, zoomRatio, centerX, centerY].join(','),
               };
+              clone.toFront();
               clone.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
                 clone.animate({
                   transform : '',
