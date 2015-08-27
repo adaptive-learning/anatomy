@@ -7,6 +7,7 @@ angular.module('proso.anatomy', [
     'googleExperiments',
     'ngRoute',
     'ngAnimate',
+    'ngCookies',
     'proso.anatomy.filters',
     'proso.anatomy.services',
     'proso.anatomy.directives',
@@ -15,6 +16,7 @@ angular.module('proso.anatomy', [
     'proso.anatomy.templates',
     'proso.apps',
     'ui.bootstrap',
+    'angularDjangoCsrf',
     'xeditable',
 ])
 
