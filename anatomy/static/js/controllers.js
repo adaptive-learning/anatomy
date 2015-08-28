@@ -255,8 +255,8 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog',
-    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies',
+    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies) {
         'use strict';
 
         function getProgressRadius() {
@@ -268,6 +268,7 @@ angular.module('proso.anatomy.controllers', [])
           angular.forEach($scope.categoriesByType, function(ct) {
             ct.isActive = ct == categoryType;
           });
+          $cookies.activeType = categoryType.categories[0].type;
         };
 
         $scope.user = $routeParams.user || '';
@@ -282,10 +283,11 @@ angular.module('proso.anatomy.controllers', [])
             $scope.categoriesByType = [{
               name: gettextCatalog.getString('Orgánové systémy'),
               categories : categoriesByType.system,
-              isActive : true,
+              isActive : $cookies.activeType == 'system' || ! $cookies.activeType,
             }, {
               name: gettextCatalog.getString('Části těla'),
               categories : categoriesByType.location,
+              isActive : $cookies.activeType == 'location',
             }];
             $scope.systems = categoriesByType.system;
             userStatsService.clean();
