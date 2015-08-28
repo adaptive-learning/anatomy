@@ -177,6 +177,14 @@ module.exports = function(grunt) {
             'anatomy-tpls': {
                 files: '<%= html2js.anatomy.src %>',
                 tasks: ['string-replace:homepage', 'html2js:anatomy']
+            },
+            'anatomy-nggettext_compile': {
+                files: '<%= nggettext_compile.all.src %>',
+                tasks: ['nggettext_compile']
+            },
+            'anatomy-nggettext_extract': {
+                files: '<%= nggettext_extract.pot.src %>',
+                tasks: ['nggettext_extract']
             }
         }
     });
