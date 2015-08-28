@@ -86,16 +86,17 @@ module.exports = function(grunt) {
         },
         nggettext_compile: {
             all: {
-                files: {
-                    'static/dist/js/translations.js': ['static/po/*.po']
-                }
+                src: ['static/po/*.po'],
+                dest:'static/dist/js/translations.js',
             },
         },
         nggettext_extract: {
             pot: {
-                files: {
-                    'static/po/template.pot': ['static/tpl/*.html']
-                }
+                src: [
+                  'static/tpl/*.html',
+                  'static/js/*.js',
+                ],
+                dest: 'static/po/template.pot'
             },
         },
         sass: {
@@ -166,7 +167,7 @@ module.exports = function(grunt) {
         },
         watch: {
             'anatomy-js': {
-                files: 'static/js/*.js',
+                files: '<%= concat.anatomy.src %>',
                 tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy']
             },
             'anatomy-css': {
@@ -174,8 +175,8 @@ module.exports = function(grunt) {
                 tasks: ['sass:anatomy', 'copy:above-fold']
             },
             'anatomy-tpls': {
-                files: 'static/tpl/*.html',
-                tasks: ['string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy']
+                files: '<%= html2js.anatomy.src %>',
+                tasks: ['string-replace:homepage', 'html2js:anatomy']
             }
         }
     });
