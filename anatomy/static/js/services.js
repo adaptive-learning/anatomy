@@ -128,37 +128,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('flashcardService', ["$http", "$q", "gettextCatalog",
-      function ($http, $q, gettextCatalog) {
+  .factory('flashcardService', ["$http", "$q",
+      function ($http, $q) {
     'use strict';
     var flashcardCache = {};
-    var categoriesCache = {};
-    var categories = [
-      {
-        slug :'political',
-        name : gettextCatalog.getString('Politická mapa'),
-        types : [
-          'state',
-          'region',
-          'province',
-          'region_cz',
-          'region_it',
-          'autonomous_Comunity',
-          'bundesland',
-          'city',
-        ]
-      },{
-        slug : 'water',
-        name : gettextCatalog.getString('Vodstvo'),
-        types : ['river', 'lake'],
-        hidden:true
-      },{
-        slug : 'surface',
-        name : gettextCatalog.getString('Povrch'),
-        types : ['mountains', 'island'],
-        hidden:true
-      }
-    ];
 
     function updateFlashcardCache(flashcards) {
       for (var i = 0; i < flashcards.length; i++) {
@@ -187,27 +160,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getFlashcardByDescription : function (description) {
         return flashcardCache[description];
-      },
-      getCategories : function(part) {
-        if (!categoriesCache[part]) {
-          categoriesCache[part] = angular.copy(categories);
-        }
-        var allHidden = 0 === categoriesCache[part].filter(function(c){
-          return !c.hidden;
-        }).length;
-        if (allHidden) {
-          categoriesCache[part][0].hidden = false;
-        }
-        return categoriesCache[part];
-      },
-      _setActiveCategory : function (part, active) {
-        that.getCategories(part, active);
-        angular.forEach(categoriesCache[part], function(cat) {
-          cat.hidden = cat.slug != active &&
-            0 === cat.types.filter(function(t){
-              return t == active;
-            }).length;
-        });
       },
     };
     return that;
