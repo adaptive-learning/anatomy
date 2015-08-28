@@ -564,14 +564,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('pageNumber', [function () {
+  .directive('pageNumber', ['gettextCatalog', function (gettextCatalog) {
     return {
       restrict : 'A',
       scope : true,
-      template: '<span ng-show="pageNumber" class="page-number" translate>' +
-                  ' Zdroj: ' +
-                  ' <a href="http://anatomie.memorix.cz">Memorix anatomie</a>,' +
-                  ' str. {{pageNumber}}' +
+      template: '<span ng-show="pageNumber" class="page-number" > ' +
+                gettextCatalog.getString('Zdroj') + ': ' +
+                  ' <a href="http://anatomie.memorix.cz">' +
+                  gettextCatalog.getString('Memorix anatomie') + '</a>, ' +
+                  gettextCatalog.getString('str.') + ' {{pageNumber}}' +
                 ' </span>',
       link : function($scope, elem, attrs) {
         $scope.pageNumber = attrs.pageNumber;

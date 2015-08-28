@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-08-28 11:10+0000\n"
+"PO-Revision-Date: 2015-08-28 12:09+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,6 +103,10 @@ msgstr "First name"
 #: static/tpl/homepage.html:86
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
+
+#: static/js/directives.js:574
+msgid "Memorix anatomie"
+msgstr "Memorix Anatomy"
 
 #: static/tpl/map_tpl.html:11
 msgid "Moje znalosti"
@@ -302,6 +306,10 @@ msgstr "Selected"
 msgid "Začít procvičovat"
 msgstr "Start Practice"
 
+#: static/js/directives.js:572
+msgid "Zdroj"
+msgstr "Source"
+
 #: static/js/filters.js:69
 msgid "Ze zvýrazněných objektů na obrázku vyber"
 msgstr "Out of the highlighted objects in the picture choose"
@@ -349,6 +357,10 @@ msgstr "with Google"
 #: static/tpl/user_tpl.html:17
 msgid "přibývají za každou správnou odpověď"
 msgstr "for corrects answers"
+
+#: static/js/directives.js:575
+msgid "str."
+msgstr "p."
 
 #: static/tpl/practice_tpl.html:99
 msgid "Úspěšnost"
