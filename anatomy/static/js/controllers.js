@@ -188,7 +188,6 @@ angular.module('proso.anatomy.controllers', [])
         }
 
         function setQuestion(active) {
-            console.log(active);
             if ($scope.question) {
                 $scope.question.slideOut = true;
             }

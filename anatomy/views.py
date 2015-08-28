@@ -59,5 +59,5 @@ def get_headline_from_url(hack):
             except Category.DoesNotExist:
                 pass
         elif url[0] == u'overview':
-            headline = _(u'Předhled znalostí')
+            headline = _(u'Přehled znalostí')
     return headline

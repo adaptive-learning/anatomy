@@ -503,7 +503,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-        element.click(function(){
+        element.bind("click", function(){
           $analytics.eventTrack('click', {
             category: attrs.trackClick,
             label: attrs.href,
