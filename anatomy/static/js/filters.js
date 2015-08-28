@@ -150,14 +150,16 @@ angular.module('proso.anatomy.filters', [])
   .filter('reportText', ['gettextCatalog', '$filter',
       function(gettextCatalog, $filter) {
     return function(question) {
-      var text = gettextCatalog.getString('Na obrázku: ') + 
-        '"' + question.context.name  + '"\n' +
-        gettextCatalog.getString('v otázce:') + '\n' +
-        $filter('questionText')(question) +
-        (question.direction == 'd2t' ?
-          '\n  ' + question.options.map(function(o) {return o.term.name;}).join('\n  ') :
-          ' "' + question.term.name + '"') + '\n' +
-        gettextCatalog.getString('je tato chyba:') + '\n';
+      var text = gettextCatalog.getString(
+        'Na obrázku: "{{imageName}}"\nv otázce:\n{{question}}\nje tato chyba:',
+        {
+          imageName: question.context.name,
+          question: $filter('questionText')(question) +
+            (question.direction == 'd2t' ?
+              '\n  ' + question.options.map(function(o) {
+                return o.term.name;}).join('\n  ') :
+              ' "' + question.term.name + '"'),
+        });
       return text;
     };
   }]);
