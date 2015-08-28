@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-02 15:15+0000\n"
+"POT-Creation-Date: 2015-08-28 11:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,200 +17,121 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/create_goal.html:5
+#: anatomy/templates/create_goal.html:5
 msgid "Vytvořit cíl"
 msgstr ""
 
-#: templates/create_goal.html:9
+#: anatomy/templates/create_goal.html:9
 msgid "Mapa"
 msgstr ""
 
-#: templates/create_goal.html:36
+#: anatomy/templates/create_goal.html:36
 msgid "Datum splnění cíle"
 msgstr ""
 
-#: templates/create_goal.html:64
+#: anatomy/templates/create_goal.html:64
 msgid "Vytvořit"
 msgstr ""
 
-#: templates/create_goal.html:67
+#: anatomy/templates/create_goal.html:67
 msgid "Zavřít"
 msgstr ""
 
-#: templates/generated/homepage.html:19 templates/home.html:60 views.py:35
-msgid "Slepé Mapy"
-msgstr "Slepé Mapy"
-
-#: templates/generated/homepage.html:21
-msgid "Vyberte si mapu k procvičování:"
+#: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:44
+#: anatomy/views.py:32
+msgid "Anatom.cz"
 msgstr ""
 
-#: templates/generated/homepage.html:26
-msgid "Státy Evropy"
-msgstr "Státy Evropy"
-
-#: templates/generated/homepage.html:31
-msgid "Řeky ČR"
+#: anatomy/templates/generated/homepage.html:26
+msgid "Procvičování anatomie člověka na míru tvým znalostem."
 msgstr ""
 
-#: templates/generated/homepage.html:36
-msgid "Státy USA"
-msgstr "Státy USA"
-
-#: templates/generated/homepage.html:41
-msgid "Pohoří ČR"
+#: anatomy/templates/generated/homepage.html:32
+msgid "Začít procvičovat"
 msgstr ""
 
-#: templates/generated/homepage.html:46
-msgid "Státy Asie"
-msgstr ""
-
-#: templates/generated/homepage.html:51
-msgid "Řeky Afriky"
-msgstr ""
-
-#: templates/generated/homepage.html:54
-msgid "Chcete jinou? Podívejte se na"
-msgstr ""
-
-#: templates/generated/homepage.html:57
-msgid "další mapy"
-msgstr ""
-
-#: templates/generated/homepage.html:67
+#: anatomy/templates/generated/homepage.html:39
 msgid "Jak to funguje?"
 msgstr ""
 
-#: templates/generated/homepage.html:71
-msgid "Zeměpis hrou"
+#: anatomy/templates/generated/homepage.html:43
+msgid "1. Vybereš si orgánový systém nebo část těla"
 msgstr ""
 
-#: templates/generated/homepage.html:72
-msgid "Zeměpis hrou - text"
-msgstr ""
-"Procvičte si své znalosti zeměpisu hravou formou. V aktuální verzi zatím "
-"soutěžíte jen sami se sebou, respektive proti systému. Dokážete obarvit na "
-"zeleno celou mapu Evropy? Celou ČR? A co celý svět?"
-
-#: templates/generated/homepage.html:76
-msgid "Adaptabilní procvičování"
+#: anatomy/templates/generated/homepage.html:55
+msgid "2. Poznáváš anatomické struktury a názvy"
 msgstr ""
 
-#: templates/generated/homepage.html:77
-msgid "Adaptabilní procvičování - text"
-msgstr ""
-"Každá slepá mapa nabízí adaptabilní procvičování  - podle toho, jaké máte "
-"vědomosti, aplikace volí podobu otázek (otevřená, výběr z možností) a "
-"frekvenci opakování. Aplikace vám tak předkládá státy, jejichž procvičení je "
-"pro vás nejužitečnější."
-
-#: templates/generated/homepage.html:79
-msgid "Ukázka procvičování"
+#: anatomy/templates/generated/homepage.html:67
+msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr ""
 
-#: templates/generated/homepage.html:83
-msgid "Specializovaný systém"
+#: anatomy/templates/generated/homepage.html:81
+msgid "V čem je Anatom.cz výjimečný?"
 msgstr ""
 
-#: templates/generated/homepage.html:84
-msgid "Specializovaný systém - text"
-msgstr ""
-"Procvičování slepých map nabízí i řada jiných výukových systémů, ty však "
-"většinou pokrývají mnoho dílčích oblastí. Náš systém se soustředí pouze na "
-"slepé mapy, díky čemuž je pro učení v této oblasti optimalizovaný."
-
-#: templates/generated/homepage.html:88
-msgid "Vizualizace znalostí"
+#: anatomy/templates/generated/homepage.html:86
+msgid "Kvalitní obrázky"
 msgstr ""
 
-#: templates/generated/homepage.html:89
-msgid "Vizualizace znalostí - text"
-msgstr ""
-"Na základě odpovědí systém odhadne jak dobře znáte různé státy a znázorní "
-"vám mapu vašich znalostí, což vám pomůže ujasnit si, co vlastně umíte."
-
-#: templates/generated/homepage.html:91
-msgid "Ukázka mapy znalostí"
+#: anatomy/templates/generated/homepage.html:105
+msgid "Data od všech uživatelů"
 msgstr ""
 
-#: templates/generated/homepage.html:95
-msgid "Učení z dat"
+#: anatomy/templates/generated/homepage.html:119
+msgid "Otázky Tobě na míru"
 msgstr ""
 
-#: templates/generated/homepage.html:96
-msgid "Učení z dat - text"
-msgstr ""
-"Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto "
-"datech, nikoliv na znalostech experta na zeměpis, který \"ví\", jestli je "
-"těžší poznat Keňu nebo Nigérii."
-
-#: templates/home.html:27
+#: anatomy/templates/home.html:11
 msgid "meta content"
-msgstr ""
-"Inteligentní aplikace na procvičování anatomie"
+msgstr "Inteligentní aplikace na procvičování anatomie"
 
-#: templates/home.html:28
+#: anatomy/templates/home.html:12
 msgid "meta keywords"
 msgstr "anatomie, procvičování"
 
-#: templates/home.html:64
-msgid "Svět"
-msgstr ""
-
-#: templates/home.html:68
-msgid "Kontinenty"
-msgstr ""
-
-#: templates/home.html:78
-msgid "Státy"
-msgstr ""
-
-#: templates/home.html:87
+#: anatomy/templates/home.html:48 anatomy/views.py:62
 msgid "Přehled znalostí"
 msgstr ""
 
-#: templates/home.html:98
+#: anatomy/templates/home.html:59
 msgid ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
 msgstr ""
 
-#: templates/home.html:101
+#: anatomy/templates/home.html:62
 msgid "Přihlásit se"
 msgstr "Přihlásit se"
 
-#: templates/home.html:114
+#: anatomy/templates/home.html:75
 msgid "Můj profil"
 msgstr ""
 
-#: templates/home.html:120
+#: anatomy/templates/home.html:81
 msgid "Moje časté chyby"
 msgstr ""
 
-#: templates/home.html:125
+#: anatomy/templates/home.html:86
 msgid "Osobní cíle"
 msgstr ""
 
-#: templates/home.html:130
+#: anatomy/templates/home.html:91
 msgid "Nastavení"
 msgstr ""
 
-#: templates/home.html:136
+#: anatomy/templates/home.html:97
 msgid "Odhlásit se"
 msgstr ""
 
-#: templates/home.html:177 templates/home.html.py:192
+#: anatomy/templates/home.html:147 anatomy/templates/home.html.py:162
 msgid "Napište nám"
 msgstr "Napiš nám"
 
-#: templates/home.html:187
+#: anatomy/templates/home.html:157
 msgid "O projektu"
 msgstr ""
 
-#: views.py:35
-msgid "inteligentní aplikace na procvičování zeměpisu"
+#: anatomy/views.py:32
+msgid "inteligentní aplikace na procvičování anatomie"
 msgstr ""
-
-#~ msgid "Feedback confirmed"
-#~ msgstr ""
-#~ "Děkujeme Vám za zaslané informace. Feedback od uživatelů je k nezaplacení."
