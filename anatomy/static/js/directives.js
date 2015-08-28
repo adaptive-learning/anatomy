@@ -383,29 +383,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('categoryProgress', [function() {
     return {
       restrict : 'A',
-      template : '<progress class="overview-progress">' +
-                    '<bar class="progress-bar-practiced" ' +
-                        'value="100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards">' +
-                    '</bar>' +
-                    '<bar class="progress-bar-learned" ' +
-                        'value="100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards"' +
-                        'ng-if="skills.number_of_mastered_flashcards">' +
-                    '</bar>' +
-                  '</progress>' + 
-                  '<div class="text-center" ng-hide="hideLabels">' +
-                     '<span class="badge badge-default">' +
-                       '<i class="color-indicator learned"></i>' +
-                       '<span translate>Naučeno</span>: ' +
-                       '{{skills.number_of_mastered_flashcards !== undefined ? skills.number_of_mastered_flashcards : "..."}} / ' +
-                       '{{skills.number_of_flashcards || 0}}' +
-                     '</span> ' +
-                     '<span class="badge badge-default">' +
-                       '<i class="color-indicator practiced"></i>' +
-                       '<span translate>Procvičováno</span>: ' +
-                       '{{skills.number_of_nonmastered_practiced_flashcards !== undefined ? skills.number_of_nonmastered_practiced_flashcards : "..."}} / ' +
-                       '{{skills.number_of_flashcards || 0}}' +
-                     '</span>' +
-                   '</div>',
+      templateUrl : '/static/tpl/progress_tpl.html',
       link : function($scope, elem, attrs) {
         $scope.skills = undefined;
         attrs.$observe('skills', function(skills) {
