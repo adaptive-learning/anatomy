@@ -83,6 +83,12 @@
                   ng-show="question.options != undefined" >
               <i class="glyphicon glyphicon-repeat"></i> {{'Znovu zvýraznit' | translate }}
           </button>
+          <a feedback-comment class="btn btn-lg btn-link report-error" email="{{email}}"
+              text="{{question | reportText}}"
+              href="">
+              <i class="glyphicon glyphicon-new-window"></i>
+            {{'Nahlásit chybu' | translate }}
+          </a>
         </span>
       </div>
       <div ng-if="showSummary" class="inner-practice summary row">
