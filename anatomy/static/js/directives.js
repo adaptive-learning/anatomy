@@ -9,6 +9,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         elem.addClass('label');
         elem.addClass('label-default');
         elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
+        var alternativeNames = $scope.flashcard.term.name.split(';').splice(1).join('<br>');
         elem.tooltip({
           html : true,
           placement: 'bottom',
@@ -20,7 +21,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex() + '"></i>' +
                   (Math.ceil(10 * $scope.flashcard.prediction)) + ' / 10 ' +
                 '</span>' +
-               '</div>'
+               '</div>' +
+               (alternativeNames ? 
+               '<div>' +
+                gettextCatalog.getString('Alternativní názvy') +
+                ':<br> <strong>' + alternativeNames + '</strong>' +
+               '</div>':
+               ''),
         });
       }
     };
