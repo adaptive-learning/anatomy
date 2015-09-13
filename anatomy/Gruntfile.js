@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                   'static/tpl/*.html',
                   'static/js/*.js',
                 ],
-                dest: 'static/po/template.pot'
+                dest: 'static/dist/client.pot'
             },
         },
         sass: {

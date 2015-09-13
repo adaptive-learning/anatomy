@@ -1,0 +1,15 @@
+[main]
+host = https://www.transifex.com
+
+[anatomcz.clientpot]
+file_filter = anatomy/static/po/<lang>.po
+source_file = anatomy/static/dist/client.pot
+source_lang = cs
+type = PO
+
+[anatomcz.djangopo]
+file_filter = conf/locale/<lang>/LC_MESSAGES/django.po
+source_file = conf/locale/cs/LC_MESSAGES/django.po
+source_lang = cs
+type = PO
+
