@@ -109,8 +109,31 @@ angular.module('proso.anatomy.filters', [])
   }])
 
   .filter('stripAlternatives', [ function() {
+    String.prototype.mapReplace = function(map) {
+        var regex = [];
+        for(var key in map)
+            regex.push(key.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&"));
+        return this.replace(new RegExp(regex.join('|'),"g"),function(word){
+            return map[word];
+        });
+    };
+
+    var replacements = {
+      'Musculi': 'Mm.',
+      'Venae': 'Vv.',
+      'Nervi': 'Nn.',
+      'Arteriae': 'Aa.',
+      'Rami': 'Rr.',
+      'Ligamenta': 'Ligg.',
+      'Musculus': 'M.',
+      'Vena': 'V.',
+      'Nervus': 'N.',
+      'Arteria': 'A.',
+      'Ramus': 'R.',
+      'Ligamentum': 'Lig.',
+    };
     return function(name) {
-      return name.split(';')[0];
+      return name.mapReplace(replacements).split(';')[0];
     };
   }])
 
