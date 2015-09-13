@@ -49,7 +49,8 @@
           </span>
           <br class="clearfix">
         </div>
-        <span class="col-sm-7">
+        <div>
+        <div class="button-block">
           <span>
             <button ng-repeat="option in question.options"
               class="btn btn-lg btn-default"
@@ -65,17 +66,17 @@
                </span>&nbsp;
             </button>
           </span>
-        </span>
-        <span class="col-sm-5" >
-          <button class="btn btn-lg btn-default dont-know" 
-                  ng-click="checkAnswer()" 
-                  ng-disabled="canNext" >
-              <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
-          </button>
+        </div>
+        <div class="button-block">
           <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
                   ng-click="next()" 
                   ng-disabled="!canNext || error" >
               <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
+          </button>
+          <button class="btn btn-lg btn-default dont-know" 
+                  ng-click="checkAnswer()" 
+                  ng-disabled="canNext" >
+              <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
           </button>
           <button class="btn btn-lg btn-default" 
                   ng-click="highlight()" 
@@ -89,7 +90,7 @@
               <i class="glyphicon glyphicon-new-window"></i>
             {{'Nahlásit chybu' | translate }}
           </a>
-        </span>
+        </div>
       </div>
       <div ng-if="showSummary" class="inner-practice summary row">
         <div class="col-sm-12">
