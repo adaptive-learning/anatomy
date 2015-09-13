@@ -49,7 +49,6 @@
           </span>
           <br class="clearfix">
         </div>
-        <div>
         <div class="button-block">
           <span>
             <button ng-repeat="option in question.options"
@@ -112,7 +111,8 @@
         </div>
         <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
         <br>
-        <span class="col-sm-5 col-sm-offset-7" >
+        <div class="col-sm-12">
+          <br>
           <a class="btn btn-lg btn-default" 
              href="/refreshpractice/{{categoryId}}/" >
             <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
@@ -121,7 +121,7 @@
              href="/overview/" >
             <i class="glyphicon glyphicon-th"></i> {{'Přehled znalostí' | translate }}
           </a>
-        </span>
+        </div>
       </div>
     </div>
     <div class="clearfix"></div>
