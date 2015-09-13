@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-08-28 12:09+0000\n"
+"PO-Revision-Date: 2015-08-28 15:02+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,9 +28,13 @@ msgstr "3. Watch your knowledge grow"
 msgid "Adresa profilu"
 msgstr "Profile address"
 
-#: static/js/directives.js:432
+#: static/js/directives.js:439
 msgid "Aktuální úroveň"
 msgstr "Current level"
+
+#: static/js/directives.js:27
+msgid "Alternativní názvy"
+msgstr "Alternative names"
 
 #: static/tpl/homepage.html:25
 msgid "Anatom.cz"
@@ -43,14 +47,6 @@ msgstr "Yes"
 #: static/tpl/user_tpl.html:15
 msgid "Body"
 msgstr "Points"
-
-#: static/tpl/confused_tpl.html:33
-msgid "Chybné odpovědi"
-msgstr "Incorrect answers"
-
-#: static/tpl/signup_modal.html:9
-msgid "Co získám?"
-msgstr "What do I get?"
 
 #: static/tpl/homepage.html:68
 msgid ""
@@ -72,19 +68,11 @@ msgid ""
 "    otázky."
 msgstr "Because the application stores responses from all users who have used it before you, it can evaluate which structures are generally easy and which hard. Thanks to that  after only a few of your answers, the application has a pretty good idea of how good are your skills and adequately chooses the next question."
 
-#: static/tpl/signup_modal.html:48 static/tpl/user_tpl.html:30
+#: static/tpl/user_tpl.html:30
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/tpl/login_modal.html:31 static/tpl/signup_modal.html:56
-msgid "Heslo"
-msgstr "Password"
-
-#: static/tpl/signup_modal.html:60
-msgid "Heslo znovu"
-msgstr "Password again"
-
-#: static/js/controllers.js:359
+#: static/js/controllers.js:361
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -104,17 +92,13 @@ msgstr "First name"
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
-#: static/js/directives.js:574
+#: static/js/directives.js:581
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
 #: static/tpl/map_tpl.html:11
 msgid "Moje znalosti"
 msgstr "My knowledge"
-
-#: static/tpl/confused_tpl.html:3
-msgid "Moje časté chyby"
-msgstr "My frequent mistakes"
 
 #: static/tpl/homepage.html:44
 msgid ""
@@ -154,11 +138,11 @@ msgstr "Don't know"
 msgid "O prjektu"
 msgstr "About"
 
-#: static/js/directives.js:17 static/js/map.js:268
+#: static/js/directives.js:18 static/js/map.js:268
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/js/controllers.js:283
+#: static/js/controllers.js:284
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -170,7 +154,7 @@ msgstr "Questions fitted to your knowledge"
 msgid "Pokračovat"
 msgstr "Continue"
 
-#: static/js/directives.js:558
+#: static/js/directives.js:565
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
@@ -182,12 +166,12 @@ msgstr "Send me e-mail if I'm behind schedule with personal goals"
 msgid "Počet obyvatel"
 msgstr "Population"
 
-#: static/js/directives.js:552
+#: static/js/directives.js:559
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
-#: static/tpl/confused_tpl.html:23 static/tpl/overview_tpl.html:78
-#: static/tpl/overview_tpl.html:9 static/tpl/view_tpl.html:8
+#: static/tpl/overview_tpl.html:78 static/tpl/overview_tpl.html:9
+#: static/tpl/view_tpl.html:8
 msgid "Procvičovat"
 msgstr "Practice"
 
@@ -228,37 +212,17 @@ msgstr "Clear anatomical schemes from successful textbook \n<a href=\"http://mem
 msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
 msgstr "You can zoom the map with mouse wheel or touch pinch gesture."
 
-#: static/tpl/login_modal.html:37 static/tpl/login_modal.html:5
-msgid "Přihlásit se"
-msgstr "Log in"
-
 #: static/tpl/user_tpl.html:26
 msgid "Příjmení"
 msgstr "Surname"
 
-#: static/js/directives.js:444
+#: static/js/directives.js:451
 msgid "Příští úroveň"
 msgstr "Next level"
-
-#: static/tpl/signup_modal.html:71
-msgid "Registrace proběhla úspěšně. Můžete pokračovat v používání aplikace."
-msgstr "Registration successful. You can continue using the app."
-
-#: static/tpl/login_modal.html:44 static/tpl/signup_modal.html:65
-msgid "Registrovat se"
-msgstr "Sign up"
-
-#: static/tpl/signup_modal.html:5
-msgid "Registrujte se"
-msgstr "Sign up"
 
 #: static/tpl/user_tpl.html:64
 msgid "Sdílej svůj profil"
 msgstr "Share your profile"
-
-#: static/tpl/confused_tpl.html:27
-msgid "Správné odpovědi"
-msgstr "Correct answers"
 
 #: static/tpl/homepage.html:120
 msgid ""
@@ -282,11 +246,7 @@ msgstr "Can you name the highlighted muscle? Can you find the the given structur
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/tpl/login_modal.html:27 static/tpl/signup_modal.html:52
-msgid "Uživatelské jméno"
-msgstr "User name"
-
-#: static/js/controllers.js:372 static/js/directives.js:549
+#: static/js/controllers.js:374 static/js/directives.js:556
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -306,7 +266,7 @@ msgstr "Selected"
 msgid "Začít procvičovat"
 msgstr "Start Practice"
 
-#: static/js/directives.js:572
+#: static/js/directives.js:579
 msgid "Zdroj"
 msgstr "Source"
 
@@ -326,39 +286,23 @@ msgstr "Highlight again"
 msgid "Zrušit"
 msgstr "Cancel"
 
-#: static/tpl/signup_modal.html:7
-msgid "a získejte všechny výhody registrovaných uživatelů."
-msgstr "and get all the benefits of registered users."
-
-#: static/js/directives.js:437
+#: static/js/directives.js:444
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/directives.js:560
+#: static/js/directives.js:567
 msgid "nám napiště"
 msgstr "write to us"
 
-#: static/js/directives.js:555
+#: static/js/directives.js:562
 msgid "obnovit stránku"
 msgstr "refresh the page"
-
-#: static/tpl/signup_modal.html:41
-msgid "přes E-mail"
-msgstr "with E-mail"
-
-#: static/tpl/login_modal.html:17 static/tpl/signup_modal.html:35
-msgid "přes Facebook"
-msgstr "with Facebook"
-
-#: static/tpl/login_modal.html:11 static/tpl/signup_modal.html:29
-msgid "přes Google"
-msgstr "with Google"
 
 #: static/tpl/user_tpl.html:17
 msgid "přibývají za každou správnou odpověď"
 msgstr "for corrects answers"
 
-#: static/js/directives.js:575
+#: static/js/directives.js:582
 msgid "str."
 msgstr "p."
 
@@ -366,10 +310,6 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:287
+#: static/js/controllers.js:288
 msgid "Části těla"
 msgstr "Body parts"
-
-#: static/tpl/confused_tpl.html:8
-msgid "Žádné časté chyby nebyly nalezeny"
-msgstr "No frequent mistakes have been found"
