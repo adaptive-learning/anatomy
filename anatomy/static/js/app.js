@@ -18,6 +18,7 @@ angular.module('proso.anatomy', [
     'ui.bootstrap',
     'angularDjangoCsrf',
     'xeditable',
+    'countTo',
 ])
 
 .constant('domain', window.domain || '')

@@ -11,17 +11,21 @@
  <span class="badge badge-default">
    <i class="color-indicator learned"></i>
    <span translate>Naučeno</span>: 
-   {{skills.number_of_mastered_flashcards !== undefined ?
-     skills.number_of_mastered_flashcards :
-     "..."}} / 
-   {{skills.number_of_flashcards || 0}}
+   <span ng-if="skills.number_of_mastered_flashcards !== undefined"
+     count-to="{{skills.number_of_mastered_flashcards}}"
+     duration="0.6"
+     count-from="0"></span>
+   {{skills.number_of_mastered_flashcards === undefined ? '...' : '/'}}
+   {{skills.number_of_flashcards || ''}}
  </span> 
  <span class="badge badge-default">
    <i class="color-indicator practiced"></i>
    <span translate>Procvičováno</span>: 
-   {{skills.number_of_nonmastered_practiced_flashcards !== undefined ?
-     skills.number_of_nonmastered_practiced_flashcards :
-     "..."}} / 
-   {{skills.number_of_flashcards || 0}}
+   <span ng-if="skills.number_of_nonmastered_practiced_flashcards !== undefined"
+     count-to="{{skills.number_of_nonmastered_practiced_flashcards}}"
+     duration="0.6"
+     count-from="0"></span>
+   {{skills.number_of_nonmastered_practiced_flashcards === undefined ? '...' : '/'}}
+   {{skills.number_of_flashcards || ''}}
  </span>
 </div>
