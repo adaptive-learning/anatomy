@@ -61,7 +61,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     var that = {
       getContexts: function (filter) {
         filter = angular.extend(filter, {
-          //db_orderby : 'name',
+          db_orderby : 'name',
           without_content : 'True',
           all : 'True',
         });
