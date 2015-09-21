@@ -284,7 +284,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 paper.width = $window.innerWidth  * 0.7 - 20;
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
-                paper.width = $window.innerWidth ;
+                paper.width = $window.innerWidth - 35;
               }
 
               r.setSize(paper.width, paper.height);
