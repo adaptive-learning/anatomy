@@ -13,6 +13,7 @@ module.exports = function(grunt) {
                     'raphael-pan-zoom': 'src/raphael.pan-zoom.js',
                     'angular-i18n': 'angular-locale_cs-cz.js',
                     'proso-apps-js': 'proso-apps-all.js',
+                    'angular-count-to': 'src/count-to.js',
                 },
                 exclude: ['proso-apps-js']
             }
