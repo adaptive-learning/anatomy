@@ -10,8 +10,9 @@ cd $DIR
 #pip install -r $DIR/requirements.txt
 
 # database
-python $DIR/manage.py syncdb
-python $DIR/manage.py migrate
+python $DIR/manage.py syncdb --noinput
+python $DIR/manage.py migrate --noinput
+python $DIR/manage.py manage.py compilemessages
 
 cd $DIR/anatomy
 npm install
