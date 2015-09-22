@@ -15,7 +15,7 @@
     "raphael-pan-zoom": "https://github.com/adaptive-learning/raphael-pan-zoom.git",
     "qtip2": "~2.2.1",
     "angular-gettext": "~2.1.0",
-    "angular-count-to": "https://github.com/sparkalow/angular-count-to#master"
+    "angular-count-to": "https://github.com/sparkalow/angular-count-to.git#master"
   },
   "resolutions": {
     "angular": "~1.3.15",
