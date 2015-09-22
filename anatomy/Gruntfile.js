@@ -116,7 +116,7 @@ module.exports = function(grunt) {
         },
         shell: {
             bower_install: {
-                command: 'node_modules/bower/bin/bower install -f'
+                command: 'node_modules/bower/bin/bower install'
             }
         },
         'string-replace': {
