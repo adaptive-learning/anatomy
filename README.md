@@ -5,9 +5,16 @@ An intelligent application for practicing human anatomy.
 
 ### Initial setup
 
+Install [pip](https://pip.pypa.io/en/latest/installing/)
+
+Install [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/en/latest/install.html)
+
+	$ pip install virtualenvwrapper
+
 Setup your local virtual environment:
 
 	mkvirtualenv anatomy
+	workon anatomy
 
 Install python dependencies
 
@@ -15,6 +22,7 @@ Install python dependencies
 cd <path_to_your_local_git_repo>
 pip install -r requirements.txt
 ```
+It might require to install (with yum, apt-get or whatever) [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package) and PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
 
 Install client dependencies
 
