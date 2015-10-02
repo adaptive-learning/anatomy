@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-08-28 15:02+0000\n"
+"PO-Revision-Date: 2015-10-02 07:15+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,10 +76,6 @@ msgstr "E-mail"
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
-#: static/js/filters.js:74
-msgid "Jak se jmenuje objekt zvýrazněný na obrázku?"
-msgstr "What is the name of the object highlighted in the picture?"
-
 #: static/tpl/homepage.html:39
 msgid "Jak to funguje?"
 msgstr "How does it work?"
@@ -106,7 +102,7 @@ msgid ""
 "      orgánového systému a základního umístění na těle."
 msgstr "You can choose what do you want to practice. Pictures are sorted by organ system and basic placement on the body"
 
-#: static/js/filters.js:153
+#: static/js/filters.js:172
 msgid ""
 "Na obrázku: \"{{imageName}}\"\n"
 "v otázce:\n"
@@ -130,7 +126,7 @@ msgstr "No"
 msgid "Neprocvičováno"
 msgstr "Unpracticed"
 
-#: static/tpl/practice_tpl.html:73
+#: static/tpl/practice_tpl.html:78
 msgid "Nevím"
 msgstr "Don't know"
 
@@ -150,7 +146,7 @@ msgstr "Organ systems"
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
 
-#: static/tpl/practice_tpl.html:78
+#: static/tpl/practice_tpl.html:73
 msgid "Pokračovat"
 msgstr "Continue"
 
@@ -170,12 +166,15 @@ msgstr "Population"
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
-#: static/tpl/overview_tpl.html:78 static/tpl/overview_tpl.html:9
-#: static/tpl/view_tpl.html:8
+#: static/tpl/overview_tpl.html:78 static/tpl/view_tpl.html:9
 msgid "Procvičovat"
 msgstr "Practice"
 
-#: static/tpl/progress_tpl.html:21
+#: static/tpl/overview_tpl.html:9
+msgid "Procvičovat vše"
+msgstr "Practice all"
+
+#: static/tpl/progress_tpl.html:23
 msgid "Procvičováno"
 msgstr "Practiced"
 
@@ -192,7 +191,7 @@ msgid "Průměrný nový uživatel"
 msgstr "Average new user"
 
 #: static/js/services.js:41 static/tpl/overview_tpl.html:4
-#: static/tpl/practice_tpl.html:121
+#: static/tpl/practice_tpl.html:122
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
 
@@ -254,9 +253,9 @@ msgstr "Unfortunately there has been an error in the app."
 msgid "V čem je Anatom.cz výjimečný?"
 msgstr "What makes PracticeAnatomy.com special?"
 
-#: static/js/filters.js:71
-msgid "Vyber na obrázku"
-msgstr "Choose in the picture"
+#: static/js/filters.js:68
+msgid "Vyber"
+msgstr "Choose"
 
 #: static/tpl/practice_tpl.html:45
 msgid "Vybráno"
@@ -270,11 +269,7 @@ msgstr "Start Practice"
 msgid "Zdroj"
 msgstr "Source"
 
-#: static/js/filters.js:69
-msgid "Ze zvýrazněných objektů na obrázku vyber"
-msgstr "Out of the highlighted objects in the picture choose"
-
-#: static/tpl/practice_tpl.html:117
+#: static/tpl/practice_tpl.html:118
 msgid "Znovu procvičovat"
 msgstr "Practice again"
 
@@ -285,6 +280,10 @@ msgstr "Highlight again"
 #: static/tpl/user_tpl.html:46
 msgid "Zrušit"
 msgstr "Cancel"
+
+#: static/js/filters.js:70
+msgid "Zvýrazněná část se jmenuje"
+msgstr "The name of the highlighted part is"
 
 #: static/js/directives.js:444
 msgid "bodů do příští úrovně"
