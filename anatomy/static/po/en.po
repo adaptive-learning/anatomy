@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-02 10:19+0000\n"
+"PO-Revision-Date: 2015-10-03 10:14+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "3. Watch your knowledge grow"
 msgid "Adresa profilu"
 msgstr "Profile address"
 
-#: static/js/directives.js:453
+#: static/js/directives.js:485
 msgid "Aktuální úroveň"
 msgstr "Current level"
 
@@ -47,6 +47,10 @@ msgstr "Yes"
 #: static/tpl/user_tpl.html:15
 msgid "Body"
 msgstr "Points"
+
+#: static/tpl/practice_tpl.html:84
+msgid "Co je zvýrazněno?"
+msgstr ""
 
 #: static/tpl/homepage.html:68
 msgid ""
@@ -72,7 +76,7 @@ msgstr "Because the application stores responses from all users who have used it
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:364
+#: static/js/controllers.js:367
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -88,7 +92,7 @@ msgstr "First name"
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
-#: static/js/directives.js:595
+#: static/js/directives.js:627
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
@@ -138,7 +142,7 @@ msgstr "About"
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/js/controllers.js:287
+#: static/js/controllers.js:290
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -150,7 +154,7 @@ msgstr "Questions fitted to your knowledge"
 msgid "Pokračovat"
 msgstr "Continue"
 
-#: static/js/directives.js:579
+#: static/js/directives.js:611
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
@@ -162,7 +166,7 @@ msgstr "Send me e-mail if I'm behind schedule with personal goals"
 msgid "Počet obyvatel"
 msgstr "Population"
 
-#: static/js/directives.js:573
+#: static/js/directives.js:605
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
@@ -215,7 +219,7 @@ msgstr "You can zoom the map with mouse wheel or touch pinch gesture."
 msgid "Příjmení"
 msgstr "Surname"
 
-#: static/js/directives.js:465
+#: static/js/directives.js:497
 msgid "Příští úroveň"
 msgstr "Next level"
 
@@ -245,7 +249,7 @@ msgstr "Can you name the highlighted muscle? Can you find the the given structur
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:377 static/js/directives.js:570
+#: static/js/controllers.js:380 static/js/directives.js:602
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -265,17 +269,13 @@ msgstr "Selected"
 msgid "Začít procvičovat"
 msgstr "Start Practice"
 
-#: static/js/directives.js:593
+#: static/js/directives.js:625
 msgid "Zdroj"
 msgstr "Source"
 
 #: static/tpl/practice_tpl.html:118
 msgid "Znovu procvičovat"
 msgstr "Practice again"
-
-#: static/tpl/practice_tpl.html:84
-msgid "Znovu zvýraznit"
-msgstr "Highlight again"
 
 #: static/tpl/user_tpl.html:46
 msgid "Zrušit"
@@ -285,15 +285,15 @@ msgstr "Cancel"
 msgid "Zvýrazněná část se jmenuje"
 msgstr "The name of the highlighted part is"
 
-#: static/js/directives.js:458
+#: static/js/directives.js:490
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/directives.js:581
+#: static/js/directives.js:613
 msgid "nám napiště"
 msgstr "write to us"
 
-#: static/js/directives.js:576
+#: static/js/directives.js:608
 msgid "obnovit stránku"
 msgstr "refresh the page"
 
@@ -301,7 +301,7 @@ msgstr "refresh the page"
 msgid "přibývají za každou správnou odpověď"
 msgstr "for corrects answers"
 
-#: static/js/directives.js:596
+#: static/js/directives.js:628
 msgid "str."
 msgstr "p."
 
@@ -309,6 +309,6 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:291
+#: static/js/controllers.js:294
 msgid "Části těla"
 msgstr "Body parts"

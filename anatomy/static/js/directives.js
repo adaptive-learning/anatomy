@@ -82,47 +82,64 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               _next : function() {
                 if (highlightQueue.length > 0) {
                   var item = highlightQueue.shift();
-                  that._highlightTerm(item[0], item[1]);
+                  that._highlightTerm(item[0], item[1], item[2]);
                   $timeout(that._next, ANIMATION_TIME_MS / 2);
                 } else {
                   highlightInProgress = false;
                 }
               },
-              highlightItem : function(code, color) {
+              highlightItem : function(code, color, animate) {
                 if (code) {
-                  highlightQueue.push([code, color]);
-                  if (!highlightInProgress) {
-                    highlightInProgress = true;
-                    that._next();
+                  if (animate) {
+                    highlightQueue.push([code, color, animate]);
+                    if (!highlightInProgress) {
+                      highlightInProgress = true;
+                      that._next();
+                    }
+                  } else {
+                    that._highlightTerm(code, color, animate);
                   }
                 }
               },
-              _highlightTerm : function(code, color) {
+              _highlightTerm : function(code, color, animate) {
                 var paths = pathsByCode[code] || [];
                 var bbox = getBBox(paths.map(function(p) {return p.getBBox();}));
-                var clones = [];
-                if (!highlightsByCode[code]) {
-                  for (var i = 0; i < paths.length; i++) {
-                    var clone = clonePath(paths[i], code, color);
-                    clones.push(clone);
-                  }
-                  highlightsByCode[code] = clones;
-                  highlights = highlights.concat(clones);
-                }
-                angular.forEach(highlightsByCode[code], function(clone) {
+                angular.forEach(paths, function(path) {
                   if (color) {
-                    clone.data('color', color);
-                    clone.attr({
+                    path.attr({
                       'fill' : color,
                     });
+                    path.data('highlight-color', color);
+                    highlights.push(path);
                   }
-                  animateClone(clone, bbox);
                 });
+
+                if (animate) {
+                  var highlightEllipse = r.circle(
+                    bbox.x + bbox.width / 2,
+                    bbox.y + bbox.height / 2,
+                    Math.max(bbox.width, bbox.height) / 2);
+                  highlightEllipse.attr({
+                    'stroke-width' : image.bbox.height / 100,
+                    'stroke' : color,
+                    'stroke-opacity' : 0.5,
+                    'transform' : 's ' + getZoomRatio(bbox),
+                  });
+                  var animAttrs = {
+                    transform : '',
+                  };
+                  highlightEllipse.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
+                    highlightEllipse.remove();
+                  });
+                }
               },
 
               clearHighlights : function() {
                 for (var i = 0; i < highlights.length; i++) {
-                  highlights[i].remove();
+                  highlights[i].attr({
+                    'fill' : highlights[i].data('color')
+                  });
+                  highlights[i].data('highlight-color', undefined);
                 }
                 highlights = [];
                 highlightsByCode = {};
@@ -150,44 +167,14 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               setHoverColor(path, false);
             }
 
-            function clonePath(path, code, color) {
-              color = color || path.attr('fill');
-              var clone = path.clone();
-              clone.click(clickHandler);
-              clone.hover(hoverInHandler, hoverOutHandler);
-              clone.data('id', path.data('id'));
-              clone.data('code', code);
-              clone.data('opacity', path.data('opacity'));
-              clone.data('color', color);
-              clone.attr({
-                'fill' : color,
-              });
-              return clone;
-            }
-
             function getZoomRatio(bbox) {
               var widthRatio =  image.bbox.width / bbox.width;
               var heightRatio = image.bbox.height / bbox.height;
               var minRatio = Math.min(widthRatio, heightRatio);
-              var zoomRatio = Math.max(1.1, minRatio / 2);
+              var zoomRatio = Math.max(1.05, minRatio / 2);
               return zoomRatio;
             }
             
-            function animateClone(clone, bbox) {
-              var centerX = Math.floor(bbox.x + bbox.width / 2);
-              var centerY = Math.floor(bbox.y + bbox.height / 2);
-              var zoomRatio = getZoomRatio(bbox);
-              var animAttrs = {
-                transform : 's' + [zoomRatio, zoomRatio, centerX, centerY].join(','),
-              };
-              clone.toFront();
-              clone.animate(animAttrs, ANIMATION_TIME_MS / 2, '>', function() {
-                clone.animate({
-                  transform : '',
-                }, ANIMATION_TIME_MS / 2, '<');
-              });
-            }
-
             function canBeSelected(code) {
               return $filter('isFindOnMapType')(scope.$parent.question) &&
                 !scope.$parent.canNext &&
@@ -200,21 +187,27 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   var paths = (pathsByCode[code] || []).concat(
                       highlightsByCode[code] || []);
                   for (var i = 0; i < paths.length; i++) {
-                    var attr;
-                    if (lower) {
-                      attr = {
-                        'fill' : chroma(paths[i].data('color')).darken().hex(),
-                        'cursor' : 'pointer',
-                      };
-                    } else {
-                      attr = {
-                        'fill' : paths[i].data('color'),
-                        'cursor' : 'default',
-                      };
-                    }
+                    var attr = getHoverAttr(paths[i], lower);
                     paths[i].attr(attr);
                   }
                 }
+            }
+
+            function getHoverAttr(path, lower) {
+              var attr;
+              var color = path.data('highlight-color') || path.data('color');
+              if (lower) {
+                attr = {
+                  'fill' : chroma(color).darken().hex(),
+                  'cursor' : 'pointer',
+                };
+              } else {
+                attr = {
+                  'fill' : color,
+                  'cursor' : 'default',
+                };
+              }
+              return attr;
             }
 
             function getBBox(bboxes) {
