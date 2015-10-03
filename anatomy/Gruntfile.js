@@ -169,7 +169,7 @@ module.exports = function(grunt) {
         watch: {
             'anatomy-js': {
                 files: '<%= concat.anatomy.src %>',
-                tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy']
+                tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy', 'nggettext_extract']
             },
             'anatomy-css': {
                 files: 'static/sass/*.sass',
@@ -177,15 +177,11 @@ module.exports = function(grunt) {
             },
             'anatomy-tpls': {
                 files: '<%= html2js.anatomy.src %>',
-                tasks: ['string-replace:homepage', 'html2js:anatomy']
+                tasks: ['string-replace:homepage', 'html2js:anatomy', 'nggettext_extract']
             },
             'anatomy-nggettext_compile': {
                 files: '<%= nggettext_compile.all.src %>',
                 tasks: ['nggettext_compile']
-            },
-            'anatomy-nggettext_extract': {
-                files: '<%= nggettext_extract.pot.src %>',
-                tasks: ['nggettext_extract']
             }
         }
     });
