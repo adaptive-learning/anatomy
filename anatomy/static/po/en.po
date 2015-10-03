@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-03 10:14+0000\n"
+"PO-Revision-Date: 2015-10-03 10:23+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,7 @@ msgstr "Points"
 
 #: static/tpl/practice_tpl.html:84
 msgid "Co je zvýrazněno?"
-msgstr ""
+msgstr "What is highlighted?"
 
 #: static/tpl/homepage.html:68
 msgid ""
