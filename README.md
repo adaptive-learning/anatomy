@@ -22,7 +22,7 @@ Install python dependencies
 cd <path_to_your_local_git_repo>
 pip install -r requirements.txt
 ```
-It might require to install (with yum, apt-get or whatever) [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package) and PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
+It might require to install (with yum, apt-get or whatever) [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package), [SciPy](http://www.scipy.org/) and PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
 
 Install client dependencies
 
