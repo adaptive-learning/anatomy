@@ -24,9 +24,9 @@ pip install -r requirements.txt
 ```
 It might require to install (with yum, apt-get or whatever) the following:
 * [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package), 
-* [SciPy](http://www.scipy.org/) and 
-* PostgreSQL (On Ubuntu it is `postgresql postgresql-contrib`)
-* PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
+* [SciPy](http://www.scipy.org/), 
+* PostgreSQL (On Ubuntu it is `postgresql postgresql-contrib`),
+* PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev)).
 
 To setup database run
 ```
@@ -59,6 +59,10 @@ Install client dependencies
 cd anatomy
 npm install
 grunt
+```
+On Ubuntu you might need also the following to make `grunt` work
+```
+sudo apt-get install nodejs-legacy
 ```
 
 ### When developing
