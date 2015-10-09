@@ -22,7 +22,36 @@ Install python dependencies
 cd <path_to_your_local_git_repo>
 pip install -r requirements.txt
 ```
-It might require to install (with yum, apt-get or whatever) [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package), [SciPy](http://www.scipy.org/) and PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
+It might require to install (with yum, apt-get or whatever) the following:
+* [python developer package](http://stackoverflow.com/questions/6230444/how-to-install-python-developer-package), 
+* [SciPy](http://www.scipy.org/) and 
+* PostgreSQL (On Ubuntu it is `postgresql postgresql-contrib`)
+* PostgreSQL developer package (On Ubuntu it is [libpq-dev](https://packages.debian.org/sid/libpq-dev))
+
+To setup database run
+```
+sudo -i -u postgres
+psql
+```
+and in the postgreSQL shell opened by `psql` command run
+```
+CREATE DATABASE anatomy;
+CREATE USER anatomy WITH PASSWORD 'anatomy';
+GRANT ALL PRIVILEGES ON DATABASE "anatomy" to anatomy;
+```
+Add this line
+```
+export DATABASE_URL=postgres://anatomy:anatomy@localhost/anatomy
+```
+to 
+```
+~/.virtualenvs/anatomy/bin/postactivate
+```
+and run again
+```
+workon anatomy
+```
+
 
 Install client dependencies
 
