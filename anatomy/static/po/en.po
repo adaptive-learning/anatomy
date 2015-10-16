@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-03 10:23+0000\n"
+"PO-Revision-Date: 2015-10-16 11:15+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,15 +14,15 @@ msgstr ""
 
 #: static/tpl/homepage.html:43
 msgid "1. Vybereš si orgánový systém nebo část těla"
-msgstr "1. Choose an organ system or a bodypart"
+msgstr "1. Choose an organ system or a part"
 
 #: static/tpl/homepage.html:55
 msgid "2. Poznáváš anatomické struktury a názvy"
-msgstr "2. recognize anatomical structures and names"
+msgstr "2. Recognize the anatomical structure and its name"
 
 #: static/tpl/homepage.html:67
 msgid "3. Sleduješ, jak ti rostou znalosti"
-msgstr "3. Watch your knowledge grow"
+msgstr "3. See how you are doing and how your knowledge grows"
 
 #: static/tpl/user_tpl.html:74
 msgid "Adresa profilu"
@@ -57,11 +57,11 @@ msgid ""
 "Cvičením a opakováním rostou Tvoje znalosti. V \n"
 "      <a href=\"/overview/\">přehledu znalostí</a> vidíš,\n"
 "      co Ti jde dobře a co je potřeba ještě cvičit."
-msgstr "Grow your knowledge by practicing and reviewing. You can see,      what you know well and what needs more practice in <a href=\"/overview/\">knowledge overview</a>"
+msgstr "Practice makes perfect. See how your knowledge grows, and identify the areas where you could improve in <a href=\"/overview/\">knowledge overview</a>."
 
 #: static/tpl/homepage.html:105
 msgid "Data od všech uživatelů"
-msgstr "Data form all users"
+msgstr "As you learn, we learn with you"
 
 #: static/tpl/homepage.html:106
 msgid ""
@@ -70,7 +70,7 @@ msgid ""
 "    které těžké. Díky tomu má aplikace již po několika Tvých odpovědích slušnou\n"
 "    představu jak dobré jsou Tvoje znalosti a adekvátně tomu volit další\n"
 "    otázky."
-msgstr "Because the application stores responses from all users who have used it before you, it can evaluate which structures are generally easy and which hard. Thanks to that  after only a few of your answers, the application has a pretty good idea of how good are your skills and adequately chooses the next question."
+msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you."
 
 #: static/tpl/user_tpl.html:30
 msgid "E-mail"
@@ -104,7 +104,7 @@ msgstr "My knowledge"
 msgid ""
 "Můžeš si vybrat, co chceš procvičovat. Obrázky jsou setřízeny podle\n"
 "      orgánového systému a základního umístění na těle."
-msgstr "You can choose what do you want to practice. Pictures are sorted by organ system and basic placement on the body"
+msgstr "You can choose what do you want to practice. Just choose the organ system or part of the body you want to practice."
 
 #: static/js/filters.js:172
 msgid ""
@@ -184,7 +184,7 @@ msgstr "Practiced"
 
 #: static/tpl/homepage.html:26
 msgid "Procvičování anatomie člověka na míru tvým znalostem."
-msgstr "Practice of human anatomy fitted to your knowledge"
+msgstr "Practice medical anatomy with personalized questions."
 
 #: static/tpl/overview_tpl.html:79
 msgid "Prohlížet obrázky"
@@ -209,7 +209,7 @@ msgid ""
 "        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
 "        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
 "        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
-msgstr "Clear anatomical schemes from successful textbook \n<a href=\"http://memorix.cz/\"> Memorix Anatomy </a> .\nPictures were chosen to represent the basic knowledge, that may be required from medical students for anatomy exams."
+msgstr "Concise anatomical pictures are from a successful textbook <a href=\"http://memorix.cz/\"> Memorix Anatomy </a>. The structures and pictures in this application represents an essential knowledge for medical students to successfully complete an anatomy exam."
 
 #: static/tpl/map_tpl.html:24
 msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
@@ -233,7 +233,7 @@ msgid ""
 "    hned zvládáš i těžké otázky, nemá smysl Tě zdržovat s jednoduchými. Když\n"
 "    ale máš problémy i s jednoduchými, aplikace se nebude pouštět hned do\n"
 "    těžkých. Obtížnost otázek se tak přizpůsobuje Tvým vědomostem."
-msgstr "The system tracks what you are good at, and accordingly selects the next question. If you manage the tough questions, it makes no sense to hold you up with simple ones. But if you have trouble with simple ones, the application will not run right into the tough ones. The difficulty of the questions thus adapts to your knowledge."
+msgstr "The system tracks what are you good at, and selects the next question accordingly. If you manage to answer the tough questions, we will not bother you with those simple ones. On the other hand, if you are just beginning to learn anatomy, we will not flood you with advanced questions. The difficulty of questions we ask you is personalized and adapts to your knowledge."
 
 #: static/tpl/user_tpl.html:43
 msgid "Uložit"
@@ -243,7 +243,7 @@ msgstr "Save"
 msgid ""
 "Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?\n"
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
-msgstr "Can you name the highlighted muscle? Can you find the the given structure in the picture? \nAfter each answer you will immediately see the correct answer."
+msgstr "Which muscle is highlighted? Can you find a given structure in the picture? You will see the correct answer immediately after you choose your answer."
 
 #: static/tpl/user_tpl.html:5
 msgid "Upravit profil"
@@ -267,7 +267,7 @@ msgstr "Selected"
 
 #: static/tpl/homepage.html:32
 msgid "Začít procvičovat"
-msgstr "Start Practice"
+msgstr "Start practice"
 
 #: static/js/directives.js:625
 msgid "Zdroj"

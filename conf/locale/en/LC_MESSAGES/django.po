@@ -3,198 +3,136 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Vít Stanislav <slaweet@seznam.cz>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: slepemapy.cz\n"
+"Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-02 15:15+0000\n"
-"PO-Revision-Date: 2015-09-12 17:34+0000\n"
+"POT-Creation-Date: 2015-08-28 11:41+0000\n"
+"PO-Revision-Date: 2015-10-16 11:25+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
-"Language-Team: English (http://www.transifex.com/adaptive-learning/slepemapycz/language/en/)\n"
+"Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/create_goal.html:5
+#: anatomy/templates/create_goal.html:5
 msgid "Vytvořit cíl"
 msgstr "Create goal"
 
-#: templates/create_goal.html:9
+#: anatomy/templates/create_goal.html:9
 msgid "Mapa"
 msgstr "Map"
 
-#: templates/create_goal.html:36
+#: anatomy/templates/create_goal.html:36
 msgid "Datum splnění cíle"
 msgstr "Goal completion date"
 
-#: templates/create_goal.html:64
+#: anatomy/templates/create_goal.html:64
 msgid "Vytvořit"
 msgstr "Create"
 
-#: templates/create_goal.html:67
+#: anatomy/templates/create_goal.html:67
 msgid "Zavřít"
 msgstr "Close"
 
-#: templates/generated/homepage.html:19 templates/home.html:60 views.py:35
-msgid "Slepé Mapy"
-msgstr "Outline maps"
+#: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:44
+#: anatomy/views.py:32
+msgid "Anatom.cz"
+msgstr "PracticeAnatomy.com"
 
-#: templates/generated/homepage.html:21
-msgid "Vyberte si mapu k procvičování:"
-msgstr "Choose a map to practice:"
+#: anatomy/templates/generated/homepage.html:26
+msgid "Procvičování anatomie člověka na míru tvým znalostem."
+msgstr "Practice medical anatomy with personalized questions."
 
-#: templates/generated/homepage.html:26
-msgid "Státy Evropy"
-msgstr "Europe states"
+#: anatomy/templates/generated/homepage.html:32
+msgid "Začít procvičovat"
+msgstr "Start practice"
 
-#: templates/generated/homepage.html:31
-msgid "Řeky ČR"
-msgstr "Czech rivers"
-
-#: templates/generated/homepage.html:36
-msgid "Státy USA"
-msgstr "US states"
-
-#: templates/generated/homepage.html:41
-msgid "Pohoří ČR"
-msgstr "Czech mountains"
-
-#: templates/generated/homepage.html:46
-msgid "Státy Asie"
-msgstr "Asian states"
-
-#: templates/generated/homepage.html:51
-msgid "Řeky Afriky"
-msgstr "African rivers"
-
-#: templates/generated/homepage.html:54
-msgid "Chcete jinou? Podívejte se na"
-msgstr "Do you want another one? See"
-
-#: templates/generated/homepage.html:57
-msgid "další mapy"
-msgstr "more maps"
-
-#: templates/generated/homepage.html:67
+#: anatomy/templates/generated/homepage.html:39
 msgid "Jak to funguje?"
 msgstr "How does it work?"
 
-#: templates/generated/homepage.html:71
-msgid "Zeměpis hrou"
-msgstr "Geography game"
+#: anatomy/templates/generated/homepage.html:43
+msgid "1. Vybereš si orgánový systém nebo část těla"
+msgstr "1. Choose an organ system or a bodypart"
 
-#: templates/generated/homepage.html:72
-msgid "Zeměpis hrou - text"
-msgstr "Practice your geography knowledge in a playful way. Can you colour green the map of Europe? Or map of the US? And what about the whole world?"
+#: anatomy/templates/generated/homepage.html:55
+msgid "2. Poznáváš anatomické struktury a názvy"
+msgstr "2. recognize anatomical structures and names"
 
-#: templates/generated/homepage.html:76
-msgid "Adaptabilní procvičování"
-msgstr "Adaptive practice"
+#: anatomy/templates/generated/homepage.html:67
+msgid "3. Sleduješ, jak ti rostou znalosti"
+msgstr "3. Watch your knowledge grow"
 
-#: templates/generated/homepage.html:77
-msgid "Adaptabilní procvičování - text"
-msgstr "The application examines your knowledge of maps adaptively - type of questions (how many options etc.) and repeat frequency is chosen based on what you knew. Thus it asks you about the countries that you need to practice the most."
+#: anatomy/templates/generated/homepage.html:81
+msgid "V čem je Anatom.cz výjimečný?"
+msgstr "What makes PracticeAnatomy.com special?"
 
-#: templates/generated/homepage.html:79
-msgid "Ukázka procvičování"
-msgstr "Practice example"
+#: anatomy/templates/generated/homepage.html:86
+msgid "Kvalitní obrázky"
+msgstr "High quality pictures"
 
-#: templates/generated/homepage.html:83
-msgid "Specializovaný systém"
-msgstr "Specialized system"
+#: anatomy/templates/generated/homepage.html:105
+msgid "Data od všech uživatelů"
+msgstr "Data form all users"
 
-#: templates/generated/homepage.html:84
-msgid "Specializovaný systém - text"
-msgstr "There are many other learning systems that provide outline maps practice, but they usually cover also many other areas. Our system focuses exclusively on outline maps, which allows it to be optimized for this area."
+#: anatomy/templates/generated/homepage.html:119
+msgid "Otázky Tobě na míru"
+msgstr "Questions fitted to your knowledge"
 
-#: templates/generated/homepage.html:88
-msgid "Vizualizace znalostí"
-msgstr "Knowledge visualization"
-
-#: templates/generated/homepage.html:89
-msgid "Vizualizace znalostí - text"
-msgstr "Based on your answers the system estimates your knowledge and displays it in form of a map, which can help you realize what you actually know."
-
-#: templates/generated/homepage.html:91
-msgid "Ukázka mapy znalostí"
-msgstr "Knowledge visualization example"
-
-#: templates/generated/homepage.html:95
-msgid "Učení z dat"
-msgstr "Data mining"
-
-#: templates/generated/homepage.html:96
-msgid "Učení z dat - text"
-msgstr "The application learns from data of all users. Question choice is based on this data, instead of being based on knowledge of an geography expert who \"knows\" whether it's generally more difficult to know Kenya or Nigeria."
-
-#: templates/home.html:27
+#: anatomy/templates/home.html:11
 msgid "meta content"
-msgstr "Inteligent application for practicing states, cities, mountains and rivers on outline maps of the world, Europe, Asia, Africa, America, US and other countries"
+msgstr "Intelligent application for practicing anatomy"
 
-#: templates/home.html:28
+#: anatomy/templates/home.html:12
 msgid "meta keywords"
-msgstr "geography games, outline maps, map outlines, countries, states, cities, world, europe, america, africa, asia, mountains, rivers, usa"
+msgstr "anatomy, practice"
 
-#: templates/home.html:64
-msgid "Svět"
-msgstr "World"
+#: anatomy/templates/home.html:48 anatomy/views.py:62
+msgid "Přehled znalostí"
+msgstr "Knowledge Overview"
 
-#: templates/home.html:68
-msgid "Kontinenty"
-msgstr "Continents"
-
-#: templates/home.html:78
-msgid "Státy"
-msgstr "States"
-
-#: templates/home.html:87
-msgid "Přehled map"
-msgstr "Maps overview"
-
-#: templates/home.html:98
+#: anatomy/templates/home.html:59
 msgid ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
 msgstr "Sign in simply via Google or Facebook, so the system remembers your knowledge next time."
 
-#: templates/home.html:101
+#: anatomy/templates/home.html:62
 msgid "Přihlásit se"
 msgstr "Sign in"
 
-#: templates/home.html:114
+#: anatomy/templates/home.html:75
 msgid "Můj profil"
 msgstr "My  profile"
 
-#: templates/home.html:120
+#: anatomy/templates/home.html:81
 msgid "Moje časté chyby"
 msgstr "My frequent mistakes"
 
-#: templates/home.html:125
+#: anatomy/templates/home.html:86
 msgid "Osobní cíle"
 msgstr "Personal goals"
 
-#: templates/home.html:130
+#: anatomy/templates/home.html:91
 msgid "Nastavení"
 msgstr "Settings"
 
-#: templates/home.html:136
+#: anatomy/templates/home.html:97
 msgid "Odhlásit se"
 msgstr "Sign out"
 
-#: templates/home.html:177 templates/home.html.py:192
+#: anatomy/templates/home.html:147 anatomy/templates/home.html.py:162
 msgid "Napište nám"
 msgstr "Feedback"
 
-#: templates/home.html:187
+#: anatomy/templates/home.html:157
 msgid "O projektu"
 msgstr "About"
 
-#: views.py:35
-msgid "inteligentní aplikace na procvičování zeměpisu"
-msgstr "intelligent geography practice app"
-
-#~ msgid "Feedback confirmed"
-#~ msgstr ""
-#~ "Děkujeme Vám za zaslané informace. Feedback od uživatelů je k nezaplacení."
+#: anatomy/views.py:32
+msgid "inteligentní aplikace na procvičování anatomie"
+msgstr "intelligent anatomy practice app"
