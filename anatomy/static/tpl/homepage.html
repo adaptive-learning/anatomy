@@ -31,6 +31,12 @@
             track-click="homepage practice" >
             {{"Začít procvičovat" | translate }}
           </a>
+          &nbsp; &nbsp;
+          <a href="/overview/" 
+            class="btn btn-default btn-lg btn-huge" 
+            track-click="homepage-bottom choose" >
+            {{"Vybrat kapitolu" | translate }}
+          </a>
         </div>
       </div>
   </div>
@@ -45,7 +51,9 @@
       Můžeš si vybrat, co chceš procvičovat. Obrázky jsou setřízeny podle
       orgánového systému a základního umístění na těle.
       </p>
-      <img ng-src="/static/img/select-{{LANGUAGE_CODE}}.png"/>
+      <a href="/overview/">
+        <img ng-src="/static/img/select-{{LANGUAGE_CODE}}.png"/>
+      </a>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -57,7 +65,9 @@
       Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?
       Po odpovědi se okamžitě dozvíš správnou odpověď.
       </p>
-      <img ng-src="/static/img/practice-{{LANGUAGE_CODE}}.png"/>
+      <a href="/practice/">
+        <img ng-src="/static/img/practice-{{LANGUAGE_CODE}}.png"/>
+      </a>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -70,7 +80,9 @@
       <a href="/overview/">přehledu znalostí</a> vidíš,
       co Ti jde dobře a co je potřeba ještě cvičit. 
       </p>
-      <img ng-src="/static/img/knowledge-{{LANGUAGE_CODE}}.png"/>
+      <a href="/overview/">
+        <img ng-src="/static/img/knowledge-{{LANGUAGE_CODE}}.png"/>
+      </a>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -122,6 +134,25 @@
     hned zvládáš i těžké otázky, nemá smysl Tě zdržovat s jednoduchými. Když
     ale máš problémy i s jednoduchými, aplikace se nebude pouštět hned do
     těžkých. Obtížnost otázek se tak přizpůsobuje Tvým vědomostem.
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div class="row works-div">
+  <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
+    <div class="text-center">
+      <a href="/practice/" 
+        class="btn btn-default btn-lg btn-huge" 
+        track-click="homepage-bottom practice" >
+        {{"Začít procvičovat" | translate }}
+      </a>
+      &nbsp; &nbsp;
+      <a href="/overview/" 
+        class="btn btn-default btn-lg btn-huge" 
+        track-click="homepage-bottom choose" >
+        {{"Vybrat kapitolu" | translate }}
+      </a>
     </div>
   </div>
   <div class="clearfix"></div>
