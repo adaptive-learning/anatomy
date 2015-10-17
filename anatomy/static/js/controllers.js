@@ -151,22 +151,27 @@ angular.module('proso.anatomy.controllers', [])
             //user.addAnswer(asked == selected);
             if (asked == selected) {
                 $timeout(function() {
-                    $scope.next();
+                    $scope.next(function() {
+                      $scope.checking = false;
+                    });
                 }, 700);
             } else {
+                $scope.checking = false;
                 $scope.canNext = true;
             }
         };
 
-        $scope.next = function() {
+        $scope.next = function(callback) {
             if ($scope.progress < 100) {
                 practiceService.getFlashcard().then(function(q) {
                     setQuestion(q);
+                    if (callback) callback();
                 }, function(){
                     $scope.error = true;
                 });
             } else {
                 setupSummary();
+                if (callback) callback();
             }
         };
 
