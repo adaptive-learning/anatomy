@@ -147,7 +147,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var widthRatio =  image.bbox.width / bbox.width;
               var heightRatio = image.bbox.height / bbox.height;
               var minRatio = Math.min(widthRatio, heightRatio);
-              var zoomRatio = Math.max(1.05, minRatio / 2);
+              var zoomRatio = Math.max(1.05, minRatio);
               return zoomRatio;
             }
             
