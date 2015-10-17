@@ -78,7 +78,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 clickFn = callback;
               },
               highlightItem : function(code, color, animate) {
-                var paths = pathsByCode[code] || [];
+                var paths = code ? (pathsByCode[code] || []) : [];
                 var bbox = getBBox(paths.map(function(p) {return p.getBBox();}));
                 angular.forEach(paths, function(path) {
                   if (color) {
