@@ -120,24 +120,27 @@ angular.module('proso.anatomy.controllers', [])
         $scope.categoryId = $routeParams.category;
         $scope.progress = 0;
 
-        $scope.highlight = function(circleAnimation) {
+        $scope.highlight = function() {
             var active = $scope.question;
             if ($filter('isPickNameOfType')($scope.question)) {
                 $scope.imageController.highlightItem(
-                  active.description, colors.NEUTRAL, circleAnimation);
+                  active.description, colors.NEUTRAL, true);
             }
             if ($filter('isFindOnMapType')($scope.question) && $scope.question.options) {
               for (var i = 0; i < $scope.question.options.length; i++) {
                 $scope.question.options[i].color = colors.HIGHLIGHTS[i];
                 $scope.imageController.highlightItem(
                   $scope.question.options[i].description,
-                  colors.HIGHLIGHTS[i],
-                  circleAnimation);
+                  colors.HIGHLIGHTS[i]);
               }
             }
         };
 
         $scope.checkAnswer = function(selected) {
+            if ($scope.checking) {
+              return;
+            }
+            $scope.checking = true;
             var asked = $scope.question.description;
             highlightAnswer(asked, selected);
             $scope.question.answered_code = selected;
