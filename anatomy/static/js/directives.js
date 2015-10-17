@@ -72,36 +72,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
             var highlights = [];
             var highlightsByCode = {};
-            var highlightQueue = [];
-            var highlightInProgress = false;
 
             var that = {
               onClick: function(callback) {
                 clickFn = callback;
               },
-              _next : function() {
-                if (highlightQueue.length > 0) {
-                  var item = highlightQueue.shift();
-                  that._highlightTerm(item[0], item[1], item[2]);
-                  $timeout(that._next, ANIMATION_TIME_MS / 2);
-                } else {
-                  highlightInProgress = false;
-                }
-              },
               highlightItem : function(code, color, animate) {
-                if (code) {
-                  if (animate) {
-                    highlightQueue.push([code, color, animate]);
-                    if (!highlightInProgress) {
-                      highlightInProgress = true;
-                      that._next();
-                    }
-                  } else {
-                    that._highlightTerm(code, color, animate);
-                  }
-                }
-              },
-              _highlightTerm : function(code, color, animate) {
                 var paths = pathsByCode[code] || [];
                 var bbox = getBBox(paths.map(function(p) {return p.getBBox();}));
                 angular.forEach(paths, function(path) {
