@@ -113,13 +113,22 @@
         <br>
         <div class="col-sm-12">
           <br>
+          <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
+             href="/overview/" >
+            <i class="glyphicon glyphicon-th"></i> {{'Přehled znalostí' | translate }}
+          </a>
           <a class="btn btn-lg btn-default" 
              href="/refreshpractice/{{categoryId}}/" >
             <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
           </a>
-          <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
+          <a class="btn-continue btn btn-lg btn-default" 
              href="/overview/" >
-            <i class="glyphicon glyphicon-th"></i> {{'Přehled znalostí' | translate }}
+            <i class="glyphicon glyphicon-th"></i> {{'Vybrat jinou kapitolu' | translate }}
+          </a>
+          <a feedback-comment class="btn btn-lg btn-default report-error" email="{{userService.user.email}}"
+              href="">
+              <i class="glyphicon glyphicon-new-window"></i>
+            {{'Přijde Ti aplikace užitečná? Co&nbsp;bys&nbsp;vylepšil?' | translate }}
           </a>
         </div>
       </div>
