@@ -198,7 +198,9 @@ angular.module('proso.anatomy.controllers', [])
             $scope.summary.correctlyAnsweredRatio = $scope.summary.correct / $scope.summary.count;
             console.log($scope.summary);
             $scope.showSummary = true;
-            $("html, body").animate({ scrollTop: "0px" });
+            angular.element("html, body").animate({ scrollTop: "0px" }, function() {
+              angular.element(window).trigger('resize');
+            });
             //TODO fix this when answered_count available
             // events.emit('questionSetFinished', userService.getUser().answered_count);
         }

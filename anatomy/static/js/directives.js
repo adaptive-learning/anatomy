@@ -246,7 +246,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 angular.element('#ng-view').addClass('horizontal');
                 if (attrs.practice) {
                   var headerHeight = angular.element('.header-practice').height() || 0;
-                  paper.height = $window.innerHeight - (25 + headerHeight);
+                  headerHeight += angular.element('#nav-main').height() || 0;
+                  headerHeight -= Math.min(60, angular.element($window).scrollTop());
+                  var alertHeight = angular.element('.beta-alert').outerHeight() || 0;
+                  console.log('alertHeight', alertHeight);
+                  paper.height = $window.innerHeight - (25 + headerHeight + alertHeight);
                 } else {
                   paper.height = $window.innerHeight * 0.7 - 20;
                 }
@@ -266,6 +270,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             if (attrs.practice) {
               angular.element("html, body").animate({
                 scrollTop: (angular.element('.navbar').height() - 8) + "px"
+              }, function() {
+                onWidowResize();
               });
             }
 
