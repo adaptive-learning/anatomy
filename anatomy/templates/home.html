@@ -144,9 +144,17 @@
   </div>
     <div id="feedback-btn">
       <a feedback-comment email="{{email}}" href="">
-       {% trans "Napište nám" %}
+       {% trans "Napiš nám" %}
      </a>
     </div>
+  <div class="beta-alert text-center alert alert-warning" translate style="margin-bottom: 0; position: fixed; bottom: 0px; width: 100%; z-index:20">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only">Close</span>
+  </button>
+    <strong>{% trans "Aplikace je ve fázi testování." %}</strong>
+    {% trans "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv nápady na zlepšení nebo jiné připomínky," %} <a feedback-comment href="" email="{{userService.user.email}}">{% trans "napiš nám" %}</a>.
+  </div>
 
     <div class="" id="footer">
       <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
