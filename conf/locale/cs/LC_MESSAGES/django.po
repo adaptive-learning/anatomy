@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-28 11:41+0000\n"
+"POT-Creation-Date: 2015-10-18 19:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,38 +47,44 @@ msgid "Procvičování anatomie člověka na míru tvým znalostem."
 msgstr ""
 
 #: anatomy/templates/generated/homepage.html:32
+#: anatomy/templates/generated/homepage.html:148
 msgid "Začít procvičovat"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:39
+#: anatomy/templates/generated/homepage.html:38
+#: anatomy/templates/generated/homepage.html:154
+msgid "Vybrat kapitolu"
+msgstr ""
+
+#: anatomy/templates/generated/homepage.html:45
 msgid "Jak to funguje?"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:43
+#: anatomy/templates/generated/homepage.html:49
 msgid "1. Vybereš si orgánový systém nebo část těla"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:55
+#: anatomy/templates/generated/homepage.html:63
 msgid "2. Poznáváš anatomické struktury a názvy"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:67
+#: anatomy/templates/generated/homepage.html:77
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:81
+#: anatomy/templates/generated/homepage.html:93
 msgid "V čem je Anatom.cz výjimečný?"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:86
+#: anatomy/templates/generated/homepage.html:98
 msgid "Kvalitní obrázky"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:105
+#: anatomy/templates/generated/homepage.html:117
 msgid "Data od všech uživatelů"
 msgstr ""
 
-#: anatomy/templates/generated/homepage.html:119
+#: anatomy/templates/generated/homepage.html:131
 msgid "Otázky Tobě na míru"
 msgstr ""
 
@@ -108,29 +114,39 @@ msgstr "Přihlásit se"
 msgid "Můj profil"
 msgstr ""
 
-#: anatomy/templates/home.html:81
-msgid "Moje časté chyby"
-msgstr ""
-
-#: anatomy/templates/home.html:86
-msgid "Osobní cíle"
-msgstr ""
-
-#: anatomy/templates/home.html:91
-msgid "Nastavení"
-msgstr ""
-
-#: anatomy/templates/home.html:97
+#: anatomy/templates/home.html:80
 msgid "Odhlásit se"
 msgstr ""
 
-#: anatomy/templates/home.html:147 anatomy/templates/home.html.py:162
-msgid "Napište nám"
+#: anatomy/templates/home.html:130
+#, fuzzy
+#| msgid "Napište nám"
+msgid "Napiš nám"
 msgstr "Napiš nám"
 
-#: anatomy/templates/home.html:157
+#: anatomy/templates/home.html:138
+msgid "Aplikace je ve fázi testování."
+msgstr ""
+
+#: anatomy/templates/home.html:139
+msgid ""
+"Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv "
+"nápady na zlepšení nebo jiné připomínky,"
+msgstr ""
+
+#: anatomy/templates/home.html:139
+#, fuzzy
+#| msgid "Napište nám"
+msgid "napiš nám"
+msgstr "Napiš nám"
+
+#: anatomy/templates/home.html:148
 msgid "O projektu"
 msgstr ""
+
+#: anatomy/templates/home.html:153
+msgid "Napište nám"
+msgstr "Napiš nám"
 
 #: anatomy/views.py:32
 msgid "inteligentní aplikace na procvičování anatomie"
