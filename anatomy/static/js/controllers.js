@@ -142,14 +142,19 @@ angular.module('proso.anatomy.controllers', [])
             }
             $scope.checking = true;
             var asked = $scope.question.description;
+            var isCorrect = asked == selected;
             highlightAnswer(asked, selected);
             $scope.question.answered_code = selected;
             $scope.question.responseTime += new Date().valueOf();
-            var selectedFC = flashcardService.getFlashcardByDescription(selected);
-            practiceService.saveAnswerToCurrentFC(selectedFC && selectedFC.id, $scope.question.responseTime);
-            $scope.progress = 100 * (practiceService.getSummary().count / practiceService.getConfig().set_length);
-            //user.addAnswer(asked == selected);
-            if (asked == selected) {
+            var selectedFC = isCorrect ?
+              $scope.question :
+              flashcardService.getFlashcardByDescription(selected);
+            practiceService.saveAnswerToCurrentFC(
+              selectedFC && selectedFC.id, $scope.question.responseTime);
+            $scope.progress = 100 * (
+              practiceService.getSummary().count /
+              practiceService.getConfig().set_length);
+            if (isCorrect) {
                 $timeout(function() {
                     $scope.next(function() {
                       $scope.checking = false;
