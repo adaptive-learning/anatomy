@@ -91,11 +91,13 @@ msgstr "Questions fitted to your knowledge"
 
 #: anatomy/templates/home.html:11
 msgid "meta content"
-msgstr "Intelligent application for practicing anatomy"
+msgstr ""
+"Practice your medical anatomy online on 300 schemes of Memorix Anatomy!"
+"Difficulty of the questions automatically adjusts to your knowledge."
 
 #: anatomy/templates/home.html:12
 msgid "meta keywords"
-msgstr ""
+msgstr "anatomy, practice, review, online, scheme, anatomy pictures"
 
 #: anatomy/templates/home.html:48 anatomy/views.py:62
 msgid "Přehled znalostí"

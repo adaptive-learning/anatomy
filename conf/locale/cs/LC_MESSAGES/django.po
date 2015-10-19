@@ -90,11 +90,13 @@ msgstr ""
 
 #: anatomy/templates/home.html:11
 msgid "meta content"
-msgstr "Inteligentní aplikace na procvičování anatomie"
+msgstr ""
+"Procvič si lékařskou anatomii online na 300 schématech z Memorixu Anatomie!"
+"Náročnost otázek se automaticky přizpůsobuje Tvým znalostem."
 
 #: anatomy/templates/home.html:12
 msgid "meta keywords"
-msgstr "anatomie, procvičování"
+msgstr "anatomie, procvičování, opakování, online, schema, anatomická schémata"
 
 #: anatomy/templates/home.html:48 anatomy/views.py:62
 msgid "Přehled znalostí"
