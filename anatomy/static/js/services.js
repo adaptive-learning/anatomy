@@ -196,6 +196,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       }
       var grayAverage = Math.min(235, Math.round(lowerContrast(graySum / 3)));
       var grayAverageHex = grayAverage.toString(16);
+      if (grayAverageHex == 'NaN') {
+        return '#000000';
+      }
       return '#' + grayAverageHex + grayAverageHex + grayAverageHex;
     },
   };
