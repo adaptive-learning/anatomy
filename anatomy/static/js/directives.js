@@ -249,7 +249,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   headerHeight += angular.element('#nav-main').height() || 0;
                   headerHeight -= Math.min(60, angular.element($window).scrollTop());
                   var alertHeight = angular.element('.beta-alert').outerHeight() || 0;
-                  console.log('alertHeight', alertHeight);
                   paper.height = $window.innerHeight - (25 + headerHeight + alertHeight);
                 } else {
                   paper.height = $window.innerHeight * 0.7 - 20;

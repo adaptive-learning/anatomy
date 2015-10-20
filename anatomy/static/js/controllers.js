@@ -21,7 +21,7 @@ angular.module('proso.anatomy.controllers', [])
             gettextCatalog.setCurrentLanguage(code);
             $rootScope.LANGUAGE_CODE = code;
         };
-        if ($location.search('sessionid')) {
+        if ($location.search().sessionid) {
           userService.loadUser();
           $location.search('sessionid', undefined);
         } else {
