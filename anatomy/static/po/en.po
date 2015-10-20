@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-18 19:33+0000\n"
+"PO-Revision-Date: 2015-10-20 12:08+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,6 +40,23 @@ msgstr "Alternative names"
 msgid "Anatom.cz"
 msgstr "PracticeAnatomy.com"
 
+#: static/tpl/about.html:29
+msgid ""
+"Anatom.cz je vyvíjen na <a href=\"http://www.fi.muni.cz/\">\n"
+"    Fakultě informatiky Masarykovy univerzity</a>, \n"
+"    konkrétně v rámci skupiny <a href=\"http://www.fi.muni.cz/adaptivelearning/\">Adaptive Learning</a>."
+msgstr ""
+
+#: static/tpl/about.html:88
+msgid ""
+"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a "
+"href=\"http://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků "
+"a medicínskou stránku zodpovídá brněnský Memorix tým: <strong>Marek "
+"Čierny</strong> (koordinátor, lékař NK FN Bohunice), <strong>Linda "
+"Kašičková</strong> (studentka LF MU), <strong>Ondřej Volný</strong> (anatom,"
+" lékař NK FN u Sv. Anny)."
+msgstr ""
+
 #: static/tpl/confirm_modal.html:12
 msgid "Ano"
 msgstr "Yes"
@@ -59,6 +76,18 @@ msgid ""
 "      co Ti jde dobře a co je potřeba ještě cvičit."
 msgstr "Practice makes perfect. See how your knowledge grows, and identify the areas where you could improve in <a href=\"/overview/\">knowledge overview</a>."
 
+#: static/tpl/about.html:14
+msgid "Cíle"
+msgstr ""
+
+#: static/tpl/about.html:106
+msgid ""
+"Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a"
+" pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. "
+"Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity"
+" při opakovaných návštěvách, jinak se s nimi nepracuje."
+msgstr ""
+
 #: static/tpl/homepage.html:117
 msgid "Data od všech uživatelů"
 msgstr "As you learn, we learn with you"
@@ -76,7 +105,7 @@ msgstr "The application remember responses from all users who have ever used it,
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:376
+#: static/js/controllers.js:386
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -88,13 +117,29 @@ msgstr "How does it work?"
 msgid "Jméno"
 msgstr "First name"
 
+#: static/tpl/about.html:82
+msgid "Kdo stojí za obsahem"
+msgstr ""
+
+#: static/tpl/about.html:24
+msgid "Kdo stojí za vývojem"
+msgstr ""
+
 #: static/tpl/homepage.html:98
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
+#: static/tpl/about.html:93
+msgid "Lákařská fakulta Masarykovy univerzity"
+msgstr ""
+
 #: static/js/directives.js:556
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
+
+#: static/tpl/about.html:34
+msgid "Mezi další projekty této skupiny patří:"
+msgstr ""
 
 #: static/tpl/map_tpl.html:11
 msgid "Moje znalosti"
@@ -113,6 +158,22 @@ msgid ""
 "{{question}}\n"
 "je tato chyba:"
 msgstr "In image: \"{{imageName}}\"\nin question:\n{{question}}\nis this error:"
+
+#: static/tpl/about.html:55
+msgid ""
+"Na vývoji aplikace anatom.cz a modelu, který Vám vybírá otázky na míru, se "
+"podílí především <strong>Vít Stanislav</strong>, <strong>Jan "
+"Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD studenti FI MU)."
+msgstr ""
+
+#: static/tpl/about.html:96
+msgid ""
+"Na zpracování anatomických schémat se významně podíleli následující studenti"
+" medicíny LF MU v Brně: <strong>David Dufek, Michaela Janáková, Lýdia "
+"Nováková, Veronika Puchnerová, Adriana Slaníková, Karolína Svobodová, Albert"
+" Štěrba</strong>. Svou dobrovolnou prací se snažili pomoci mladším kolegům v"
+" přípravě na náračnou zkoušku z anatomie."
+msgstr ""
 
 #: static/tpl/practice_tpl.html:90
 msgid "Nahlásit chybu"
@@ -134,15 +195,23 @@ msgstr "Unpracticed"
 msgid "Nevím"
 msgstr "Don't know"
 
+#: static/tpl/about.html:71
+msgid "Náměty a připomínky"
+msgstr ""
+
 #: static/js/services.js:40
 msgid "O prjektu"
 msgstr "About"
+
+#: static/tpl/about.html:4
+msgid "O projektu"
+msgstr ""
 
 #: static/js/directives.js:18 static/js/map.js:268
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/js/controllers.js:305
+#: static/js/controllers.js:309
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -158,6 +227,13 @@ msgstr "Continue"
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
+#: static/tpl/about.html:59
+msgid ""
+"Pokud studujete na FI a máte zájem se zapojit do vývoje podobného typu systémů,\n"
+"    případně pokud máte zájem o výzkumnou spolupráci, kontaktujte\n"
+"    <a href=\"http://www.muni.cz/people/4297\">Radka Pelánka</a>."
+msgstr ""
+
 #: static/tpl/user_tpl.html:38
 msgid "Poslat mi email při neplnění cílů"
 msgstr "Send me e-mail if I'm behind schedule with personal goals"
@@ -165,6 +241,24 @@ msgstr "Send me e-mail if I'm behind schedule with personal goals"
 #: static/js/map.js:274
 msgid "Počet obyvatel"
 msgstr "Population"
+
+#: static/tpl/about.html:15
+msgid ""
+"Primárním cílem projektu Anatom.cz je usnadnit studentům medicíny, "
+"antropologie a dalším zájemcům o anatomii procvičování svých znalostí. "
+"Opakováním přehledných schémat z Memorixu Anatomie si každý může pohodlně "
+"upevňovat své vědomosti. Sekundárním cílem je vyzkoušet přínos inovativního "
+"softwarového modelu, který se na základě Vašich předchozích odpovědí snaží "
+"vybrat Vám následující otázku adekvátní obtížnosti."
+msgstr ""
+
+#: static/tpl/about.html:109
+msgid ""
+"Pro statistiky návštěvnosti uživatelů využíváme Google Analytics, které mají"
+" samostatné <a "
+"href=\"http://www.google.com/intl/en/policies/privacy/\">podmínky ochrany "
+"soukromí</a>."
+msgstr ""
 
 #: static/js/directives.js:534
 msgid "Pro vyřešení problému zkuste"
@@ -189,6 +283,12 @@ msgstr "Practice medical anatomy with personalized questions."
 #: static/tpl/overview_tpl.html:79
 msgid "Prohlížet obrázky"
 msgstr "View images"
+
+#: static/tpl/about.html:5
+msgid ""
+"Projekt Anatom.cz vznikl ve spolupráci skupiny Adaptive learning z FI MU a "
+"Memorix týmu zahrnující lékaře a studenty LF MU v Brně."
+msgstr ""
 
 #: static/tpl/map_tpl.html:18
 msgid "Průměrný nový uživatel"
@@ -227,9 +327,19 @@ msgstr "Surname"
 msgid "Příští úroveň"
 msgstr "Next level"
 
+#: static/tpl/about.html:72
+msgid ""
+"Rádi bychom vyslechli Tvoje náměty k rozvoji systému, připomínky a stížnosti k beta verzi. Když nám pošleš email na <span class=\"email contact\">anatom{zavinac}memorix.cz</span>, pomůžeš nám aplikaci zdokonalit pro sebe i ostatní uživatele. \n"
+"    Náměty k rozvoji systému zasílejte na"
+msgstr ""
+
 #: static/tpl/user_tpl.html:64
 msgid "Sdílej svůj profil"
 msgstr "Share your profile"
+
+#: static/tpl/about.html:105
+msgid "Soukromí"
+msgstr ""
 
 #: static/tpl/homepage.html:132
 msgid ""
@@ -253,7 +363,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:389 static/js/directives.js:531
+#: static/js/controllers.js:399 static/js/directives.js:531
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -321,6 +431,6 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:309
+#: static/js/controllers.js:313
 msgid "Části těla"
 msgstr "Body parts"

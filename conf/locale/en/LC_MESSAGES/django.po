@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Marek Cierny <cierny.m@gmail.com>, 2015
 # Vít Stanislav <slaweet@seznam.cz>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-18 19:30+0000\n"
-"PO-Revision-Date: 2015-10-18 19:31+0000\n"
-"Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
+"PO-Revision-Date: 2015-10-19 09:10+0000\n"
+"Last-Translator: Marek Cierny <cierny.m@gmail.com>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -67,7 +68,7 @@ msgstr "1. Choose an organ system or a bodypart"
 
 #: anatomy/templates/generated/homepage.html:63
 msgid "2. Poznáváš anatomické struktury a názvy"
-msgstr "2. recognize anatomical structures and names"
+msgstr "2. Recognize anatomical structures and names"
 
 #: anatomy/templates/generated/homepage.html:77
 msgid "3. Sleduješ, jak ti rostou znalosti"
@@ -91,13 +92,11 @@ msgstr "Questions fitted to your knowledge"
 
 #: anatomy/templates/home.html:11
 msgid "meta content"
-msgstr ""
-"Practice your medical anatomy online on 300 schemes of Memorix Anatomy!"
-"Difficulty of the questions automatically adjusts to your knowledge."
+msgstr "Practice medical anatomy online with 300 images from Memorix Anatomy! The difficulty of questions automatically adjusts to your knowledge."
 
 #: anatomy/templates/home.html:12
 msgid "meta keywords"
-msgstr "anatomy, practice, review, online, scheme, anatomy pictures"
+msgstr "anatomy, practice, review, online, scheme, anatomy pictures, test, quizz"
 
 #: anatomy/templates/home.html:48 anatomy/views.py:62
 msgid "Přehled znalostí"
@@ -134,7 +133,7 @@ msgstr "The application is in the testing phase."
 msgid ""
 "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv "
 "nápady na zlepšení nebo jiné připomínky,"
-msgstr "If you encounter any problems with the controls or the content, you have any ideas for improvements or other comments,"
+msgstr "If you encounter any problems with the controls or the content, or if you have any suggestions for improvements or other comments, please"
 
 #: anatomy/templates/home.html:139
 #| msgid "Napište nám"
