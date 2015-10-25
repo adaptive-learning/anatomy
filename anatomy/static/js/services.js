@@ -102,7 +102,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     function init(){
       var filter = {
         all : 'True',
-        db_orderby : 'name',
+        db_orderby : 'identifier',
       };
       httpPromise = $http.get('/flashcards/categorys', {params: filter, cache: true}
       ).success(function(data) {
