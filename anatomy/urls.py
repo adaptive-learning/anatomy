@@ -24,6 +24,7 @@ urlpatterns = patterns(
     url(r'^(about|overview|mistakes|goals|view/\w+|u/\w+|practice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
+    url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
 
     url(r'^user/', include('proso_user.urls')),
     url(r'^questions/', include('proso_questions.urls')),

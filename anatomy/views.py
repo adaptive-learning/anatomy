@@ -7,6 +7,9 @@ from django.utils.translation import get_language
 from proso.django.config import get_global_config
 from proso_flashcards.models import Category
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core import management
+from django.http import HttpResponse, HttpResponseBadRequest
+import os
 
 
 @ensure_csrf_cookie
@@ -61,3 +64,23 @@ def get_headline_from_url(hack):
         elif url[0] == u'overview':
             headline = _(u'Přehled znalostí')
     return headline
+
+
+def load_flashcards(request):
+    context = request.GET.get('context', '')
+    filepath = os.path.join(os.environ.get('EXPORT_PATH', '.'), 'image-' + context + '.json')
+    if os.path.isfile(filepath):
+        management.call_command(
+            'load_flashcards',
+            filepath,
+            verbosity=0,
+            interactive=False)
+        response = u"""{
+            "type": "success",
+            "msg" : "Obrázek byl úspěšně nahrán na anatom.cz"
+        }"""
+        if request.GET['callback'] is not None:
+                response = request.GET['callback'] + '(' + response + ')'
+        return HttpResponse(response, content_type='application/javascript')
+    else:
+        return HttpResponseBadRequest('Error, invalid context: ' + context)
