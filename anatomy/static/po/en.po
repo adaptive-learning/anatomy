@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-23 15:10+0000\n"
-"Last-Translator: Marek Cierny <cierny.m@gmail.com>\n"
+"PO-Revision-Date: 2015-10-26 12:04+0000\n"
+"Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,7 @@ msgstr "3. See how you are doing and how your knowledge grows"
 msgid "Adresa profilu"
 msgstr "Profile address"
 
-#: static/js/directives.js:414
+#: static/js/directives.js:413
 msgid "Aktuální úroveň"
 msgstr "Current level"
 
@@ -134,7 +134,7 @@ msgstr "High quality pictures"
 msgid "Lákařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
-#: static/js/directives.js:556
+#: static/js/directives.js:555
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
@@ -224,7 +224,7 @@ msgstr "Questions fitted to your knowledge"
 msgid "Pokračovat"
 msgstr "Continue"
 
-#: static/js/directives.js:540
+#: static/js/directives.js:539
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
@@ -261,7 +261,7 @@ msgid ""
 "soukromí</a>."
 msgstr "In order to analyze the number of visits and user behavior, we use Google Analytics, which <a href=\"http://www.google.com/intl/en/policies/privacy/\" rel=\"nofollow\">have their own privacy policy</a>."
 
-#: static/js/directives.js:534
+#: static/js/directives.js:533
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
@@ -324,7 +324,7 @@ msgstr "Is the application helpful for you? What would you improve?"
 msgid "Příjmení"
 msgstr "Surname"
 
-#: static/js/directives.js:426
+#: static/js/directives.js:425
 msgid "Příští úroveň"
 msgstr "Next level"
 
@@ -364,7 +364,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:399 static/js/directives.js:531
+#: static/js/controllers.js:399 static/js/directives.js:530
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -392,7 +392,7 @@ msgstr "Selected"
 msgid "Začít procvičovat"
 msgstr "Start practice"
 
-#: static/js/directives.js:554
+#: static/js/directives.js:553
 msgid "Zdroj"
 msgstr "Source"
 
@@ -408,15 +408,19 @@ msgstr "Cancel"
 msgid "Zvýrazněná část se jmenuje"
 msgstr "The name of the highlighted part is"
 
-#: static/js/directives.js:419
+#: static/tpl/homepage.html:107
+msgid "anatomie.memorix.cz"
+msgstr "memorix.cz"
+
+#: static/js/directives.js:418
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/directives.js:542
+#: static/js/directives.js:541
 msgid "nám napiště"
 msgstr "write to us"
 
-#: static/js/directives.js:537
+#: static/js/directives.js:536
 msgid "obnovit stránku"
 msgstr "refresh the page"
 
@@ -424,7 +428,7 @@ msgstr "refresh the page"
 msgid "přibývají za každou správnou odpověď"
 msgstr "for corrects answers"
 
-#: static/js/directives.js:557
+#: static/js/directives.js:556
 msgid "str."
 msgstr "p."
 

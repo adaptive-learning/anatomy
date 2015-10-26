@@ -101,8 +101,8 @@
                 </ul>
               </li>
               <li>
-                <a href="http://anatomie.memorix.cz">
-                  <img src="{% static 'img/memorix-logo.png' %}"
+                <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
+                  <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
                   class="menu-logo"
                   alt="Memorix Anatomie"/>
                 </a>
@@ -160,8 +160,9 @@
         </ul>
         </span>
         <span class="col-sm-3">
-          <a href="http://anatomie.memorix.cz" class="">
-            <img src="{% static 'img/memorix-logo.png' %}" alt="Memorix Anatomie"/>
+          <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
+            <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
+                alt="{% trans 'Memorix Anatomie' %}"/>
           </a>
         </span>
         <span class="col-sm-3">

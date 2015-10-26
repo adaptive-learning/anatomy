@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-18 19:30+0000\n"
+"POT-Creation-Date: 2015-10-26 12:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgid "Zavřít"
 msgstr ""
 
 #: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:44
-#: anatomy/views.py:32
+#: anatomy/views.py:36
 msgid "Anatom.cz"
 msgstr ""
 
@@ -80,6 +80,11 @@ msgstr ""
 msgid "Kvalitní obrázky"
 msgstr ""
 
+#: anatomy/templates/generated/homepage.html:107
+#: anatomy/templates/home.html:104 anatomy/templates/home.html.py:163
+msgid "anatomie.memorix.cz"
+msgstr ""
+
 #: anatomy/templates/generated/homepage.html:117
 msgid "Data od všech uživatelů"
 msgstr ""
@@ -98,58 +103,66 @@ msgstr ""
 msgid "meta keywords"
 msgstr "anatomie, procvičování, opakování, online, schema, anatomická schémata"
 
-#: anatomy/templates/home.html:48 anatomy/views.py:62
-msgid "Přehled znalostí"
+#: anatomy/templates/home.html:48
+msgid "Kapitoly"
 msgstr ""
 
-#: anatomy/templates/home.html:59
+#: anatomy/templates/home.html:51
+msgid "O projektu"
+msgstr ""
+
+#: anatomy/templates/home.html:62
 msgid ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
 msgstr ""
 
-#: anatomy/templates/home.html:62
+#: anatomy/templates/home.html:65
 msgid "Přihlásit se"
 msgstr "Přihlásit se"
 
-#: anatomy/templates/home.html:75
+#: anatomy/templates/home.html:78
 msgid "Můj profil"
 msgstr ""
 
-#: anatomy/templates/home.html:80
+#: anatomy/templates/home.html:83
 msgid "Odhlásit se"
 msgstr ""
 
-#: anatomy/templates/home.html:130
+#: anatomy/templates/home.html:133
 #, fuzzy
 #| msgid "Napište nám"
 msgid "Napiš nám"
 msgstr "Napiš nám"
 
-#: anatomy/templates/home.html:138
+#: anatomy/templates/home.html:141
 msgid "Aplikace je ve fázi testování."
 msgstr ""
 
-#: anatomy/templates/home.html:139
+#: anatomy/templates/home.html:142
 msgid ""
 "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv "
 "nápady na zlepšení nebo jiné připomínky,"
 msgstr ""
 
-#: anatomy/templates/home.html:139
+#: anatomy/templates/home.html:142
 #, fuzzy
 #| msgid "Napište nám"
 msgid "napiš nám"
 msgstr "Napiš nám"
 
-#: anatomy/templates/home.html:148
-msgid "O projektu"
-msgstr ""
-
-#: anatomy/templates/home.html:153
+#: anatomy/templates/home.html:151
 msgid "Napište nám"
 msgstr "Napiš nám"
 
-#: anatomy/views.py:32
+#: anatomy/templates/home.html:165
+msgid "Memorix Anatomie"
+msgstr ""
+
+#: anatomy/views.py:36
 msgid "inteligentní aplikace na procvičování anatomie"
+msgstr ""
+
+#: anatomy/views.py:66
+msgid "Přehled znalostí"
 msgstr ""
