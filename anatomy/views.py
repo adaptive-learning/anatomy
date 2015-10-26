@@ -9,6 +9,7 @@ from proso_flashcards.models import Category
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import management
 from django.http import HttpResponse, HttpResponseBadRequest
+from django.core.cache import cache
 import os
 
 
@@ -76,6 +77,7 @@ def load_flashcards(request):
             ignored_flashcards='disable',
             verbosity=0,
             interactive=False)
+        cache.clear()
         response = u"""{
             "type": "success",
             "msg" : "Obrázek byl úspěšně nahrán na anatom.cz"
