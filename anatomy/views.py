@@ -73,6 +73,7 @@ def load_flashcards(request):
         management.call_command(
             'load_flashcards',
             filepath,
+            ignored_flashcards='disable',
             verbosity=0,
             interactive=False)
         response = u"""{
