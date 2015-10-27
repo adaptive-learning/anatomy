@@ -233,6 +233,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': os.path.join(DATA_DIR, '.django_cache'),
+        'TIMEOUT': 60 * 60 * 24 * 7,
     }
 }
 if not ON_STAGING and not ON_PRODUCTION:
