@@ -76,7 +76,8 @@ MIDDLEWARE_CLASSES = (
     'proso.django.log.RequestLogMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'anatomy.middleware.LanguageInPathMiddleware',
+    'anatomy.middleware.LanguageInDomainMiddleware',
+    'anatomy.middleware.GoogleAuthChangeDomain',
     'proso_common.middleware.AuthAlreadyAssociatedMiddleware',
 )
 
@@ -106,16 +107,19 @@ if ON_PRODUCTION:
         'cs': 'anatom.cz',
         'en': 'practiceanatomy.com',
     }
+    AUTH_DOMAIN = 'anatom.cz'
 elif ON_STAGING:
     LANGUAGE_DOMAINS = {
         'cs': 'staging.anatom.cz',
         'en': 'staging.practiceanatomy.com',
     }
+    AUTH_DOMAIN = 'staging.anatom.cz'
 else:
     LANGUAGE_DOMAINS = {
         'cs': 'localhost:8003',
         'en': '127.0.0.1:8003',
     }
+    AUTH_DOMAIN = 'localhost:8003'
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'conf', 'locale'),
