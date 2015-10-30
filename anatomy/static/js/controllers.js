@@ -258,7 +258,10 @@ angular.module('proso.anatomy.controllers', [])
                 filter.categories = $routeParams.categories;
             }
             if ($routeParams.category) {
-                filter.categories = [$routeParams.category];
+              filter.categories = [$routeParams.category];
+              if ($routeParams.category2) {
+                filter.categories = [[$routeParams.category], [$routeParams.category2]];
+              }
             }
             if ($routeParams.context) {
                 filter.contexts = [$routeParams.context];
