@@ -39,6 +39,8 @@ angular.module('proso.anatomy.controllers', [])
 .controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', '$location', 'imageService', 'colorScale',
     function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, $location, imageService, colorScale) {
         'use strict';
+      $scope.user = $routeParams.user || '';
+
       categoryService.getAll().then(function(){
         $scope.category = categoryService.getCategory($routeParams.category);
       });
@@ -61,9 +63,9 @@ angular.module('proso.anatomy.controllers', [])
           }
         }
 
-        userStatsService.getStatsPost().success(function(data) {
+        userStatsService.getStatsPost(false, $scope.user).success(function(data) {
           resolveContexts(data);
-          userStatsService.getStatsPost(true).success(resolveContexts);
+          userStatsService.getStatsPost(true, $scope.user).success(resolveContexts);
         });
 
         function resolveContexts(data) {
@@ -84,7 +86,7 @@ angular.module('proso.anatomy.controllers', [])
       userStatsService.clean();
       userStatsService.addGroup(catId, {});
       userStatsService.addGroupParams(catId, [$routeParams.category]);
-      userStatsService.getStatsPost(true).success(function(data) {
+      userStatsService.getStatsPost(true, $scope.user).success(function(data) {
         $scope.stats = data.data[catId];
       });
 
@@ -327,7 +329,7 @@ angular.module('proso.anatomy.controllers', [])
               userStatsService.addGroupParams(id, [cat.identifier]);
             }
 
-            userStatsService.getStatsPost(true).success(processStats);
+            userStatsService.getStatsPost(true, $scope.user).success(processStats);
 
             function processStats(data) {
               $scope.progressRadius = getProgressRadius();

@@ -1,7 +1,10 @@
 <div class="container-fluid">
   <div class="row header">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-        <h1 translate>Přehled znalostí</h1>
+        <h1>
+          <span>{{user ? user + ' - ' : ''}}</span>
+          <span translate>Přehled znalostí</span>
+        </h1>
       <span class="col-sm-9">
         <div category-progress skills="{{stats}}"></div>
       </span>
@@ -75,8 +78,8 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="/practice/{{category.identifier}}/" translate >Procvičovat</a></li>
-                    <li><a href="/view/{{category.identifier}}/" translate>Prohlížet obrázky</a></li>
+                    <li ng-if="!user"><a href="/practice/{{category.identifier}}/" translate >Procvičovat</a></li>
+                    <li><a href="/view/{{category.identifier}}/{{user}}" translate>Prohlížet obrázky</a></li>
                   </ul>
                 </div> 
               </span>
