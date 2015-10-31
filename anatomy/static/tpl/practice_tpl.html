@@ -60,7 +60,8 @@
               ng-mouseleave="(question|isFindOnMapType) && imageController.hoverOut(option.description)"
               style="background-color:{{(question|isFindOnMapType) && option.color}}"
               ng-disabled="option.disabled">&nbsp;
-               <span ng-show="(question|isPickNameOfType) || question.answered_code">
+               <span ng-show="(question|isPickNameOfType) ||
+                 option.selected || option.correct">
                  {{option.term.name | stripAlternatives}}
                </span>&nbsp;
             </button>
