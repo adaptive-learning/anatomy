@@ -115,16 +115,17 @@
         <div class="col-sm-12">
           <br>
           <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
-             href="/overview/" >
-            <i class="glyphicon glyphicon-th"></i> {{'Přehled znalostí' | translate }}
+             href="/refreshpractice/{{categoryId}}/" >
+            <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat v procvičování' | translate }}
           </a>
           <a class="btn btn-lg btn-default" 
-             href="/refreshpractice/{{categoryId}}/" >
-            <i class="glyphicon glyphicon-repeat"></i> {{'Znovu procvičovat' | translate }}
+             ng-if="categoryId"
+             href="/view/{{categoryId}}/" >
+            <i class="glyphicon glyphicon-picture"></i> {{'Přehled znalostí' | translate }}
           </a>
-          <a class="btn-continue btn btn-lg btn-default" 
+          <a class="btn btn-lg btn-default" 
              href="/overview/" >
-            <i class="glyphicon glyphicon-th"></i> {{'Vybrat jinou kapitolu' | translate }}
+            <i class="glyphicon glyphicon-th"></i> {{'Vybrat kapitolu' | translate }}
           </a>
           <a feedback-comment class="btn btn-lg btn-default report-error" email="{{userService.user.email}}"
               href="">

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-10-26 12:04+0000\n"
+"PO-Revision-Date: 2015-10-31 13:59+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr "3. See how you are doing and how your knowledge grows"
 msgid "Adresa profilu"
 msgstr "Profile address"
 
-#: static/js/directives.js:413
+#: static/js/directives.js:414
 msgid "Aktuální úroveň"
 msgstr "Current level"
 
@@ -66,7 +66,7 @@ msgstr "Yes"
 msgid "Body"
 msgstr "Points"
 
-#: static/tpl/practice_tpl.html:84
+#: static/tpl/practice_tpl.html:85
 msgid "Co je zvýrazněno?"
 msgstr "What is highlighted?"
 
@@ -106,7 +106,7 @@ msgstr "The application remember responses from all users who have ever used it,
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:386
+#: static/js/controllers.js:383
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -134,7 +134,7 @@ msgstr "High quality pictures"
 msgid "Lákařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
-#: static/js/directives.js:555
+#: static/js/directives.js:556
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
@@ -176,7 +176,7 @@ msgid ""
 " přípravě na náračnou zkoušku z anatomie."
 msgstr "Several medical students of the Medical Faculty of Masaryk University volunteered in adaptation of the pictures for online use and testing: <strong>David Dufek, Michaela Janáková, Lýdia Nováková, Veronika Puchnerová, Adriana Slaníková, Karolína Svobodová, Albert Štěrba</strong>. We appreciate their significant commitment, which we all hope will help their younger peers during the study for an Anatomy exam."
 
-#: static/tpl/practice_tpl.html:90
+#: static/tpl/practice_tpl.html:91
 msgid "Nahlásit chybu"
 msgstr "Report Error"
 
@@ -192,7 +192,7 @@ msgstr "No"
 msgid "Neprocvičováno"
 msgstr "Unpracticed"
 
-#: static/tpl/practice_tpl.html:78
+#: static/tpl/practice_tpl.html:79
 msgid "Nevím"
 msgstr "Don't know"
 
@@ -212,7 +212,7 @@ msgstr "About us"
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/js/controllers.js:309
+#: static/js/controllers.js:312
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -220,11 +220,15 @@ msgstr "Organ systems"
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
 
-#: static/tpl/practice_tpl.html:73
+#: static/tpl/practice_tpl.html:74
 msgid "Pokračovat"
 msgstr "Continue"
 
-#: static/js/directives.js:539
+#: static/tpl/practice_tpl.html:119
+msgid "Pokračovat v procvičování"
+msgstr "Continue to practice"
+
+#: static/js/directives.js:540
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
@@ -261,7 +265,7 @@ msgid ""
 "soukromí</a>."
 msgstr "In order to analyze the number of visits and user behavior, we use Google Analytics, which <a href=\"http://www.google.com/intl/en/policies/privacy/\" rel=\"nofollow\">have their own privacy policy</a>."
 
-#: static/js/directives.js:533
+#: static/js/directives.js:534
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
@@ -296,7 +300,7 @@ msgid "Průměrný nový uživatel"
 msgstr "Average new user"
 
 #: static/js/services.js:41 static/tpl/overview_tpl.html:4
-#: static/tpl/practice_tpl.html:118
+#: static/tpl/practice_tpl.html:124
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
 
@@ -316,7 +320,7 @@ msgstr "Concise anatomical pictures are from a successful textbook <a href=\"htt
 msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
 msgstr "You can zoom the map with mouse wheel or touch pinch gesture."
 
-#: static/tpl/practice_tpl.html:131
+#: static/tpl/practice_tpl.html:133
 msgid "Přijde Ti aplikace užitečná? Co bys vylepšil?"
 msgstr "Is the application helpful for you? What would you improve?"
 
@@ -324,7 +328,7 @@ msgstr "Is the application helpful for you? What would you improve?"
 msgid "Příjmení"
 msgstr "Surname"
 
-#: static/js/directives.js:425
+#: static/js/directives.js:426
 msgid "Příští úroveň"
 msgstr "Next level"
 
@@ -364,7 +368,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:399 static/js/directives.js:530
+#: static/js/controllers.js:396 static/js/directives.js:531
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -376,11 +380,8 @@ msgstr "What makes PracticeAnatomy.com special?"
 msgid "Vyber"
 msgstr "Choose"
 
-#: static/tpl/practice_tpl.html:126
-msgid "Vybrat jinou kapitolu"
-msgstr "Select another chapter"
-
 #: static/tpl/homepage.html:154 static/tpl/homepage.html:38
+#: static/tpl/practice_tpl.html:128
 msgid "Vybrat kapitolu"
 msgstr "Select chapter"
 
@@ -392,13 +393,9 @@ msgstr "Selected"
 msgid "Začít procvičovat"
 msgstr "Start practice"
 
-#: static/js/directives.js:553
+#: static/js/directives.js:554
 msgid "Zdroj"
 msgstr "Source"
-
-#: static/tpl/practice_tpl.html:122
-msgid "Znovu procvičovat"
-msgstr "Practice again"
 
 #: static/tpl/user_tpl.html:46
 msgid "Zrušit"
@@ -412,15 +409,15 @@ msgstr "The name of the highlighted part is"
 msgid "anatomie.memorix.cz"
 msgstr "memorix.cz"
 
-#: static/js/directives.js:418
+#: static/js/directives.js:419
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/directives.js:541
+#: static/js/directives.js:542
 msgid "nám napiště"
 msgstr "write to us"
 
-#: static/js/directives.js:536
+#: static/js/directives.js:537
 msgid "obnovit stránku"
 msgstr "refresh the page"
 
@@ -428,14 +425,14 @@ msgstr "refresh the page"
 msgid "přibývají za každou správnou odpověď"
 msgstr "for corrects answers"
 
-#: static/js/directives.js:556
+#: static/js/directives.js:557
 msgid "str."
 msgstr "p."
 
-#: static/tpl/practice_tpl.html:99
+#: static/tpl/practice_tpl.html:100
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:313
+#: static/js/controllers.js:316
 msgid "Části těla"
 msgstr "Body parts"
