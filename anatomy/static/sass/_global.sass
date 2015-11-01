@@ -110,14 +110,21 @@ div#footer
 
 .terms-container
   padding: 10px
+  margin-top: 10px
   font-size: 1.4em
   display: inline-block
   float: left
   .label
     cursor: pointer
 
-.horizontal .terms-container
-  width: 30%
+.horizontal
+  .terms-container
+    width: 30%
+  .terms-container.few-terms
+    .label
+      display: block
+      white-space: inherit
+      margin-right: -10px
   
 
 .table.table-striped .table-row:nth-child(2n)
@@ -163,7 +170,7 @@ div#footer
   .page-number
     z-index: 10
     position: absolute
-    bottom: 25px
+    bottom: 15px
     right: 20px
 
 .image-list-title

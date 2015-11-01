@@ -49,14 +49,15 @@
           hide-labels="{{activeContext!=context}}"></div>
       </span>
       <div class="clearfix"></div>
-      <div ng-if="activeContext==context">
+      <div ng-if="activeContext==context" class="col-md-10 col-md-offset-1 col-sm-12">
         <div ng-hide="context.flashcards && context.content" class="loading-indicator">
         </div>
         <span>
           <span page-number="{{context.content.meta['textbook-page']}}"></span>
           <span anatomy-image code="{{context.identifier}}" ></span>
         </span>
-        <span ng-hide="loading" class="terms-container">
+        <span ng-hide="loading" class="terms-container"
+            ng-class="{'few-terms': context.flashcards.length &lt; 15}">
           <span class="label label-default"
             ng-repeat="flashcard in context.flashcards"
             ng-class="{'btn-info' : flashcard.term == activeTerm}"

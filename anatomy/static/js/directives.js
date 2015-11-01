@@ -158,7 +158,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             }
 
             function setHoverColor(path, lower) {
-                var code = path && path.data('code');
+                var code = path && path.data && path.data('code');
                 if (code && (!attrs.practice || canBeSelected(code))) {
                   var paths = (pathsByCode[code] || []).concat(
                       highlightsByCode[code] || []);
@@ -238,22 +238,32 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               return p.bbox;
             }));
 
+            function getHorizontalViewDimensions(paper){
+              var imageOfWindowWidthRatio = 0.7;
+              if (attrs.practice) {
+                var headerHeight = angular.element('.header-practice').height() || 0;
+                headerHeight += angular.element('#nav-main').height() || 0;
+                headerHeight -= Math.min(60, angular.element($window).scrollTop());
+                var alertHeight = angular.element('.beta-alert').outerHeight() || 0;
+                paper.height = $window.innerHeight - (25 + headerHeight + alertHeight);
+                paper.width = $window.innerWidth  * 0.7 - 20;
+              } else {
+                if ($window.innerWidth > 992) {
+                  imageOfWindowWidthRatio *= 10 / 12;
+                }
+                paper.height = $window.innerHeight * 0.7 - 20;
+                paper.width = $window.innerWidth * imageOfWindowWidthRatio - 40;
+              }
+              return paper;
+            }
+
             function onWidowResize(){
               angular.element('#ng-view').removeClass('horizontal');
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
               if (screenAspectRatio < 1) {
                 angular.element('#ng-view').addClass('horizontal');
-                if (attrs.practice) {
-                  var headerHeight = angular.element('.header-practice').height() || 0;
-                  headerHeight += angular.element('#nav-main').height() || 0;
-                  headerHeight -= Math.min(60, angular.element($window).scrollTop());
-                  var alertHeight = angular.element('.beta-alert').outerHeight() || 0;
-                  paper.height = $window.innerHeight - (25 + headerHeight + alertHeight);
-                } else {
-                  paper.height = $window.innerHeight * 0.7 - 20;
-                }
-                paper.width = $window.innerWidth  * 0.7 - 20;
+                paper = getHorizontalViewDimensions(paper);
               } else {
                 paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
                 paper.width = $window.innerWidth - 35;
