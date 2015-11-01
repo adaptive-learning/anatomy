@@ -2,7 +2,7 @@
   <div class="row header header-practice">
     <div class="col-sm-12 ">
       <h1>
-        {{categoryId | categoryIdToName}} {{activeQuestion.context.name}}
+        {{activeQuestion.context.name}}
         <a ng-if="userService.user.staff && categoryId"
           href="/view/{{categoryId}}/?context={{activeQuestion.context.identifier}}">
           <i class="glyphicon glyphicon-picture" ></i>
