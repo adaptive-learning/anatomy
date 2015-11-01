@@ -232,7 +232,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               pathsObj[p.id] = p;
             }
 
-            image.bbox = getBBox(image.paths.map(function(p) {
+            image.bbox = image.bbox || getBBox(image.paths.map(function(p) {
               p.bbox.x2 = p.bbox.x + p.bbox.width;
               p.bbox.y2 = p.bbox.y + p.bbox.height;
               return p.bbox;
