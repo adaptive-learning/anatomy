@@ -29,6 +29,11 @@
       ng-repeat="context in contexts">
       <span class="col-md-5 col-md-offset-1 col-sm-6"
         ng-click="activateContext(context)" >
+        <a ng-if="userService.user.staff"
+          class="pull-left"
+          href="/view/{{category.identifier}}/?context={{context.identifier}}">
+          <i class="glyphicon glyphicon-picture" ></i>
+        </a>
         <h3 class="image-list-title">
           {{context.name || '[MISSING]'}}
         </h3>
