@@ -8,6 +8,9 @@ default:
             class: proso.models.option_selection.ConfusingOptionSelection
             parameters:
                 allow_zero_options_restriction: true
+    proso_common:
+        logging:
+            js_errors: true
     proso_flashcards:
         practice:
             common:

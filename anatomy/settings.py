@@ -223,7 +223,12 @@ LOGGING = {
             'handlers': ['console', 'request', 'mail_admins', 'anatomy_file'],
             'propagate': True,
             'level': 'DEBUG'
-        }
+        },
+        'javascript': {
+            'handlers': ['console', 'mail_admins', 'anatomy_file'],
+            'propagate': True,
+            'level': 'INFO',
+        },
     },
     'filters': {
         'require_debug_false': {
