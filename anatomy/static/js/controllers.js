@@ -116,10 +116,10 @@ angular.module('proso.anatomy.controllers', [])
     }
 ])
 
-.controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter',
+.controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
     'practiceService', 'userService', 'colors', 'flashcardService', 'imageService',
 
-    function($scope, $routeParams, $timeout, $filter,
+    function($scope, $routeParams, $timeout, $filter, $rootScope,
         practiceService, userService, colors, flashcardService, imageService) {
         'use strict';
 

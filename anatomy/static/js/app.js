@@ -78,8 +78,8 @@ angular.module('proso.anatomy', [
     }
 ])
 
-.run(['$rootScope', '$analytics', 'editableOptions',
-    function($rootScope, $analytics, editableOptions) {
+.run(['$rootScope', '$analytics', 'editableOptions', 'configService', 'userService',
+    function($rootScope, $analytics, editableOptions, configService, userService) {
         'use strict';
         $analytics.settings.pageTracking.autoTrackFirstPage = false;
 

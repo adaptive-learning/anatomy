@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                 "maxcomplexity": 7,
                 "indent": 2,
                 "maxdepth" : 3,
-                "maxparams": 9,
+                "maxparams": 10,
             },
             dist: {
                 src: 'static/js/',
