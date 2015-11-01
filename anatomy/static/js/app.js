@@ -92,5 +92,18 @@ angular.module('proso.anatomy', [
             }
         });
 
+        $rootScope.$on('questionSetFinished', function() {
+          var checkPoints = configService.getConfig(
+            'proso_feedback', 'evaluation_checkpoints', []);
+          var answered_count = userService.user.profile.number_of_answers;
+          var setLength = configService.getConfig('proso_flashcards', 'practice.common.          set_length', 10); 
+
+          angular.forEach(checkPoints, function(checkPoint) {
+            if (checkPoint - setLength < answered_count && answered_count <= checkPoint) {
+              $rootScope.$emit("openRatingModal");
+            }
+          });
+        });
+
     }
 ]);
