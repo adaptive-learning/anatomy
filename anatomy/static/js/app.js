@@ -103,6 +103,10 @@ angular.module('proso.anatomy', [
               $rootScope.$emit("openRatingModal");
             }
           });
+          $analytics.eventTrack('eventName', {
+            category: 'practice',
+            action: 'finished'
+          });
         });
 
     }
