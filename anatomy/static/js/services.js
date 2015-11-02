@@ -128,8 +128,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('flashcardService', ["$http", "$q",
-      function ($http, $q) {
+  .factory('flashcardService', ["$http", "$q", "serverLogger",
+      function ($http, $q, serverLogger) {
     'use strict';
     var flashcardCache = {};
 
@@ -159,6 +159,12 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         return deferredFlashcards.promise;
       },
       getFlashcardByDescription : function (description) {
+        if (!flashcardCache[description]) {
+          serverLogger.error({
+            'message' : 'Missing flashcard with description ' + description,
+            'flashcardCache' : flashcardCache,
+          });
+        }
         return flashcardCache[description];
       },
     };
