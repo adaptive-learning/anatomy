@@ -91,9 +91,15 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
-  .filter('codeToName',['flashcardService', function(flashcardService) {
+  .filter('codeToName',['flashcardService', 'serverLogger',
+      function(flashcardService, serverLogger) {
     return function(code) {
       var fc = flashcardService.getFlashcardByDescription(code);
+      if (!fc) {
+        serverLogger.error({
+          'message' : 'Missing flashcard with description ' + code,
+        });
+      }
       return fc ? fc.term.name : "Neznámý";
     };
   }])
