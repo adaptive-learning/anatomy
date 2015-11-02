@@ -159,9 +159,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         return deferredFlashcards.promise;
       },
       getFlashcardByDescription : function (description) {
-        if (!flashcardCache[description]) {
+        if (description && !flashcardCache[description]) {
           serverLogger.error({
-            'message' : 'Missing flashcard with description ' + description,
+            'errorMessage' : 'Missing flashcard with description ' + description,
             'flashcardCache' : flashcardCache,
           });
         }
