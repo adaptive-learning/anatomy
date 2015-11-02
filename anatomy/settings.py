@@ -267,4 +267,4 @@ except ImportError:
 except SyntaxError:
     HASHES = {}
 
-PROSO_JS_FILES = ['dist/js/bower-libs.js']
+PROSO_JS_FILES = ['dist/js/bower-libs.js', 'dist/js/proso-apps-all.js']
