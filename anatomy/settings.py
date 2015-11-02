@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import dj_database_url
+from django.conf import settings
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -85,6 +86,8 @@ ROOT_URLCONF = 'anatomy.urls'
 
 WSGI_APPLICATION = 'anatomy.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS = \
+    settings.TEMPLATE_CONTEXT_PROCESSORS + ("proso_common.context_processors.config_processor", )
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
