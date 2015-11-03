@@ -33,7 +33,7 @@ angular.module('proso.anatomy', [
             templateUrl : 'loading.html'
         }).when('/about', {
             templateUrl : 'static/tpl/about.html'
-        }).when('/view/:category/:user?', {
+        }).when('/view/:category?/:user?', {
             controller : 'AppView',
             templateUrl : 'static/tpl/view_tpl.html'
         }).when('/practice/', {

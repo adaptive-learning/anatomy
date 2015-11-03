@@ -46,7 +46,7 @@ angular.module('proso.anatomy.controllers', [])
       });
 
       var filter = {
-          categories : [$routeParams.category],
+          categories : $routeParams.category ? [$routeParams.category] : [],
       };
 
       contextService.getContexts(filter).then(function(data) {
@@ -97,7 +97,7 @@ angular.module('proso.anatomy.controllers', [])
       var catId = $routeParams.category;
       userStatsService.clean();
       userStatsService.addGroup(catId, {});
-      userStatsService.addGroupParams(catId, [$routeParams.category]);
+      userStatsService.addGroupParams(catId, filter.categories);
       userStatsService.getStatsPost(true, $scope.user).success(function(data) {
         $scope.stats = data.data[catId];
       });
