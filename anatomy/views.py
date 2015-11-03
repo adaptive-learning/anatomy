@@ -11,6 +11,7 @@ from django.core import management
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.cache import cache
 import os
+from proso_models.models import get_environment
 
 
 @ensure_csrf_cookie
@@ -25,7 +26,12 @@ def home(request, hack=None):
         "dist/css/app.css",
     )
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
-        user = ''
+        environment = get_environment()
+        user = json.dumps({
+            'user': {},
+            'number_of_answers': environment.number_of_answers(user=request.user.id) if request.user.id is not None else 0,
+            'number_of_correct_answers': environment.number_of_correct_answers(user=request.user.id) if request.user.id is not None else 0,
+        })
         email = ''
     else:
         if hack is None:
