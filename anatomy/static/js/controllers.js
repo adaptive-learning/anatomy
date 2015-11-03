@@ -57,25 +57,37 @@ angular.module('proso.anatomy.controllers', [])
           var context = data[i];
           var id = context.identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, [$routeParams.category], [context.identifier]);
+          userStatsService.addGroupParams(id, filter.categories, [id]);
           if ($routeParams.context && $routeParams.context == id) {
             $scope.activateContext(context);
           }
         }
 
-        userStatsService.getStatsPost(false, $scope.user).success(function(data) {
-          resolveContexts(data);
-          userStatsService.getStatsPost(true, $scope.user).success(resolveContexts);
+        userStatsService.getFlashcardCounts().success(function(data) {
+          userStatsService.clean();
+          for (var i = 0; i < $scope.contexts.length; i++) {
+            var context = $scope.contexts[i];
+            var id = context.identifier;
+            var number_of_flashcards = data.data[id];
+            context.stats = {
+              'number_of_flashcards' : number_of_flashcards,
+            };
+            if (number_of_flashcards > 0) {
+              userStatsService.addGroup(id, {});
+              userStatsService.addGroupParams(id, filter.categories, [id]);
+            }
+          }
+          $scope.countsLoaded = true;
+          
+          userStatsService.getStatsPost(true, $scope.user).success(function(data) {
+            angular.forEach($scope.contexts, function(context) {
+              context.placeTypes = [];
+              var key = context.identifier;
+              context.stats = data.data[key];
+            });
+          });
         });
 
-        function resolveContexts(data) {
-          angular.forEach($scope.contexts, function(context) {
-            context.placeTypes = [];
-            var key = context.identifier;
-            context.stats = data.data[key];
-          });
-          $scope.statsLoaded = true;
-        }
       });
 
       if ($routeParams.user == 'average') {
