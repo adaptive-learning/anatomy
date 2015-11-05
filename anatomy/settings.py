@@ -208,6 +208,11 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
+        'mail_admins_javascript': {
+            'level': 'WARNING',
+            'filters': ['require_debug_false'],
+            'class': 'proso.django.log.AdminJavascriptEmailHandler'
+        },
         'anatomy_file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
@@ -228,7 +233,7 @@ LOGGING = {
             'level': 'DEBUG'
         },
         'javascript': {
-            'handlers': ['console', 'mail_admins', 'anatomy_file'],
+            'handlers': ['console', 'mail_admins_javascript', 'anatomy_file'],
             'propagate': True,
             'level': 'INFO',
         },
