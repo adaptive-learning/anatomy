@@ -6,7 +6,7 @@ from django.conf import settings
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DATA_DIR = os.environ.get('PROSO_DATA_DIR', os.path.join(BASE_DIR, 'data'))
-MEDIA_DIR = os.environ.get('PROSO_MEDIA_DIR', DATA_DIR)
+MEDIA_ROOT = os.environ.get('PROSO_MEDIA_ROOT', os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
 
 SECRET_KEY = os.getenv('PROSO_SECRET_KEY', 'really secret key')
