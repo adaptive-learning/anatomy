@@ -7,12 +7,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
 #requirements
-#pip install -r $DIR/requirements.txt
+pip install -r $DIR/requirements.txt
 
 # database
 python $DIR/manage.py syncdb --noinput
 python $DIR/manage.py migrate --noinput
-python $DIR/manage.py manage.py compilemessages
+python $DIR/manage.py compilemessages
 
 cd $DIR/anatomy
 npm install
