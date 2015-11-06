@@ -110,17 +110,18 @@ angular.module('proso.anatomy.controllers', [])
             contexts : [context.identifier],
             stats : true,
           };
-          flashcardService.getFlashcards(filter).then(function(data) {
-            context.flashcards = data;
-            contextService.getContext(context.id).then(function(fullContext) {
-              $scope.activeContext.content = fullContext.content;
-              imageService.setImage($scope.activeContext.content, function(ic) {
-                  $scope.imageController = ic;
-                  for (var i = 0; i < context.flashcards.length; i++) {
-                    var fc = context.flashcards[i];
-                    $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
-                  }
-                });
+          contextService.getContext(context.id).then(function(fullContext) {
+            $scope.activeContext.content = fullContext.content;
+            $scope.activeContext.flashcards = fullContext.flashcards;
+            imageService.setImage($scope.activeContext.content, function(ic) {
+              $scope.imageController = ic;
+              flashcardService.getFlashcards(filter).then(function(data) {
+                context.flashcards = data;
+                for (var i = 0; i < context.flashcards.length; i++) {
+                  var fc = context.flashcards[i];
+                  $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
+                }
+              });
             });
           });
         }
