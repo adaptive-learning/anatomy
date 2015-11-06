@@ -40,11 +40,11 @@
           <span class="label label-default" ng-show="question|isFindOnMapType">
             {{question.term.name | stripAlternatives}}
           </span>
-          <span ng-show="question.answered_code && !question.options.length &&
+          <span ng-if="question.answered_code && !question.options.length &&
             question.answered_code != question.description">
             <span>{{'Vybráno' | translate }}</span>
             <span class="label label-default">
-               {{question.answered_code | codeToName | stripAlternatives}}
+               {{getFlashcardByDescription(question.answered_code).term.name  | stripAlternatives}}
             </span>
           </span>
           <br class="clearfix">
