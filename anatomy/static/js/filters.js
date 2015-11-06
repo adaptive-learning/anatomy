@@ -129,7 +129,7 @@ angular.module('proso.anatomy.filters', [])
       'Ligamentum': 'Lig.',
     };
     return function(name) {
-      return name.mapReplace(replacements).split(';')[0];
+      return name && name.mapReplace(replacements).split(';')[0];
     };
   }])
 

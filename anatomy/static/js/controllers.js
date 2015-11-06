@@ -129,10 +129,10 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'colors', 'flashcardService', 'imageService',
+    'practiceService', 'userService', 'colors', 'imageService', 'serverLogger',
 
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, flashcardService, imageService) {
+        practiceService, userService, colors, imageService, serverLogger) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -166,7 +166,7 @@ angular.module('proso.anatomy.controllers', [])
             $scope.question.responseTime += new Date().valueOf();
             var selectedFC = isCorrect ?
               $scope.question :
-              flashcardService.getFlashcardByDescription(selected);
+              $scope.getFlashcardByDescription(selected);
             practiceService.saveAnswerToCurrentFC(
               selectedFC && selectedFC.id, $scope.question.responseTime);
             $scope.progress = 100 * (
@@ -200,6 +200,23 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.highlightFlashcard = function(fc) {
           $scope.activeQuestion = fc;
+        };
+
+        $scope.getFlashcardByDescription = function(description) {
+          for (var i = 0; i < $scope.activeQuestion.context.flashcards.length; i++) {
+            var fc = $scope.activeQuestion.context.flashcards[i];
+            if (fc.description == description) {
+              return fc;
+            }
+          }
+          if (description) {
+            serverLogger.error(
+              'Missing flashcard with description ' + description,
+              {
+                'context' : $scope.activeQuestion.context.identifier,
+              }
+            );
+          }
         };
 
         function highlightAnswer (asked, selected) {
@@ -279,15 +296,11 @@ angular.module('proso.anatomy.controllers', [])
             if ($routeParams.context) {
                 filter.contexts = [$routeParams.context];
             }
-            flashcardService.getFlashcards(filter).then(function() {
-              practiceService.setFilter(filter);
-              practiceService.getFlashcard().then(function(q) {
-                  $scope.questions = [];
-                  setQuestion(q);
+            practiceService.setFilter(filter);
+            practiceService.getFlashcard().then(function(q) {
+                $scope.questions = [];
+                setQuestion(q);
 
-              }, function(){
-                  $scope.error = true;
-              });
             }, function(){
                 $scope.error = true;
             });
