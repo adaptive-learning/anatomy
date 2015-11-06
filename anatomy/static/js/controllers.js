@@ -326,14 +326,8 @@ angular.module('proso.anatomy.controllers', [])
         };
 
         $scope.user = $routeParams.user || '';
-        categoryService.getAll().then(function(categories){
-            var categoriesByType = {};
-            for (var i = 0; i < categories.length; i++) {
-              if (!categoriesByType[categories[i].type]) {
-                categoriesByType[categories[i].type] = [];
-              }
-              categoriesByType[categories[i].type].push(categories[i]);
-            }
+        categoryService.getAllByType().then(function(categoriesByType){
+            var categories = categoriesByType.system.concat(categoriesByType.location);
             $scope.categoriesByType = [{
               name: gettextCatalog.getString('Orgánové systémy'),
               categories : categoriesByType.system,
@@ -343,10 +337,9 @@ angular.module('proso.anatomy.controllers', [])
               categories : categoriesByType.location,
               isActive : $cookies.activeType == 'location',
             }];
-            $scope.systems = categoriesByType.system;
             userStatsService.clean();
             userStatsService.addGroup('all', {});
-            for (i = 0; i < categories.length; i++) {
+            for (var i = 0; i < categories.length; i++) {
               var cat = categories[i];
               var id = cat.identifier;
               userStatsService.addGroup(id, {});

@@ -129,6 +129,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     var categoriesByIdentifier = {};
     var httpPromise;
     var deferredCategory = $q.defer();
+    var categoriesByType = {};
     function init(){
       var filter = {
         all : 'True',
@@ -139,8 +140,12 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         categories = data.data;
         for (var i = 0; i < data.data.length; i++) {
           categoriesByIdentifier[data.data[i].identifier] = data.data[i];
+          if (!categoriesByType[data.data[i].type]) {
+            categoriesByType[data.data[i].type] = [];
+          }
+          categoriesByType[data.data[i].type].push(data.data[i]);
         }
-        deferredCategory.resolve(data.data);
+        deferredCategory.resolve(angular.copy(categoriesByType));
       }).error(function(error){
         console.error("Something went wrong while loading categories from backend.");
         deferredCategory.reject(error);
@@ -151,7 +156,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       getCategory: function (identifier) {
         return categoriesByIdentifier[identifier];
       },
-      getAll: function () {
+      getAllByType: function () {
         return deferredCategory.promise;
       },
     };
