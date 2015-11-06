@@ -35,12 +35,11 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 
   .factory('pageTitle',['categoryService', 'gettextCatalog', function(categoryService, gettextCatalog) {
     'use strict';
-
-    var titles = {
-      'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
-      'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí') + ' - ',
-    };
     return function (route) {
+      var titles = {
+        'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
+        'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí') + ' - ',
+      };
       var title = "";
       if (route.controller == "AppView" || route.controller == "AppPractice") {
         var category = categoryService.getCategory(route.params.part);
