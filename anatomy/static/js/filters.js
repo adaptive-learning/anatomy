@@ -91,13 +91,6 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
-  .filter('codeToName',['flashcardService', function(flashcardService) {
-    return function(code) {
-      var fc = flashcardService.getFlashcardByDescription(code);
-      return fc ? fc.term.name : "Neznámý";
-    };
-  }])
-
   .filter('probColor', ['colorScale', function(colorScale) {
     return function(probability) {
       return colorScale(probability).hex();
