@@ -11,12 +11,30 @@
           <br>
         </span>
         <span class="col-sm-3">
-          <a href="/practice/{{category.identifier}}/" 
-            class="btn btn-default btn-lg pull-right" 
-            translate
-            track-click="overview practice" >
-            Procvičovat
-          </a>
+          <div class="btn-group pull-right" role="group">
+            <a href="/practice/{{category.identifier}}/" 
+              class="btn btn-default btn-lg" 
+              translate
+              track-click="overview practice" >
+              Procvičovat
+            </a>
+            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/practice/{{category.identifier}}/">
+                 {{category.name}}
+                </a>
+              </li>
+              <li ng-repeat="subcategory in subcategories"
+                  ng-if="subcategory.stats.number_of_flashcards">
+                <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}">
+                 {{category.name}} - {{subcategory.name}}
+                </a>
+              </li>
+            </ul>
+          </div>
           <br>
           <br>
           <br>

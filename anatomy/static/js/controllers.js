@@ -41,13 +41,35 @@ angular.module('proso.anatomy.controllers', [])
         'use strict';
       $scope.user = $routeParams.user || '';
 
-      categoryService.getAllByType().then(function(){
-        $scope.category = categoryService.getCategory($routeParams.category);
-      });
-
       var filter = {
           categories : $routeParams.category ? [$routeParams.category] : [],
       };
+
+      categoryService.getAllByType().then(function(categoriesByType){
+        $scope.category = categoryService.getCategory($routeParams.category);
+
+        if ($scope.category.type == "system") {
+          $scope.subcategories = angular.copy(categoriesByType.location);
+        } else if ($scope.category.type == "location") {
+          $scope.subcategories = angular.copy(categoriesByType.system);
+        }
+        userStatsService.clean();
+        for (var i = 0; i < $scope.subcategories.length; i++) {
+          var id = $scope.subcategories[i].identifier;
+          userStatsService.addGroup(id, {});
+          userStatsService.addGroupParams(id, [filter.categories, [id]]);
+        }
+        userStatsService.getFlashcardCounts().success(function(data) {
+          for (var i = 0; i < $scope.subcategories.length; i++) {
+            var subcategory = $scope.subcategories[i];
+            var id = subcategory.identifier;
+            var number_of_flashcards = data.data[id];
+            subcategory.stats = {
+              'number_of_flashcards' : number_of_flashcards,
+            };
+          }
+        });
+      });
 
       contextService.getContexts(filter).then(function(data) {
         $scope.contexts = data;
