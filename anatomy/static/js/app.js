@@ -12,7 +12,6 @@ angular.module('proso.anatomy', [
     'proso.anatomy.services',
     'proso.anatomy.directives',
     'proso.anatomy.controllers',
-    'proso.anatomy.map',
     'proso.anatomy.templates',
     'proso.apps',
     'ui.bootstrap',

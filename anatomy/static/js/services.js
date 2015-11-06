@@ -2,6 +2,37 @@
 /* Services */
 angular.module('proso.anatomy.services', ['ngCookies'])
 
+  .value('chroma', chroma)
+
+  .value('$', jQuery)
+
+  .value('colors', {
+    'GOOD': '#5CA03C',
+    'BAD': '#e23',
+    'NEUTRAL' : '#1d71b9',
+    'BRIGHT_GRAY' : '#ddd',
+    'WATER_COLOR' : '#73c5ef',
+    'HIGHLIGHTS' : [
+      '#f9b234',
+      '#1d71b9',
+      '#36a9e0',
+      '#312883',
+      '#fdea11',
+      '#951b80',
+    ],
+  })
+
+  .factory('colorScale', ['colors', 'chroma', function(colors, chroma) {
+    var scale = chroma.scale([
+        colors.BAD,
+        '#f40',
+        '#fa0',
+        '#fe3',
+        colors.GOOD
+      ]);
+    return scale;
+  }])
+
   .factory('mapTitle', ['places', function(places) {
     'use strict';
     return function(part, user) {
