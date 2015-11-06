@@ -4,7 +4,7 @@
   </bar>
   <bar class="progress-bar-learned" 
       value="100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards"
-      ng-if="skills.number_of_mastered_flashcards">
+      ng-show="skills.number_of_mastered_flashcards">
   </bar>
 </progress>
 <div class="text-center" ng-hide="hideLabels">
