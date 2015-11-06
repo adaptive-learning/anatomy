@@ -108,6 +108,7 @@ angular.module('proso.anatomy.controllers', [])
         if ($scope.activeContext) {
           var filter = {
             contexts : [context.identifier],
+            categories : $routeParams.category ? [$routeParams.category] : [],
             stats : true,
           };
           contextService.getContext(context.id).then(function(fullContext) {
