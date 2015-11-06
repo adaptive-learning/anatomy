@@ -5,19 +5,23 @@
           <span>{{user ? user + ' - ' : ''}}</span>
           <span translate>Přehled znalostí</span>
         </h1>
-      <span class="col-sm-9">
-        <div category-progress skills="{{stats}}"></div>
-      </span>
-      <span class="col-sm-3">
-        <a href="/practice/" 
-          class="btn btn-default btn-lg" 
-          translate
-          track-click="overview practice" >
-          Procvičovat vše
-        </a>
-        <br>
-        <br>
-      </span>
+      <div class="row">
+        <span class="col-sm-9">
+          <div category-progress skills="{{stats}}"></div>
+          <br>
+        </span>
+        <span class="col-sm-3">
+          <a href="/practice/" 
+            class="btn btn-default btn-lg pull-right" 
+            translate
+            track-click="overview practice" >
+            Procvičovat vše
+          </a>
+          <br>
+          <br>
+          <br>
+        </span>
+      </div>
     </div>
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <ul class="nav nav-tabs nav-justified">
