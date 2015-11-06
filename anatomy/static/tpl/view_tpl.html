@@ -77,9 +77,9 @@
       </span>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context" class="col-md-10 col-md-offset-1 col-sm-12">
-        <div ng-hide="context.flashcards && context.content" class="loading-indicator">
-        </div>
         <span>
+          <div ng-hide="context.flashcards && context.content" class="loading-indicator">
+          </div>
           <span page-number="{{context.content.meta['textbook-page']}}"></span>
           <span anatomy-image code="{{context.identifier}}" ></span>
         </span>
