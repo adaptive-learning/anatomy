@@ -108,25 +108,6 @@ div#footer
   .btn
     margin: 20px
 
-.terms-container
-  padding: 10px
-  margin-top: 10px
-  font-size: 1.4em
-  display: inline-block
-  float: left
-  .label
-    cursor: pointer
-
-.horizontal
-  .terms-container
-    width: 30%
-  .terms-container.few-terms
-    .label
-      display: block
-      white-space: inherit
-      margin-right: -10px
-  
-
 .table.table-striped .table-row:nth-child(2n)
   background-color: #eee
 
@@ -173,55 +154,38 @@ div#footer
     bottom: 15px
     right: 20px
 
-.image-list-title
-  margin: 0
-  font-size: 1em
-  display: inline
-
-@keyframes slideDown 
+@-webkit-keyframes fadeIn 
   from 
     opacity: 0
-    max-height: 0
-  to
+  to  
     opacity: 1
-    max-height: 600px
-
-@-webkit-keyframes slideDown 
+@-moz-keyframes fadeIn 
   from 
     opacity: 0
-    max-height: 0
-  to
+  to  
     opacity: 1
-    max-height: 600px
-
-@keyframes slideUp 
+@keyframes fadeIn 
   from 
-    opacity: 1
-    max-height: 600px
-  to
     opacity: 0
-    max-height: 0
-
-@-webkit-keyframes slideUp 
-  from 
+  to  
     opacity: 1
-    max-height: 600px
-  to
-    opacity: 0
-    max-height: 0
 
-.image-view-container
-  -webkit-animation: slideDown .5s ease-out
-  -moz-animation: slideDown .5s ease-out
-  animation: slideDown .5s ease-out
-  
-.image-view-container.ng-leave
-  -webkit-animation: slideUp .5s ease-out
-  -moz-animation: slideUp .5s ease-out
-  animation: slideUp .5s ease-out
 
-.image-open
-  margin-top: -10px
-  margin-bottom: -10px
-  padding-top: 10px
-  padding-bottom: 10px
+.fade-in-one-by-one
+  -webkit-animation: fadeIn .5s ease-out
+  -moz-animation: fadeIn .5s ease-out
+  animation: fadeIn .5s ease-out
+  -webkit-animation-fill-mode: both
+  -moz-animation-fill-mode: both
+  animation-fill-mode: both
+  @for $i from 1 through 11
+    &:nth-child(#{$i})
+      -webkit-animation-delay: .05s * $i
+      -moz-animation-delay: .05s * $i
+      animation-delay: .05s * $i
+  &:nth-child(n + 12) 
+    -webkit-animation-delay: .6s
+    -moz-animation-delay: .6s
+    animation-delay: .6s
+
+

@@ -1,0 +1,75 @@
+.terms-container
+  padding: 10px
+  margin-top: 10px
+  font-size: 1.4em
+  display: inline-block
+  float: left
+  .label
+    cursor: pointer
+
+.horizontal
+  .terms-container
+    width: 30%
+  .terms-container.few-terms
+    .label
+      display: block
+      white-space: inherit
+      margin-right: -10px
+  
+
+.image-list-title
+  margin: 0
+  font-size: 1em
+  display: inline
+
+@keyframes slideDown 
+  from 
+    opacity: 0
+    max-height: 0
+  to
+    opacity: 1
+    max-height: 600px
+
+@-webkit-keyframes slideDown 
+  from 
+    opacity: 0
+    max-height: 0
+  to
+    opacity: 1
+    max-height: 600px
+
+@keyframes slideUp 
+  from 
+    opacity: 1
+    max-height: 600px
+  to
+    opacity: 0
+    max-height: 0
+
+@-webkit-keyframes slideUp 
+  from 
+    opacity: 1
+    max-height: 600px
+  to
+    opacity: 0
+    max-height: 0
+
+.image-view-container
+  -webkit-animation: slideDown .5s ease-out
+  -moz-animation: slideDown .5s ease-out
+  animation: slideDown .5s ease-out
+  
+.image-view-container.ng-leave
+  -webkit-animation: slideUp .5s ease-out
+  -moz-animation: slideUp .5s ease-out
+  animation: slideUp .5s ease-out
+
+.image-open
+  margin-top: -10px
+  margin-bottom: -10px
+  padding-top: 10px
+  padding-bottom: 10px
+
+.anatomy-image
+  background-color: #fff
+

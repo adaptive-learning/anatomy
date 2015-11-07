@@ -44,7 +44,7 @@
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
             <span ng-repeat="category in categoryType.categories"
-              class="col-xs-6 col-sm-3 tile">
+              class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
               <span class="in-tile">
                 <a href="/view/{{category.identifier}}/" class="tile-link"
                   style="background-image: url('/static/img/{{category.identifier}}.png');" >

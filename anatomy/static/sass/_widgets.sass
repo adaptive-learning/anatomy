@@ -44,45 +44,6 @@
   width: 14px
   background: url(../img/ajax-loader-small.gif) no-repeat center
 
-@-webkit-keyframes fadeIn 
-  from 
-    opacity: 0
-  to
-    opacity: 1
-@-moz-keyframes fadeIn 
-  from 
-    opacity: 0
-  to
-    opacity: 1
-@keyframes fadeIn 
-  from 
-    opacity: 0
-  to
-    opacity: 1
-
-.striped-row
-  padding-left: 1000px
-  padding-right: 1000px
-  margin-left: -1000px
-  margin-right: -1000px
-  -webkit-animation: fadeIn .5s ease-out
-  -moz-animation: fadeIn .5s ease-out
-  animation: fadeIn .5s ease-out
-  -webkit-animation-fill-mode: both
-  -moz-animation-fill-mode: both
-  animation-fill-mode: both
-  @for $i from 1 through 10
-    &:nth-child(#{$i})
-      -webkit-animation-delay: .1s * $i
-      -moz-animation-delay: .1s * $i
-      animation-delay: .1s * $i
-  &:nth-child(n + 11)
-    -webkit-animation-delay: 1.1s
-    -moz-animation-delay: 1.1s
-    animation-delay: 1.1s
-.striped-row:nth-child(odd)
-  background: rgba(0,0,0,0.1)
-
 .level-wrapper
   margin-bottom: 15px
   text-align: center
@@ -110,3 +71,10 @@
   border-radius: 50%
   width: 32px
 
+.color-indicator
+  display: inline-block
+  width: 20px
+  height: 20px
+  margin: -3px 5px -6px -7px
+  border: 0
+  border-radius: 50%
