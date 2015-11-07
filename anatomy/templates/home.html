@@ -117,15 +117,17 @@
      {% if is_homepage %}
         {% include "generated/homepage.html" %}
      {% elif headline != '' %}
-        <div class="row header">
-          <div class="col-sm-12">
-            <h1> {{headline}}</h1>
-            <br>
-            <br>
-            <br>
+        <div class="container-fluid">
+          <div class="row header">
+            <div class="col-sm-12">
+              <h1> {{headline}}</h1>
+              <br>
+              <br>
+              <br>
+            </div>
           </div>
-        </div>
           <div class="loading-indicator"></div>
+        </div>
      {% else %}
         <div class="loading-indicator"></div>
      {% endif %}
