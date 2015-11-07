@@ -85,13 +85,6 @@ angular.module('proso.anatomy', [
 
         editableOptions.theme = 'bs3';
 
-        $rootScope.$on("$routeChangeStart", function(event, next, current) {
-            if (current && current.originalPath !== "" && $(window).width() < 770) {
-                $("#nav-main").collapse();
-                $("#nav-main").collapse('hide');
-            }
-        });
-
         $rootScope.$on('questionSetFinished', function() {
           var checkPoints = configService.getConfig(
             'proso_feedback', 'evaluation_checkpoints', []);
