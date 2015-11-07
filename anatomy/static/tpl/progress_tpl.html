@@ -7,25 +7,4 @@
       ng-show="skills.number_of_mastered_flashcards">
   </bar>
 </progress>
-<div class="text-center" ng-hide="hideLabels">
- <span class="badge badge-default">
-   <i class="color-indicator learned"></i>
-   <span translate>Naučeno</span>: 
-   <span ng-if="skills.number_of_mastered_flashcards !== undefined"
-     count-to="{{skills.number_of_mastered_flashcards}}"
-     duration="0.6"
-     count-from="0"></span>
-   {{skills.number_of_mastered_flashcards === undefined ? '...' : '/'}}
-   {{skills.number_of_flashcards || ''}}
- </span> 
- <span class="badge badge-default">
-   <i class="color-indicator practiced"></i>
-   <span translate>Procvičováno</span>: 
-   <span ng-if="skills.number_of_practiced_flashcards !== undefined"
-     count-to="{{skills.number_of_practiced_flashcards}}"
-     duration="0.6"
-     count-from="0"></span>
-   {{skills.number_of_practiced_flashcards === undefined ? '...' : '/'}}
-   {{skills.number_of_flashcards || ''}}
- </span>
-</div>
+<div category-progress-labels skills="{{skills}}" ng-hide="hideLabels"></div>

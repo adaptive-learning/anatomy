@@ -9,6 +9,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         elem.addClass('label');
         elem.addClass('label-default');
         elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
+        if ($scope.flashcard.practiced) {
+          elem.css('border-left', '5px solid #fe3');
+        }
+        if ($scope.flashcard.mastered) {
+          elem.css('border-left', '5px solid #5ca03c');
+        }
         var alternativeNames = $scope.flashcard.term.name.split(';').splice(1).join('<br>');
         elem.tooltip({
           html : true,
@@ -378,6 +384,27 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict : 'A',
       templateUrl : '/static/tpl/progress_tpl.html',
+      link : function($scope, elem, attrs) {
+        $scope.skills = undefined;
+        attrs.$observe('skills', function(skills) {
+          if(skills !== '') {
+            $scope.skills = angular.fromJson(skills);
+            $scope.skills.number_of_nonmastered_practiced_flashcards =
+              Math.max(0, $scope.skills.number_of_practiced_flashcards -
+              ($scope.skills.number_of_mastered_flashcards || 0));
+          }
+        });
+        attrs.$observe('hideLabels', function(hideLabels) {
+          $scope.hideLabels = hideLabels;
+        });
+      }
+    };
+  }])
+
+  .directive('categoryProgressLabels', [function() {
+    return {
+      restrict : 'A',
+      templateUrl : '/static/tpl/progress_labels_tpl.html',
       link : function($scope, elem, attrs) {
         $scope.skills = undefined;
         attrs.$observe('skills', function(skills) {

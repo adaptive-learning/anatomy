@@ -80,7 +80,10 @@
       <span class="col-md-5 col-sm-6 image-open"
         ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
-          hide-labels="{{activeContext!=context}}"></div>
+          hide-labels="true"></div>
+        <div ng-if="activeContext==context">
+          <div category-progress-labels skills="{{context.stats}}"></div>
+        </div>
       </span>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context"
