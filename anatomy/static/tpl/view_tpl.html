@@ -55,7 +55,7 @@
 <br>
     <div class="row table-row {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_flashcards"
-      ng-repeat="context in contexts">
+      id="{{context.identifier}}" ng-repeat="context in contexts">
       <span class="col-md-5 col-md-offset-1 col-sm-6"
         ng-click="activateContext(context)" >
         <a ng-if="userService.user.staff"
@@ -83,7 +83,8 @@
           hide-labels="{{activeContext!=context}}"></div>
       </span>
       <div class="clearfix"></div>
-      <div ng-if="activeContext==context" class="col-md-10 col-md-offset-1 col-sm-12">
+      <div ng-if="activeContext==context"
+          class="col-md-10 col-md-offset-1 col-sm-12 image-view-container">
         <span>
           <div ng-hide="context.flashcards && context.content" class="loading-indicator">
           </div>

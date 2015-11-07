@@ -36,8 +36,8 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', '$location', 'imageService', 'colorScale', '$cookies',
-    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, $location, imageService, colorScale,  $cookies) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', 'imageService', 'colorScale', '$cookies', 'smoothScroll',
+    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, imageService, colorScale,  $cookies, smoothScroll) {
         'use strict';
       $scope.user = $routeParams.user || '';
 
@@ -85,9 +85,6 @@ angular.module('proso.anatomy.controllers', [])
           var id = context.identifier;
           userStatsService.addGroup(id, {});
           userStatsService.addGroupParams(id, filter.categories, [id]);
-          if ($routeParams.context && $routeParams.context == id) {
-            $scope.activateContext(context);
-          }
         }
 
         userStatsService.getFlashcardCounts().success(function(data) {
@@ -102,6 +99,9 @@ angular.module('proso.anatomy.controllers', [])
             if (number_of_flashcards > 0) {
               userStatsService.addGroup(id, {});
               userStatsService.addGroupParams(id, filter.categories, [id]);
+            }
+            if ($routeParams.context && $routeParams.context == id) {
+              $scope.activateContext(context);
             }
           }
           $scope.countsLoaded = true;
@@ -131,8 +131,14 @@ angular.module('proso.anatomy.controllers', [])
 
       $scope.activateContext = function(context) {
         $scope.activeContext = $scope.activeContext !== context ? context : undefined;
-        //$location.search('context', context.identifier);
         if ($scope.activeContext) {
+          setTimeout(function() {
+            var elem = document.getElementById(context.identifier);
+            smoothScroll(elem, {
+              offset: 10,
+              duration: 500,
+            });
+          }, 500);
           var filter = {
             contexts : [context.identifier],
             categories : $routeParams.category ? [$routeParams.category] : [],

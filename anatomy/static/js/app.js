@@ -14,6 +14,7 @@ angular.module('proso.anatomy', [
     'proso.anatomy.controllers',
     'proso.anatomy.templates',
     'proso.apps',
+    'smoothScroll',
     'ui.bootstrap',
     'angularDjangoCsrf',
     'xeditable',
