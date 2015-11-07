@@ -69,7 +69,9 @@ angular.module('proso.anatomy.controllers', [])
             };
           }
           if (!$cookies.practiceDropdownUsed) {
-            $('.practice-dropdown').click();
+            setTimeout(function() {
+              angular.element('.practice-dropdown').click();
+            }, 1);
           }
         });
       });
