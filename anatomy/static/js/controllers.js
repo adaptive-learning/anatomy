@@ -36,8 +36,8 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', '$location', 'imageService', 'colorScale',
-    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, $location, imageService, colorScale) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', '$location', 'imageService', 'colorScale', '$cookies',
+    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, $location, imageService, colorScale,  $cookies) {
         'use strict';
       $scope.user = $routeParams.user || '';
 
@@ -67,6 +67,9 @@ angular.module('proso.anatomy.controllers', [])
             subcategory.stats = {
               'number_of_flashcards' : number_of_flashcards,
             };
+          }
+          if (!$cookies.practiceDropdownUsed) {
+            $('.practice-dropdown').click();
           }
         });
       });
@@ -148,6 +151,10 @@ angular.module('proso.anatomy.controllers', [])
             });
           });
         }
+      };
+
+      $scope.usePracticeDwopdown = function() {
+        $cookies.practiceDropdownUsed = true;
       };
     }
 ])

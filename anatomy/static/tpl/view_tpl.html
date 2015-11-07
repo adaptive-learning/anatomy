@@ -18,13 +18,18 @@
               track-click="overview practice" >
               Procvičovat
             </a>
-            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button"
+              class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              ng-click="usePracticeDwopdown()">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li>
                 <a href="/practice/{{category.identifier}}/">
-                 {{category.name}}
+                  <strong>
+                   {{category.name}}
+                  </strong>
                 </a>
               </li>
               <li ng-repeat="subcategory in subcategories"
