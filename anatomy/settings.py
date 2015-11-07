@@ -253,7 +253,7 @@ CACHES = {
         'TIMEOUT': 60 * 60 * 24 * 7,
     }
 }
-if not ON_STAGING and not ON_PRODUCTION:
+if not ON_STAGING and not ON_PRODUCTION and not os.environ.get('AVOID_DUMMY_CACHE', False):
     CACHES['default']['BACKEND'] = 'django.core.cache.backends.dummy.DummyCache'
 
 PROSO_CONFIG = {
