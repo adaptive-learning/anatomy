@@ -17,11 +17,11 @@
           tooltip-placement="bottom" ></dd>
       </dl>
     </div>
-    <dl>
+    <dl ng-show="user.first_name">
       <dt>{{'Jméno' | translate }}</dt>
       <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
     </dl>
-    <dl>
+    <dl ng-show="user.last_name">
       <dt>{{'Příjmení' | translate }}</dt>
       <dd editable-text="user.last_name">{{user.last_name}}</dd>
     </dl>
@@ -53,7 +53,7 @@
       </span>
     </div>
     </form>
-    <div ng-show="error" error-message ></div>
+    <div ng-show="error" ng-bind="error" class="alert alert-danger" ></div>
     <div ng-hide="editableForm.$visible || error">
       <a href="/overview/{{user.username}}">
         {{'Přehled znalostí uživatele' | translate}} {{ user.username && ' - ' + user.username }}
