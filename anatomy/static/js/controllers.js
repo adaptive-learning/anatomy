@@ -168,10 +168,10 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'colors', 'imageService', 'serverLogger',
+    'practiceService', 'userService', 'colors', 'imageService',
 
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, imageService, serverLogger) {
+        practiceService, userService, colors, imageService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -248,14 +248,6 @@ angular.module('proso.anatomy.controllers', [])
             if (fc.description == description) {
               return fc;
             }
-          }
-          if (description) {
-            serverLogger.error(
-              'Missing flashcard with description ' + description,
-              {
-                'context' : $scope.activeQuestion.context.identifier,
-              }
-            );
           }
         };
 
