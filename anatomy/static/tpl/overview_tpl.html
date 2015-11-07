@@ -82,7 +82,11 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li ng-if="!user"><a href="/practice/{{category.identifier}}/" translate >Procvičovat</a></li>
+                    <li ng-if="!user">
+                      <a href="/practice/{{category.identifier}}/" translate
+                          track-click="overview dropdown practice" >
+                        Procvičovat</a>
+                      </li>
                   </ul>
                 </div> 
               </span>
