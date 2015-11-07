@@ -167,6 +167,7 @@ angular.module('proso.anatomy.controllers', [])
         'use strict';
 
         $scope.categoryId = $routeParams.category;
+        $scope.category2Id = $routeParams.category2;
         $scope.progress = 0;
 
         $scope.highlight = function() {
