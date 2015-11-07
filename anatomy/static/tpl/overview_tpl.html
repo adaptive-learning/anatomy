@@ -46,7 +46,7 @@
             <span ng-repeat="category in categoryType.categories"
               class="col-xs-6 col-sm-3 tile">
               <span class="in-tile">
-                <a href="/practice/{{category.identifier}}/" class="tile-link"
+                <a href="/view/{{category.identifier}}/" class="tile-link"
                   style="background-image: url('/static/img/{{category.identifier}}.png');" >
                   <div class="dummy"></div>
                   <div class="absolute">
@@ -77,13 +77,12 @@
                   </div>
                   <h2 ng-bind="category.name"></h2>
                 </a>
-                 <div class="dropdown">
+                 <div class="dropdown" ng-if="!user">
                   <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li ng-if="!user"><a href="/practice/{{category.identifier}}/" translate >Procvičovat</a></li>
-                    <li><a href="/view/{{category.identifier}}/{{user}}" translate>Prohlížet obrázky</a></li>
                   </ul>
                 </div> 
               </span>
