@@ -38,6 +38,9 @@ def home(request, hack=None):
             return redirect('/overview/')
         user = json.dumps(request.user.userprofile.to_json(stats=True))
         email = request.user.email
+        if not request.user.userprofile.public:
+            request.user.userprofile.public = True
+            request.user.userprofile.save()
     c = {
         'title': _(u'Anatom.cz') + ' - ' + _(u'inteligentní aplikace na procvičování anatomie'),
         'headline': get_headline_from_url(hack),
