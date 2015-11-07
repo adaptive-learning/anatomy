@@ -53,7 +53,7 @@
 <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
 <br>
-    <div class="row table-row {{activeContext==context && 'active'}}"
+    <div class="row table-row fade-in-one-by-one {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_flashcards"
       id="{{context.identifier}}" ng-repeat="context in contexts">
       <span class="col-md-5 col-md-offset-1 col-sm-6 image-open"
