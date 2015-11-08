@@ -203,6 +203,13 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       var blue = parseInt(c.substr(5, 2), 16);
       return [red, green, blue];
     },
+    rgbToHex : function(rgb) {
+      var ret = '#';
+      for (var i = 0; i < rgb.length; i++) {
+        ret += rgb[i].toString(16);
+      }
+      return ret;
+    },
     isGray : function(c) {
       var rgb = that.hexToRgb(c);
       return Math.max(Math.abs(rgb[0] - rgb[1]), Math.abs(rgb[0] - rgb[2])) < 10;
@@ -222,7 +229,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       if (grayAverageHex == 'NaN') {
         return '#000000';
       }
-      return '#' + grayAverageHex + grayAverageHex + grayAverageHex;
+      for (i = 0; i < rgb.length; i++) {
+        rgb[i] = Math.floor((rgb[i] + grayAverage * 9) / 10);
+      }
+      return that.rgbToHex(rgb);
     },
   };
   return that;
