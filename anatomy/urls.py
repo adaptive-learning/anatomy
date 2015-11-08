@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import RedirectView
+from django.http import HttpResponse
 
 admin.autodiscover()
 
@@ -24,6 +25,8 @@ urlpatterns = patterns(
     url(r'^(about|overview|mistakes|goals|view/\w*|u/\w+|practice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
+    url(r'^robots.txt$', lambda r: HttpResponse(
+        "User-agent: *\nDisallow: ", mimetype="text/plain")),
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
 
     url(r'^user/', include('proso_user.urls')),
