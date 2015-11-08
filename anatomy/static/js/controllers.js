@@ -136,9 +136,9 @@ angular.module('proso.anatomy.controllers', [])
             var elem = document.getElementById(context.identifier);
             smoothScroll(elem, {
               offset: 10,
-              duration: 500,
+              duration: 200,
             });
-          }, 500);
+          }, 400);
           var filter = {
             contexts : [context.identifier],
             categories : $routeParams.category ? [$routeParams.category] : [],
