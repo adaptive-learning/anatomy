@@ -9,9 +9,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   .value('colors', {
     'GOOD': '#5CA03C',
     'BAD': '#e23',
-    'NEUTRAL' : '#1d71b9',
-    'BRIGHT_GRAY' : '#ddd',
-    'WATER_COLOR' : '#73c5ef',
     'HIGHLIGHTS' : [
       '#f9b234',
       '#1d71b9',
