@@ -88,7 +88,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 var bbox = getBBox(paths.map(function(p) {return p.getBBox();}));
                 angular.forEach(paths, function(path) {
                   if (color == 'no-change') {
-                    color = path.data('color');
+                    color = chroma(path.data('color')).darken().hex();
                   }
                   if (color) {
                     path.attr({
