@@ -534,6 +534,19 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('trackHover', ['$analytics', function ($analytics) {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        element.bind("mouseover", function(){
+          $analytics.eventTrack('hover', {
+            category: attrs.trackHover,
+          });
+        });
+      }
+    };
+  }])
+
   .directive('dynamicTitle', ['$rootScope', 'pageTitle', '$route', '$timeout',
       function ($rootScope, pageTitle, $route, $timeout) {
     return {
