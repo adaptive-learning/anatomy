@@ -6,11 +6,11 @@
           <span ng-bind="category.name"></span>
         </h1>
       <div class="row">
-        <span class="col-sm-9">
+        <div class="col-sm-9">
           <div category-progress skills="{{stats}}"></div>
           <br>
-        </span>
-        <span class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
           <div class="btn-group pull-right" role="group">
             <a href="/practice/{{category.identifier}}/" 
               class="btn btn-default btn-lg" 
@@ -45,7 +45,7 @@
           <br>
           <br>
           <br>
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
     <div class="row table-row fade-in-one-by-one {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_flashcards"
       id="{{context.identifier}}" ng-repeat="context in contexts">
-      <span class="col-md-5 col-md-offset-1 col-sm-6 image-open"
+      <div class="col-md-5 col-md-offset-1 col-sm-6 image-open"
         ng-click="activateContext(context)" >
         <a ng-if="userService.user.staff"
           class="pull-left"
@@ -76,15 +76,15 @@
           href="/practice/{{category.identifier}}/?context={{context.identifier}}">
           <i class="glyphicon glyphicon-check" ></i>
         </a>
-      </span>
-      <span class="col-md-5 col-sm-6 image-open"
+      </div>
+      <div class="col-md-5 col-sm-6 image-open"
         ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
           hide-labels="true"></div>
         <div ng-if="activeContext==context">
           <div category-progress-labels skills="{{context.stats}}"></div>
         </div>
-      </span>
+      </div>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context"
           class="col-md-10 col-md-offset-1 col-sm-12 image-view-container">
