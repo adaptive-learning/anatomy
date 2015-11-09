@@ -57,6 +57,7 @@
       ng-if="context.stats && context.stats.number_of_flashcards"
       id="{{context.identifier}}" ng-repeat="context in contexts">
       <div class="col-md-5 col-md-offset-1 col-sm-6 image-open"
+        track-click="view image"
         ng-click="activateContext(context)" >
         <a ng-if="userService.user.staff"
           class="pull-left"
@@ -78,6 +79,7 @@
         </a>
       </div>
       <div class="col-md-5 col-sm-6 image-open"
+        track-click="view image"
         ng-click="activateContext(context)" >
         <div category-progress skills="{{context.stats}}"
           hide-labels="true"></div>
