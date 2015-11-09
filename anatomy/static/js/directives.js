@@ -251,6 +251,18 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               return p.bbox;
             }));
 
+            function setTermsConteinerHeight(screenAspectRatio) {
+              if (!attrs.practice) {
+                var height;
+                if (screenAspectRatio < 1) {
+                  height = $window.innerHeight * 0.7 - 40;
+                } else {
+                  height = ($window.innerHeight / 2) - 40;
+                }
+                angular.element('.terms-container').css('max-height', height + 'px');
+              }
+            }
+
             function getHorizontalViewDimensions(paper){
               var imageOfWindowWidthRatio = 0.7;
               if (attrs.practice) {
@@ -278,9 +290,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 angular.element('#ng-view').addClass('horizontal');
                 paper = getHorizontalViewDimensions(paper);
               } else {
-                paper.height = ($window.innerHeight /2) * (attrs.relativeHeight || 1);
+                paper.height = ($window.innerHeight / 2) * (attrs.relativeHeight || 1);
                 paper.width = $window.innerWidth - 35;
               }
+              setTermsConteinerHeight(screenAspectRatio);
 
               r.setSize(paper.width, paper.height);
               r.setViewBox(image.bbox.x, image.bbox.y, image.bbox.width, image.bbox.height, true);

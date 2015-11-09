@@ -94,8 +94,7 @@
           <span page-number="{{context.content.meta['textbook-page']}}"></span>
           <span anatomy-image code="{{context.identifier}}" ></span>
         </span>
-        <span ng-hide="loading" class="terms-container"
-            ng-class="{'few-terms': context.flashcards.length &lt; 15}">
+        <span ng-hide="loading" class="terms-container">
           <span class="label label-default"
             ng-repeat="flashcard in context.flashcards"
             ng-class="{'btn-info' : flashcard.term == activeTerm}"
