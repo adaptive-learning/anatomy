@@ -92,8 +92,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   }
                   if (color) {
                     path.attr({
-                      'fill' : color,
+                      'fill' : animate ? '#fff' : path.data('color'),
                     });
+                    var animAttrs = {
+                      'fill' : color,
+                    };
+                    path.animate(animAttrs, ANIMATION_TIME_MS, '>');
                     path.data('highlight-color', color);
                     highlights.push(path);
                   }
