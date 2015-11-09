@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-11-09 09:42+0000\n"
+"PO-Revision-Date: 2015-11-09 11:19+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid ""
 "    konkrétně v rámci skupiny <a href=\"http://www.fi.muni.cz/adaptivelearning/\">Adaptive Learning</a>."
 msgstr "PracticeAnatomy.com is being developed at <a href=\"http://www.fi.muni.cz/\">Faculty of Informatics of Masaryk University</a> (Brno, Czech republic) by  <a href=\"http://www.fi.muni.cz/adaptivelearning/\">Adaptive Learning research group</a>."
 
-#: static/tpl/about.html:88
+#: static/tpl/about.html:87
 msgid ""
 "Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a "
 "href=\"http://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků "
@@ -81,7 +81,7 @@ msgstr "Practice makes perfect. See how your knowledge grows, and identify the a
 msgid "Cíle"
 msgstr "MIssion"
 
-#: static/tpl/about.html:106
+#: static/tpl/about.html:105
 msgid ""
 "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a"
 " pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. "
@@ -118,7 +118,7 @@ msgstr "How does it work?"
 msgid "Jméno"
 msgstr "First name"
 
-#: static/tpl/about.html:82
+#: static/tpl/about.html:81
 msgid "Kdo stojí za obsahem"
 msgstr "Content"
 
@@ -130,7 +130,7 @@ msgstr "Development"
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
-#: static/tpl/about.html:93
+#: static/tpl/about.html:92
 msgid "Lákařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
@@ -167,7 +167,7 @@ msgid ""
 "Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD studenti FI MU)."
 msgstr "PracticeAnatomy.com and the software model is being developed mostly by <strong>Vít Stanislav</strong>, <strong>Jan Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD students, Faculty of Informatics, Masaryk University)."
 
-#: static/tpl/about.html:96
+#: static/tpl/about.html:95
 msgid ""
 "Na zpracování anatomických schémat se významně podíleli následující studenti"
 " medicíny LF MU v Brně: <strong>David Dufek, Michaela Janáková, Lýdia "
@@ -261,7 +261,7 @@ msgid ""
 "vybrat Vám následující otázku adekvátní obtížnosti."
 msgstr "Our mission is to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge. Reviewing and recognizing anatomical structures  and names (either in English or Latin) with pictures from Memorix Anatomy reinforces your knowledge. Our secondary goal is to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty."
 
-#: static/tpl/about.html:109
+#: static/tpl/about.html:108
 msgid ""
 "Pro statistiky návštěvnosti uživatelů využíváme Google Analytics, které mají"
 " samostatné <a "
@@ -293,7 +293,7 @@ msgstr "Practice medical anatomy with personalized questions."
 msgid ""
 "Projekt Anatom.cz vznikl ve spolupráci skupiny Adaptive learning z FI MU a "
 "Memorix týmu zahrnující lékaře a studenty LF MU v Brně."
-msgstr "Practice Anatomy is a joint project of research group Adaptive Learning at Faculty of Informatics of Masaryk University, a team Memorix comprising clinicians and medical students at Medical Faculty of Masaryk University, Brno, Czech republic."
+msgstr "Practice Anatomy is a joint project of research group Adaptive Learning at Faculty of Informatics of Masaryk University, and team Memorix comprising clinicians and medical students at Medical Faculty of Masaryk University, Brno, Czech republic."
 
 #: static/tpl/map_tpl.html:18
 msgid "Průměrný nový uživatel"
@@ -334,15 +334,17 @@ msgstr "Next level"
 
 #: static/tpl/about.html:72
 msgid ""
-"Rádi bychom vyslechli Tvoje náměty k rozvoji systému, připomínky a stížnosti k beta verzi. Když nám pošleš email na <span class=\"email contact\">anatom{zavinac}memorix.cz</span>, pomůžeš nám aplikaci zdokonalit pro sebe i ostatní uživatele. \n"
-"    Náměty k rozvoji systému zasílejte na"
+"Rádi bychom vyslechli Tvoje náměty k rozvoji systému, připomínky a stížnosti"
+" k beta verzi. Když nám pošleš email na <span class=\"email "
+"contact\">anatom{zavinac}memorix.cz</span>, pomůžeš nám aplikaci zdokonalit "
+"pro sebe i ostatní uživatele."
 msgstr "We would love to hear your experiences, criticism and suggestions for improvement of this beta version. Please feel free to send us your feedback at <span class=\"email contact\">anatom{at}memorix.cz</span> at any time - you’ll help us improve the Practice Anatomy app for you and everyone else."
 
 #: static/tpl/user_tpl.html:63
 msgid "Sdílej svůj profil"
 msgstr "Share your profile"
 
-#: static/tpl/about.html:105
+#: static/tpl/about.html:104
 msgid "Soukromí"
 msgstr "Privacy "
 
