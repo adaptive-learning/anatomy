@@ -52,7 +52,7 @@
         <div class="button-block">
           <span>
             <button ng-repeat="option in question.options"
-              class="btn btn-lg btn-default"
+              class="btn btn-lg btn-default btn-option"
               ng-click="checkAnswer(option.description)"
               ng-class="{'btn-success': option.correct, 'btn-danger':
               option.selected && !option.correct }"

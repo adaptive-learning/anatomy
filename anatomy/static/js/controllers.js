@@ -168,10 +168,10 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'colors', 'imageService',
+    'practiceService', 'userService', 'colors', 'imageService', 'serverLogger',
 
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, imageService) {
+        practiceService, userService, colors, imageService, serverLogger) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -222,6 +222,7 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.checking = false;
                 $scope.canNext = true;
             }
+            checkOptions();
         };
 
         $scope.next = function(callback) {
@@ -250,6 +251,18 @@ angular.module('proso.anatomy.controllers', [])
             }
           }
         };
+
+        function checkOptions() {
+          var buttonCount = angular.element('.inner-practice:not(.slide-out) .btn-option').length;
+          var optionCount = $scope.activeQuestion.options ? $scope.activeQuestion.options.length : 0;
+          if (buttonCount != optionCount) {
+            serverLogger.error("Option count doesn't math button count", {
+              buttonCount : buttonCount,
+              optionCount : optionCount,
+              question : $scope.activeQuestion,
+            });
+          }
+        }
 
         function highlightAnswer (asked, selected) {
             if ($filter('isFindOnMapType')($scope.question)) {
