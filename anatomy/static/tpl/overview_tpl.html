@@ -78,16 +78,13 @@
                   <h2 ng-bind="category.name"></h2>
                 </a>
                  <div class="dropdown" ng-if="!user">
-                  <button class="btn btn-default dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li ng-if="!user">
-                      <a href="/practice/{{category.identifier}}/" translate
-                          track-click="overview dropdown practice" >
-                        Procvičovat</a>
-                      </li>
-                  </ul>
+                    <a href="/practice/{{category.identifier}}/"
+                        class="btn btn-default btn-sm"
+                        tooltip="{{'Procvičovat' | translate}}"
+                        tooltip-placement="right"
+                        track-click="overview practice" >
+                        <i class="glyphicon glyphicon-play"></i>
+                    </a>
                 </div> 
               </span>
             </span>
