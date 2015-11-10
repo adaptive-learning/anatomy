@@ -93,20 +93,23 @@
 
 <div class="row works-div">
   <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
-    <span class="col-sm-7" >
-      <h3>{{"Kvalitní obrázky" | translate }}</h3>
-      <p translate>
-        Přehledná anatomické schámata z úspěšné učebnice 
-        <a href="http://memorix.cz/">Memorix Anatomie</a>.
-        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které
-        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie.
-      </p>
-    </span>
-    <span class="col-sm-4 col-sm-offset-1" >
-      <a href="http://{{'anatomie.memorix.cz' | translate}}">
-        <img ng-src="/static/img/book-{{LANGUAGE_CODE}}.png"/>
-      </a>
-    </span>
+    <div class="row">
+      <div class="col-sm-7" >
+        <h3>{{"Kvalitní obrázky" | translate }}</h3>
+        <p translate>
+          Přehledná anatomické schámata z úspěšné učebnice 
+          <a href="http://memorix.cz/">Memorix Anatomie</a>.
+          Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které
+          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie.
+        </p>
+      </div>
+      <div class="col-sm-4 col-sm-offset-1" >
+        <a href="http://{{'anatomie.memorix.cz' | translate}}">
+          <img ng-src="/static/img/book-{{LANGUAGE_CODE}}.png"/>
+        </a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>
@@ -119,8 +122,12 @@
     použili před Tebou, může vyhodnotit, které struktury jsou obecně lehké a
     které těžké. Díky tomu má aplikace již po několika Tvých odpovědích slušnou
     představu jak dobré jsou Tvoje znalosti a adekvátně tomu volit další
-    otázky.
+    otázky. Tvoje znalosti Ti umí aplikace ukázat na každém obrázku pomocí obarvení
+    jednotlivých částí barvami na škále od červené po zelenou.
     </div>
+    <a href="/view/04/?context=svaly-krkusvg">
+      <img ng-src="/static/img/view-image-{{LANGUAGE_CODE}}.png"/>
+    </a>
   </div>
   <div class="clearfix"></div>
 </div>

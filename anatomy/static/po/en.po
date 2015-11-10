@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-11-09 11:19+0000\n"
+"PO-Revision-Date: 2015-11-10 15:02+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,18 +89,19 @@ msgid ""
 " při opakovaných návštěvách, jinak se s nimi nepracuje."
 msgstr "Data about your responses are being saved and used in order to improve user experience (select the most appropriate next question ) and research purposes. All research analyses are performed on anonymized data. The data from registration (Facebook, Google) are used only for identification during recurrent visits. We will not provide user identification data to a third party."
 
-#: static/tpl/homepage.html:116
+#: static/tpl/homepage.html:119
 msgid "Data od všech uživatelů"
 msgstr "As you learn, we learn with you"
 
-#: static/tpl/homepage.html:117
+#: static/tpl/homepage.html:120
 msgid ""
 "Díky tomu, že má aplikace uložené odpovědi od všech uživatelů, kteří ji\n"
 "    použili před Tebou, může vyhodnotit, které struktury jsou obecně lehké a\n"
 "    které těžké. Díky tomu má aplikace již po několika Tvých odpovědích slušnou\n"
 "    představu jak dobré jsou Tvoje znalosti a adekvátně tomu volit další\n"
-"    otázky."
-msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you."
+"    otázky. Tvoje znalosti Ti umí aplikace ukázat na každém obrázku pomocí obarvení\n"
+"    jednotlivých částí barvami na škále od červené po zelenou."
+msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you. The application can show you your knowledge in each image by coloring\neach part with a color from a color scale ranging from red to green."
 
 #: static/tpl/user_tpl.html:29
 msgid "E-mail"
@@ -126,7 +127,7 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/homepage.html:97
+#: static/tpl/homepage.html:98
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
@@ -220,7 +221,7 @@ msgstr "Knowledge estimate"
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
-#: static/tpl/homepage.html:130
+#: static/tpl/homepage.html:137
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
 
@@ -308,12 +309,12 @@ msgstr "Knowledge Overview"
 msgid "Přehled znalostí uživatele"
 msgstr "Knowledge overview of user"
 
-#: static/tpl/homepage.html:98
+#: static/tpl/homepage.html:99
 msgid ""
 "Přehledná anatomické schámata z úspěšné učebnice \n"
-"        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
-"        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
-"        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
+"          <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
+"          Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
+"          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
 msgstr "Concise anatomical pictures are from a successful textbook <a href=\"http://memorix.cz/\"> Memorix Anatomy </a>. The structures and pictures in this application represents an essential knowledge for medical students to successfully complete an anatomy exam."
 
 #: static/tpl/map_tpl.html:24
@@ -348,7 +349,7 @@ msgstr "Share your profile"
 msgid "Soukromí"
 msgstr "Privacy "
 
-#: static/tpl/homepage.html:131
+#: static/tpl/homepage.html:138
 msgid ""
 "Systém sleduje, co ti jak jde, a podle toho vybírá další otázky. Pokud\n"
 "    hned zvládáš i těžké otázky, nemá smysl Tě zdržovat s jednoduchými. Když\n"
@@ -382,7 +383,7 @@ msgstr "What makes PracticeAnatomy.com special?"
 msgid "Vyber"
 msgstr "Choose"
 
-#: static/tpl/homepage.html:152 static/tpl/homepage.html:37
+#: static/tpl/homepage.html:159 static/tpl/homepage.html:37
 #: static/tpl/practice_tpl.html:130
 msgid "Vybrat kapitolu"
 msgstr "Select chapter"
@@ -391,7 +392,7 @@ msgstr "Select chapter"
 msgid "Vybráno"
 msgstr "Selected"
 
-#: static/tpl/homepage.html:147
+#: static/tpl/homepage.html:154
 msgid "Začít procvičovat"
 msgstr "Start practice"
 
@@ -411,7 +412,7 @@ msgstr "Cancel"
 msgid "Zvýrazněná část se jmenuje"
 msgstr "The name of the highlighted part is"
 
-#: static/tpl/homepage.html:106
+#: static/tpl/homepage.html:107
 msgid "anatomie.memorix.cz"
 msgstr "memorix.cz"
 
