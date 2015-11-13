@@ -34,7 +34,7 @@
                 </a>
               </li>
               <li ng-repeat="subcategory in subcategories"
-                  ng-if="subcategory.stats.number_of_flashcards">
+                  ng-if="subcategory.stats.number_of_flashcards &gt; 9">
                 <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}"
                     track-click="view dropdown practice" >
                  {{category.name}} - {{subcategory.name}}
