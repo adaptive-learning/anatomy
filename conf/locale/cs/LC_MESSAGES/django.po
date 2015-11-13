@@ -96,7 +96,7 @@ msgstr ""
 #: anatomy/templates/home.html:11
 msgid "meta content"
 msgstr ""
-"Procvič si lékařskou anatomii online na 300 schématech z Memorixu Anatomie!"
+"Procvič si lékařskou anatomii online na 300 schématech z Memorixu Anatomie! "
 "Náročnost otázek se automaticky přizpůsobuje Tvým znalostem."
 
 #: anatomy/templates/home.html:12
