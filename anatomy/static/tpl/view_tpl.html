@@ -65,6 +65,8 @@
           <i class="glyphicon glyphicon-picture" ></i>
         </a>
         <h3 class="image-list-title">
+          <i ng-if="activeContext!=context" class="glyphicon glyphicon-chevron-down" ></i>
+          <i ng-if="activeContext==context" class="glyphicon glyphicon-chevron-up" ></i>
           {{context.name || '[MISSING]'}}
         </h3>
         <a ng-if="userService.user.staff"
