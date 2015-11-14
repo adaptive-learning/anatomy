@@ -45,39 +45,14 @@ angular.module('proso.anatomy.controllers', [])
           categories : $routeParams.category ? [$routeParams.category] : [],
       };
 
-      categoryService.getAllByType().then(function(categoriesByType){
+      categoryService.getAllByType().then(function(){
         $scope.category = categoryService.getCategory($routeParams.category);
-
-        if ($scope.category.type == "system") {
-          $scope.subcategories = angular.copy(categoriesByType.location);
-        } else if ($scope.category.type == "location") {
-          $scope.subcategories = angular.copy(categoriesByType.system);
-        }
-        userStatsService.clean();
-        for (var i = 0; i < $scope.subcategories.length; i++) {
-          var id = $scope.subcategories[i].identifier;
-          userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, [filter.categories, [id]]);
-        }
-        userStatsService.getFlashcardCounts().success(function(data) {
-          for (var i = 0; i < $scope.subcategories.length; i++) {
-            var subcategory = $scope.subcategories[i];
-            var id = subcategory.identifier;
-            var number_of_flashcards = data.data[id];
-            subcategory.stats = {
-              'number_of_flashcards' : number_of_flashcards,
-            };
-          }
-          if (!$cookies.practiceDropdownUsed) {
-            setTimeout(function() {
-              angular.element('.practice-dropdown').click();
-            }, 1);
-          }
-        });
+        $scope.subcategories = categoryService.getSubcategories($routeParams.category);
       });
 
       contextService.getContexts(filter).then(function(data) {
         $scope.contexts = data;
+        $scope.countsLoaded = true;
 
         userStatsService.clean();
         for (var i = 0; i < data.length; i++) {
@@ -86,35 +61,16 @@ angular.module('proso.anatomy.controllers', [])
           userStatsService.addGroup(id, {});
           userStatsService.addGroupParams(id, filter.categories, [id]);
         }
-
-        userStatsService.getFlashcardCounts().success(function(data) {
-          userStatsService.clean();
-          for (var i = 0; i < $scope.contexts.length; i++) {
-            var context = $scope.contexts[i];
+        userStatsService.getStatsPost(true, $scope.user).success(function(data) {
+          angular.forEach($scope.contexts, function(context) {
+            context.placeTypes = [];
             var id = context.identifier;
-            var number_of_flashcards = data.data[id];
-            context.stats = {
-              'number_of_flashcards' : number_of_flashcards,
-            };
-            if (number_of_flashcards > 0) {
-              userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, filter.categories, [id]);
-            }
+            context.stats = data.data[id];
             if ($routeParams.context && $routeParams.context == id) {
               $scope.activateContext(context);
             }
-          }
-          $scope.countsLoaded = true;
-          
-          userStatsService.getStatsPost(true, $scope.user).success(function(data) {
-            angular.forEach($scope.contexts, function(context) {
-              context.placeTypes = [];
-              var key = context.identifier;
-              context.stats = data.data[key];
-            });
           });
         });
-
       });
 
       if ($routeParams.user == 'average') {

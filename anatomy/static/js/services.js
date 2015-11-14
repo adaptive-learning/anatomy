@@ -83,7 +83,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
   }])
 
-  .factory('contextService', ["$http", "$q", function ($http, $q) {
+  .factory('contextService', ["$http", "$q", "userStatsService",
+      function ($http, $q, userStatsService) {
     'use strict';
     var that = {
       getContexts: function (filter) {
@@ -95,7 +96,29 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         var deferredContext = $q.defer();
         $http.get('/flashcards/contexts', {params: filter, cache: true}
         ).success(function(data) {
-          deferredContext.resolve(data.data);
+          userStatsService.clean();
+          for (var i = 0; i < data.data.length; i++) {
+            var context = data.data[i];
+            var id = context.identifier;
+            userStatsService.addGroup(id, {});
+            userStatsService.addGroupParams(id, filter.categories, [id]);
+          }
+          var contexts = data.data;
+
+          userStatsService.getFlashcardCounts().success(function(data) {
+            for (var i = 0; i < contexts.length; i++) {
+              var context = contexts[i];
+              var id = context.identifier;
+              var number_of_flashcards = data.data[id];
+              context.stats = {
+                'number_of_flashcards' : number_of_flashcards,
+              };
+            }
+            contexts = contexts.filter(function(c) {
+              return c.stats.number_of_flashcards > 0;
+            });
+            deferredContext.resolve(contexts);
+          });
         }).error(function(error){
           console.error("Something went wrong while loading contexts from backend.");
           deferredContext.reject(error);
@@ -120,7 +143,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('categoryService', ["$http", "$q", function ($http, $q) {
+  .factory('categoryService', ["$http", "$q", "userStatsService", "$cookies",
+      function ($http, $q, userStatsService, $cookies) {
     'use strict';
     var categories = [];
     var categoriesByIdentifier = {};
@@ -155,6 +179,41 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getAllByType: function () {
         return deferredCategory.promise;
+      },
+      getSubcategories: function (identifier) {
+        var category = categoriesByIdentifier[identifier];
+        var subcategories;
+        var filter = {
+            categories : identifier ? [identifier] : [],
+        };
+
+        if (category.type == "system") {
+          subcategories = angular.copy(categoriesByType.location);
+        } else if (category.type == "location") {
+          subcategories = angular.copy(categoriesByType.system);
+        }
+        userStatsService.clean();
+        for (var i = 0; i < subcategories.length; i++) {
+          var id = subcategories[i].identifier;
+          userStatsService.addGroup(id, {});
+          userStatsService.addGroupParams(id, [filter.categories, [id]]);
+        }
+        userStatsService.getFlashcardCounts().success(function(data) {
+          for (var i = 0; i < subcategories.length; i++) {
+            var subcategory = subcategories[i];
+            var id = subcategory.identifier;
+            var number_of_flashcards = data.data[id];
+            subcategory.stats = {
+              'number_of_flashcards' : number_of_flashcards,
+            };
+          }
+          if (!$cookies.practiceDropdownUsed) {
+            setTimeout(function() {
+              angular.element('.practice-dropdown').click();
+            }, 1);
+          }
+        });
+        return subcategories;
       },
     };
     return that;
