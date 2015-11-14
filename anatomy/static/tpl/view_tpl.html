@@ -98,7 +98,7 @@
         </span>
         <span ng-hide="loading" class="terms-container">
           <span class="label label-default"
-            ng-repeat="flashcard in context.flashcards"
+            ng-repeat="flashcard in context.flashcards | orderBy : 'term.name'"
             ng-class="{'btn-info' : flashcard.term == activeTerm}"
             ng-click="imageController.clearHighlights();imageController.highlightItem(flashcard.description, 'no-change', true)"
             ng-mouseenter="imageController.hoverIn(flashcard.description)"
