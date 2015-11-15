@@ -6,7 +6,7 @@
           <span translate>Přehled znalostí</span>
         </h1>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6" ng-if="!user">
           <a href="/practice/" 
             class="btn btn-default btn-lg" 
             track-click="overview practice" >
@@ -60,7 +60,7 @@
           <br>
           <br>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
           <div category-progress skills="{{stats}}"></div>
           <br>
         </div>
@@ -87,7 +87,7 @@
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
             <span ng-repeat="category in categoryType.categories"
-              ng-class="{'active' : category.selected}"
+              ng-class="{'active' : category.selected && !user}"
               class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
               <span class="in-tile">
                 <a href="/view/{{category.identifier}}/" class="tile-link"
