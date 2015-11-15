@@ -100,7 +100,11 @@ angular.module('proso.anatomy.controllers', [])
             categories : $routeParams.category ? [$routeParams.category] : [],
             stats : true,
           };
+          var activeContext = $scope.activeContext;
           contextService.getContext(context.id).then(function(fullContext) {
+            if (activeContext != $scope.activeContext) {
+              return;
+            }
             $scope.activeContext.content = fullContext.content;
             $scope.activeContext.flashcards = fullContext.flashcards;
             imageService.setImage($scope.activeContext.content, function(ic) {
