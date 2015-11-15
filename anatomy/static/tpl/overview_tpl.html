@@ -130,12 +130,14 @@
                   </a>
                 </div> 
                 <div class="selector pull-right" ng-if="!user">
-                  <input type="checkbox"
-                      class="form-control"
-                      ng-model="category.selected"
+                  <button class="btn btn-default btn-sm"
+                      ng-click="category.selected = !category.selected"
                       tooltip="{{'Vybrat' | translate}}"
                       tooltip-placement="left"
-                      track-click="overview selector" />
+                      track-click="overview selector" >
+                      <i ng-class="{'glyphicon-empty' : !category.selected}"
+                        class="glyphicon glyphicon-ok"></i>
+                  </button>
                 </div> 
               </span>
             </span>
