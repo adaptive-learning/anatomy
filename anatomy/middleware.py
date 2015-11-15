@@ -26,7 +26,6 @@ class LanguageInDomainMiddleware(object):
         target_domain = settings.LANGUAGE_DOMAINS[language_code]
         if (settings.LANGUAGE_COOKIE_NAME not in request.COOKIES and
                 translation.LANGUAGE_SESSION_KEY not in request.session and
-                "HTTP_ACCEPT_LANGUAGE" not in request.META and
                 target_domain != request.META['HTTP_HOST']):
             domain_to_lang_dict = dict((v, k) for k, v in settings.LANGUAGE_DOMAINS.iteritems())
             language_code = domain_to_lang_dict[request.META['HTTP_HOST']]
