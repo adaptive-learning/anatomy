@@ -325,6 +325,13 @@ angular.module('proso.anatomy.controllers', [])
           $cookies.activeType = categoryType.categories[0].type;
         };
 
+        $scope.toggleSelectedCategories = function(selected) {
+          angular.forEach($scope.categories, function(c) {
+            c.selected = selected;
+          });
+          $scope.saveSelectedCategoriesToCookie();
+        };
+
         $scope.saveSelectedCategoriesToCookie = function() {
           var selected = $filter('getSelectedIdentifiers')($scope.categories);
           $cookies.selectedCategoires = selected;
