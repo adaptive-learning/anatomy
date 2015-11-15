@@ -110,6 +110,14 @@
                   'label-unlearned' || 'label-learned' }} ">
              {{fc.term.name | stripAlternatives}}
           </span>
+           <i class="glyphicon glyphicon-question-sign help-icon"
+              popover-trigger="mouseenter"
+              popover-placement="bottom"
+              popover-append-to-body="true"
+              popover-title="{{'Tip k ovládání' | translate}}"
+              popover="{{'Pomocí názvů dotázaných pojmů můžeš přepínat mezi obrázky k jednotlivím odpovědím.' | translate}}"
+              track-hover="summary labels explanation">
+           </i>
         </div>
         <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
         <br>
