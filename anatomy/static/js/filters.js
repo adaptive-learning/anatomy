@@ -204,11 +204,15 @@ angular.module('proso.anatomy.filters', [])
         text = gettextCatalog.getString('Vyber si libovolnou kombinaci orgánových sytémů a částí těla (v pravém horním rohu každé dlaždice).');
       } else {
         text = gettextCatalog.getString('Vybrané orgánové systémy:');
-        text += '<br>' + '<b>' + $filter('getSelectedCategories')(categories, 'system').map(function(c) {
+        text += '<br>' + '<b>' +
+          $filter('getSelectedCategories')(
+            categories, 'system').map(function(c) {
           return c.name;
         }).join(', ') + '</b>';
         text += '<br><br>' + gettextCatalog.getString('Vybrané části těla:');
-        text += '<br>' + '<b>' + $filter('getSelectedCategories')(categories, 'location').map(function(c) {
+        text += '<br>' + '<b>' + 
+          $filter('getSelectedCategories')(
+            categories, 'location').map(function(c) {
           return c.name;
         }).join(', ') + '</b>';
       }
