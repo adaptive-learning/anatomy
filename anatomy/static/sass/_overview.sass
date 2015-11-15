@@ -68,6 +68,16 @@
     position: absolute
     top: 5px
     left: 5px
+  .selector
+    position: absolute
+    display: block
+    top: 5px
+    right: 5px
+    input.form-control
+      width: 30px
+      height: 30px
+      margin: 0
+      cursor: pointer
 
 
 .tile a.tile-link
@@ -78,9 +88,17 @@
   background-repeat: no-repeat
   background-size: contain
   text-decoration: none
+  margin-bottom: -5px
 
 .tile a.tile-link:hover 
   background-color: #e5e5e5
+
+.tile.active a.tile-link
+  background-color: #428bca
+
+.tile.active a.tile-link:hover 
+  background-color: darken(#8dc63f, 10%)
+  background-color: darken(#428bca, 10%)
 
 
 .tile a.tile-link:hover h2 

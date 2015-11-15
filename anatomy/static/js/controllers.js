@@ -232,7 +232,6 @@ angular.module('proso.anatomy.controllers', [])
             $scope.question.slideOut = true;
             $scope.summary = practiceService.getSummary();
             $scope.summary.correctlyAnsweredRatio = $scope.summary.correct / $scope.summary.count;
-            console.log($scope.summary);
             $scope.showSummary = true;
             angular.element("html, body").animate({ scrollTop: "0px" }, function() {
               angular.element(window).trigger('resize');
@@ -289,9 +288,9 @@ angular.module('proso.anatomy.controllers', [])
                 filter.categories = $routeParams.categories;
             }
             if ($routeParams.category) {
-              filter.categories = [$routeParams.category];
+              filter.categories = $routeParams.category.split(',');
               if ($routeParams.category2) {
-                filter.categories = [[$routeParams.category], [$routeParams.category2]];
+                filter.categories = [$routeParams.category.split(','), $routeParams.category2.split(',')];
               }
             }
             if ($routeParams.context) {
@@ -310,8 +309,8 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies',
-    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies', '$filter',
+    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter) {
         'use strict';
 
         function getProgressRadius() {
@@ -326,9 +325,14 @@ angular.module('proso.anatomy.controllers', [])
           $cookies.activeType = categoryType.categories[0].type;
         };
 
+        $scope.saveSelectedCategoriesToCookie = function() {
+          var selected = $filter('getSelectedIdentifiers')($scope.categories);
+          $cookies.selectedCategoires = selected;
+        };
+
         $scope.user = $routeParams.user || '';
         categoryService.getAllByType().then(function(categoriesByType){
-            var categories = categoriesByType.system.concat(categoriesByType.location);
+            $scope.categories = categoriesByType.system.concat(categoriesByType.location);
             $scope.categoriesByType = [{
               name: gettextCatalog.getString('Orgánové systémy'),
               categories : categoriesByType.system,
@@ -340,11 +344,13 @@ angular.module('proso.anatomy.controllers', [])
             }];
             userStatsService.clean();
             userStatsService.addGroup('all', {});
-            for (var i = 0; i < categories.length; i++) {
-              var cat = categories[i];
+            for (var i = 0; i < $scope.categories.length; i++) {
+              var cat = $scope.categories[i];
               var id = cat.identifier;
               userStatsService.addGroup(id, {});
               userStatsService.addGroupParams(id, [cat.identifier]);
+
+              cat.selected = ($cookies.selectedCategoires + '').indexOf(id) != -1;
             }
 
             userStatsService.getStatsPost(true, $scope.user).success(processStats);
@@ -353,7 +359,7 @@ angular.module('proso.anatomy.controllers', [])
               $scope.progressRadius = getProgressRadius();
               $scope.userStats = data.data;
               $scope.stats = {};
-              angular.forEach(categories, function(map) {
+              angular.forEach($scope.categories, function(map) {
                 map.placeTypes = [];
                 var key = map.identifier;
                 map.stats = data.data[key];

@@ -174,4 +174,39 @@ angular.module('proso.anatomy.filters', [])
         });
       return text;
     };
+  }])
+
+  .filter('getSelectedIdentifiers', ['$filter', function($filter) {
+    return function(categories, type) {
+      var selected = $filter('getSelectedCategories')(categories, type);
+      selected = selected.map(function(c) {
+        return c.identifier;
+      }).join(',');
+      return selected;
+    };
+  }])
+
+  .filter('getSelectedCategories', [function() {
+    return function(categories, type) {
+      var selected = categories || [];
+      selected = selected.filter(function(c) {
+        return c.selected && (c.type == type || !type);
+      });
+      return selected;
+    };
+  }])
+
+  .filter('getSelectedCategoriesText', ['gettextCatalog', '$filter',
+      function(gettextCatalog, $filter) {
+    return function(categories) {
+      var text = gettextCatalog.getString('Vybrané orgánové systémy: ');
+      text += '<br>' + '<b>' + $filter('getSelectedCategories')(categories, 'system').map(function(c) {
+        return c.name;
+      }).join(', ') + '</b>';
+      text += '<br><br>' + gettextCatalog.getString('Vybrané části těla: ');
+      text += '<br>' + '<b>' + $filter('getSelectedCategories')(categories, 'location').map(function(c) {
+        return c.name;
+      }).join(', ') + '</b>';
+      return text;
+    };
   }]);

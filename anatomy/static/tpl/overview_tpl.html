@@ -6,19 +6,39 @@
           <span translate>Přehled znalostí</span>
         </h1>
       <div class="row">
-        <div class="col-sm-9">
-          <div category-progress skills="{{stats}}"></div>
+        <div class="col-sm-6">
+          <a href="/practice/" 
+            class="btn btn-default btn-lg" 
+            track-click="overview practice" >
+            <i class="glyphicon glyphicon-play"></i>
+            <span translate>
+              Procvičovat vše
+            </span>
+          </a>
+          <span style="display: inline-block"
+            tooltip-placement="bottom"
+            tooltip-html-unsafe="{{(categories | getSelectedCategories).length == 0 ?
+              ('Nejdřív si vyber libovolnou kombinaci orgánových sytémů a částí těla (v pravém horním rohu každé dlaždice).' | translate) :
+              (categories | getSelectedCategoriesText)}}">
+            <a href="/practice/{{categories | getSelectedIdentifiers : 'system'}}/{{categories | getSelectedIdentifiers : 'location'}}" 
+              class="btn btn-default btn-lg" 
+              ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
+              ng-disabled="(categories | getSelectedCategories).length == 0"
+              ng-click="saveSelectedCategoriesToCookie()"
+              track-click="overview practice" >
+              <span translate>
+                Procvičovat vybrané
+              </span>
+              <span class="ng-cloak">
+                ({{(categories | getSelectedCategories : 'system').length}}/{{(categories | getSelectedCategories : 'location').length}})
+              </span>
+            </a>
+          </span>
+          <br>
           <br>
         </div>
-        <div class="col-sm-3">
-          <a href="/practice/" 
-            class="btn btn-default btn-lg pull-right" 
-            translate
-            track-click="overview practice" >
-            Procvičovat vše
-          </a>
-          <br>
-          <br>
+        <div class="col-sm-6">
+          <div category-progress skills="{{stats}}"></div>
           <br>
         </div>
       </div>
@@ -29,7 +49,7 @@
           ng-repeat="categoryType in categoriesByType" 
           ng-class="{'active' : categoryType.isActive}">
           <a href="" ng-click="activateCatType(categoryType)" >
-            <h2> {{categoryType.name}}<h2>
+            <h2>{{categoryType.name}}<h2>
           </a>
             <div class="clearfix"></div>
         </li>
@@ -44,6 +64,7 @@
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
             <span ng-repeat="category in categoryType.categories"
+              ng-class="{'active' : category.selected}"
               class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
               <span class="in-tile">
                 <a href="/view/{{category.identifier}}/" class="tile-link"
@@ -55,7 +76,7 @@
                         current="category.stats.number_of_mastered_flashcards +
                         category.stats.number_of_practiced_flashcards"
                         color="#fe3"
-                        bgcolor="rgba(150,150,150,0.1)"
+                        bgcolor="rgba(190,190,190,0.5)"
                         radius="{{progressRadius}}"
                         stroke="15"
                         rounded="true"
@@ -77,14 +98,22 @@
                   </div>
                   <h2 ng-bind="category.name"></h2>
                 </a>
-                 <div class="dropdown" ng-if="!user">
-                    <a href="/practice/{{category.identifier}}/"
-                        class="btn btn-default btn-sm"
-                        tooltip="{{'Procvičovat' | translate}}"
-                        tooltip-placement="right"
-                        track-click="overview practice" >
-                        <i class="glyphicon glyphicon-play"></i>
-                    </a>
+                <div class="dropdown" ng-if="!user">
+                  <a href="/practice/{{category.identifier}}/"
+                      class="btn btn-default btn-sm"
+                      tooltip="{{'Procvičovat' | translate}}"
+                      tooltip-placement="right"
+                      track-click="overview practice" >
+                      <i class="glyphicon glyphicon-play"></i>
+                  </a>
+                </div> 
+                <div class="selector pull-right" ng-if="!user">
+                  <input type="checkbox"
+                      class="form-control"
+                      ng-model="category.selected"
+                      tooltip="{{'Vybrat' | translate}}"
+                      tooltip-placement="left"
+                      track-click="overview selector" />
                 </div> 
               </span>
             </span>
