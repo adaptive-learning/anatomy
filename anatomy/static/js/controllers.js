@@ -326,7 +326,7 @@ angular.module('proso.anatomy.controllers', [])
           angular.forEach($scope.categoriesByType, function(ct) {
             ct.isActive = ct == categoryType;
           });
-          $cookies.activeType = categoryType.categories[0].type;
+          $cookies.activeType = categoryType.categories[0] && categoryType.categories[0].type;
         };
 
         $scope.toggleSelectedCategories = function(selected) {
