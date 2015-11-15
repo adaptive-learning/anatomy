@@ -29,7 +29,8 @@
                   Procvičovat vybrané
                 </span>
                 <span class="ng-cloak">
-                  ({{(categories | getSelectedCategories : 'system').length}}/{{(categories | getSelectedCategories : 'location').length}})
+                  ({{(categories | getSelectedCategories : 'system').length}},
+                   {{(categories | getSelectedCategories : 'location').length}})
                 </span>
               </a>
             </span>

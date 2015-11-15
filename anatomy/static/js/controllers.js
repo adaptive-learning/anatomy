@@ -292,9 +292,9 @@ angular.module('proso.anatomy.controllers', [])
                 filter.categories = $routeParams.categories;
             }
             if ($routeParams.category) {
-              filter.categories = $routeParams.category.split(',');
+              filter.categories = $routeParams.category.split('-');
               if ($routeParams.category2) {
-                filter.categories = [$routeParams.category.split(','), $routeParams.category2.split(',')];
+                filter.categories = [$routeParams.category.split('-'), $routeParams.category2.split('-')];
               }
             }
             if ($routeParams.context) {

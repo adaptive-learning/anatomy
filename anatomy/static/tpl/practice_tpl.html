@@ -129,7 +129,7 @@
             <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat v procvičování' | translate }}
           </a>
           <a class="btn btn-lg btn-default" 
-             ng-if="categoryId"
+             ng-if="categoryId && categoryId.indexOf('-') == -1"
              href="/view/{{categoryId}}/" >
             <i class="glyphicon glyphicon-picture"></i> {{'Přehled znalostí' | translate }}
           </a>

@@ -181,7 +181,7 @@ angular.module('proso.anatomy.filters', [])
       var selected = $filter('getSelectedCategories')(categories, type);
       selected = selected.map(function(c) {
         return c.identifier;
-      }).join(',');
+      }).join('-');
       return selected;
     };
   }])
