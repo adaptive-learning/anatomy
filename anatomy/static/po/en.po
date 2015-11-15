@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-11-15 09:57+0000\n"
+"PO-Revision-Date: 2015-11-15 10:38+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,7 +107,7 @@ msgstr "The application remember responses from all users who have ever used it,
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:416
+#: static/js/controllers.js:420
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -217,7 +217,7 @@ msgstr "About us"
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/js/controllers.js:344
+#: static/js/controllers.js:348
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -280,7 +280,7 @@ msgstr "In order to analyze the number of visits and user behavior, we use Googl
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
-#: static/tpl/overview_tpl.html:127
+#: static/tpl/overview_tpl.html:125
 msgid "Procvičovat"
 msgstr "Practice"
 
@@ -292,7 +292,7 @@ msgstr "Practice chapter"
 msgid "Procvičovat podkapitolu"
 msgstr "Practice subchapter"
 
-#: static/tpl/overview_tpl.html:30
+#: static/tpl/overview_tpl.html:28
 msgid "Procvičovat vybrané"
 msgstr "Practice selected"
 
@@ -393,7 +393,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:429 static/js/directives.js:600
+#: static/js/controllers.js:433 static/js/directives.js:600
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -405,15 +405,21 @@ msgstr "What makes PracticeAnatomy.com special?"
 msgid "Vyber"
 msgstr "Choose"
 
-#: static/js/filters.js:202
+#: static/js/filters.js:204
+msgid ""
+"Vyber si libovolnou kombinaci orgánových sytémů a částí těla (v pravém "
+"horním rohu každé dlaždice)."
+msgstr "Select any combination of organ systems and body parts (in the upper right corner of each tile)."
+
+#: static/js/filters.js:206
 msgid "Vybrané orgánové systémy:"
 msgstr "Selected organ systems"
 
-#: static/js/filters.js:206
+#: static/js/filters.js:210
 msgid "Vybrané části těla:"
 msgstr "Selected body parts"
 
-#: static/tpl/overview_tpl.html:137
+#: static/tpl/overview_tpl.html:135
 msgid "Vybrat"
 msgstr "Select"
 
@@ -422,7 +428,7 @@ msgstr "Select"
 msgid "Vybrat kapitolu"
 msgstr "Select a chapter"
 
-#: static/tpl/overview_tpl.html:48
+#: static/tpl/overview_tpl.html:46
 msgid "Vybrat všechno"
 msgstr "Select everything"
 
@@ -446,7 +452,7 @@ msgstr "Source"
 msgid "Zrušit"
 msgstr "Cancel"
 
-#: static/tpl/overview_tpl.html:53
+#: static/tpl/overview_tpl.html:51
 msgid "Zrušit výběr"
 msgstr "Cancel selection"
 
@@ -482,6 +488,6 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:348
+#: static/js/controllers.js:352
 msgid "Části těla"
 msgstr "Body parts"

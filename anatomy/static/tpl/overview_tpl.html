@@ -18,9 +18,7 @@
           <div class="btn-group" role="group">
             <span style="display: inline-block"
               tooltip-placement="bottom"
-              tooltip-html-unsafe="{{(categories | getSelectedCategories).length == 0 ?
-                ('Vyber si libovolnou kombinaci orgánových sytémů a částí těla (v pravém horním rohu každé dlaždice).' | translate) :
-                (categories | getSelectedCategoriesText)}}">
+              tooltip-html-unsafe="{{categories | getSelectedCategoriesText}}">
               <a href="/practice/{{categories | getSelectedIdentifiers : 'system'}}/{{categories | getSelectedIdentifiers : 'location'}}" 
                 class="btn btn-default btn-lg" 
                 ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
