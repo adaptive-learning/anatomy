@@ -212,7 +212,7 @@ angular.module('proso.anatomy.controllers', [])
           var buttonCount = angular.element('.inner-practice:not(.slide-out) .btn-option').length;
           var optionCount = $scope.activeQuestion.options ? $scope.activeQuestion.options.length : 0;
           if (buttonCount != optionCount) {
-            serverLogger.error("Option count doesn't math button count", {
+            serverLogger.error("Option count doesn't match button count", {
               buttonCount : buttonCount,
               optionCount : optionCount,
               question : $scope.activeQuestion,
