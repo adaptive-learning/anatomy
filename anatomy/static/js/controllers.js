@@ -288,8 +288,8 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback = function() {
             practiceService.initSet('common');
             var filter = {};
-            if ($routeParams.categories) {
-                filter.categories = $routeParams.categories;
+            if ($routeParams.category2) {
+              filter.categories = $routeParams.category2.split('-');
             }
             if ($routeParams.category) {
               filter.categories = $routeParams.category.split('-');
