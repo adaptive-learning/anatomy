@@ -130,6 +130,7 @@
                 </div> 
                 <div class="selector pull-right" ng-if="!user">
                   <button class="btn btn-default btn-sm"
+                      ng-class="{'btn-primary' : category.selected}"
                       ng-click="category.selected = !category.selected"
                       tooltip="{{'Vybrat' | translate}}"
                       tooltip-placement="left"
