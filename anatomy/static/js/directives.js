@@ -93,9 +93,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   if (color) {
                     path.attr({
                       'fill' : animate ? '#fff' : path.data('color'),
+                      'stroke' : animate ? '#fff' : path.data('stroke-color'),
                     });
                     var animAttrs = {
                       'fill' : color,
+                      'stroke' : color,
                     };
                     path.animate(animAttrs, ANIMATION_TIME_MS, '>');
                     path.data('highlight-color', color);
@@ -126,7 +128,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               clearHighlights : function() {
                 for (var i = 0; i < highlights.length; i++) {
                   highlights[i].attr({
-                    'fill' : highlights[i].data('color')
+                    'fill' : highlights[i].data('color'),
+                    'stroke' : highlights[i].data('stroke-color'),
                   });
                   highlights[i].data('highlight-color', undefined);
                 }
@@ -185,14 +188,17 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             function getHoverAttr(path, lower) {
               var attr;
               var color = path.data('highlight-color') || path.data('color');
+              var strokeColor = path.data('highlight-color') || path.data('stroke-color');
               if (lower) {
                 attr = {
                   'fill' : chroma(color).darken().hex(),
+                  'stroke' : strokeColor && chroma(strokeColor).darken().hex(),
                   'cursor' : 'pointer',
                 };
               } else {
                 attr = {
                   'fill' : color,
+                  'stroke' : strokeColor,
                   'cursor' : 'default',
                 };
               }
@@ -222,14 +228,16 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var simplePathString = p.d;
               var path = r.path(simplePathString);
               var color = colorService.toGrayScale(p.color);
+              var strokeColor = p.stroke && colorService.toGrayScale(p.stroke);
               path.attr({
                 'fill' : color,
                 'opacity' : p.opacity,
                 'stroke-width' : p.stroke_width,
-                'stroke' : p.stroke && colorService.toGrayScale(p.stroke),
+                'stroke' : strokeColor,
               });
               path.data('id', p.id);
               path.data('color', color);
+              path.data('stroke-color', strokeColor);
               path.data('opacity', p.opacity);
               path.click(clickHandler);
               path.hover(hoverInHandler, hoverOutHandler);
