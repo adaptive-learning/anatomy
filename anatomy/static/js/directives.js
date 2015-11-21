@@ -140,8 +140,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 var paths = pathsByCode[code] || [];
                 for (var i = 0; i < paths.length; i++) {
                   paths[i].data('color', color);
+                  paths[i].data('stroke-color', color);
                   paths[i].attr({
                     'fill' : color,
+                    'stroke' : color,
                   });
                 }
               },
