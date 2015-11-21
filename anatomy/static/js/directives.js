@@ -665,4 +665,21 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
       }
     };
+  }])
+
+  .directive('isActive',['$location', '$rootScope',
+      function($location, $rootScope) {
+    return {
+      restrict: 'A',
+      link: function(scope, element) {
+        $rootScope.$on("$routeChangeSuccess", function() {
+          var href = element.children('a').attr('href');
+          if ($location.path() == href) {
+            element.addClass('active');
+          } else {
+            element.removeClass('active');
+          }
+        });
+      }
+    };
   }]);

@@ -30,16 +30,6 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
-  .filter('isActive',['$location', function($location) {
-    return function(path) {
-      if ($location.path() == path) {
-        return 'active';
-      } else {
-        return '';
-      }
-    };
-  }])
-
   .filter('isFindOnMapType', function() {
     return function(question) {
       return question && question.direction == "t2d";
