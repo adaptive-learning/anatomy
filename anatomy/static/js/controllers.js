@@ -163,7 +163,7 @@ angular.module('proso.anatomy.controllers', [])
             var isCorrect = asked == selected;
             highlightAnswer(asked, selected);
             $scope.question.answered_code = selected;
-            $scope.question.responseTime += new Date().valueOf();
+            $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
             var selectedFC = isCorrect ?
               $scope.question :
               $scope.getFlashcardByDescription(selected);
@@ -249,7 +249,7 @@ angular.module('proso.anatomy.controllers', [])
             }
             $scope.question = active;
             $scope.activeQuestion = active;
-            $scope.question.responseTime = - new Date().valueOf();
+            $scope.question.startTime = new Date().valueOf();
             $scope.questions.push(active);
             active.context.content = angular.fromJson(active.context.content);
 
