@@ -341,17 +341,25 @@ angular.module('proso.anatomy.controllers', [])
           $cookies.selectedCategoires = selected;
         };
 
+        function isActive(categoryType) {
+          if ($routeParams.tab && $routeParams.tab != $cookies.activeType){
+            $cookies.activeType = $routeParams.tab;
+          }
+          return $cookies.activeType == categoryType ||
+          (categoryType =='system' && !$cookies.activeType);
+        }
+
         $scope.user = $routeParams.user || '';
         categoryService.getAllByType().then(function(categoriesByType){
             $scope.categories = categoriesByType.system.concat(categoriesByType.location);
             $scope.categoriesByType = [{
               name: gettextCatalog.getString('Orgánové systémy'),
               categories : categoriesByType.system,
-              isActive : $cookies.activeType == 'system' || ! $cookies.activeType,
+              isActive : isActive('system'),
             }, {
               name: gettextCatalog.getString('Části těla'),
               categories : categoriesByType.location,
-              isActive : $cookies.activeType == 'location',
+              isActive : isActive('location'),
             }];
             userStatsService.clean();
             userStatsService.addGroup('all', {});
