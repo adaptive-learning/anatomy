@@ -86,14 +86,17 @@
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
             <span ng-repeat="category in categoryType.categories"
-              ng-class="{'active' : category.selected && !user}"
+              ng-class="{
+                'active' : category.selected && !user,
+                'disabled' : category.type == 'system' && category['not-in-model']}"
               class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
               <span class="in-tile">
                 <a href="/view/{{category.identifier}}/{{user}}" class="tile-link"
                   style="background-image: url('/static/img/{{category.identifier}}.png');" >
+                  <h2 class="top" translate>Připravujeme</h2>
                   <div class="dummy"></div>
                   <div class="absolute">
-                    <div round-progress
+                    <div round-progress 
                         max="category.stats.number_of_flashcards"
                         current="category.stats.number_of_practiced_flashcards"
                         color="#fe3"
