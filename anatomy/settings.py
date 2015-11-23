@@ -76,7 +76,6 @@ MIDDLEWARE_CLASSES = (
     'proso.django.cache.RequestCacheMiddleware',
     'proso.django.log.RequestLogMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'anatomy.middleware.LanguageInDomainMiddleware',
     'anatomy.middleware.GoogleAuthChangeDomain',
     'proso_common.middleware.AuthAlreadyAssociatedMiddleware',

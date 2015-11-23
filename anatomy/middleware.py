@@ -2,6 +2,9 @@ from django.conf import settings
 from django.utils import translation
 from django.http import HttpResponseRedirect
 import datetime
+import logging
+
+LOGGER = logging.getLogger('django.request')
 
 
 def redirect_domain(request, target_domain):
@@ -24,12 +27,15 @@ class LanguageInDomainMiddleware(object):
     def process_request(self, request):
         language_code = translation.get_language()
         target_domain = settings.LANGUAGE_DOMAINS[language_code]
-        if (settings.LANGUAGE_COOKIE_NAME not in request.COOKIES and
-                translation.LANGUAGE_SESSION_KEY not in request.session and
-                target_domain != request.META['HTTP_HOST']):
+        if target_domain != request.META['HTTP_HOST']:
             domain_to_lang_dict = dict((v, k) for k, v in settings.LANGUAGE_DOMAINS.iteritems())
-            language_code = domain_to_lang_dict[request.META['HTTP_HOST']]
-            set_lang(request, language_code)
+            language_code = domain_to_lang_dict.get(request.META['HTTP_HOST'])
+            if language_code is not None:
+                set_lang(request, language_code)
+            else:
+                LOGGER.error(
+                    'LanguageInDomainMiddleware: invalid HTTP_HOST: {}'.format(
+                        request.META['HTTP_HOST']))
 
         language_code = request.path_info.lstrip('/').split('/', 1)[0]
         if language_code in self.language_codes:
