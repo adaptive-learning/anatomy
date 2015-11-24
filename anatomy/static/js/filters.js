@@ -57,7 +57,7 @@ angular.module('proso.anatomy.filters', [])
       if (question && question.direction == "t2d") {
         return gettextCatalog.getString("Vyber");
       } else if (question && question.direction == "d2t") {
-        return gettextCatalog.getString("Zvýrazněná část se jmenuje");
+        return gettextCatalog.getString("Co je zvýrazněno?");
       }
       return "Error";
     };
