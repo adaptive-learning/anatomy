@@ -682,4 +682,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
       }
     };
+  }])
+
+  .directive('shareButton', ['shareModal', function(shareModal) {
+    return {
+      restrict: 'A',
+      link: function (scope, element) {
+        element.bind('click', function(){
+          shareModal.open();
+        });
+      }
+    };
   }]);

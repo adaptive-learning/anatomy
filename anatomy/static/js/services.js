@@ -349,4 +349,15 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
       }
     };
+  }])
+
+  .factory('shareModal', ["$modal", function($modal) {
+    return {
+      open: function() {
+        $modal.open({
+          templateUrl: 'static/tpl/share-modal.html',
+          controller: 'ShareController',
+        });
+      }
+    };
   }]);

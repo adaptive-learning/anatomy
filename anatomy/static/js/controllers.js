@@ -449,5 +449,34 @@ angular.module('proso.anatomy.controllers', [])
 .controller('ReloadController', ['$window', function($window){
     'use strict';
     $window.location.reload();
-}]);
+}])
 
+.controller('ShareController', ['$scope', '$modalInstance', 'loginModal', 'userService', 'gettextCatalog', '$analytics', '$location', '$window',
+    function ($scope, $modalInstance, loginModal, userService, gettextCatalog, $analytics, $location, $window) {
+
+    $scope.credentials = {};
+    $scope.alerts = [];
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+
+    $scope.openSharePage = function(site) {
+      var siteUrls = {
+        facebook : "https://www.facebook.com/sharer/sharer.php?u=",
+        twitter : "http://twitter.com/home?status=",
+        google : "https://plus.google.com/share?url=",
+        demo : "",
+      };
+      if (userService.user.username) {
+        var shareUrl = siteUrls[site] + $location.absUrl() + userService.user.username;
+        $window.open(shareUrl, "_blank");
+      } else {
+        loginModal.open();
+      }
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
+  }]);

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-11-24 13:34+0000\n"
+"PO-Revision-Date: 2015-11-24 16:40+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgstr "2. Recognize the anatomical structure and its name"
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. See how you are doing and how your knowledge grows"
 
-#: static/tpl/share-modal.html:17 static/tpl/user_tpl.html:73
+#: static/tpl/user_tpl.html:73
 msgid "Adresa profilu"
 msgstr "Profile address"
 
@@ -69,6 +69,10 @@ msgstr "Points"
 #: static/tpl/practice_tpl.html:85
 msgid "Co je zvýrazněno?"
 msgstr "What is highlighted?"
+
+#: static/tpl/share-modal.html:26
+msgid "Co uvidí na sdílené stránce ostatní?"
+msgstr "What can others see on the shared page?"
 
 #: static/tpl/homepage.html:82
 msgid ""
@@ -228,7 +232,7 @@ msgstr "Questions fitted to your knowledge"
 
 #: static/tpl/share-modal.html:5
 msgid "Pochlub se svými znalostmi"
-msgstr ""
+msgstr "Show off your knowledge"
 
 #: static/tpl/practice_tpl.html:74
 msgid "Pokračovat"
@@ -285,23 +289,23 @@ msgstr "In order to analyze the number of visits and user behavior, we use Googl
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
-#: static/tpl/overview_tpl.html:128
+#: static/tpl/overview_tpl.html:138
 msgid "Procvičovat"
 msgstr "Practice"
 
-#: static/tpl/view_tpl.html:14
+#: static/tpl/view_tpl.html:24
 msgid "Procvičovat kapitolu"
 msgstr "Practice chapter"
 
-#: static/tpl/view_tpl.html:23
+#: static/tpl/view_tpl.html:33
 msgid "Procvičovat podkapitolu"
 msgstr "Practice subchapter"
 
-#: static/tpl/overview_tpl.html:28
+#: static/tpl/overview_tpl.html:38
 msgid "Procvičovat vybrané"
 msgstr "Practice selected"
 
-#: static/tpl/overview_tpl.html:14
+#: static/tpl/overview_tpl.html:24
 msgid "Procvičovat vše"
 msgstr "Practice all"
 
@@ -348,7 +352,7 @@ msgstr "You can zoom the map with mouse wheel or touch pinch gesture."
 msgid "Přijde Ti aplikace užitečná? Co bys vylepšil?"
 msgstr "Is the application helpful for you? What would you improve?"
 
-#: static/tpl/overview_tpl.html:96
+#: static/tpl/overview_tpl.html:106
 msgid "Připravujeme"
 msgstr "Coming soon"
 
@@ -371,6 +375,10 @@ msgstr "We would love to hear your experiences, criticism and suggestions for im
 #: static/tpl/user_tpl.html:63
 msgid "Sdílej svůj profil"
 msgstr "Share your profile"
+
+#: static/tpl/overview_tpl.html:14 static/tpl/view_tpl.html:14
+msgid "Sdílet"
+msgstr "Share"
 
 #: static/tpl/about.html:104
 msgid "Soukromí"
@@ -428,7 +436,7 @@ msgstr "Selected organ systems"
 msgid "Vybrané části těla:"
 msgstr "Selected body parts"
 
-#: static/tpl/overview_tpl.html:138
+#: static/tpl/overview_tpl.html:148
 msgid "Vybrat"
 msgstr "Select"
 
@@ -440,7 +448,7 @@ msgstr "Select a chapter"
 msgid "Vybrat orgánový systém"
 msgstr "Select an organ system"
 
-#: static/tpl/overview_tpl.html:47
+#: static/tpl/overview_tpl.html:57
 msgid "Vybrat všechno"
 msgstr "Select everything"
 
@@ -468,7 +476,7 @@ msgstr "Source"
 msgid "Zrušit"
 msgstr "Cancel"
 
-#: static/tpl/overview_tpl.html:52
+#: static/tpl/overview_tpl.html:62
 msgid "Zrušit výběr"
 msgstr "Cancel selection"
 
