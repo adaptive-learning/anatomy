@@ -47,10 +47,9 @@
                {{getFlashcardByDescription(question.answered_code).term.name  | stripAlternatives}}
             </span>
           </span>
-          <br class="clearfix">
+          <div class="clearfix"></div>
         </div>
         <div class="button-block">
-          <span>
             <button ng-repeat="option in question.options"
               class="btn btn-lg btn-default btn-option"
               ng-click="checkAnswer(option.description)"
@@ -65,7 +64,6 @@
                  {{option.term.name | stripAlternatives}}
                </span>&nbsp;
             </button>
-          </span>
         </div>
         <div class="button-block">
           <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
