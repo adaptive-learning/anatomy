@@ -11,11 +11,9 @@
     <meta name="description" content="{% trans 'meta content' %}">
     <meta name="keywords" content="{% trans 'meta keywords' %}" />
     <meta property="fb:admins" content="100006756783187" />
-    <meta property="og:image" content="{{DOMAIN}}/static/img/screenshot-{{LANGUAGE_CODE}}.png"/>
-    <meta property="og:image" content="{{DOMAIN}}/static/img/practice-{{LANGUAGE_CODE}}.png"/>
-    <meta property="og:image" content="{{DOMAIN}}/static/img/select-{{LANGUAGE_CODE}}.png"/>
-    <meta property="og:image" content="{{DOMAIN}}/static/img/view-image-{{LANGUAGE_CODE}}.png"/>
-    <meta property="og:image" content="{{DOMAIN}}/static/img/knowledge-{{LANGUAGE_CODE}}.png"/>
+    {% for file in screenshot_files %}
+    <meta property="og:image" content="{{DOMAIN}}{{file}}"/>
+    {% endfor %}
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     <link rel="alternate" href="/cs/" hreflang="cs" />
     <link rel="alternate" href="/en/" hreflang="en" />

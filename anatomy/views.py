@@ -25,6 +25,18 @@ def home(request, hack=None):
         "dist/css/bower-libs.css",
         "dist/css/app.css",
     )
+    screenshot_files = [
+        "/static/img/screenshot-" + get_language() + ".png",
+        "/static/img/practice-" + get_language() + ".png",
+        "/static/img/select-" + get_language() + ".png",
+        "/static/img/view-image-" + get_language() + ".png",
+        "/static/img/knowledge-" + get_language() + ".png",
+    ]
+    if hack is not None and 'practice' in hack:
+        screenshot_files[0], screenshot_files[1] = screenshot_files[1], screenshot_files[0]
+    elif hack is not None and ('overview' in hack or 'view' in hack):
+        screenshot_files[0], screenshot_files[2] = screenshot_files[2], screenshot_files[0]
+
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
         environment = get_environment()
         user = json.dumps({
@@ -47,6 +59,7 @@ def home(request, hack=None):
         'is_production': settings.ON_PRODUCTION,
         'css_files': CSS_FILES,
         'js_files': JS_FILES,
+        'screenshot_files': screenshot_files,
         'continents': Category.objects.filter(
             lang=get_language(), type='continent'),
         'states': Category.objects.filter(lang=get_language(), type='state'),
