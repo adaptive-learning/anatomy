@@ -73,7 +73,7 @@ angular.module('proso.anatomy', [
         $locationProvider.html5Mode(true);
 
         googleExperimentsProvider.configure({
-            experimentId: 'Z701yBLfTbakJh3W6vGdpg'
+            experimentId: 'UerhSQbmRoi890TNRKcmtg'
         });
     }
 ])
