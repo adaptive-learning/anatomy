@@ -172,6 +172,7 @@ angular.module('proso.anatomy.controllers', [])
             $scope.progress = 100 * (
               practiceService.getSummary().count /
               practiceService.getConfig().set_length);
+            addAnswerToUser(asked == selected);
             if (isCorrect) {
                 $timeout(function() {
                     $scope.next(function() {
@@ -184,6 +185,13 @@ angular.module('proso.anatomy.controllers', [])
             }
             checkOptions();
         };
+
+        function addAnswerToUser(isCorrect) {
+          userService.user.profile.number_of_answers++;
+          if (isCorrect) {
+            userService.user.profile.number_of_correct_answers++;
+          }
+        }
 
         $scope.next = function(callback) {
             if ($scope.progress < 100) {

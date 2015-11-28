@@ -148,14 +148,16 @@
     <rating-modal></rating-modal>
 
   <div class="beta-alert text-center alert alert-warning" translate>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"
-      track-click="close testing banner">
-    <span aria-hidden="true">&times;</span>
-    <span class="sr-only">Close</span>
-  </button>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+        track-click="close testing banner">
+      <span aria-hidden="true">&times;</span>
+      <span class="sr-only">Close</span>
+    </button>
     <strong>{% trans "Aplikace je ve fázi testování." %}</strong>
     {% trans "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv nápady na zlepšení nebo jiné připomínky," %} <a feedback-comment href="" email="{{userService.user.email}}">{% trans "napiš nám" %}</a>{% if LANGUAGE_CODE == "cs" %} nebo vyplň <a href="https://docs.google.com/forms/d/19OIKttWieQRHEmFkn_E6Ilenoavv_umIL2f3RRWmCe4/viewform" target="_blank">strukturovaný formulář</a>{% endif %}.
   </div>
+
+  <div sign-in-banner></div>
 
     <div class="" id="footer">
       <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">

@@ -1,0 +1,18 @@
+<div class="beta-alert text-center alert alert-info"
+  ng-if="!userService.status.logged && !userService.status.loading && userService.user.profile.number_of_answers >= 20">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+      track-click="close login banner">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only" translate>Zavřít</span>
+  </button>
+  <span translate>
+  Již máš odpovězených <b>{{userService.user.profile.number_of_answers}}</b>
+  odpovědí. Ulož si svůj postup, aby aplikace mohla dlouhodobě přizpůsobovat otázky Tvým znalostem.
+  </span>
+  <a href=""
+     class="btn btn-primary"
+     track-click="login banner"
+     translate
+     ng-click="openSignupModal()"
+    >Registrovat se</a>
+</div>

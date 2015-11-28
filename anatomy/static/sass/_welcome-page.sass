@@ -164,6 +164,21 @@ img
     white-space: nowrap
     text-overflow: ellipsis
 
+@-webkit-keyframes slideUp 
+  from 
+    bottom: -100px
+  to  
+    bottom: 0px
+@-moz-keyframes slideUp 
+  from 
+    bottom: -100px
+  to  
+    bottom: 0px
+@keyframes slideUp 
+  from 
+    bottom: -100px
+  to  
+    bottom: 0px
 
 .beta-alert
   margin-bottom: 0
@@ -171,6 +186,9 @@ img
   bottom: 0px
   width: 100%
   z-index: 20
+  -webkit-animation: slideUp 1s ease-out
+  -moz-animation: slideUp 1s ease-out
+  animation: slideUp 1s ease-out
 
 
 @media (min-width: 767px)

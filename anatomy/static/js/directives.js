@@ -693,4 +693,18 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
       }
     };
+  }])
+
+  .directive('signInBanner', ['userService', 'signupModal',
+      function(userService, signupModal) {
+    return {
+      restrict: 'A',
+      templateUrl : '/static/tpl/sign_in_banner.html',
+      link: function ($scope) {
+        $scope.userService = userService;
+        $scope.openSignupModal = function() {
+            signupModal.open();
+        };
+      }
+    };
   }]);
