@@ -707,4 +707,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         };
       }
     };
+  }])
+
+  .directive('setCookieOnClick', ['$cookies', function($cookies) {
+    return {
+      restrict: 'A',
+      link: function ($scope, element, attrs) {
+        element.click(function() {
+          $cookies[attrs.setCookieOnClick] = 'true';
+        });
+      }
+    };
   }]);

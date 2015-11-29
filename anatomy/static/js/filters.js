@@ -208,4 +208,10 @@ angular.module('proso.anatomy.filters', [])
       }
       return text;
     };
+  }])
+
+  .filter('cookieExists', ["$cookies", function ($cookies) {
+      return function(name) {
+        return $cookies[name];
+      };
   }]);
