@@ -18,7 +18,7 @@ from proso_models.models import get_environment
 def home(request, hack=None):
     JS_FILES = (
         "dist/js/bower-libs.min.js",
-        "dist/js/proso-apps-all.js",
+        "dist/js/unminifiable-libs.js",
         "dist/js/anatomy.min.js",
     )
     CSS_FILES = (

@@ -15,7 +15,10 @@ module.exports = function(grunt) {
                     'proso-apps-js': 'proso-apps-all.js',
                     'angular-count-to': 'src/count-to.js',
                 },
-                exclude: ['proso-apps-js']
+                exclude: [
+                  'proso-apps-js',
+                  'angular-google-experiments',
+                ]
             }
         },
         concat: {
@@ -26,6 +29,13 @@ module.exports = function(grunt) {
                   'static/dist/js/anatomy.html.js',
                 ],
                 dest: 'static/dist/js/anatomy.js'
+            },
+            unminifiable: {
+                src: [
+                  'bower_components/proso-apps-js/proso-apps-all.js',
+                  'bower_components/angular-google-experiments/googleExperiments.min.js',
+                ],
+                dest: 'static/dist/js/unminifiable-libs.js'
             }
         },
         copy: {
@@ -198,7 +208,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-angular-gettext');
 
-    grunt.registerTask('collect-libs', ['bower_concat:all', 'uglify:libs', 'copy:fonts', 'copy:proso-apps-js']);
+    grunt.registerTask('collect-libs', ['bower_concat:all', 'concat:unminifiable', 'uglify:libs', 'copy:fonts', 'copy:proso-apps-js']);
     grunt.registerTask('prepare-libs', ['shell:bower_install', 'collect-libs']);
     grunt.registerTask('prepare', ['jshint','nggettext_compile','string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy', 'sass:anatomy', 'copy:above-fold', 'copy:images']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
