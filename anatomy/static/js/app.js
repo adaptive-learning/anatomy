@@ -98,7 +98,8 @@ angular.module('proso.anatomy', [
           });
           $analytics.eventTrack('eventName', {
             category: 'practice',
-            action: 'finished'
+            action: 'finished',
+            value: answered_count,
           });
         });
 
