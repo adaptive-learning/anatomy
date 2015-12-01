@@ -51,7 +51,10 @@ and run again
 ```
 workon anatomy
 ```
-
+apply migrations
+```
+./manage.py migrate
+```
 
 Install client dependencies
 
