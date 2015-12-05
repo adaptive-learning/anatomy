@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.utils import translation
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 import datetime
 import logging
 
@@ -10,7 +11,7 @@ LOGGER = logging.getLogger('django.request')
 def redirect_domain(request, target_domain):
     url = ('http://' + target_domain + request.get_full_path() +
            '?sessionid=' + request.COOKIES.get('sessionid', ''))
-    return HttpResponseRedirect(url, permanent=True)
+    return redirect(url, permanent=True)
 
 
 def set_lang(request, language_code):
