@@ -286,7 +286,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         return '#000000';
       }
       for (i = 0; i < rgb.length; i++) {
-        rgb[i] = Math.floor((rgb[i] + grayAverage * 8) / 10);
+        rgb[i] = Math.floor((rgb[i] + grayAverage * 8) / 9);
       }
       return that.rgbToHex(rgb);
     },
