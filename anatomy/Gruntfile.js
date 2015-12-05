@@ -160,7 +160,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
                     sourceMapIncludeSources: true,
-                    sourceMapName: 'static/dist/anatomy.min.js.map'
+                    sourceMapName: 'static/dist/js/anatomy.min.js.map'
                 },
                 src: 'static/dist/js/anatomy.js',
                 dest: 'static/dist/js/anatomy.min.js'
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
                     sourceMapIncludeSources: true,
-                    sourceMapName: 'static/dist/anatomy-tpls.min.js.map'
+                    sourceMapName: 'static/dist/js/anatomy-tpls.min.js.map'
                 },
                 src: 'static/dist/js/anatomy-tpls.js',
                 dest: 'static/dist/js/anatomy-tpls.min.js'
