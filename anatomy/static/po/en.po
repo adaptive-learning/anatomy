@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-11-28 15:58+0000\n"
+"PO-Revision-Date: 2015-12-05 13:43+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,13 +50,13 @@ msgstr "PracticeAnatomy.com is being developed at <a href=\"http://www.fi.muni.c
 
 #: static/tpl/about.html:87
 msgid ""
-"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a "
-"href=\"http://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků "
-"a medicínskou stránku zodpovídá brněnský Memorix tým: <strong>Marek "
-"Čierny</strong> (koordinátor, lékař NK FN Bohunice), <strong>Linda "
-"Kašičková</strong> (studentka LF MU), <strong>Ondřej Volný</strong> (anatom,"
-" lékař NK FN u Sv. Anny)."
-msgstr "The anatomy pictures and schemes were provided by the authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group Brno: <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno)."
+"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"http://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
+"    medicínskou stránku zodpovídá brněnský Memorix tým: MUDr. <strong>Marek\n"
+"    Čierny</strong> (koordinátor, lékař NK FN Bohunice), <strong>Linda\n"
+"    Kašičková</strong> (studentka LF MU), MUDr. <strong>Ondřej Volný</strong>\n"
+"    (anatom, lékař NK FN u Sv. Anny) a MUDr. <strong>Radovan Hudák</strong>\n"
+"    (anatom AÚ 2. LF UK)."
+msgstr "The anatomy pictures and schemes were provided by the authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group Brno: MUDr. <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), MUDr. <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno) and MUDr. <strong>Radovan Hudák</strong>\n(anatomist, AÚ 2. LF UK)."
 
 #: static/tpl/confirm_modal.html:12
 msgid "Ano"
@@ -85,7 +85,7 @@ msgstr "Practice makes perfect. See how your knowledge grows, and identify the a
 msgid "Cíle"
 msgstr "MIssion"
 
-#: static/tpl/about.html:105
+#: static/tpl/about.html:112
 msgid ""
 "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a"
 " pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. "
@@ -119,7 +119,7 @@ msgstr "The profile does not exist."
 msgid "Jak to funguje?"
 msgstr "How does it work?"
 
-#: static/tpl/sign_in_banner.html:8
+#: static/tpl/sign_in_banner.html:9
 msgid ""
 "Již máš odpovězených <b>{{userService.user.profile.number_of_answers}}</b>\n"
 "  odpovědí. Ulož si svůj postup, aby aplikace mohla dlouhodobě přizpůsobovat otázky Tvým znalostem."
@@ -141,7 +141,7 @@ msgstr "Development"
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
-#: static/tpl/about.html:92
+#: static/tpl/about.html:98
 msgid "Lákařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
@@ -178,7 +178,7 @@ msgid ""
 "Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD studenti FI MU)."
 msgstr "PracticeAnatomy.com and the software model is being developed mostly by <strong>Vít Stanislav</strong>, <strong>Jan Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD students, Faculty of Informatics, Masaryk University)."
 
-#: static/tpl/about.html:95
+#: static/tpl/about.html:102
 msgid ""
 "Na zpracování anatomických schémat se významně podíleli následující studenti"
 " medicíny LF MU v Brně: <strong>David Dufek, Michaela Janáková, Lýdia "
@@ -227,6 +227,10 @@ msgstr "About us"
 #: static/js/directives.js:24
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
+
+#: static/tpl/color_scale_legend.html:1
+msgid "Odhad znalosti:&nbsp;"
+msgstr "Knowledge estimate&nbsp;"
 
 #: static/js/controllers.js:364
 msgid "Orgánové systémy"
@@ -283,7 +287,7 @@ msgid ""
 "vybrat Vám následující otázku adekvátní obtížnosti."
 msgstr "Our mission is to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge. Reviewing and recognizing anatomical structures  and names (either in English or Latin) with pictures from Memorix Anatomy reinforces your knowledge. Our secondary goal is to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty."
 
-#: static/tpl/about.html:108
+#: static/tpl/about.html:115
 msgid ""
 "Pro statistiky návštěvnosti uživatelů využíváme Google Analytics, které mají"
 " samostatné <a "
@@ -370,7 +374,7 @@ msgstr "Surname"
 msgid "Příští úroveň"
 msgstr "Next level"
 
-#: static/tpl/sign_in_banner.html:12
+#: static/tpl/sign_in_banner.html:13
 msgid "Registrovat se"
 msgstr "Sign up"
 
@@ -390,7 +394,7 @@ msgstr "Share your profile"
 msgid "Sdílet"
 msgstr "Share"
 
-#: static/tpl/about.html:104
+#: static/tpl/about.html:111
 msgid "Soukromí"
 msgstr "Privacy "
 
@@ -470,7 +474,7 @@ msgstr "Select a body part"
 msgid "Vybráno"
 msgstr "Selected"
 
-#: static/tpl/sign_in_banner.html:6
+#: static/tpl/sign_in_banner.html:7
 msgid "Zavřít"
 msgstr "Close"
 
