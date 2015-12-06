@@ -86,6 +86,9 @@ angular.module('proso.anatomy.controllers', [])
       });
 
       $scope.activateContext = function(context) {
+        if ($scope.user) {
+          return;
+        }
         $scope.activeContext = $scope.activeContext !== context ? context : undefined;
         if ($scope.activeContext) {
           setTimeout(function() {
@@ -99,6 +102,7 @@ angular.module('proso.anatomy.controllers', [])
             contexts : [context.identifier],
             categories : $routeParams.category ? [$routeParams.category] : [],
             stats : true,
+            user : $routeParams.user,
           };
           var activeContext = $scope.activeContext;
           contextService.getContext(context.id).then(function(fullContext) {
