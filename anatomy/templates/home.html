@@ -15,8 +15,10 @@
     <meta property="og:image" content="{{DOMAIN}}{{file}}"/>
     {% endfor %}
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-    <link rel="alternate" href="/cs/" hreflang="cs" />
-    <link rel="alternate" href="/en/" hreflang="en" />
+
+    {% for lang, domain in LANGUAGE_DOMAINS.items %}
+    <link rel="alternate" href="//{{domain}}/{{hack}}" hreflang="{{lang}}" />
+    {% endfor %}
 
     <!-- Le styles -->
     <style>
