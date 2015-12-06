@@ -51,7 +51,7 @@ msgstr "PracticeAnatomy.com is being developed at <a href=\"http://www.fi.muni.c
 #: static/tpl/about.html:87
 msgid ""
 "Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"http://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
-"    medicínskou stránku zodpovídá brněnský Memorix tým: MUDr. <strong>Marek\n"
+"    medicínskou stránku zodpovídá Memorix tým: MUDr. <strong>Marek\n"
 "    Čierny</strong> (koordinátor, lékař NK FN Bohunice), <strong>Linda\n"
 "    Kašičková</strong> (studentka LF MU), MUDr. <strong>Ondřej Volný</strong>\n"
 "    (anatom, lékař NK FN u Sv. Anny) a MUDr. <strong>Radovan Hudák</strong>\n"
