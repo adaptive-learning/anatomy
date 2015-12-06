@@ -63,6 +63,14 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 
   .factory('pageTitle',['categoryService', 'gettextCatalog', function(categoryService, gettextCatalog) {
     'use strict';
+    function addCategoryName(title, categoryId) {
+        var category = categoryService.getCategory(categoryId);
+        if (category) {
+          title += category.name + ' - ';
+        }
+        return title;
+    }
+
     return function (route) {
       var titles = {
         'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
@@ -70,10 +78,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       };
       var title = "";
       if (route.controller == "AppView" || route.controller == "AppPractice") {
-        var category = categoryService.getCategory(route.params.part);
-        if (category) {
-          title = category.name + ' - ';
-        }
+        title = addCategoryName(title, route.params.category);
+        title = addCategoryName(title, route.params.category2);
       } else if (route.controller == "AppUser") {
         title = route.params.user + ' - ';
       } else {

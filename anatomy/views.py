@@ -87,6 +87,13 @@ def get_headline_from_url(hack):
                 headline = category.name
             except Category.DoesNotExist:
                 pass
+            try:
+                if len(url) > 2:
+                    category = Category.objects.get(
+                        lang=get_language(), identifier=url[2])
+                    headline += ' - ' + category.name
+            except Category.DoesNotExist:
+                pass
         elif url[0] == u'overview':
             headline = _(u'Přehled znalostí')
     return headline
