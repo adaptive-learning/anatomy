@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-12-05 13:43+0000\n"
+"PO-Revision-Date: 2015-12-09 09:50+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgid ""
 "    Kašičková</strong> (studentka LF MU), MUDr. <strong>Ondřej Volný</strong>\n"
 "    (anatom, lékař NK FN u Sv. Anny) a MUDr. <strong>Radovan Hudák</strong>\n"
 "    (anatom AÚ 2. LF UK)."
-msgstr "The anatomy pictures and schemes were provided by the authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group Brno: MUDr. <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), MUDr. <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno) and MUDr. <strong>Radovan Hudák</strong>\n(anatomist, AÚ 2. LF UK)."
+msgstr "The anatomy pictures and schemes were provided by the authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group: MUDr. <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), MUDr. <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno) and MUDr. <strong>Radovan Hudák</strong>\n(anatomist, AÚ 2. LF UK)."
 
 #: static/tpl/confirm_modal.html:12
 msgid "Ano"
@@ -76,10 +76,10 @@ msgstr "What can others see on the shared page?"
 
 #: static/tpl/homepage.html:82
 msgid ""
-"Cvičením a opakováním rostou Tvoje znalosti. V \n"
+"Cvičením a opakováním rostou Tvoje znalosti anatomie. V \n"
 "      <a href=\"/overview/\">přehledu znalostí</a> vidíš,\n"
-"      co Ti jde dobře a co je potřeba ještě cvičit."
-msgstr "Practice makes perfect. See how your knowledge grows, and identify the areas where you could improve in <a href=\"/overview/\">knowledge overview</a>."
+"      co Ti jde dobře a co je potřeba ještě procvičovat."
+msgstr "Practice makes perfect. See how your knowledge of anatomy grows, and identify the areas where you could improve in <a href=\"/overview/\">knowledge overview</a>."
 
 #: static/tpl/about.html:14
 msgid "Cíle"
@@ -102,16 +102,16 @@ msgid ""
 "Díky tomu, že má aplikace uložené odpovědi od všech uživatelů, kteří ji\n"
 "    použili před Tebou, může vyhodnotit, které struktury jsou obecně lehké a\n"
 "    které těžké. Díky tomu má aplikace již po několika Tvých odpovědích slušnou\n"
-"    představu jak dobré jsou Tvoje znalosti a adekvátně tomu volit další\n"
+"    představu jak dobré jsou Tvoje znalosti anatomie a adekvátně tomu volit další\n"
 "    otázky. Tvoje znalosti Ti umí aplikace ukázat na každém obrázku pomocí obarvení\n"
 "    jednotlivých částí barvami na škále od červené po zelenou."
-msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you. The application can show you your knowledge in each image by coloring\neach part with a color from a color scale ranging from red to green."
+msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you. The application can show you your knowledge of anatomy in each image by coloring\neach part with a color from a color scale ranging from red to green."
 
 #: static/tpl/user_tpl.html:29
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:436
+#: static/js/controllers.js:440
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -216,7 +216,7 @@ msgstr "Don't know"
 msgid "Náměty a připomínky"
 msgstr "Feedback"
 
-#: static/js/services.js:68
+#: static/js/services.js:76
 msgid "O prjektu"
 msgstr "About"
 
@@ -228,11 +228,7 @@ msgstr "About us"
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
-#: static/tpl/color_scale_legend.html:1
-msgid "Odhad znalosti:&nbsp;"
-msgstr "Knowledge estimate&nbsp;"
-
-#: static/js/controllers.js:364
+#: static/js/controllers.js:368
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -337,7 +333,7 @@ msgstr "Practice Anatomy is a joint project of research group Adaptive Learning 
 msgid "Průměrný nový uživatel"
 msgstr "Average new user"
 
-#: static/js/services.js:69 static/tpl/overview_tpl.html:6
+#: static/js/services.js:77 static/tpl/overview_tpl.html:6
 #: static/tpl/practice_tpl.html:132
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
@@ -400,11 +396,11 @@ msgstr "Privacy "
 
 #: static/tpl/homepage.html:143
 msgid ""
-"Systém sleduje, co ti jak jde, a podle toho vybírá další otázky. Pokud\n"
-"    hned zvládáš i těžké otázky, nemá smysl Tě zdržovat s jednoduchými. Když\n"
+"Systém sleduje, jak Ti anatomie jde, a podle toho vybírá další otázky. Pokud\n"
+"    hned zvládáš i těžké otázky, nemá smysl Tě dlouho zdržovat s jednoduchými. Když\n"
 "    ale máš problémy i s jednoduchými, aplikace se nebude pouštět hned do\n"
 "    těžkých. Obtížnost otázek se tak přizpůsobuje Tvým vědomostem."
-msgstr "The system tracks what are you good at, and selects the next question accordingly. If you manage to answer the tough questions, we will not bother you with those simple ones. On the other hand, if you are just beginning to learn anatomy, we will not flood you with advanced questions. The difficulty of questions we ask you is personalized and adapts to your knowledge."
+msgstr "The system tracks what are you good at, and selects the next question accordingly. If you manage to answer the tough questions, we will not bother you with the simple ones. On the other hand, if you are just beginning to learn anatomy, we will not flood you with advanced questions. The difficulty of questions we ask you is personalized and adapts to your knowledge."
 
 #: static/tpl/practice_tpl.html:115
 msgid "Tip k ovládání"
@@ -424,7 +420,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:449 static/js/directives.js:610
+#: static/js/controllers.js:453 static/js/directives.js:610
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -526,6 +522,6 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:368
+#: static/js/controllers.js:372
 msgid "Části těla"
 msgstr "Body parts"
