@@ -718,4 +718,27 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
       }
     };
+  }])
+
+  .directive('countFrom', ['$interval', function($interval) {
+    var stop; 
+    return {
+      restrict: 'A',
+      template: '{{count}}',
+      link: function ($scope, element, attrs) {
+        if (angular.isDefined(stop)) {
+          $interval.cancel(stop);
+          stop = undefined;
+        }
+
+        $scope.count = attrs.countFrom;
+        var step = 1000 / attrs.countPerSecond;
+
+        if (attrs.countPerSecond > 0) {
+          stop = $interval(function() {
+            $scope.count++;
+          }, step);
+        }
+      }
+    };
   }]);

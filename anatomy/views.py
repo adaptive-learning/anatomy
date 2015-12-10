@@ -12,6 +12,8 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.cache import cache
 import os
 from proso_models.models import get_environment
+from proso_flashcards.models import FlashcardAnswer, Flashcard
+from datetime import datetime, timedelta
 
 
 @ensure_csrf_cookie
@@ -53,6 +55,14 @@ def home(request, hack=None):
         if not request.user.userprofile.public:
             request.user.userprofile.public = True
             request.user.userprofile.save()
+    hour_ago = datetime.now() - timedelta(hours=1)
+    stats = {
+        'number_of_answers': FlashcardAnswer.objects.count(),
+        'answers_per_second': FlashcardAnswer.objects.filter(
+            time__gt=hour_ago).count() / 3600.0,
+        'number_of_flashcards': Flashcard.objects.filter(
+            active=True, lang=get_language()).count(),
+    }
     c = {
         'title': _(u'Anatom.cz') + ' - ' + _(u'inteligentní aplikace na procvičování anatomie'),
         'headline': get_headline_from_url(hack),
@@ -72,6 +82,7 @@ def home(request, hack=None):
         'hack': hack,
         'config_json': json.dumps(get_global_config()),
         'DOMAIN': request.build_absolute_uri('/')[:-1],
+        'stats_json': json.dumps(stats),
     }
     return render_to_response('home.html', c)
 

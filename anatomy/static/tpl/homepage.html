@@ -42,6 +42,14 @@
             {{"Vybrat část těla" | translate }}
           </a>
         </div>
+        <div class="flatblock-content">
+        Uživatelé aplikace již odpověděli 
+        <span class="badge badge-default"
+          count-from="{{stats.number_of_answers}}"
+          count-per-minute="{{stats.answers_per_minute}}">{{stats.number_of_answers}}</span>
+        odpovědí na
+        <span class="badge badge-default">{{stats.number_of_flashcards}}</span> otázek.
+        </div>
       </div>
   </div>
 

@@ -30,6 +30,10 @@ angular.module('proso.anatomy.controllers', [])
           };
         }
 
+        $scope.setStats = function(stats) {
+            $rootScope.stats = stats;
+        };
+
         $scope.logout = function() {
             $rootScope.user = userService.logout();
         };
