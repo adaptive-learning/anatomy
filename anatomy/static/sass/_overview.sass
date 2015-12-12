@@ -115,7 +115,7 @@
 .tile a.tile-link:hover h2 
   bottom: 0px
 
-.tile a.tile-link h2 
+.tile a.tile-link h2, .tile a.tile-link .top
   position: absolute
   bottom: -5px
   font-size: 1.4em
@@ -130,12 +130,13 @@
   font-family: 'calibri', sans-serif
   font-weight: bold
 
-.tile a.tile-link h2.top
+.tile a.tile-link .top
   top: 0px
   max-height: 45px
   display: none
+  line-height: 1.1em
 
-.tile.disabled a.tile-link h2.top
+.tile.disabled a.tile-link .top
   display: block
 
 
