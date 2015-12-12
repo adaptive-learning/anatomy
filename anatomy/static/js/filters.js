@@ -149,13 +149,16 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
-  .filter('reportText', ['gettextCatalog', '$filter',
-      function(gettextCatalog, $filter) {
-    return function(question) {
+  .filter('reportText', ['gettextCatalog', '$filter', '$location',
+      function(gettextCatalog, $filter, $location) {
+    return function(question, categoryId) {
       var text = gettextCatalog.getString(
-        'Na obrázku: "{{imageName}}"\nv otázce:\n{{question}}\nje tato chyba:',
+        'Na obrázku: "{{imageName}}"\n{{url}}\nv otázce:\n{{question}}\nje tato chyba:',
         {
           imageName: question.context.name,
+          url: $location.protocol() + '://' + $location.host() + ':' +  $location.port() +
+            "/view/" + (categoryId || '').split('-')[0] +
+            "?context=" + question.context.identifier,
           question: $filter('questionText')(question) +
             (question.direction == 'd2t' ?
               '\n  ' + question.options.map(function(o) {
