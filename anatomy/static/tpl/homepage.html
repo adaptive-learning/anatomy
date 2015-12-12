@@ -42,13 +42,21 @@
             {{"Vybrat část těla" | translate }}
           </a>
         </div>
-        <div class="flatblock-content" translate>
-        Od uživatelů jsme již nasbírali
+        <div class="flatblock-content" >
+        <span translate>
+        Vybírat otázky pro tebe nám pomáhá
         <span class="badge badge-default"
-          count-from="{{stats.number_of_answers}}"
-          count-per-minute="{{stats.answers_per_minute}}">{{stats.number_of_answers}}</span>
-        odpovědí na
-        <span class="badge badge-default">{{stats.number_of_flashcards}}</span> otázek.
+            count-from="{{stats.number_of_answers}}"
+            count-per-minute="{{stats.answers_per_minute}}"
+          >{{stats.number_of_answers}}</span>
+        odpovědí našich uživatelů.
+        </span>
+        <a href=""
+          tooltip="{{'Zjistit více' | translate}}"
+          tooltip-placement="bottom"
+          scroll-to="data-explanation">
+          <i class="glyphicon glyphicon-question-sign help-icon"></i>
+        </a>
         </div>
       </div>
   </div>
@@ -131,7 +139,7 @@
   <div class="clearfix"></div>
 </div>
 
-<div class="row works-div">
+<div class="row works-div" id="data-explanation">
   <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
     <h3>{{"Data od všech uživatelů" | translate }}</h3>
     <div translate>
