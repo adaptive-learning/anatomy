@@ -741,4 +741,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         }
       }
     };
+  }])
+
+  .directive('colorScaleLegend', ['colorScale',
+      function(colorScale) {
+    return {
+      restrict: 'A',
+      replace: true,
+      templateUrl : '/static/tpl/color_scale_legend.html',
+      link: function ($scope) {
+        $scope.values = [];
+        for (var i = 1; i <= 10; i++) {
+          $scope.values.push(i);
+        }
+        $scope.colorScale = colorScale;
+      }
+    };
   }]);
