@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-12-10 08:09+0000\n"
+"PO-Revision-Date: 2015-12-12 08:03+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,15 +17,15 @@ msgstr ""
 msgid "1. Vybereš si orgánový systém nebo část těla"
 msgstr "1. Choose an organ system or a part"
 
-#: static/tpl/homepage.html:75
+#: static/tpl/homepage.html:76
 msgid "2. Poznáváš anatomické struktury a názvy"
 msgstr "2. Recognize the anatomical structure and its name"
 
-#: static/tpl/homepage.html:89
+#: static/tpl/homepage.html:91
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. See how you are doing and how your knowledge grows"
 
-#: static/tpl/user_tpl.html:73
+#: static/tpl/user_tpl.html:98
 msgid "Adresa profilu"
 msgstr "Profile address"
 
@@ -74,7 +74,7 @@ msgstr "What is highlighted?"
 msgid "Co uvidí na sdílené stránce ostatní?"
 msgstr "What can others see on the shared page?"
 
-#: static/tpl/homepage.html:90
+#: static/tpl/homepage.html:92
 msgid ""
 "Cvičením a opakováním rostou Tvoje znalosti anatomie. V \n"
 "      <a href=\"/overview/\">přehledu znalostí</a> vidíš,\n"
@@ -93,11 +93,11 @@ msgid ""
 " při opakovaných návštěvách, jinak se s nimi nepracuje."
 msgstr "Data about your responses are being saved and used in order to improve user experience (select the most appropriate next question ) and research purposes. All research analyses are performed on anonymized data. The data from registration (Facebook, Google) are used only for identification during recurrent visits. We will not provide user identification data to a third party."
 
-#: static/tpl/homepage.html:132
+#: static/tpl/homepage.html:136
 msgid "Data od všech uživatelů"
 msgstr "As you learn, we learn with you"
 
-#: static/tpl/homepage.html:133
+#: static/tpl/homepage.html:137
 msgid ""
 "Díky tomu, že má aplikace uložené odpovědi od všech uživatelů, kteří ji\n"
 "    použili před Tebou, může vyhodnotit, které struktury jsou obecně lehké a\n"
@@ -107,11 +107,15 @@ msgid ""
 "    jednotlivých částí barvami na škále od červené po zelenou."
 msgstr "The application remember responses from all users who have ever used it, and therefore, it can evaluate which structures are generally easy and which hard. \nBased on your previous answers, we choose the next question that we think has the most appropriate difficulty for you. The application can show you your knowledge of anatomy in each image by coloring\neach part with a color from a color scale ranging from red to green."
 
-#: static/tpl/user_tpl.html:29
+#: static/tpl/user_tpl.html:35
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/controllers.js:444
+#: static/js/services.js:365
+msgid "Fakulta"
+msgstr "Faculty"
+
+#: static/js/controllers.js:457
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -137,13 +141,21 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/homepage.html:111
+#: static/tpl/homepage.html:114
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
+
+#: static/tpl/homepage.html:21
+msgid "Lebka"
+msgstr "Skull"
 
 #: static/tpl/about.html:98
 msgid "Lákařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
+
+#: static/tpl/homepage.html:125
+msgid "Memorix Anatomie"
+msgstr "Memorix Anatomy"
 
 #: static/js/directives.js:635
 msgid "Memorix anatomie"
@@ -156,6 +168,14 @@ msgstr "Other projects by this group include:"
 #: static/tpl/map_tpl.html:11
 msgid "Moje znalosti"
 msgstr "My knowledge"
+
+#: static/tpl/homepage.html:23
+msgid "Mozek"
+msgstr "Brain"
+
+#: static/js/services.js:400
+msgid "Muž"
+msgstr "Man"
 
 #: static/tpl/homepage.html:62
 msgid ""
@@ -208,6 +228,10 @@ msgstr "Learned"
 msgid "Ne"
 msgstr "No"
 
+#: static/js/services.js:399
+msgid "Neuvedeno"
+msgstr ""
+
 #: static/tpl/practice_tpl.html:77
 msgid "Nevím"
 msgstr "Don't know"
@@ -224,29 +248,41 @@ msgstr "About"
 msgid "O projektu"
 msgstr "About us"
 
+#: static/js/services.js:383
+msgid "Obor"
+msgstr ""
+
 #: static/tpl/homepage.html:45
 msgid ""
 "Od uživatelů jsme již nasbírali\n"
 "        <span class=\"badge badge-default\" count-from=\"{{stats.number_of_answers}}\" count-per-minute=\"{{stats.answers_per_minute}}\">{{stats.number_of_answers}}</span>\n"
 "        odpovědí na\n"
 "        <span class=\"badge badge-default\">{{stats.number_of_flashcards}}</span> otázek."
-msgstr "Users of the app already answered\n<span class = \"badge badge-default\" count-from = \"{{stats.number_of_answers}}\" count-per-minute = \"{{stats.answers_per_minute}}\">{{stats.number_of_answers}}</ span>\nanswers to\n<span class = \"badge badge-default\">{{stats.number_of_flashcards}}</ span> questions."
+msgstr "Users of the app already answered\n<span class=\"badge badge-default\" count-from=\"{{stats.number_of_answers}}\" count-per-minute=\"{{stats.answers_per_minute}}\">{{stats.number_of_answers}}</span>\nanswers to\n<span class=\"badge badge-default\">{{stats.number_of_flashcards}}</span> questions."
 
 #: static/js/directives.js:24
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
+#: static/tpl/color_scale_legend.html:1
+msgid "Odhad znalosti:&nbsp;"
+msgstr "Knowledge estimate&nbsp;"
+
 #: static/js/controllers.js:372
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
-#: static/tpl/homepage.html:150
+#: static/tpl/homepage.html:155
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
 
 #: static/tpl/share-modal.html:5
 msgid "Pochlub se svými znalostmi"
 msgstr "Show off your knowledge"
+
+#: static/js/services.js:396
+msgid "Pohlaví"
+msgstr ""
 
 #: static/tpl/practice_tpl.html:72
 msgid "Pokračovat"
@@ -273,7 +309,7 @@ msgid ""
 "odpovědím."
 msgstr "Using names of asked terms you can switch between images for individual answers."
 
-#: static/tpl/user_tpl.html:37
+#: static/tpl/user_tpl.html:62
 msgid "Poslat mi email při neplnění cílů"
 msgstr "Send me e-mail if I'm behind schedule with personal goals"
 
@@ -341,16 +377,16 @@ msgstr "Practice Anatomy is a joint project of research group Adaptive Learning 
 msgid "Průměrný nový uživatel"
 msgstr "Average new user"
 
-#: static/js/services.js:77 static/tpl/overview_tpl.html:6
-#: static/tpl/practice_tpl.html:132
+#: static/js/services.js:77 static/tpl/homepage.html:99
+#: static/tpl/overview_tpl.html:6 static/tpl/practice_tpl.html:132
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
 
-#: static/tpl/user_tpl.html:59
+#: static/tpl/user_tpl.html:84
 msgid "Přehled znalostí uživatele"
 msgstr "Knowledge overview of user"
 
-#: static/tpl/homepage.html:112
+#: static/tpl/homepage.html:115
 msgid ""
 "Přehledná anatomické schámata z úspěšné učebnice \n"
 "          <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
@@ -382,6 +418,10 @@ msgstr "Next level"
 msgid "Registrovat se"
 msgstr "Sign up"
 
+#: static/js/services.js:392
+msgid "Rok zápisu"
+msgstr ""
+
 #: static/tpl/about.html:72
 msgid ""
 "Rádi bychom vyslechli Tvoje náměty k rozvoji systému, připomínky a stížnosti"
@@ -390,7 +430,7 @@ msgid ""
 "pro sebe i ostatní uživatele."
 msgstr "We would love to hear your experiences, criticism and suggestions for improvement of this beta version. Please feel free to send us your feedback at <span class=\"email contact\">anatom{at}memorix.cz</span> at any time - you’ll help us improve the Practice Anatomy app for you and everyone else."
 
-#: static/tpl/user_tpl.html:63
+#: static/tpl/user_tpl.html:88
 msgid "Sdílej svůj profil"
 msgstr "Share your profile"
 
@@ -402,7 +442,11 @@ msgstr "Share"
 msgid "Soukromí"
 msgstr "Privacy "
 
-#: static/tpl/homepage.html:151
+#: static/tpl/homepage.html:22
+msgid "Srdce"
+msgstr "Hearth"
+
+#: static/tpl/homepage.html:156
 msgid ""
 "Systém sleduje, jak Ti anatomie jde, a podle toho vybírá další otázky. Pokud\n"
 "    hned zvládáš i těžké otázky, nemá smysl Tě dlouho zdržovat s jednoduchými. Když\n"
@@ -414,11 +458,19 @@ msgstr "The system tracks what are you good at, and selects the next question ac
 msgid "Tip k ovládání"
 msgstr "Control tip"
 
-#: static/tpl/user_tpl.html:42
+#: static/tpl/homepage.html:83
+msgid "Ukázka procvičování"
+msgstr "Sample practice"
+
+#: static/tpl/homepage.html:147
+msgid "Ukázka znalostí"
+msgstr "Sample knowledge"
+
+#: static/tpl/user_tpl.html:67
 msgid "Uložit"
 msgstr "Save"
 
-#: static/tpl/homepage.html:76
+#: static/tpl/homepage.html:77
 msgid ""
 "Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?\n"
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
@@ -428,11 +480,11 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:457 static/js/directives.js:610
+#: static/js/controllers.js:483 static/js/directives.js:610
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
-#: static/tpl/homepage.html:105
+#: static/tpl/homepage.html:108
 msgid "V čem je Anatom.cz výjimečný?"
 msgstr "What makes PracticeAnatomy.com special?"
 
@@ -462,7 +514,7 @@ msgstr "Select"
 msgid "Vybrat kapitolu"
 msgstr "Select a chapter"
 
-#: static/tpl/homepage.html:172 static/tpl/homepage.html:37
+#: static/tpl/homepage.html:177 static/tpl/homepage.html:37
 msgid "Vybrat orgánový systém"
 msgstr "Select an organ system"
 
@@ -470,7 +522,7 @@ msgstr "Select an organ system"
 msgid "Vybrat všechno"
 msgstr "Select everything"
 
-#: static/tpl/homepage.html:177 static/tpl/homepage.html:42
+#: static/tpl/homepage.html:182 static/tpl/homepage.html:42
 msgid "Vybrat část těla"
 msgstr "Select a body part"
 
@@ -478,11 +530,15 @@ msgstr "Select a body part"
 msgid "Vybráno"
 msgstr "Selected"
 
+#: static/tpl/homepage.html:68
+msgid "Výběr kapitoly"
+msgstr "Chapter selection"
+
 #: static/tpl/sign_in_banner.html:7
 msgid "Zavřít"
 msgstr "Close"
 
-#: static/tpl/homepage.html:167
+#: static/tpl/homepage.html:172
 msgid "Začít procvičovat"
 msgstr "Start practice"
 
@@ -494,7 +550,7 @@ msgstr "Start practicing all"
 msgid "Zdroj"
 msgstr "Source"
 
-#: static/tpl/user_tpl.html:45
+#: static/tpl/user_tpl.html:70
 msgid "Zrušit"
 msgstr "Cancel"
 
@@ -502,7 +558,7 @@ msgstr "Cancel"
 msgid "Zrušit výběr"
 msgstr "Cancel selection"
 
-#: static/tpl/homepage.html:120
+#: static/tpl/homepage.html:123
 msgid "anatomie.memorix.cz"
 msgstr "memorix.cz"
 
@@ -533,3 +589,7 @@ msgstr "Success rate"
 #: static/js/controllers.js:376
 msgid "Části těla"
 msgstr "Body parts"
+
+#: static/js/services.js:401
+msgid "Žena"
+msgstr ""
