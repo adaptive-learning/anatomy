@@ -28,6 +28,8 @@ angular.module('proso.anatomy', [
         'use strict';
         $routeProvider.when('/', {
             templateUrl : 'static/tpl/homepage.html'
+        }).when('/home', {
+            templateUrl : 'static/tpl/homepage.html'
         }).when('/login/:somepath/', {
             controller : 'ReloadController',
             templateUrl : 'loading.html'

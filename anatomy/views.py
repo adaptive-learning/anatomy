@@ -63,6 +63,8 @@ def home(request, hack=None):
         'number_of_flashcards': Flashcard.objects.filter(
             active=True, lang=get_language()).count(),
     }
+    if hack == 'home':
+        hack = None
     c = {
         'title': _(u'Anatom.cz') + ' - ' + _(u'inteligentní aplikace na procvičování anatomie'),
         'headline': get_headline_from_url(hack),
