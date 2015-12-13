@@ -30,6 +30,10 @@ def home(request, hack=None):
     screenshot_files = [
         "/static/img/screenshot-" + get_language() + ".png",
         "/static/img/practice-" + get_language() + ".png",
+        "/static/img/practice-2-" + get_language() + ".png",
+        "/static/img/practice-3-" + get_language() + ".png",
+        "/static/img/practice-4-" + get_language() + ".png",
+        "/static/img/practice-5-" + get_language() + ".png",
         "/static/img/select-" + get_language() + ".png",
         "/static/img/view-image-" + get_language() + ".png",
         "/static/img/knowledge-" + get_language() + ".png",
