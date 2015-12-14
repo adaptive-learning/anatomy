@@ -14,6 +14,7 @@ import os
 from proso_models.models import get_environment
 from proso_flashcards.models import FlashcardAnswer, Flashcard
 from datetime import datetime, timedelta
+import random
 
 
 @ensure_csrf_cookie
@@ -27,21 +28,6 @@ def home(request, hack=None):
         "dist/css/bower-libs.css",
         "dist/css/app.css",
     )
-    screenshot_files = [
-        "/static/img/screenshot-" + get_language() + ".png",
-        "/static/img/practice-" + get_language() + ".png",
-        "/static/img/practice-2-" + get_language() + ".png",
-        "/static/img/practice-3-" + get_language() + ".png",
-        "/static/img/practice-4-" + get_language() + ".png",
-        "/static/img/practice-5-" + get_language() + ".png",
-        "/static/img/select-" + get_language() + ".png",
-        "/static/img/view-image-" + get_language() + ".png",
-        "/static/img/knowledge-" + get_language() + ".png",
-    ]
-    if hack is not None and 'practice' in hack:
-        screenshot_files[0], screenshot_files[1] = screenshot_files[1], screenshot_files[0]
-    elif hack is not None and ('overview' in hack or 'view' in hack):
-        screenshot_files[0], screenshot_files[2] = screenshot_files[2], screenshot_files[0]
 
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
         environment = get_environment()
@@ -75,7 +61,7 @@ def home(request, hack=None):
         'is_production': settings.ON_PRODUCTION,
         'css_files': CSS_FILES,
         'js_files': JS_FILES,
-        'screenshot_files': screenshot_files,
+        'screenshot_files': get_screenshot_files(hack),
         'continents': Category.objects.filter(
             lang=get_language(), type='continent'),
         'states': Category.objects.filter(lang=get_language(), type='state'),
@@ -85,12 +71,30 @@ def home(request, hack=None):
         'LANGUAGES': settings.LANGUAGES,
         'LANGUAGE_DOMAINS': settings.LANGUAGE_DOMAINS,
         'is_homepage': hack is None,
-        'hack': hack,
+        'hack': hack or '',
         'config_json': json.dumps(get_global_config()),
         'DOMAIN': request.build_absolute_uri('/')[:-1],
         'stats_json': json.dumps(stats),
     }
     return render_to_response('home.html', c)
+
+
+def get_screenshot_files(hack):
+    screenshot_files = [
+        "/static/img/screenshot-" + get_language() + ".png",
+        "/static/img/practice-" + get_language() + ".png",
+        "/static/img/select-" + get_language() + ".png",
+        "/static/img/view-image-" + get_language() + ".png",
+    ]
+
+    path = os.path.join(settings.STATICFILES_DIRS[0], 'img', 'thumb')
+    dirs = os.listdir(path)
+
+    for file in dirs:
+        if get_language() + '.png' in file:
+            screenshot_files.append('/static/img/thumb/' + file)
+    random.shuffle(screenshot_files)
+    return screenshot_files[:5]
 
 
 def get_headline_from_url(hack):
