@@ -265,7 +265,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               if (!attrs.practice) {
                 var height;
                 if (screenAspectRatio < 1) {
-                  height = $window.innerHeight * 0.7 - 40;
+                  height = $window.innerHeight * 0.7 + 40;
                 } else {
                   height = ($window.innerHeight / 2) - 40;
                 }
@@ -743,8 +743,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('colorScaleLegend', ['colorScale',
-      function(colorScale) {
+  .directive('colorScaleLegend', [function() {
     return {
       restrict: 'A',
       replace: true,
@@ -754,7 +753,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         for (var i = 1; i <= 10; i++) {
           $scope.values.push(i);
         }
-        $scope.colorScale = colorScale;
       }
     };
   }]);
