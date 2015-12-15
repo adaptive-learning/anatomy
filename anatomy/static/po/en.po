@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2015-12-15 05:23+0000\n"
+"PO-Revision-Date: 2015-12-15 06:00+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -272,7 +272,7 @@ msgstr ""
 
 #: static/tpl/color_scale_legend.html:3
 msgid "Odhad tvých znalostí"
-msgstr ""
+msgstr "Estimate of your knowledge"
 
 #: static/js/directives.js:24
 msgid "Odhad znalosti"
