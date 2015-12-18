@@ -203,7 +203,9 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.next = function(callback) {
             if ($scope.progress < 100) {
+                $scope.loadingNextQuestion = true;
                 practiceService.getFlashcard().then(function(q) {
+                    $scope.loadingNextQuestion = false;
                     setQuestion(q);
                     if (callback) callback();
                 }, function(){
