@@ -209,6 +209,7 @@ angular.module('proso.anatomy.controllers', [])
                     setQuestion(q);
                     if (callback) callback();
                 }, function(){
+                    $scope.loadingNextQuestion = false;
                     $scope.error = true;
                 });
             } else {
