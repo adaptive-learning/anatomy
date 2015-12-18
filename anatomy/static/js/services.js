@@ -66,24 +66,26 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     function addCategoryName(title, categoryId) {
         var category = categoryService.getCategory(categoryId);
         if (category) {
-          title += category.name + ' - ';
+          title = category.name + ' - ' + title;
         }
         return title;
     }
 
     return function (route) {
       var titles = {
-        'static/tpl/about.html' : gettextCatalog.getString('O prjektu') + ' - ',
-        'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí') + ' - ',
+        'static/tpl/about.html' : gettextCatalog.getString('O prjektu'),
+        'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí'),
+        'static/tpl/practice_tpl.html' : gettextCatalog.getString('Procvičovat'),
       };
       var title = "";
+      if (titles[route.templateUrl]) {
+        title = titles[route.templateUrl] + ' - ';
+      }
       if (route.controller == "AppView" || route.controller == "AppPractice") {
-        title = addCategoryName(title, route.params.category);
         title = addCategoryName(title, route.params.category2);
+        title = addCategoryName(title, route.params.category);
       } else if (route.controller == "AppUser") {
         title = route.params.user + ' - ';
-      } else {
-        title = titles[route.templateUrl] || '';
       }
       return title;
     };
