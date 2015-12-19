@@ -127,15 +127,15 @@ def load_flashcards(request):
             ignored_flashcards='disable',
             verbosity=0,
             interactive=False)
-        categories = Category.filter(children_type=Category.CATEGORIES)
+        categories = Category.objects.filter(children_type=Category.CATEGORIES)
         for c in categories:
             c.children_type = Category.TERMS
             c.save()
         cache.clear()
         response = u"""{
             "type": "success",
-            "msg" : "Obrázek byl úspěšně nahrán na anatom.cz"
-        }"""
+            "msg" : "Obrázek byl úspěšně nahrán na %s"
+        }""" % request.build_absolute_uri('/')[:-1]
         if request.GET['callback'] is not None:
                 response = request.GET['callback'] + '(' + response + ')'
         return HttpResponse(response, content_type='application/javascript')
