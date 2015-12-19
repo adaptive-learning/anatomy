@@ -62,9 +62,6 @@ def home(request, hack=None):
         'css_files': CSS_FILES,
         'js_files': JS_FILES,
         'screenshot_files': get_screenshot_files(hack),
-        'continents': Category.objects.filter(
-            lang=get_language(), type='continent'),
-        'states': Category.objects.filter(lang=get_language(), type='state'),
         'user_json': user,
         'email': email,
         'LANGUAGE_CODE': get_language(),
