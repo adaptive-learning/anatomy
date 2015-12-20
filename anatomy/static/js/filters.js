@@ -116,6 +116,17 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
+  .filter('alternativeNames', ['gettextCatalog', function(gettextCatalog) {
+    return function(name) {
+      var names = (name || '').split(';');
+      if (names.length > 1) {
+        return gettextCatalog.getString('Alternativní názvy') +
+          ':<br> <strong>' + names.splice(1).join('<br>') + '</strong>';
+      }
+      return '';
+    };
+  }])
+
   .filter('sumCounts', [ function() {
     return function(layers) {
       if (!layers || layers.length === 0) {

@@ -37,7 +37,10 @@
           class="inner-practice row">
         <div class="question col-sm-12">
           <span ng-bind="question | questionText"></span>
-          <span class="label label-default" ng-show="question|isFindOnMapType">
+          <span class="label label-default"
+              tooltip-html-unsafe="{{question.term.name | alternativeNames}}"
+              tooltip-placement="bottom"
+              ng-show="question|isFindOnMapType">
             {{question.term.name | stripAlternatives}}
           </span>
           <span ng-if="question.answered_code && !question.options.length &&
