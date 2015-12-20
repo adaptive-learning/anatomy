@@ -30,6 +30,8 @@ angular.module('proso.anatomy', [
             templateUrl : 'static/tpl/homepage.html'
         }).when('/home', {
             templateUrl : 'static/tpl/homepage.html'
+        }).when('/_=_', {
+            redirectTo : '/overview/'
         }).when('/login/:somepath/', {
             controller : 'ReloadController',
             templateUrl : 'loading.html'
