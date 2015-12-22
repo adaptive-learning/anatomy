@@ -61,7 +61,7 @@ def home(request, hack=None):
         'is_production': settings.ON_PRODUCTION,
         'css_files': CSS_FILES,
         'js_files': JS_FILES,
-        'screenshot_files': get_screenshot_files(hack),
+        'screenshot_files': get_screenshot_files(request, hack),
         'user_json': user,
         'email': email,
         'LANGUAGE_CODE': get_language(),
@@ -76,7 +76,7 @@ def home(request, hack=None):
     return render_to_response('home.html', c)
 
 
-def get_screenshot_files(hack):
+def get_screenshot_files(request, hack):
     screenshot_files = [
         "/static/img/screenshot-" + get_language() + ".png",
         "/static/img/practice-" + get_language() + ".png",
@@ -91,6 +91,9 @@ def get_screenshot_files(hack):
         if get_language() + '.png' in file:
             screenshot_files.append('/static/img/thumb/' + file)
     random.shuffle(screenshot_files)
+    screenshot_files[0] = "/static/img/thumb/practice-heart-" + get_language() + ".png"
+    if request.GET.get('thumb', None) is not None:
+        screenshot_files[0] = "/static/img/thumb/" + request.GET['thumb'] + "-" + get_language() + ".png"
     return screenshot_files[:5]
 
 
