@@ -180,7 +180,6 @@ angular.module('proso.anatomy.controllers', [])
             $scope.progress = 100 * (
               practiceService.getSummary().count /
               practiceService.getConfig().set_length);
-            addAnswerToUser(asked == selected);
             if (isCorrect) {
                 $timeout(function() {
                     $scope.next(function() {
@@ -192,12 +191,15 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.canNext = true;
             }
             checkOptions();
+            addAnswerToUser(asked == selected);
         };
 
         function addAnswerToUser(isCorrect) {
-          userService.user.profile.number_of_answers++;
-          if (isCorrect) {
-            userService.user.profile.number_of_correct_answers++;
+          if (userService.user.profile) {
+            userService.user.profile.number_of_answers++;
+            if (isCorrect) {
+              userService.user.profile.number_of_correct_answers++;
+            }
           }
         }
 
