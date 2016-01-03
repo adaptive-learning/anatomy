@@ -2,8 +2,8 @@
 /* Controllers */
 angular.module('proso.anatomy.controllers', [])
 
-.controller('AppCtrl', ['$scope', '$rootScope', 'userService', 'pageTitle', 'configService', 'gettextCatalog', '$location',
-    function($scope, $rootScope, userService, pageTitle, configService, gettextCatalog, $location) {
+.controller('AppCtrl', ['$scope', '$rootScope', 'userService', 'pageTitle', 'configService', 'gettextCatalog', '$location', 'categoryService',
+    function($scope, $rootScope, userService, pageTitle, configService, gettextCatalog, $location, categoryService) {
         'use strict';
         $scope.configService = configService;
         $scope.userService = userService;
@@ -14,7 +14,9 @@ angular.module('proso.anatomy.controllers', [])
         };
 
         $rootScope.$on("$routeChangeStart", function(event, next) {
+          categoryService.getAllByType().then(function(){
             $rootScope.title = pageTitle(next) + $rootScope.initialTitle;
+          });
         });
 
         $scope.initLanguageCode = function (code) {
