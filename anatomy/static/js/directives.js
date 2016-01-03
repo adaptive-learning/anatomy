@@ -42,7 +42,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 .directive('anatomyImage', [
     'imageService', '$window', '$', 'colorService', '$timeout', '$filter',
     function(imageService, $window, $, colorService, $timeout, $filter) {
-  var ANIMATION_TIME_MS = 500;
+  var ANIMATION_TIME_MS = 1000;
 
   return {
       restrict: 'A',
