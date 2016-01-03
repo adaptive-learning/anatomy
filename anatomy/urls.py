@@ -22,11 +22,13 @@ urlpatterns = patterns(
         }
     ),
     url(r'^$', 'anatomy.views.home', name='home'),
-    url(r'^(about|home|overview|view/\w*|u/\w+|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
+    url(r'^(about|home|overview|view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^robots.txt$', lambda r: HttpResponse(
-        "User-agent: *\nDisallow: ", content_type="text/plain")),
+        "User-agent: *\n" +
+        "\n".join(["Disallow: /%s/" % l[0] for l in settings.LANGUAGES]),
+        content_type="text/plain")),
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
 
     url(r'^user/', include('proso_user.urls')),
