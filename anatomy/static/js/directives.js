@@ -98,6 +98,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                     var animAttrs = {
                       'fill' : color,
                       'stroke' : color,
+                      'opacity' : 1,
                     };
                     path.animate(animAttrs, ANIMATION_TIME_MS, '>');
                     path.data('highlight-color', color);
@@ -130,6 +131,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   highlights[i].attr({
                     'fill' : highlights[i].data('color'),
                     'stroke' : highlights[i].data('stroke-color'),
+                    'opacity' : highlights[i].data('opacity'),
                   });
                   highlights[i].data('highlight-color', undefined);
                 }
