@@ -72,6 +72,8 @@ def home(request, hack=None):
         'config_json': json.dumps(get_global_config()),
         'DOMAIN': request.build_absolute_uri('/')[:-1],
         'stats_json': json.dumps(stats),
+        'canonical_url': 'https://' + request.META['HTTP_HOST'] + request.get_full_path().split('?')[0].replace('//', '/'),
+        'canonical_path':  request.get_full_path().split('?')[0][1:].replace('//', '/'),
     }
     return render_to_response('home.html', c)
 

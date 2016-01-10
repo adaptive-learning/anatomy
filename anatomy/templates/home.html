@@ -33,10 +33,10 @@
     <meta name="msapplication-wide310x150logo" content="/static/img/icons/widetile.png" />
     <meta name="msapplication-square310x310logo" content="/static/img/icons/largetile.png" />
 
-    <link rel="canonical" href="{{canonical_ur}}">
+    <link rel="canonical" href="{{canonical_url}}">
 
     {% for lang, domain in LANGUAGE_DOMAINS.items %}
-    <link rel="alternate" href="https://{{domain}}/{{hack}}" hreflang="{{lang}}" />
+    <link rel="alternate" href="https://{{domain}}/{{canonical_path}}" hreflang="{{lang}}" />
     {% endfor %}
 
     <!-- Le styles -->
