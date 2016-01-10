@@ -48,6 +48,9 @@ angular.module('proso.anatomy', [
         }).when('/practice/:category?/:category2?', {
             controller : 'AppPractice',
             templateUrl : 'static/tpl/practice_tpl.html'
+        }).when('/overview/tab/:tab', {
+            controller : 'AppOverview',
+            templateUrl : 'static/tpl/overview_tpl.html'
         }).when('/overview/:user?', {
             controller : 'AppOverview',
             templateUrl : 'static/tpl/overview_tpl.html'
