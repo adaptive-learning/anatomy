@@ -62,10 +62,8 @@
       <div class="col-md-5 col-md-offset-1 col-sm-6 image-open"
         track-click="view image"
         ng-click="activateContext(context)" >
-        <a ng-if="userService.user.staff"
-          class="pull-left"
-          href="/view/{{category.identifier}}/?context={{context.identifier}}">
-          <i class="glyphicon glyphicon-picture" ></i>
+        <a class="pull-left"
+          href="/view/{{category.identifier}}/image/{{context.identifier}}">
         </a>
         <h3 class="image-list-title">
           <i ng-if="activeContext!=context && !user" class="glyphicon glyphicon-chevron-down" ></i>

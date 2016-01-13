@@ -8,6 +8,7 @@ angular.module('proso.anatomy', [
     'ngRoute',
     'ngAnimate',
     'ngCookies',
+    'ngLocationUpdate',
     'proso.anatomy.filters',
     'proso.anatomy.services',
     'proso.anatomy.directives',
@@ -37,6 +38,9 @@ angular.module('proso.anatomy', [
             templateUrl : 'loading.html'
         }).when('/about', {
             templateUrl : 'static/tpl/about.html'
+        }).when('/view/:category?/image/:context?', {
+            controller : 'AppView',
+            templateUrl : 'static/tpl/view_tpl.html'
         }).when('/view/:category?/:user?', {
             controller : 'AppView',
             templateUrl : 'static/tpl/view_tpl.html'
