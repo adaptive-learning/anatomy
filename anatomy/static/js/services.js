@@ -279,7 +279,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       return Math.max(Math.abs(rgb[0] - rgb[1]), Math.abs(rgb[0] - rgb[2])) < 10;
     },
     toGrayScale : function(c) {
-      if (that.isGray(c)) {
+      if (that.isGray(c) || c == 'none') {
         return c;
       }
       var rgb = that.hexToRgb(c);
