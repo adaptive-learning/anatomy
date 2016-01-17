@@ -15,7 +15,7 @@ angular.module('proso.anatomy.controllers', [])
 
         $rootScope.$on("$routeChangeStart", function(event, next) {
           categoryService.getAllByType().then(function(){
-            $rootScope.title = pageTitle(next) + $rootScope.initialTitle;
+            $rootScope.title = pageTitle(next, $rootScope.initialTitle);
           });
         });
 

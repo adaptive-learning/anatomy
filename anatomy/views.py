@@ -56,7 +56,7 @@ def home(request, hack=None):
     if hack == 'home':
         hack = None
     c = {
-        'title': _(u'Anatom.cz') + ' - ' + _(u'inteligentní aplikace na procvičování anatomie'),
+        'title': _(u'Anatom.cz') + ' - ' + _(u'procvičování anatomie člověka v obrázcích'),
         'headline': get_headline_from_url(hack),
         'is_production': settings.ON_PRODUCTION,
         'css_files': CSS_FILES,

@@ -64,28 +64,46 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   .factory('pageTitle',['categoryService', 'gettextCatalog', function(categoryService, gettextCatalog) {
     'use strict';
     function addCategoryName(title, categoryId) {
+        var longerNames = {
+          'Hb' : gettextCatalog.getString('Mozková část hlavy'),
+          'Hf' : gettextCatalog.getString('Obličejová část hlavy'),
+        };
+        if (longerNames[categoryId]) {
+          return addIfExists(title, longerNames[categoryId]);
+        }
         var category = categoryService.getCategory(categoryId);
-        if (category) {
-          title = category.name + ' - ' + title;
+        return addIfExists(title, category && category.name);
+    }
+    function addIfExists(title, addition) {
+        if (addition) {
+          title += addition + ' - ';
         }
         return title;
     }
 
-    return function (route) {
+    return function (route, initTitle) {
       var titles = {
-        'static/tpl/about.html' : gettextCatalog.getString('O prjektu'),
-        'static/tpl/overview_tpl.html' : gettextCatalog.getString('Přehled znalostí'),
-        'static/tpl/practice_tpl.html' : gettextCatalog.getString('Procvičovat'),
+        'static/tpl/about.html' : gettextCatalog.getString('O projektu'),
+        'static/tpl/overview_tpl.html' : gettextCatalog.getString('Atlas anatomie lidského těla'),
+        'static/tpl/practice_tpl.html' : gettextCatalog.getString('Procvičuj'),
       };
       var title = "";
+      console.log(route);
       if (titles[route.templateUrl]) {
-        title = titles[route.templateUrl] + ' - ';
+        title = titles[route.templateUrl] + 
+          (route.controller == "AppPractice" ? ': ' : ' - ');
       }
-      if (route.controller == "AppView" || route.controller == "AppPractice") {
-        title = addCategoryName(title, route.params.category2);
-        title = addCategoryName(title, route.params.category);
-      } else if (route.controller == "AppUser") {
-        title = route.params.user + ' - ';
+      title = addCategoryName(title, route.params.category2);
+      title = addCategoryName(title, route.params.category);
+      title = addIfExists(title, route.params.user);
+
+      if (route.$$route.originalPath == '/practice/') {
+        title = gettextCatalog.getString('Opakování lékařské anatomie') + ' - ';
+      }
+      if (route.$$route.originalPath == '/') {
+        title = initTitle;
+      } else {
+        title += gettextCatalog.getString('Anatom.cz');
       }
       return title;
     };

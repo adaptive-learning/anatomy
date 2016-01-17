@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Marek Cierny <cierny.m@gmail.com>, 2015
-# Vít Stanislav <slaweet@seznam.cz>, 2015
+# Vít Stanislav <slaweet@seznam.cz>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-26 12:01+0000\n"
-"PO-Revision-Date: 2015-11-15 09:54+0000\n"
+"POT-Creation-Date: 2016-01-17 07:43+0000\n"
+"PO-Revision-Date: 2016-01-17 07:45+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -39,8 +39,20 @@ msgstr "Create"
 msgid "Zavřít"
 msgstr "Close"
 
-#: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:44
-#: anatomy/views.py:36
+#: anatomy/templates/generated/homepage.html:21
+msgid "Lebka"
+msgstr "Skull"
+
+#: anatomy/templates/generated/homepage.html:22
+msgid "Srdce"
+msgstr "Hearth"
+
+#: anatomy/templates/generated/homepage.html:23
+msgid "Mozek"
+msgstr "Brain"
+
+#: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:70
+#: anatomy/views.py:59
 msgid "Anatom.cz"
 msgstr "PracticeAnatomy.com"
 
@@ -49,51 +61,84 @@ msgid "Procvičování anatomie člověka na míru tvým znalostem."
 msgstr "Practice medical anatomy with personalized questions."
 
 #: anatomy/templates/generated/homepage.html:32
-#: anatomy/templates/generated/homepage.html:148
-msgid "Začít procvičovat"
-msgstr "Start practice"
+msgid "Začít procvičovat vše"
+msgstr "Start practicing all"
 
-#: anatomy/templates/generated/homepage.html:38
-#: anatomy/templates/generated/homepage.html:154
-msgid "Vybrat kapitolu"
-msgstr "Select chapter"
+#: anatomy/templates/generated/homepage.html:37
+#: anatomy/templates/generated/homepage.html:187
+msgid "Vybrat orgánový systém"
+msgstr "Select an organ system"
 
-#: anatomy/templates/generated/homepage.html:45
+#: anatomy/templates/generated/homepage.html:42
+#: anatomy/templates/generated/homepage.html:192
+msgid "Vybrat část těla"
+msgstr "Select a body part"
+
+#: anatomy/templates/generated/homepage.html:57
+msgid "Zjistit více"
+msgstr "Learn more"
+
+#: anatomy/templates/generated/homepage.html:67
 msgid "Jak to funguje?"
 msgstr "How does it work?"
 
-#: anatomy/templates/generated/homepage.html:49
+#: anatomy/templates/generated/homepage.html:71
 msgid "1. Vybereš si orgánový systém nebo část těla"
 msgstr "1. Choose an organ system or a bodypart"
 
-#: anatomy/templates/generated/homepage.html:63
+#: anatomy/templates/generated/homepage.html:78
+msgid "Výběr kapitoly"
+msgstr "Chapter selection"
+
+#: anatomy/templates/generated/homepage.html:86
 msgid "2. Poznáváš anatomické struktury a názvy"
 msgstr "2. Recognize anatomical structures and names"
 
-#: anatomy/templates/generated/homepage.html:77
+#: anatomy/templates/generated/homepage.html:93
+msgid "Ukázka procvičování"
+msgstr "Sample practice"
+
+#: anatomy/templates/generated/homepage.html:101
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. Watch your knowledge grow"
 
-#: anatomy/templates/generated/homepage.html:93
+#: anatomy/templates/generated/homepage.html:109 anatomy/views.py:121
+msgid "Přehled znalostí"
+msgstr "Knowledge Overview"
+
+#: anatomy/templates/generated/homepage.html:118
 msgid "V čem je Anatom.cz výjimečný?"
 msgstr "What makes PracticeAnatomy.com special?"
 
-#: anatomy/templates/generated/homepage.html:98
+#: anatomy/templates/generated/homepage.html:124
 msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
-#: anatomy/templates/generated/homepage.html:107
-#: anatomy/templates/home.html:104 anatomy/templates/home.html.py:163
+#: anatomy/templates/generated/homepage.html:133
+#: anatomy/templates/home.html:133 anatomy/templates/home.html.py:198
 msgid "anatomie.memorix.cz"
 msgstr "memorix.cz"
 
-#: anatomy/templates/generated/homepage.html:117
+#: anatomy/templates/generated/homepage.html:135
+#: anatomy/templates/home.html:200
+msgid "Memorix Anatomie"
+msgstr "Memorix Anatomy"
+
+#: anatomy/templates/generated/homepage.html:146
 msgid "Data od všech uživatelů"
 msgstr "Data form all users"
 
-#: anatomy/templates/generated/homepage.html:131
+#: anatomy/templates/generated/homepage.html:157
+msgid "Ukázka znalostí"
+msgstr "Sample knowledge"
+
+#: anatomy/templates/generated/homepage.html:165
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
+
+#: anatomy/templates/generated/homepage.html:182
+msgid "Začít procvičovat"
+msgstr "Start practice"
 
 #: anatomy/templates/home.html:11
 msgid "meta content"
@@ -103,64 +148,56 @@ msgstr "Practice medical anatomy online with 300 images from Memorix Anatomy! Th
 msgid "meta keywords"
 msgstr "anatomy, practice, review, online, scheme, anatomy pictures, test, quizz"
 
-#: anatomy/templates/home.html:48
+#: anatomy/templates/home.html:74
 msgid "Kapitoly"
 msgstr "Chapters"
 
-#: anatomy/templates/home.html:51
+#: anatomy/templates/home.html:77
 msgid "O projektu"
 msgstr "About"
 
-#: anatomy/templates/home.html:62
+#: anatomy/templates/home.html:88
 msgid ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
 msgstr "Sign in simply via Google or Facebook, so the system remembers your knowledge next time."
 
-#: anatomy/templates/home.html:65
+#: anatomy/templates/home.html:91
 msgid "Přihlásit se"
 msgstr "Sign in"
 
-#: anatomy/templates/home.html:78
+#: anatomy/templates/home.html:104
 msgid "Můj profil"
 msgstr "My  profile"
 
-#: anatomy/templates/home.html:83
+#: anatomy/templates/home.html:109
 msgid "Odhlásit se"
 msgstr "Sign out"
 
-#: anatomy/templates/home.html:133
+#: anatomy/templates/home.html:167
 #| msgid "Napište nám"
 msgid "Napiš nám"
 msgstr "Feedback"
 
-#: anatomy/templates/home.html:141
+#: anatomy/templates/home.html:180
 msgid "Aplikace je ve fázi testování."
 msgstr "The application is in the testing phase."
 
-#: anatomy/templates/home.html:142
+#: anatomy/templates/home.html:181
 msgid ""
 "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv "
 "nápady na zlepšení nebo jiné připomínky,"
 msgstr "If you encounter any problems with the controls or the content, or if you have any suggestions for improvements or other comments, please"
 
-#: anatomy/templates/home.html:142
+#: anatomy/templates/home.html:181
 #| msgid "Napište nám"
 msgid "napiš nám"
 msgstr "send us feedback"
 
-#: anatomy/templates/home.html:151
+#: anatomy/templates/home.html:192
 msgid "Napište nám"
 msgstr "Feedback"
 
-#: anatomy/templates/home.html:165
-msgid "Memorix Anatomie"
-msgstr "Memorix Anatomy"
-
-#: anatomy/views.py:36
-msgid "inteligentní aplikace na procvičování anatomie"
-msgstr "intelligent anatomy practice app"
-
-#: anatomy/views.py:66
-msgid "Přehled znalostí"
-msgstr "Knowledge Overview"
+#: anatomy/views.py:59
+msgid "procvičování anatomie člověka v obrázcích"
+msgstr "review human anatomy in pictures"
