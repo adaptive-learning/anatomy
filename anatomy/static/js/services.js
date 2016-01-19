@@ -88,7 +88,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         'static/tpl/practice_tpl.html' : gettextCatalog.getString('Procvičuj'),
       };
       var title = "";
-      console.log(route);
       if (titles[route.templateUrl]) {
         title = titles[route.templateUrl] + 
           (route.controller == "AppPractice" ? ': ' : ' - ');
@@ -97,10 +96,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       title = addCategoryName(title, route.params.category);
       title = addIfExists(title, route.params.user);
 
-      if (route.$$route.originalPath == '/practice/') {
+      if (route.$$route && route.$$route.originalPath == '/practice/') {
         title = gettextCatalog.getString('Opakování lékařské anatomie') + ' - ';
       }
-      if (route.$$route.originalPath == '/') {
+      if (route.$$route && route.$$route.originalPath == '/') {
         title = initTitle;
       } else {
         title += gettextCatalog.getString('Anatom.cz');
