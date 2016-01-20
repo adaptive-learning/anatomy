@@ -112,15 +112,17 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       function ($http, $q, userStatsService) {
     'use strict';
     var that = {
-      getContexts: function (filter) {
-        filter = angular.extend(filter, {
+      getAllContexts: function () {
+        var filter = {
           db_orderby : 'name',
           without_content : 'True',
           all : 'True',
-        });
+        };
+        return $http.get('/flashcards/contexts', {params: filter, cache: true});
+      },
+      getContexts: function (filter) {
         var deferredContext = $q.defer();
-        $http.get('/flashcards/contexts', {params: filter, cache: true}
-        ).success(function(data) {
+        that.getAllContexts().success(function(data) {
           userStatsService.clean();
           for (var i = 0; i < data.data.length; i++) {
             var context = data.data[i];

@@ -42,8 +42,8 @@ angular.module('proso.anatomy.controllers', [])
 
 }])
 
-.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', 'imageService', 'colorScale', '$cookies', 'smoothScroll', '$location',
-    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, imageService, colorScale,  $cookies, smoothScroll, $location) {
+.controller('AppView', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', 'imageService', 'colorScale', '$cookies', 'smoothScroll', '$location', '$rootScope',
+    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, imageService, colorScale,  $cookies, smoothScroll, $location, $rootScope) {
         'use strict';
       $scope.user = $routeParams.user || '';
 
@@ -98,6 +98,10 @@ angular.module('proso.anatomy.controllers', [])
         $scope.activeContext = $scope.activeContext !== context ? context : undefined;
         $location.update_path('/view/' + $routeParams.category +
           ($scope.activeContext ? '/image/' + $scope.activeContext.identifier : ''));
+        var contextName = $scope.activeContext ? context.name + ' - ' : '';
+        setTimeout(function() {
+          $rootScope.title = contextName + $rootScope.title;
+        }, 10);
         if ($scope.activeContext) {
           setTimeout(function() {
             var elem = document.getElementById(context.identifier);
