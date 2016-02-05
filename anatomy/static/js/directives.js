@@ -726,7 +726,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     var stop; 
     return {
       restrict: 'A',
-      template: '<span>{{count}}</span>',
+      template: '<span>{{count | number}}</span>',
       link: function ($scope, element, attrs) {
         if (angular.isDefined(stop)) {
           $interval.cancel(stop);
