@@ -145,14 +145,47 @@ angular.module('proso.anatomy.controllers', [])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
     'practiceService', 'userService', 'colors', 'imageService', 'serverLogger',
+    'hotkeys', '$location',
 
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, imageService, serverLogger) {
+        practiceService, userService, colors, imageService, serverLogger,
+        hotkeys, $location) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
         $scope.category2Id = $routeParams.category2;
         $scope.progress = 0;
+
+        hotkeys.bindTo($scope)
+        .add({
+          combo: 'enter',
+          description: 'Pokračovat',
+          callback: function() {
+            if ($scope.showSummary) {
+              var url = "/refreshpractice/" + ($scope.categoryId || "") +
+                "/" + ($scope.category2Id || "");
+              $location.url(url);
+            }
+            if ($scope.canNext) {
+              $scope.next();
+            }
+          }
+        });
+
+        function optionSelected(event, action) {
+          var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
+          if (option && ! option.disabled) {
+            $scope.checkAnswer(option.description, true);
+          }
+        }
+        for (var i = 1; i <= 6; i++) {
+          hotkeys.bindTo($scope)
+          .add({
+            combo: '' + i,
+            description: 'Vybrat možnost ' + i,
+            callback: optionSelected
+          });
+        }
 
         $scope.highlight = function() {
             var active = $scope.question;
@@ -162,7 +195,8 @@ angular.module('proso.anatomy.controllers', [])
             }
             if ($filter('isFindOnMapType')($scope.question) && $scope.question.options) {
               for (var i = 0; i < $scope.question.options.length; i++) {
-                $scope.question.options[i].color = colors.HIGHLIGHTS[i];
+                $scope.question.options[i].bgcolor = colors.HIGHLIGHTS[i];
+                $scope.question.options[i].color = colors.HIGHLIGHTS_CONTRAST[i];
                 $scope.imageController.highlightItem(
                   $scope.question.options[i].description,
                   colors.HIGHLIGHTS[i]);
@@ -170,7 +204,7 @@ angular.module('proso.anatomy.controllers', [])
             }
         };
 
-        $scope.checkAnswer = function(selected) {
+        $scope.checkAnswer = function(selected, keyboardUsed) {
             if ($scope.checking) {
               return;
             }
@@ -183,8 +217,12 @@ angular.module('proso.anatomy.controllers', [])
             var selectedFC = isCorrect ?
               $scope.question :
               $scope.getFlashcardByDescription(selected);
+            var meta;
+            if (keyboardUsed) {
+              meta = {keyboardUsed: keyboardUsed};
+            }
             practiceService.saveAnswerToCurrentFC(
-              selectedFC && selectedFC.id, $scope.question.responseTime);
+              selectedFC && selectedFC.id, $scope.question.responseTime, meta);
             $scope.progress = 100 * (
               practiceService.getSummary().count /
               practiceService.getConfig().set_length);
@@ -307,6 +345,7 @@ angular.module('proso.anatomy.controllers', [])
                 o.correct = o.description == $scope.question.description;
                 o.selected = o.description == selected;
                 if (o.selected || o.correct) {
+                  o.bgcolor = undefined;
                   o.color = undefined;
                 }
                 o.disabled = true;

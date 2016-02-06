@@ -20,6 +20,7 @@ angular.module('proso.anatomy', [
     'angularDjangoCsrf',
     'xeditable',
     'countTo',
+    'cfp.hotkeys',
 ])
 
 .constant('domain', window.domain || '')
@@ -88,6 +89,10 @@ angular.module('proso.anatomy', [
         });
     }
 ])
+
+.config(['hotkeysProvider', function(hotkeysProvider) {
+  hotkeysProvider.includeCheatSheet = false;
+}])
 
 .run(['$rootScope', '$analytics', 'editableOptions', 'configService', 'userService',
     function($rootScope, $analytics, editableOptions, configService, userService) {

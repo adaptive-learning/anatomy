@@ -17,6 +17,14 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       '#fdea11',
       '#951b80',
     ],
+    'HIGHLIGHTS_CONTRAST' : [
+      '#000',
+      '#fff',
+      '#000',
+      '#fff',
+      '#000',
+      '#fff',
+    ],
   })
 
   .factory('colorScale', ['colors', 'chroma', function(colors, chroma) {

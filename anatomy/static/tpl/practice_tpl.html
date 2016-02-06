@@ -60,12 +60,14 @@
               option.selected && !option.correct }"
               ng-mouseenter="(question|isFindOnMapType) && imageController.hoverIn(option.description)"
               ng-mouseleave="(question|isFindOnMapType) && imageController.hoverOut(option.description)"
-              style="background-color:{{(question|isFindOnMapType) && option.color}}"
+              style="color: {{(question|isFindOnMapType) && option.color}};
+                background-color: {{(question|isFindOnMapType) && option.bgcolor}};"
               ng-disabled="option.disabled">&nbsp;
                <span ng-show="(question|isPickNameOfType) ||
                  option.selected || option.correct">
                  {{option.term.name | stripAlternatives}}
                </span>&nbsp;
+               <span class="pull-right shortcut-info">{{$index + 1}}</span>
             </button>
         </div>
         <div class="button-block">
