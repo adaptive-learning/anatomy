@@ -45,7 +45,9 @@
         <div class="flatblock-content" >
         <span translate>
         Vybírat otázky pro tebe nám pomáhá
-        <span class="badge badge-default" >{{stats.number_of_answers}}</span>
+        <span class="badge badge-default"
+          ng-bind="stats.number_of_answers | number" >
+          </span>
         odpovědí našich uživatelů.
         </span>
         <a href=""
