@@ -1,0 +1,134 @@
+{
+  "questions" : [{
+    "id" : "faculty",
+    "active" : true,
+    "repeat" : false,
+    "answer-type" : "mixed",
+    "content-cs" : "Jakou studuješ fakultu?",
+    "content-en" : "Faculty?",
+    "possible-answers" : [
+      {
+        "id" : "NONE",
+        "content-cs" : "Žádná",
+        "content-en" : "None"
+      }, {
+        "id" : "CUNI1",
+        "content-cs" : "1. Lékařská Fakulta, Univerzity Karlovy",
+        "content-en" : "First Faculty of Medicine, Charles University in Prague"
+      }, {
+        "id" : "CUNI2",
+        "content-cs" : "2. Lékařská Fakulta, Univerzity Karlovy",
+        "content-en" : "Second Faculty of Medicine, Charles University in Prague"
+      }, {
+        "id" : "CUNI3",
+        "content-cs" : "3. Lékařská Fakulta, Univerzity Karlovy",
+        "content-en" : "Third Faculty of Medicine, Charles University in Prague"
+      }, {
+        "id" : "MUNI",
+        "content-cs" : "Masarykova Univerzita Lékařská Fakulta",
+        "content-en" : "Faculty of Medicine, Masaryk University"
+      }, {
+        "id" : "UO",
+        "content-cs" : "Fakulta Vojenského Zdravotnictví, Univerzity Obrany",
+        "content-en" : ""
+      }, {
+        "id" : "HK",
+        "content-cs" : "Lékařská Fakulta UK v Hradci Králové",
+        "content-en" : ""
+      }, {
+        "id" : "CUNIP",
+        "content-cs" : "Lékařská Fakulta v Plzni, Univerzita Karlova v Praze",
+        "content-en" : ""
+      }, {
+        "id" : "OUO",
+        "content-cs" : "Ostravská Univerzita v Ostravě Lékařská Fakulta",
+        "content-en" : ""
+      }, {
+        "id" : "UPOL",
+        "content-cs" : "Univerzity Palackého v Olomouci Lékařská Fakulta",
+        "content-en" : ""
+      }, {
+        "id" : "UB",
+        "content-cs" : "Slovenská Zdravotnícka Univerzita v Bratislave", 
+        "content-en" : ""
+      }, {
+        "id" : "UKOB",
+        "content-cs" : "Univerzita Komenského v Bratislave, Lekárska Fakulta", 
+        "content-en" : ""
+      }, {
+        "id" : "UPJS",
+        "content-cs" : "Univerzita P. J. Safárika Lekárska Fakulta", 
+        "content-en" : ""
+      }
+    ],
+    "events" : [{
+      "type" : "questionSetFinished",
+      "value" : "60"
+    }]
+  }, {
+    "id" : "field",
+    "answer-type" : "mixed",
+    "content-cs" : "Jaký studuješ obor?",
+    "content-en" : "Field of study:",
+    "possible-answers" : [
+      {
+        "id" : "NONE",
+        "content-cs" : "Žádný",
+        "content-en" : "None"
+      }, {
+        "id" : "medicine",
+        "content-cs" : "Medicína",
+        "content-en" : "Medicine"
+      }, {
+        "id" : "antropology",
+        "content-cs" : "Antropologie",
+        "content-en" : "Antropology"
+      }, {
+        "id" : "veterinary",
+        "content-cs" : "Veterina",
+        "content-en" : "Veterinary medicine"
+      }, {
+        "id" : "physiotherapy",
+        "content-cs" : "Fyzioterapie",
+        "content-en" : "Physiotherapy"
+      }, {
+        "id" : "nursing",
+        "content-cs" : "Ošetřovatelství",
+        "content-en" : "Nursing"
+      }
+    ],
+    "events" : [{
+      "type" : "questionSetFinished",
+      "value" : "50"
+    }]
+  }, {
+    "id" : "startYear",
+    "answer-type" : "open",
+    "content-cs" : "Tvůj rok zápisu do studia?",
+    "content-en" : "Your year of study enrollment",
+    "possible-answers" : [],
+    "events" : [{
+      "type" : "questionSetFinished",
+      "value" : "80"
+    }]
+  }, {
+    "id" : "sex",
+    "answer-type" : "closed",
+    "content-cs" : "Jsi muž nebo žena?",
+    "content-en" : "Are you a man or a woman?",
+    "possible-answers" : [{
+        "id" : "man",
+        "content-cs" : "Muž",
+        "content-en" : "Man"
+      }, {
+        "id" : "woman",
+        "content-cs" : "Žena",
+        "content-en" : "Woman"
+      }
+    ],
+    "events" : [{
+      "type" : "questionSetFinished",
+      "value" : "90"
+    }]
+  }]
+}
