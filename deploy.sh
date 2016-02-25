@@ -13,6 +13,7 @@ pip install -r $DIR/requirements.txt
 python $DIR/manage.py syncdb --noinput
 python $DIR/manage.py migrate --noinput
 python $DIR/manage.py compilemessages
+python $DIR/manage.py load_user_questions $DIR/data/user-questions.json
 
 cd $DIR/anatomy
 npm install
