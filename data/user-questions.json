@@ -76,6 +76,10 @@
         "content-cs" : "Žádný",
         "content-en" : "None"
       }, {
+        "id" : "general-medicine",
+        "content-cs" : "Všeobecné lékařství",
+        "content-en" : "General Medicine"
+      }, {
         "id" : "medicine",
         "content-cs" : "Medicína",
         "content-en" : "Medicine"
