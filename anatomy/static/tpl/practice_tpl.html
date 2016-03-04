@@ -20,7 +20,6 @@
     <div ng-hide="question || showSummary || error" class="loading-indicator">
     </div>
     <div ng-show="error" error-message ></div>
-    {{error}}
     <div class="practice">
       <div ng-repeat="question in questions"
           ng-class="{'slide-out': question.slideOut}"
