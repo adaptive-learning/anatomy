@@ -20,6 +20,7 @@
     <div ng-hide="question || showSummary || error" class="loading-indicator">
     </div>
     <div ng-show="error" error-message ></div>
+    {{error}}
     <div class="practice">
       <div ng-repeat="question in questions"
           ng-class="{'slide-out': question.slideOut}"
@@ -31,23 +32,21 @@
         <div class="button-block"
              option-buttons
              question="question"
-             click-fn="checkAnswer"
+             controller="controller"
              image-controller="imageController">
         </div>
         <div class="button-block"
              practice-action-buttons
              question="question"
              can-next="canNext"
-             next="next"
-             check-answer="checkAnswer"
-             highlight="highlight">
+             controller="controller">
         </div>
       </div>
       <div ng-show="loadingNextQuestion" class="loading-indicator overlay">
       </div>
-      <div ng-if="showSummary && summary"
+      <div ng-if="showSummary"
         summary
-        highlight-flashcard="highlightFlashcard"
+        controller="controller"
         category-id="categoryId"
         category2-id="category2Id" >
       </div>

@@ -144,101 +144,89 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'colors', 'imageService',
-    'hotkeys', '$location',
-
+    'practiceService', 'userService', 'imageService',
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, imageService,
-        hotkeys, $location) {
+        practiceService, userService, imageService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
         $scope.category2Id = $routeParams.category2;
         $scope.progress = 0;
 
-        hotkeys.bindTo($scope)
-        .add({
-          combo: 'enter',
-          description: 'Pokračovat',
-          callback: function() {
-            if ($scope.showSummary) {
-              var url = "/refreshpractice/" + ($scope.categoryId || "") +
-                "/" + ($scope.category2Id || "");
-              $location.url(url);
-            }
-            if ($scope.canNext) {
-              $scope.next();
-            }
-          }
-        });
-
-        function optionSelected(event, action) {
-          var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
-          if (option && ! option.disabled) {
-            $scope.checkAnswer(option.description, true);
-          }
-        }
-        for (var i = 1; i <= 6; i++) {
-          hotkeys.bindTo($scope)
-          .add({
-            combo: '' + i,
-            description: 'Vybrat možnost ' + i,
-            callback: optionSelected
-          });
-        }
-
-        $scope.highlight = function() {
-            var active = $scope.question;
-            if ($filter('isPickNameOfType')($scope.question)) {
-                $scope.imageController.highlightItem(
-                  active.description, colors.HIGHLIGHTS[1], true);
-            }
-            if ($filter('isFindOnMapType')($scope.question) && $scope.question.options) {
-              for (var i = 0; i < $scope.question.options.length; i++) {
-                $scope.question.options[i].bgcolor = colors.HIGHLIGHTS[i];
-                $scope.question.options[i].color = colors.HIGHLIGHTS_CONTRAST[i];
-                $scope.imageController.highlightItem(
-                  $scope.question.options[i].description,
-                  colors.HIGHLIGHTS[i]);
+        var controller = {
+          highlight : function() {
+            $scope.imageController.highlightQuestion($scope.question);
+          },
+          getFlashcardByDescription : function(description) {
+            for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
+              var fc = $scope.question.context.flashcards[i];
+              if (fc.description == description) {
+                return fc;
               }
             }
+          },
+          checkAnswer : function(selected, keyboardUsed) {
+              if ($scope.checking) {
+                return;
+              }
+              $scope.checking = true;
+              var asked = $scope.question.description;
+              $scope.imageController.highlightAnswer($scope.question, selected);
+              saveAnswer(selected, keyboardUsed);
+              $scope.progress = 100 * (
+                practiceService.getSummary().count /
+                practiceService.getConfig().set_length);
+              var isCorrect = asked == selected;
+              if (isCorrect) {
+                  $timeout(function() {
+                      controller.next(function() {
+                        $scope.checking = false;
+                      });
+                  }, 700);
+              } else {
+                  $scope.checking = false;
+                  $scope.canNext = true;
+              }
+              addAnswerToUser(asked == selected);
+              $rootScope.$emit('questionAnswered');
+          },
+          next : function(callback) {
+              if ($scope.progress < 100) {
+                  $scope.loadingNextQuestion = true;
+                  practiceService.getFlashcard().then(function(q) {
+                      $scope.loadingNextQuestion = false;
+                      setQuestion(q);
+                      if (callback) callback();
+                  }, function(){
+                      $scope.loadingNextQuestion = false;
+                      $scope.error = true;
+                  });
+              } else {
+                  setupSummary();
+                  if (callback) callback();
+              }
+          },
+          highlightFlashcard : function(fc) {
+            $scope.activeQuestion = fc;
+          },
         };
+        $scope.controller = controller;
 
-        $scope.checkAnswer = function(selected, keyboardUsed) {
-            if ($scope.checking) {
-              return;
-            }
-            $scope.checking = true;
-            var asked = $scope.question.description;
-            var isCorrect = asked == selected;
-            highlightAnswer(asked, selected);
-            $scope.question.answered_code = selected;
-            $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
-            var selectedFC = isCorrect ?
-              $scope.question :
-              $scope.getFlashcardByDescription(selected);
-            var meta;
-            if (keyboardUsed) {
-              meta = {keyboardUsed: keyboardUsed};
-            }
-            practiceService.saveAnswerToCurrentFC(
-              selectedFC && selectedFC.id, $scope.question.responseTime, meta);
-            $scope.progress = 100 * (
-              practiceService.getSummary().count /
-              practiceService.getConfig().set_length);
-            if (isCorrect) {
-                $timeout(function() {
-                    $scope.next(function() {
-                      $scope.checking = false;
-                    });
-                }, 700);
-            } else {
-                $scope.checking = false;
-                $scope.canNext = true;
-            }
-            addAnswerToUser(asked == selected);
-            $rootScope.$emit('questionAnswered');
-        };
+
+        function saveAnswer(selected, keyboardUsed) {
+          $scope.question.answered_code = selected;
+          $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
+          var isCorrect = $scope.question == selected;
+          var selectedFC = isCorrect ?
+            $scope.question :
+            controller.getFlashcardByDescription(selected);
+          var meta;
+          if (keyboardUsed) {
+            meta = {keyboardUsed: keyboardUsed};
+          }
+          practiceService.saveAnswerToCurrentFC(
+            selectedFC && selectedFC.id, $scope.question.responseTime, meta);
+        }
 
         function addAnswerToUser(isCorrect) {
           if (userService.user.profile) {
@@ -249,47 +237,8 @@ angular.module('proso.anatomy.controllers', [])
           }
         }
 
-        $scope.next = function(callback) {
-            if ($scope.progress < 100) {
-                $scope.loadingNextQuestion = true;
-                practiceService.getFlashcard().then(function(q) {
-                    $scope.loadingNextQuestion = false;
-                    setQuestion(q);
-                    if (callback) callback();
-                }, function(){
-                    $scope.loadingNextQuestion = false;
-                    $scope.error = true;
-                });
-            } else {
-                setupSummary();
-                if (callback) callback();
-            }
-        };
-
-        $scope.highlightFlashcard = function(fc) {
-          $scope.activeQuestion = fc;
-        };
-
-        $scope.getFlashcardByDescription = function(description) {
-          for (var i = 0; i < $scope.activeQuestion.context.flashcards.length; i++) {
-            var fc = $scope.activeQuestion.context.flashcards[i];
-            if (fc.description == description) {
-              return fc;
-            }
-          }
-        };
-
-        function highlightAnswer (asked, selected) {
-            if ($filter('isFindOnMapType')($scope.question)) {
-                $scope.imageController.highlightItem(asked, colors.GOOD);
-            }
-            $scope.imageController.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
-        }
-
         function setupSummary() {
             $scope.question.slideOut = true;
-            $scope.summary = practiceService.getSummary();
-            $scope.summary.correctlyAnsweredRatio = $scope.summary.correct / $scope.summary.count;
             $scope.showSummary = true;
             angular.element("html, body").animate({ scrollTop: "0px" }, function() {
               angular.element(window).trigger('resize');
@@ -312,7 +261,7 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.imageController = ic;
 
                 $scope.imageController.clearHighlights();
-                $scope.highlight();
+                controller.highlight();
                 $scope.canNext = false;
 
                 $scope.imageController.onClick(function(code) {
@@ -320,7 +269,7 @@ angular.module('proso.anatomy.controllers', [])
                         !$scope.canNext &&
                         $filter('isAllowedOption')($scope.question, code)) {
 
-                        $scope.checkAnswer(code);
+                        controller.checkAnswer(code);
                         $scope.$apply();
                     }
                 });

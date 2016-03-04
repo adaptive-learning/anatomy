@@ -1,6 +1,6 @@
 <button ng-repeat="option in question.options"
   class="btn btn-lg btn-default btn-option"
-  ng-click="clickFn(option.description)"
+  ng-click="controller.checkAnswer(option.description)"
   ng-class="{'btn-success': option.correct, 'btn-danger':
   option.selected && !option.correct }"
   ng-mouseenter="(question|isFindOnMapType) && imageController.hoverIn(option.description)"

@@ -11,7 +11,7 @@
     </div>
     <span ng-repeat="fc in summary.flashcards" 
           track-click="practice summary change image"
-          ng-click="highlightFlashcard(fc)"
+          ng-click="controller.highlightFlashcard(fc)"
           class="label label-clickable {{fc.description != fc.answered_code &&
             'label-unlearned' || 'label-learned' }} ">
        {{fc.term.name | stripAlternatives}}

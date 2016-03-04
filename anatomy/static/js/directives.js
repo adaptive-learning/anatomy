@@ -40,8 +40,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   }])
 
 .directive('anatomyImage', [
-    'imageService', '$window', '$', 'colorService', '$timeout', '$filter',
-    function(imageService, $window, $, colorService, $timeout, $filter) {
+    'imageService', '$window', '$', 'colorService', '$timeout', '$filter', 'colors',
+    function(imageService, $window, $, colorService, $timeout, $filter, colors) {
   var ANIMATION_TIME_MS = 1000;
 
   return {
@@ -151,6 +151,29 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               },
               hoverIn : hoverInHandler,
               hoverOut : hoverOutHandler,
+              highlightAnswer : function (question, selected) {
+                  var asked = question.description;
+                  if ($filter('isFindOnMapType')(question)) {
+                      that.highlightItem(asked, colors.GOOD);
+                  }
+                  that.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
+              },
+              highlightQuestion : function (question) {
+                if ($filter('isPickNameOfType')(question)) {
+                    that.highlightItem(
+                      question.description, colors.HIGHLIGHTS[1], true);
+                }
+                if ($filter('isFindOnMapType')(question) && question.options) {
+                  for (var i = 0; i < question.options.length; i++) {
+                    question.options[i].bgcolor = colors.HIGHLIGHTS[i];
+                    question.options[i].color = colors.HIGHLIGHTS_CONTRAST[i];
+                    that.highlightItem(
+                      question.options[i].description,
+                      colors.HIGHLIGHTS[i]);
+                  }
+                }
+              },
+
             };
 
             function hoverInHandler(pathCode) {
@@ -760,12 +783,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('summary', ['practiceService', function(practiceService) {
+  .directive('summary', ['practiceService', 'hotkeys', '$location',
+      function(practiceService, hotkeys, $location) {
     return {
       restrict: 'A',
       replace: true,
       scope: {
-        highlightFlashcard: '=highlightFlashcard',
+        controller: '=controller',
         categoryId: '=categoryId',
         category2Id: '=category2Id',
       },
@@ -774,22 +798,49 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.summary = practiceService.getSummary();
         $scope.summary.correctlyAnsweredRatio = 
           $scope.summary.correct / $scope.summary.count;
+
+        hotkeys.bindTo($scope).add({
+          combo: 'enter',
+          description: 'Pokračovat',
+          callback: function() {
+            var url = "/refreshpractice/" + ($scope.categoryId || "") +
+              "/" + ($scope.category2Id || "");
+            $location.url(url);
+          }
+        });
+
       },
     };
   }])
 
-  .directive('optionButtons', ['$rootScope', 'serverLogger',
-      function($rootScope, serverLogger) {
+  .directive('optionButtons', ['$rootScope', 'serverLogger', 'hotkeys',
+      function($rootScope, serverLogger, hotkeys) {
     return {
       restrict: 'A',
       scope: {
         question: '=question',
         imageController: '=imageController',
-        clickFn: '=clickFn',
+        controller: '=controller',
       },
       templateUrl : '/static/tpl/option_buttons_tpl.html',
       link: function ($scope) {
-        console.log('cope', $scope);
+        
+        function optionSelected(event, action) {
+          var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
+          if (option && ! option.disabled) {
+            $scope.controller.checkAnswer(option.description, true);
+          }
+        }
+
+        for (var i = 1; i <= 6; i++) {
+          hotkeys.bindTo($scope)
+          .add({
+            combo: '' + i,
+            description: 'Vybrat možnost ' + i,
+            callback: optionSelected
+          });
+        }
+
         $rootScope.$on('questionAnswered', function() {
             highlightOptions();
             checkOptions();
@@ -833,6 +884,16 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         clickFn: '=clickFn',
       },
       templateUrl : '/static/tpl/question_and_answer_tpl.html',
+      link: function ($scope) {
+        $scope.getFlashcardByDescription = function(description) {
+          for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
+            var fc = $scope.question.context.flashcards[i];
+            if (fc.description == description) {
+              return fc;
+            }
+          }
+        };
+      },
     };
   }])
 
@@ -851,21 +912,31 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('practiceActionButtons', ['userService', function(userService) {
+  .directive('practiceActionButtons', ['userService', 'hotkeys',
+      function(userService, hotkeys) {
     return {
       restrict: 'A',
       replace: true,
       scope: {
         question: '=question',
         canNext: '=canNext',
-        next: '=next',
-        checkAnswer: '=checkAnswer',
-        highlight: '=highlight',
+        controller: '=controller',
       },
       templateUrl : '/static/tpl/practice_action_buttons_tpl.html',
       link: function ($scope) {
         $scope.userService = userService;
-        console.log('cope', $scope);
+
+        hotkeys.bindTo($scope)
+        .add({
+          combo: 'enter',
+          description: 'Pokračovat',
+          callback: function() {
+            if ($scope.canNext) {
+              $scope.controller.next();
+            }
+          }
+        });
+
       }
     };
   }]);

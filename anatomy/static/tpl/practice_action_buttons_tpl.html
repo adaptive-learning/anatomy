@@ -1,17 +1,17 @@
 <div class="button-block"
     ng-if="question && question.context">
   <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
-        ng-click="next()" 
+        ng-click="controller.next()" 
         ng-disabled="!canNext || error" >
     <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
   </button>
   <button class="btn btn-lg btn-default dont-know" 
-        ng-click="checkAnswer()" 
+        ng-click="controller.checkAnswer()" 
         ng-disabled="canNext" >
     <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
   </button>
   <button class="btn btn-lg btn-default" 
-        ng-click="highlight()" 
+        ng-click="controller.highlight()" 
         ng-disabled="canNext"  
         ng-show="question | isPickNameOfType" >
     <i class="glyphicon glyphicon-screenshot"></i> {{'Co je zvýrazněno?' | translate }}
