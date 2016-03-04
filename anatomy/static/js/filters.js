@@ -59,7 +59,7 @@ angular.module('proso.anatomy.filters', [])
       } else if (question && question.direction == "d2t") {
         return gettextCatalog.getString("Co je zvýrazněno?");
       }
-      return "Error";
+      return "";
     };
   }])
 

@@ -144,11 +144,11 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'colors', 'imageService', 'serverLogger',
+    'practiceService', 'userService', 'colors', 'imageService',
     'hotkeys', '$location',
 
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, colors, imageService, serverLogger,
+        practiceService, userService, colors, imageService,
         hotkeys, $location) {
         'use strict';
 
@@ -236,8 +236,8 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.checking = false;
                 $scope.canNext = true;
             }
-            checkOptions();
             addAnswerToUser(asked == selected);
+            $rootScope.$emit('questionAnswered');
         };
 
         function addAnswerToUser(isCorrect) {
@@ -279,24 +279,11 @@ angular.module('proso.anatomy.controllers', [])
           }
         };
 
-        function checkOptions() {
-          var buttonCount = angular.element('.inner-practice:not(.slide-out) .btn-option').length;
-          var optionCount = $scope.activeQuestion.options ? $scope.activeQuestion.options.length : 0;
-          if (buttonCount != optionCount) {
-            serverLogger.error("Option count doesn't match button count", {
-              buttonCount : buttonCount,
-              optionCount : optionCount,
-              question : $scope.activeQuestion,
-            });
-          }
-        }
-
         function highlightAnswer (asked, selected) {
             if ($filter('isFindOnMapType')($scope.question)) {
                 $scope.imageController.highlightItem(asked, colors.GOOD);
             }
             $scope.imageController.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
-            highlightOptions(selected);
         }
 
         function setupSummary() {
@@ -338,19 +325,6 @@ angular.module('proso.anatomy.controllers', [])
                     }
                 });
               });
-        }
-
-        function highlightOptions(selected) {
-            ($scope.question.options || []).map(function(o) {
-                o.correct = o.description == $scope.question.description;
-                o.selected = o.description == selected;
-                if (o.selected || o.correct) {
-                  o.bgcolor = undefined;
-                  o.color = undefined;
-                }
-                o.disabled = true;
-                return o;
-            });
         }
 
         $scope.mapCallback = function() {

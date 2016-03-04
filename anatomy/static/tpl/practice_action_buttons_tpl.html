@@ -1,0 +1,27 @@
+<div class="button-block"
+    ng-if="question && question.context">
+  <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
+        ng-click="next()" 
+        ng-disabled="!canNext || error" >
+    <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
+  </button>
+  <button class="btn btn-lg btn-default dont-know" 
+        ng-click="checkAnswer()" 
+        ng-disabled="canNext" >
+    <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
+  </button>
+  <button class="btn btn-lg btn-default" 
+        ng-click="highlight()" 
+        ng-disabled="canNext"  
+        ng-show="question | isPickNameOfType" >
+    <i class="glyphicon glyphicon-screenshot"></i> {{'Co je zvýrazněno?' | translate }}
+  </button>
+  <a feedback-comment
+    class="btn btn-lg btn-link report-error"
+    email="{{userService.user.email}}"
+    text="{{question | reportText : categoryId}}"
+    href="">
+    <i class="glyphicon glyphicon-new-window"></i>
+  {{'Nahlásit chybu' | translate }}
+  </a>
+</div>

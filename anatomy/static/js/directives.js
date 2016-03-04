@@ -758,4 +758,114 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         }
       }
     };
+  }])
+
+  .directive('summary', ['practiceService', function(practiceService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        highlightFlashcard: '=highlightFlashcard',
+        categoryId: '=categoryId',
+        category2Id: '=category2Id',
+      },
+      templateUrl : '/static/tpl/summary_tpl.html',
+      link: function ($scope) {
+        $scope.summary = practiceService.getSummary();
+        $scope.summary.correctlyAnsweredRatio = 
+          $scope.summary.correct / $scope.summary.count;
+      },
+    };
+  }])
+
+  .directive('optionButtons', ['$rootScope', 'serverLogger',
+      function($rootScope, serverLogger) {
+    return {
+      restrict: 'A',
+      scope: {
+        question: '=question',
+        imageController: '=imageController',
+        clickFn: '=clickFn',
+      },
+      templateUrl : '/static/tpl/option_buttons_tpl.html',
+      link: function ($scope) {
+        console.log('cope', $scope);
+        $rootScope.$on('questionAnswered', function() {
+            highlightOptions();
+            checkOptions();
+        });
+
+        function highlightOptions() {
+            ($scope.question.options || []).map(function(o) {
+                o.correct = o.description == $scope.question.description;
+                o.selected = o.description == $scope.question.answered_code;
+                if (o.selected || o.correct) {
+                  o.bgcolor = undefined;
+                  o.color = undefined;
+                }
+                o.disabled = true;
+                return o;
+            });
+        }
+
+        function checkOptions() {
+          var buttonCount = angular.element('.inner-practice:not(.slide-out) .btn-option').length;
+          var optionCount = $scope.question.options ? $scope.question.options.length : 0;
+          if (buttonCount != optionCount) {
+            serverLogger.error("Option count doesn't match button count", {
+              buttonCount : buttonCount,
+              optionCount : optionCount,
+              question : $scope.question,
+            });
+          }
+        }
+
+      }
+    };
+  }])
+
+  .directive('questionAndAnswer', [function() {
+    return {
+      restrict: 'A',
+      scope: {
+        question: '=question',
+        imageController: '=imageController',
+        clickFn: '=clickFn',
+      },
+      templateUrl : '/static/tpl/question_and_answer_tpl.html',
+    };
+  }])
+
+  .directive('practiceHeader', ['userService', function(userService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        question: '=question',
+        categoryId: '=categoryId',
+      },
+      templateUrl : '/static/tpl/practice_header_tpl.html',
+      link: function ($scope) {
+        $scope.userService = userService;
+      }
+    };
+  }])
+
+  .directive('practiceActionButtons', ['userService', function(userService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        question: '=question',
+        canNext: '=canNext',
+        next: '=next',
+        checkAnswer: '=checkAnswer',
+        highlight: '=highlight',
+      },
+      templateUrl : '/static/tpl/practice_action_buttons_tpl.html',
+      link: function ($scope) {
+        $scope.userService = userService;
+        console.log('cope', $scope);
+      }
+    };
   }]);

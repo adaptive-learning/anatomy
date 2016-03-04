@@ -1,19 +1,8 @@
 <div class="container-fluid">
-  <div class="row header header-practice">
-    <div class="col-sm-12 ">
-      <h1>
-        {{activeQuestion.context.name}}
-        <a ng-if="userService.user.staff && categoryId"
-          href="/view/{{categoryId}}/?context={{activeQuestion.context.identifier}}">
-          <i class="glyphicon glyphicon-picture" ></i>
-        </a>
-        <a ng-if="userService.user.staff"
-          href="http://znackuj.anatom.cz/image/{{activeQuestion.context.identifier}}">
-          <i class="glyphicon glyphicon-edit" ></i>
-        </a>
-      </h1>
-    </div>
-  </div>
+  <div practice-header
+       question="activeQuestion"
+       category-id="categoryId">
+   </div>
 </div>
 <div>
 <div ng-repeat="question in questions"
@@ -35,119 +24,32 @@
       <div ng-repeat="question in questions"
           ng-class="{'slide-out': question.slideOut}"
           class="inner-practice row">
-        <div class="question col-sm-12">
-          <span ng-bind="question | questionText"></span>
-          <span class="label label-default"
-              tooltip-html-unsafe="{{question.term.name | alternativeNames}}"
-              tooltip-placement="bottom"
-              ng-show="question|isFindOnMapType">
-            {{question.term.name | stripAlternatives}}
-          </span>
-          <span ng-if="question.answered_code && !question.options.length &&
-            question.answered_code != question.description">
-            <span>{{'Vybráno' | translate }}</span>
-            <span class="label label-default">
-               {{getFlashcardByDescription(question.answered_code).term.name  | stripAlternatives}}
-            </span>
-          </span>
-          <div class="clearfix"></div>
+        <div class="question col-sm-12"
+          question-and-answer 
+          question="question">
         </div>
-        <div class="button-block">
-            <button ng-repeat="option in question.options"
-              class="btn btn-lg btn-default btn-option"
-              ng-click="checkAnswer(option.description)"
-              ng-class="{'btn-success': option.correct, 'btn-danger':
-              option.selected && !option.correct }"
-              ng-mouseenter="(question|isFindOnMapType) && imageController.hoverIn(option.description)"
-              ng-mouseleave="(question|isFindOnMapType) && imageController.hoverOut(option.description)"
-              style="color: {{(question|isFindOnMapType) && option.color}};
-                background-color: {{(question|isFindOnMapType) && option.bgcolor}};"
-              ng-disabled="option.disabled">&nbsp;
-               <span ng-show="(question|isPickNameOfType) ||
-                 option.selected || option.correct">
-                 {{option.term.name | stripAlternatives}}
-               </span>&nbsp;
-               <span class="pull-right shortcut-info">{{$index + 1}}</span>
-            </button>
+        <div class="button-block"
+             option-buttons
+             question="question"
+             click-fn="checkAnswer"
+             image-controller="imageController">
         </div>
-        <div class="button-block">
-          <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
-                  ng-click="next()" 
-                  ng-disabled="!canNext || error" >
-              <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
-          </button>
-          <button class="btn btn-lg btn-default dont-know" 
-                  ng-click="checkAnswer()" 
-                  ng-disabled="canNext" >
-              <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
-          </button>
-          <button class="btn btn-lg btn-default" 
-                  ng-click="highlight()" 
-                  ng-disabled="canNext"  
-                  ng-show="question | isPickNameOfType" >
-              <i class="glyphicon glyphicon-screenshot"></i> {{'Co je zvýrazněno?' | translate }}
-          </button>
-          <a feedback-comment class="btn btn-lg btn-link report-error" email="{{userService.user.email}}"
-              text="{{question | reportText : categoryId}}"
-              href="">
-              <i class="glyphicon glyphicon-new-window"></i>
-            {{'Nahlásit chybu' | translate }}
-          </a>
+        <div class="button-block"
+             practice-action-buttons
+             question="question"
+             can-next="canNext"
+             next="next"
+             check-answer="checkAnswer"
+             highlight="highlight">
         </div>
       </div>
       <div ng-show="loadingNextQuestion" class="loading-indicator overlay">
       </div>
-      <div ng-if="showSummary" class="inner-practice summary row">
-        <div class="col-sm-12">
-          <div class="summary-progress progress" ng-show="summary != undefined">
-            <div class="progress-bar progress-bar-learned" 
-                 style="width: {{summary.correctlyAnsweredRatio | percent }};">
-              {{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}
-            </div>
-            <div class="progress-bar progress-bar-unlearned" 
-                 style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
-            </div>
-          </div>
-          <span ng-repeat="fc in summary.flashcards" 
-                track-click="practice summary change image"
-                ng-click="highlightFlashcard(fc)"
-                class="label label-clickable {{fc.description != fc.answered_code &&
-                  'label-unlearned' || 'label-learned' }} ">
-             {{fc.term.name | stripAlternatives}}
-          </span>
-           <i class="glyphicon glyphicon-question-sign help-icon"
-              popover-trigger="mouseenter"
-              popover-placement="bottom"
-              popover-append-to-body="true"
-              popover-title="{{'Tip k ovládání' | translate}}"
-              popover="{{'Pomocí názvů dotázaných pojmů můžeš přepínat mezi obrázky k jednotlivým odpovědím.' | translate}}"
-              track-hover="summary labels explanation">
-           </i>
-        </div>
-        <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
-        <br>
-        <div class="col-sm-12">
-          <br>
-          <a class="btn-continue btn btn-lg btn-default {{!showSummary || 'btn-primary'}}" 
-             href="/refreshpractice/{{categoryId}}/{{category2Id}}"
-             track-click="repeat practice" >
-            <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat v procvičování' | translate }}
-          </a>
-          <a class="btn btn-lg btn-default" 
-             ng-if="categoryId && categoryId.indexOf('-') == -1"
-             href="/view/{{categoryId}}/" >
-            <i class="glyphicon glyphicon-picture"></i> {{'Přehled znalostí' | translate }}
-          </a>
-          <a class="btn btn-lg btn-default" 
-             href="/overview/" >
-            <i class="glyphicon glyphicon-th"></i> {{'Vybrat kapitolu' | translate }}
-          </a>
-          <a feedback-comment class="btn btn-lg btn-default report-error" email="{{userService.user.email}}"
-              href="">
-              <i class="glyphicon glyphicon-new-window"></i>
-            {{'Přijde Ti aplikace užitečná? Co bys vylepšil?' | translate }}
-          </a>
-        </div>
+      <div ng-if="showSummary && summary"
+        summary
+        highlight-flashcard="highlightFlashcard"
+        category-id="categoryId"
+        category2-id="category2Id" >
       </div>
     </div>
     <div class="clearfix"></div>
