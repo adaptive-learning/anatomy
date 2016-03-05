@@ -7,7 +7,7 @@ default:
         option_selector:
             class: proso.models.option_selection.ConfusingOptionSelection
             parameters:
-                allow_zero_options_restriction: true
+                allow_zero_options_restriction: false
         mastery_threshold: 0.901
     proso_common:
         logging:
