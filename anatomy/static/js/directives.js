@@ -436,7 +436,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('categoryProgress', [function() {
     return {
       restrict : 'A',
-      templateUrl : '/static/tpl/progress_tpl.html',
+      templateUrl : 'static/tpl/progress_tpl.html',
       link : function($scope, elem, attrs) {
         $scope.skills = undefined;
         attrs.$observe('skills', function(skills) {
@@ -457,7 +457,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('categoryProgressLabels', [function() {
     return {
       restrict : 'A',
-      templateUrl : '/static/tpl/progress_labels_tpl.html',
+      templateUrl : 'static/tpl/progress_labels_tpl.html',
       link : function($scope, elem, attrs) {
         $scope.skills = undefined;
         attrs.$observe('skills', function(skills) {
@@ -725,7 +725,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       function(userService, signupModal) {
     return {
       restrict: 'A',
-      templateUrl : '/static/tpl/sign_in_banner.html',
+      templateUrl : 'static/tpl/sign_in_banner.html',
       link: function ($scope) {
         $scope.userService = userService;
         $scope.openSignupModal = function() {
@@ -773,7 +773,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict: 'A',
       replace: true,
-      templateUrl : '/static/tpl/color_scale_legend.html',
+      templateUrl : 'static/tpl/color_scale_legend.html',
       link: function ($scope) {
         $scope.values = [];
         for (var i = 1; i <= 10; i++) {
@@ -793,7 +793,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         categoryId: '=categoryId',
         category2Id: '=category2Id',
       },
-      templateUrl : '/static/tpl/summary_tpl.html',
+      templateUrl : 'static/tpl/summary_tpl.html',
       link: function ($scope) {
         $scope.summary = practiceService.getSummary();
         $scope.summary.correctlyAnsweredRatio = 
@@ -823,7 +823,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         canNext: '=canNext',
         controller: '=controller',
       },
-      templateUrl : '/static/tpl/option_buttons_tpl.html',
+      templateUrl : 'static/tpl/option_buttons_tpl.html',
       link: function ($scope) {
         
         function optionSelected(event, action) {
@@ -884,7 +884,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         imageController: '=imageController',
         clickFn: '=clickFn',
       },
-      templateUrl : '/static/tpl/question_and_answer_tpl.html',
+      templateUrl : 'static/tpl/question_and_answer_tpl.html',
       link: function ($scope) {
         $scope.getFlashcardByDescription = function(description) {
           for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
@@ -906,7 +906,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         question: '=question',
         categoryId: '=categoryId',
       },
-      templateUrl : '/static/tpl/practice_header_tpl.html',
+      templateUrl : 'static/tpl/practice_header_tpl.html',
       link: function ($scope) {
         $scope.userService = userService;
       }
@@ -923,7 +923,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         canNext: '=canNext',
         controller: '=controller',
       },
-      templateUrl : '/static/tpl/practice_action_buttons_tpl.html',
+      templateUrl : 'static/tpl/practice_action_buttons_tpl.html',
       link: function ($scope) {
         $scope.userService = userService;
 
@@ -952,7 +952,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         canNext: '=canNext',
         controller: '=controller',
       },
-      templateUrl : '/static/tpl/open_answer_tpl.html',
+      templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
 
         $scope.flashcards = [];
