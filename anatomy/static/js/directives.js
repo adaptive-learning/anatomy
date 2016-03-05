@@ -942,8 +942,29 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('openAnswer', ['flashcardService',
-      function(flashcardService) {
+  .directive('openQuestionsAlert', ['configService',
+      function(configService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+      },
+      templateUrl : 'static/tpl/open_questions_alert_tpl.html',
+      link: function ($scope) {
+        var restrictionKey = 'proso_models.option_selector.parameters.allow_zero_options_restriction';
+        $scope.configService = configService;
+        $scope.openQuestionsDisabled = configService.getOverridden()[restrictionKey];
+
+        $scope.allowOpenQuestions = function() {
+          configService.override(restrictionKey, false);
+          $scope.openQuestionsDisabled = false;
+        };
+      }
+    };
+  }])
+
+  .directive('openAnswer', ['flashcardService', 'configService', '$window',
+      function(flashcardService, configService, $window) {
     return {
       restrict: 'A',
       replace: true,
@@ -973,8 +994,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             }
           }
         };
-        element.children('input').focus();
+        $scope.disableOpenQuestions = function() {
+          var restrictionKey = 'proso_models.option_selector.parameters.allow_zero_options_restriction';
+          configService.override(restrictionKey, true);
+          $window.location.reload();
+        };
 
+        element.children('input').focus();
         $scope.inputKeypress = function($event) {
           if ($event.which == 13) {
             $scope.checkAnswer();
