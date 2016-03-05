@@ -1,0 +1,31 @@
+<div class="form-group"
+  ng-class="{
+    'has-success' : question.isCorrect,
+    'has-error' : question.isIncorrect,
+    'has-feedback' : question.answered_code,
+  }">
+  <input type="text"
+      ng-model="answer"
+      placeholder="Začni psát odpověď..."
+      typeahead="fc as fc.term.name for fc in flashcards |
+               filter:{term: {name: $viewValue}} |
+               limitTo:($viewValue.length > 2 ? $viewValue.length * 2 : 6)"
+      typeahead-loading="loadingLocations"
+      typeahead-no-results="noResults"
+      ng-disabled="question.answered_code"
+      ng-keypress="inputKeypress($event)"
+      class="form-control">
+      <span class="glyphicon form-control-feedback"
+        ng-class="{
+          'glyphicon-ok' : question.isCorrect,
+          'glyphicon-remove' : question.isIncorrect,
+        }"
+        ng-show="!question.slideOut"
+        aria-hidden="true"></span>
+   <button class="btn btn-primary btn-lg"
+      ng-click="checkAnswer(answer)"
+      ng-disabled="!canAnswer()"
+      translate>
+    Potvrdit
+   </button>
+ </div>

@@ -820,6 +820,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       scope: {
         question: '=question',
         imageController: '=imageController',
+        canNext: '=canNext',
         controller: '=controller',
       },
       templateUrl : '/static/tpl/option_buttons_tpl.html',
@@ -937,6 +938,48 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
         });
 
+      }
+    };
+  }])
+
+  .directive('openAnswer', ['flashcardService',
+      function(flashcardService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        question: '=question',
+        canNext: '=canNext',
+        controller: '=controller',
+      },
+      templateUrl : '/static/tpl/open_answer_tpl.html',
+      link: function ($scope, element) {
+
+        $scope.flashcards = [];
+        flashcardService.getFlashcards({}).then(function(flashcards) {
+          $scope.flashcards = flashcards;
+        });
+
+        $scope.canAnswer = function() {
+          return !$scope.canNext && $scope.answer && $scope.answer.description;
+        };
+        $scope.checkAnswer = function() {
+          if ($scope.canAnswer()) {
+            $scope.controller.checkAnswer($scope.answer.description);
+            if ($scope.question.description == $scope.answer.description) {
+              $scope.question.isCorrect = true;
+            } else {
+              $scope.question.isIncorrect = true;
+            }
+          }
+        };
+        element.children('input').focus();
+
+        $scope.inputKeypress = function($event) {
+          if ($event.which == 13) {
+            $scope.checkAnswer();
+          }
+        };
       }
     };
   }]);

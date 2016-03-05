@@ -14,4 +14,12 @@
    </span>&nbsp;
    <span class="pull-right shortcut-info">{{$index + 1}}</span>
 </button>
+<div class="clearfix"></div>
+<div open-answer
+   ng-if="(question|isPickNameOfType) && !question.options.length"
+   question="question"
+   controller="controller"
+   can-next="canNext"
+   image-controller="imageController">
+</div>
 

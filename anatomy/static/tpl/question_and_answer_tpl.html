@@ -2,11 +2,17 @@
 <span class="label label-default"
   tooltip-html-unsafe="{{question.term.name | alternativeNames}}"
   tooltip-placement="bottom"
-  ng-show="question|isFindOnMapType">
+  ng-show="(
+    question|isFindOnMapType) ||
+      (question.answered_code && 
+      !question.options.length &&
+      question.answered_code != question.description)">
 {{question.term.name | stripAlternatives}}
 </span>
-<span ng-if="question.answered_code && !question.options.length &&
-question.answered_code != question.description">
+<span ng-if="question.answered_code &&
+  !question.options.length &&
+  (question|isFindOnMapType) &&
+  question.answered_code != question.description">
 <span>{{'Vybráno' | translate }}</span>
 <span class="label label-default">
    {{getFlashcardByDescription(question.answered_code).term.name  | stripAlternatives}}
