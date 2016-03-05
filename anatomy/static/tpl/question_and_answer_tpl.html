@@ -4,7 +4,7 @@
   tooltip-placement="bottom"
   ng-show="(
     question|isFindOnMapType) ||
-      (question.answered_code && 
+      (question.responseTime && 
       !question.options.length &&
       question.answered_code != question.description)">
 {{question.term.name | stripAlternatives}}

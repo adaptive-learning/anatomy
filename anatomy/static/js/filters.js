@@ -171,7 +171,7 @@ angular.module('proso.anatomy.filters', [])
             "/view/" + (categoryId || '').split('-')[0] +
             "?context=" + question.context.identifier,
           question: $filter('questionText')(question) +
-            (question.direction == 'd2t' ?
+            (question.direction == 'd2t' && question.options ?
               '\n  ' + question.options.map(function(o) {
                 return o.term.name;}).join('\n  ') :
               ' "' + question.term.name + '"'),
