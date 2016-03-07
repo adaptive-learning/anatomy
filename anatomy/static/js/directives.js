@@ -844,7 +844,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         $rootScope.$on('questionAnswered', function() {
             highlightOptions();
-            checkOptions();
         });
 
         function highlightOptions() {
@@ -860,17 +859,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             });
         }
 
-        function checkOptions() {
-          var buttonCount = angular.element('.inner-practice:not(.slide-out) .btn-option').length;
-          var optionCount = $scope.question.options ? $scope.question.options.length : 0;
-          if (buttonCount != optionCount) {
-            serverLogger.error("Option count doesn't match button count", {
-              buttonCount : buttonCount,
-              optionCount : optionCount,
-              question : $scope.question,
-            });
-          }
-        }
 
       }
     };
