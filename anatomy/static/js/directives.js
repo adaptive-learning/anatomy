@@ -951,8 +951,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('openAnswer', ['flashcardService', 'configService', '$window',
-      function(flashcardService, configService, $window) {
+  .directive('openAnswer', ['flashcardService', 'configService', '$window', '$filter',
+      function(flashcardService, configService, $window, $filter) {
     return {
       restrict: 'A',
       replace: true,
@@ -966,7 +966,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         $scope.flashcards = [];
         flashcardService.getFlashcards({}).then(function(flashcards) {
-          $scope.flashcards = flashcards;
+          var fcByDescription = {};
+          flashcards = flashcards.filter(function(fc) {
+              if (fcByDescription[fc.description]) {
+                  return false;
+              }
+              fcByDescription[fc.description] = true;
+              return true;
+          });
+          $scope.flashcards = flashcards.map(function(f) {
+            f.term.primaryName = $filter('stripAlternatives')(f.term.name);
+            return f;
+          }).sort(function(a, b){
+              return a.term.primaryName.length - b.term.primaryName.length; 
+          });
         });
 
         $scope.canAnswer = function() {
