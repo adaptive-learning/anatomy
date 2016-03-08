@@ -181,6 +181,10 @@ module.exports = function(grunt) {
                 files: '<%= concat.anatomy.src %>',
                 tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy', 'nggettext_extract']
             },
+            'unminifiable-libs': {
+                files: '<%= concat.unminifiable.src %>',
+                tasks: ['concat:unminifiable']
+            },
             'anatomy-css': {
                 files: 'static/sass/*.sass',
                 tasks: ['sass:anatomy', 'copy:above-fold']
