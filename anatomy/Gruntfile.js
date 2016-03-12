@@ -216,4 +216,4 @@ module.exports = function(grunt) {
     grunt.registerTask('prepare-libs', ['shell:bower_install', 'collect-libs']);
     grunt.registerTask('prepare', ['jshint','nggettext_compile','string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy', 'sass:anatomy', 'copy:above-fold', 'copy:images']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
-}
+};
