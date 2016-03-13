@@ -97,7 +97,7 @@ angular.module('proso.anatomy', [
                 pageTrackArray.push({url : path});
             }
 
-          __insp.push(pageTrackArray);
+          window.__insp.push(pageTrackArray);
 
         });
     }
