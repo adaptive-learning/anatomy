@@ -245,18 +245,34 @@ LOGGING = {
 
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(DATA_DIR, '.django_cache'),
-        'TIMEOUT': 60 * 60 * 24 * 7,
-        'OPTIONS': {
-            'MAX_ENTRIES': 30000,
-        },
+if ON_PRODUCTION:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+            'LOCATION': '127.0.0.1:11211',
+            'TIMEOUT': 60 * 60 * 24 * 7,
+            'OPTIONS': {
+                'MAX_ENTRIES': 300000,
+            },
+        }
     }
-}
-if not ON_STAGING and not ON_PRODUCTION and not os.environ.get('AVOID_DUMMY_CACHE', False):
-    CACHES['default']['BACKEND'] = 'django.core.cache.backends.dummy.DummyCache'
+elif ON_STAGING:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+            'LOCATION': os.path.join(DATA_DIR, '.django_cache'),
+            'TIMEOUT': 60 * 60 * 24 * 7,
+            'OPTIONS': {
+                'MAX_ENTRIES': 30000,
+            },
+        }
+    }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    }
 
 PROSO_CONFIG = {
     'path': os.path.join(BASE_DIR, 'anatomy', 'proso_config.yaml'),
