@@ -987,6 +987,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         };
         $scope.checkAnswer = function() {
           if ($scope.canAnswer()) {
+            if ($scope.question.description != $scope.answer.description &&
+                $scope.question.term.name == $scope.answer.term.name) {
+              $scope.answer = $scope.question;
+            }
             $scope.controller.checkAnswer($scope.answer.description);
             if ($scope.question.description == $scope.answer.description) {
               $scope.question.isCorrect = true;
