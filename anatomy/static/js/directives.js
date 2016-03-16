@@ -322,7 +322,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               angular.element('#ng-view').removeClass('horizontal');
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
-              if (screenAspectRatio < 1) {
+              if (screenAspectRatio < 1 && $window.innerWidth > 600) {
                 angular.element('#ng-view').addClass('horizontal');
                 paper = getHorizontalViewDimensions(paper);
               } else {
