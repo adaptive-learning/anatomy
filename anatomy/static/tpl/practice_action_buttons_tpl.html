@@ -10,12 +10,6 @@
         ng-disabled="canNext" >
     <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
   </button>
-  <button class="btn btn-lg btn-default" 
-        ng-click="controller.highlight()" 
-        ng-disabled="canNext"  
-        ng-show="question | isPickNameOfType" >
-    <i class="glyphicon glyphicon-screenshot"></i> {{'Co je zvýrazněno?' | translate }}
-  </button>
   <a feedback-comment
     class="btn btn-lg btn-link report-error"
     email="{{userService.user.email}}"
