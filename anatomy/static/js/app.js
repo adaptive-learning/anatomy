@@ -25,8 +25,8 @@ angular.module('proso.anatomy', [
 
 .constant('domain', window.domain || '')
 
-.config(['$routeProvider', '$locationProvider', 'googleExperimentsProvider',
-    function($routeProvider, $locationProvider, googleExperimentsProvider) {
+.config(['$routeProvider', '$locationProvider', 'googleExperimentsProvider', '$analyticsProvider',
+    function($routeProvider, $locationProvider, googleExperimentsProvider, $analyticsProvider) {
         'use strict';
         $routeProvider.when('/', {
             templateUrl : 'static/tpl/homepage.html'
@@ -86,6 +86,19 @@ angular.module('proso.anatomy', [
 
         googleExperimentsProvider.configure({
             experimentId: 'UerhSQbmRoi890TNRKcmtg'
+        });
+
+        $analyticsProvider.registerPageTrack(function (path) {
+
+            var pageTrackArray = [];
+            pageTrackArray.push('virtualPage');
+
+            if(path){
+                pageTrackArray.push({url : path});
+            }
+
+          window.__insp.push(pageTrackArray);
+
         });
     }
 ])
