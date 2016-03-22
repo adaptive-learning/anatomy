@@ -160,16 +160,16 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               },
               highlightQuestion : function (question) {
                 if ($filter('isPickNameOfType')(question)) {
-                  var callback = function() {
+                  var callback = function(iteration) {
                     that.highlightItem(
                       question.description, colors.HIGHLIGHTS[1], true);
                     $timeout(function() {
                       if (!question.responseTime) {
-                        callback();
+                        callback(iteration + 1);
                       }   
-                    }, 2 * ANIMATION_TIME_MS);
+                    }, 2 * ANIMATION_TIME_MS * iteration * iteration);
                   };  
-                  callback();
+                  callback(1);
                 }
                 if ($filter('isFindOnMapType')(question) && question.options) {
                   for (var i = 0; i < question.options.length; i++) {
