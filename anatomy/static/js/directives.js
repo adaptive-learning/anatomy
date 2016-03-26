@@ -972,7 +972,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
 
-        $scope.flashcards = [];
+        $scope.flashcards = [$scope.question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var fcByDescription = {};
           flashcards = flashcards.filter(function(fc) {

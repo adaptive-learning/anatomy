@@ -267,7 +267,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         filter.all = 'True';
         filter.without_contexts = 'True';
         $http.get('/flashcards/flashcards', {
-          params: filter
+          params: filter,
+          cache: true,
         }).success(function(data) {
           deferredFlashcards.resolve(data.data);
         }).error(function(data) {
