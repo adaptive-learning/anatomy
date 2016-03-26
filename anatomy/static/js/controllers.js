@@ -169,10 +169,15 @@ angular.module('proso.anatomy.controllers', [])
               if ($scope.checking) {
                 return;
               }
+              var selectedFC;
+              if (selected.description) {
+                selectedFC = selected;
+                selected = selected.description;
+              }
               $scope.checking = true;
               var asked = $scope.question.description;
               $scope.imageController.highlightAnswer($scope.question, selected);
-              saveAnswer(selected, keyboardUsed);
+              saveAnswer(selected, keyboardUsed, selectedFC);
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
@@ -213,13 +218,15 @@ angular.module('proso.anatomy.controllers', [])
         $scope.controller = controller;
 
 
-        function saveAnswer(selected, keyboardUsed) {
+        function saveAnswer(selected, keyboardUsed, selectedFC) {
           $scope.question.answered_code = selected;
           $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
           var isCorrect = $scope.question == selected;
-          var selectedFC = isCorrect ?
-            $scope.question :
-            controller.getFlashcardByDescription(selected);
+          if (!selectedFC) {
+            selectedFC = isCorrect ?
+              $scope.question :
+              controller.getFlashcardByDescription(selected);
+          }
           var meta;
           if (keyboardUsed) {
             meta = {keyboardUsed: keyboardUsed};

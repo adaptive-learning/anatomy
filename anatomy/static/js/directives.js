@@ -993,13 +993,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.canAnswer = function() {
           return !$scope.canNext && $scope.answer && $scope.answer.description;
         };
-        $scope.checkAnswer = function() {
+        $scope.checkAnswer = function(keyboardUsed) {
           if ($scope.canAnswer()) {
             if ($scope.question.description != $scope.answer.description &&
                 $scope.question.term.name == $scope.answer.term.name) {
               $scope.answer = $scope.question;
             }
-            $scope.controller.checkAnswer($scope.answer.description);
+            $scope.controller.checkAnswer($scope.answer, keyboardUsed);
             if ($scope.question.description == $scope.answer.description) {
               $scope.question.isCorrect = true;
             } else {
@@ -1016,7 +1016,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         element.children('input').focus();
         $scope.inputKeypress = function($event) {
           if ($event.which == 13) {
-            $scope.checkAnswer();
+            $scope.checkAnswer(true);
           }
         };
       }
