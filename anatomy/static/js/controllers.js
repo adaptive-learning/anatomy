@@ -170,7 +170,7 @@ angular.module('proso.anatomy.controllers', [])
                 return;
               }
               var selectedFC;
-              if (selected.description) {
+              if (selected && selected.description) {
                 selectedFC = selected;
                 selected = selected.description;
               }
