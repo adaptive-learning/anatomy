@@ -1,0 +1,42 @@
+{
+  "experiments": [
+    {
+      "variables": [
+        {
+          "values": [
+            {
+              "probability": 25,
+              "value": "0.50"
+            },
+            {
+              "probability": 25,
+              "value": "0.60"
+            },
+            {
+              "probability": 25,
+              "value": "0.70"
+            },
+            {
+              "probability": 25,
+              "value": "0.80"
+            }
+          ],
+          "name": "item_selector.parameters.target_probability",
+          "app_name": "proso_models"
+        },
+        {
+          "values": [
+            {
+              "probability": 100,
+              "value": "false"
+            }
+          ],
+          "name": "item_selector.parameters.history_adjustment",
+          "app_name": "proso_models"
+        }
+      ],
+      "id": "target-difficulty",
+      "disabled": false
+    }
+  ]
+}
