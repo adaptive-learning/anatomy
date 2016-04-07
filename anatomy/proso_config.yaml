@@ -5,7 +5,9 @@ default:
         predictive_model:
             class: proso.models.prediction.PriorCurrentPredictiveModel
         option_selector:
-            class: proso.models.option_selection.ConfusingOptionSelection
+            class: proso.models.option_selection.AdjustedOptionSelection
+        options_number:
+            class: AdjustedOptionsNumber
             parameters:
                 allow_zero_options_restriction: false
         mastery_threshold: 0.901
