@@ -54,11 +54,10 @@ INSTALLED_APPS = (
     'proso_configab',
     'proso_common',
     'proso_models',
-    'proso_questions',
     'proso_user',
     'proso_feedback',
     'proso_flashcards',
-    'social_auth',
+    'social.apps.django_app.default'
     'anatomy',
 )
 
@@ -156,8 +155,8 @@ STATICFILES_DIRS = (
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'lazysignup.backends.LazySignupBackend',
-    'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
 )
 
 FACEBOOK_APP_ID = os.getenv('PROSO_FACEBOOK_APP_ID', '')
