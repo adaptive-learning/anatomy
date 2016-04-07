@@ -56,7 +56,7 @@ def home(request, hack=None):
     if hack == 'home':
         hack = None
     c = {
-        'title': _(u'Anatom.cz') + ' - ' + _(u'procvičování anatomie člověka v obrázcích'),
+        'title': _('Anatom.cz') + ' - ' + _('procvičování anatomie člověka v obrázcích'),
         'headline': get_headline_from_url(hack),
         'is_production': settings.ON_PRODUCTION,
         'css_files': CSS_FILES,
@@ -104,7 +104,7 @@ def get_headline_from_url(hack):
     headline = ""
     if hack:
         url = hack.split('/')
-        if url[0] == u'view' or url[0] == u'practice':
+        if url[0] == 'view' or url[0] == 'practice':
             try:
                 category = Category.objects.get(
                     lang=get_language(), identifier=url[1])
@@ -118,8 +118,8 @@ def get_headline_from_url(hack):
                     headline += ' - ' + category.name
             except Category.DoesNotExist:
                 pass
-        elif url[0] == u'overview':
-            headline = _(u'Přehled znalostí')
+        elif url[0] == 'overview':
+            headline = _('Přehled znalostí')
     return headline
 
 
@@ -138,7 +138,7 @@ def load_flashcards(request):
             c.children_type = Category.TERMS
             c.save()
         cache.clear()
-        response = u"""{
+        response = """{
             "type": "success",
             "msg" : "Obrázek byl úspěšně nahrán na %s"
         }""" % request.build_absolute_uri('/')[:-1]
