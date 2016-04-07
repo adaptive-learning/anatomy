@@ -16,7 +16,7 @@ python $DIR/manage.py compilemessages
 python $DIR/manage.py load_user_questions $DIR/data/user-questions.json
 
 cd $DIR/anatomy
-npm install
+npm install --python=/usr/bin/python2.7
 grunt --verbose
 cd $DIR
 
