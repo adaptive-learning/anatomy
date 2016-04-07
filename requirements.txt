@@ -1,4 +1,4 @@
 dj-database-url==0.3.0
-proso-apps==1.2.19
+proso-apps==2.0.5
 python-memcached==1.57
-transifex-client==0.10
+transifex-client==0.11

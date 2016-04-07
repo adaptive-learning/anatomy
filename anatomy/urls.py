@@ -30,7 +30,6 @@ urlpatterns = patterns(
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
 
     url(r'^user/', include('proso_user.urls')),
-    url(r'^questions/', include('proso_questions.urls')),
     url(r'^models/', include('proso_models.urls')),
     url(r'^ab/', include('proso_ab.urls')),
     url(r'^common/', include('proso_common.urls')),
@@ -38,6 +37,6 @@ urlpatterns = patterns(
     url(r'^convert/', include('lazysignup.urls')),
     url(r'^feedback/', include('proso_feedback.urls')),
     url(r'^flashcards/', include('proso_flashcards.urls')),
-    url(r'', include('social_auth.urls')),
+    url('', include('social.apps.django_app.urls', namespace='social')),
 )
 urlpatterns += staticfiles_urlpatterns()

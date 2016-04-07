@@ -13,7 +13,7 @@ class Command(BaseCommand):
             for i, ip in cursor:
                 ips[ip].append(i)
         with closing(connection.cursor()) as cursor:
-            for ip, ids in ips.iteritems():
+            for ip, ids in ips.items():
                 new_id = min(ids)
                 ids_str = ','.join(map(str, ids))
                 cursor.execute(('UPDATE proso_user_session SET location_id = {} WHERE location_id IN (' + ids_str + ')').format(new_id))

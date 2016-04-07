@@ -29,7 +29,7 @@ class LanguageInDomainMiddleware(object):
         language_code = translation.get_language()
         target_domain = settings.LANGUAGE_DOMAINS[language_code]
         if target_domain != request.META['HTTP_HOST']:
-            domain_to_lang_dict = dict((v, k) for k, v in settings.LANGUAGE_DOMAINS.iteritems())
+            domain_to_lang_dict = dict((v, k) for k, v in settings.LANGUAGE_DOMAINS.items())
             language_code = domain_to_lang_dict.get(request.META['HTTP_HOST'])
             if language_code is not None:
                 set_lang(request, language_code)
