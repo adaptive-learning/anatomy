@@ -32,6 +32,7 @@ urlpatterns = patterns(
     url(r'^user/', include('proso_user.urls')),
     url(r'^models/', include('proso_models.urls')),
     url(r'^ab/', include('proso_ab.urls')),
+    url(r'^configab/', include('proso_configab.urls')),
     url(r'^common/', include('proso_common.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^convert/', include('lazysignup.urls')),
