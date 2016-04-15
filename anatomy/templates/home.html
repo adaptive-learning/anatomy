@@ -188,9 +188,17 @@
       <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
         <span class="col-sm-3">
         <ul>
-          <li>
+          <li class="visible-xs">
             <a feedback-comment  email="{{email}}" href="" class="btn btn-primary">
                {% trans "Napište nám" %}
+            </a>
+          </li>
+          <br>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=martinmatko.anatomy"
+                track-click="android footer">
+              <img src="{% static 'img/android.png' %}"
+                alt="{% trans "Aplikace na Google Play" %}" >
             </a>
           </li>
         </ul>
