@@ -131,6 +131,7 @@ def load_flashcards(request):
             'load_flashcards',
             filepath,
             ignored_flashcards='disable',
+            skip_language_check=True,
             verbosity=0,
             interactive=False)
         categories = Category.objects.filter(children_type=Category.CATEGORIES)
