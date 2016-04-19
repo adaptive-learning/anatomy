@@ -71,7 +71,7 @@ angular.module('proso.anatomy', [
           //redirectTo : '/'
         });
 
-        var languages = ['cs', 'en', 'es'];
+        var languages = ['cs', 'en'];
         for (var i = 0; i < languages.length; i++) {
             $routeProvider.when('/' + languages[i] + '/:somepath?', {
                 controller : 'ReloadController',

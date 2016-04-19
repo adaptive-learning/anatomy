@@ -2,8 +2,8 @@
 /* Controllers */
 angular.module('proso.anatomy.controllers', [])
 
-.controller('AppCtrl', ['$scope', '$rootScope', 'userService', 'pageTitle', 'configService', 'gettextCatalog', '$location', 'categoryService',
-    function($scope, $rootScope, userService, pageTitle, configService, gettextCatalog, $location, categoryService) {
+.controller('AppCtrl', ['$scope', '$rootScope', 'userService', 'pageTitle', 'configService', 'gettextCatalog', '$location', 'categoryService', 'termsLanguageService',
+    function($scope, $rootScope, userService, pageTitle, configService, gettextCatalog, $location, categoryService, termsLanguageService) {
         'use strict';
         $scope.configService = configService;
         $scope.userService = userService;
@@ -22,6 +22,7 @@ angular.module('proso.anatomy.controllers', [])
         $scope.initLanguageCode = function (code) {
             gettextCatalog.setCurrentLanguage(code);
             $rootScope.LANGUAGE_CODE = code;
+            termsLanguageService.init(code);
         };
         if ($location.search().sessionid) {
           userService.loadUser();
@@ -144,9 +145,9 @@ angular.module('proso.anatomy.controllers', [])
 ])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
-    'practiceService', 'userService', 'imageService',
+    'practiceService', 'userService', 'imageService', 'termsLanguageService',
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, imageService) {
+        practiceService, userService, imageService, termsLanguageService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -298,6 +299,7 @@ angular.module('proso.anatomy.controllers', [])
             if ($routeParams.context) {
                 filter.contexts = [$routeParams.context];
             }
+            filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);
             practiceService.getFlashcard().then(function(q) {
                 $scope.questions = [];

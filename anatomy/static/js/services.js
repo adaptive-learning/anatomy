@@ -254,8 +254,51 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('flashcardService', ["$http", "$q",
-      function ($http, $q) {
+  .factory('termsLanguageService', ["$cookies", function($cookies) {
+    var termsLang;
+    var uiLang;
+    var possibleLangs = {
+      'cs': [{
+        code : 'cs',
+        name : 'Latinsky',
+      }, {
+        code : 'cc',
+        name : 'Česky',
+      }],
+      'en': [{
+        code : 'la',
+        name : 'Latin',
+      }, {
+        code : 'en',
+        name : 'English',
+      }],
+    };
+    var that = {
+      init : function(lang) {
+        uiLang = lang;
+        if ($cookies.termsLang) {
+          termsLang = $cookies.termsLang;
+        } else {
+          $cookies.termsLang = lang;
+          termsLang = lang;
+        }
+      },
+      setTermsLang : function(lang) {
+        termsLang = lang;
+        $cookies.termsLang = termsLang;
+      },
+      getTermsLang : function() {
+        return termsLang;
+      },
+      getPossibleTermsLangs : function() {
+        return possibleLangs[uiLang];
+      },
+    };
+    return that;
+  }])
+
+  .factory('flashcardService', ["$http", "$q", "termsLanguageService",
+      function ($http, $q, termsLanguageService) {
     'use strict';
 
     var that = {
@@ -264,6 +307,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         for (var i in filter) {
           filter[i] = angular.toJson(filter[i]);
         }
+        filter.language = termsLanguageService.getTermsLang();
         filter.all = 'True';
         filter.without_contexts = 'True';
         $http.get('/flashcards/flashcards', {

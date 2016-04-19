@@ -909,6 +909,24 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('practiceSetting', ['termsLanguageService',
+      function(termsLanguageService) {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        categoryId: '=categoryId',
+        category2Id: '=category2Id',
+      },
+      templateUrl : 'static/tpl/practice_setting_tpl.html',
+      link: function ($scope) {
+        $scope.possibleLangs = termsLanguageService.getPossibleTermsLangs();
+        $scope.setTermsLang = termsLanguageService.setTermsLang;
+        $scope.getTermsLang = termsLanguageService.getTermsLang;
+      }
+    };
+  }])
+
   .directive('practiceActionButtons', ['userService', 'hotkeys',
       function(userService, hotkeys) {
     return {
@@ -918,6 +936,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         question: '=question',
         canNext: '=canNext',
         controller: '=controller',
+        categoryId: '=categoryId',
+        category2Id: '=category2Id',
       },
       templateUrl : 'static/tpl/practice_action_buttons_tpl.html',
       link: function ($scope) {
