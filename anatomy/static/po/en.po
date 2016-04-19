@@ -1,11 +1,12 @@
 # 
 # Translators:
-# Marek Cierny <cierny.m@gmail.com>, 2015
+# Marek Čierny <cierny.m@gmail.com>, 2015
+# Marek Čierny <cierny.m@gmail.com>, 2016
 # Vít Stanislav <slaweet@seznam.cz>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-04-07 04:55+0000\n"
+"PO-Revision-Date: 2016-04-19 08:40+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +16,7 @@ msgstr ""
 
 #: static/tpl/homepage.html:70
 msgid "1. Vybereš si orgánový systém nebo část těla"
-msgstr "1. Choose an organ system or a part"
+msgstr "1. Choose an organ system or a body part"
 
 #: static/tpl/homepage.html:85
 msgid "2. Poznáváš anatomické struktury a názvy"
@@ -23,7 +24,7 @@ msgstr "2. Recognize the anatomical structure and its name"
 
 #: static/tpl/homepage.html:100
 msgid "3. Sleduješ, jak ti rostou znalosti"
-msgstr "3. See how you are doing and how your knowledge grows"
+msgstr "3. Watch your knowledge growing"
 
 #: static/tpl/user_tpl.html:83
 msgid "Adresa profilu"
@@ -56,7 +57,7 @@ msgid ""
 "    Kašičková</strong> (studentka LF MU), MUDr. <strong>Ondřej Volný</strong>\n"
 "    (anatom, lékař NK FN u Sv. Anny) a MUDr. <strong>Radovan Hudák</strong>\n"
 "    (anatom AÚ 2. LF UK)."
-msgstr "The anatomy pictures and schemes were provided by the authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group: MUDr. <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), MUDr. <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno) and MUDr. <strong>Radovan Hudák</strong>\n(anatomist, AÚ 2. LF UK)."
+msgstr "The pictures and schemes of human body provide authors of successful textbook <a href=\"http://www.memorix.cz/\">Memorix Anatomy</a>. The adaptation of pictures for online use and medical fidelity is a responsibility of Memorix group: MUDr. <strong><a href=\"http://marek.cierny.cz\">Marek Čierny</a></strong> (coordinator, neurology resident at University Hospital Brno), <strong>Linda Kašičková</strong> (student, Medical Faculty, Masaryk University), MUDr. <strong>Ondřej Volný</strong> (anatomist, senior neurology resident at St. Anne’s Hospital Brno) and MUDr. <strong>Radovan Hudák</strong>\n(anatomist, Second Faculty of Medicine of Charles University)."
 
 #: static/tpl/about.html:128
 msgid ""
@@ -64,7 +65,7 @@ msgid ""
 "stahování, nebo dokonce distribuce jsou zakázány. V případě, že byste je "
 "chtěli využít jakkoli jinak než k prostému užití, jak nabízí aplikace, je "
 "nutné mít písemné svolení držitele autorskách práv (Radovan Hudák)."
-msgstr ""
+msgstr "All anatomical images and schemes are protected by copyright. Any copying, downloading or distribution are forbidden. If you would like to use any of our pictures for any other use, then is a personal use of our online application, you are required to obtain a written permission of copyright holder (Dr. Radovan Hudak, Memorix s.r.o.)."
 
 #: static/tpl/confirm_modal.html:12
 msgid "Ano"
@@ -82,7 +83,7 @@ msgid ""
 " Tvých možnostech, i třeba jen 2-4 hodiny měsíčně nám mohou pomoci posunout "
 "Anatoma dále. Napiš nám na <span class=\"email "
 "contact\">anatom{zavinac}memorix.cz</span> a domluvíme se."
-msgstr ""
+msgstr "Do you enjoy anatomy? Would you like to contributo to PracticeAnatomy? He are looking for volunteers, who would help us translate our app to local languages, name anatomical structures on pictures, add anatomical and clinical correlations or test new features. The intensity of contribution depends on your capacity, even 2-4 hours per month may help improve the features of PracticeAnatomy. Please contact us at <span class=\"email contact\">anatom{zavinac}memorix.cz</span> and we'll find what fits you."
 
 #: static/tpl/user_tpl.html:14
 msgid "Body"
@@ -133,11 +134,11 @@ msgstr "The application remember responses from all users who have ever used it,
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/js/services.js:396
+#: static/js/services.js:440
 msgid "Fakulta"
 msgstr "Faculty"
 
-#: static/js/controllers.js:429
+#: static/js/controllers.js:431
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -148,6 +149,11 @@ msgstr "How is the estimate of knowledge calculated?"
 #: static/tpl/homepage.html:66
 msgid "Jak to funguje?"
 msgstr "How does it work?"
+
+#: static/tpl/practice_setting_tpl.html:4
+#: static/tpl/practice_setting_tpl.html:8
+msgid "Jazyk terminologie"
+msgstr "Terminology language"
 
 #: static/tpl/sign_in_banner.html:9
 msgid ""
@@ -212,7 +218,7 @@ msgstr "Brain"
 msgid "Mozková část hlavy"
 msgstr "Head - Brain"
 
-#: static/js/services.js:414
+#: static/js/services.js:458
 msgid "Muž"
 msgstr "Man"
 
@@ -245,7 +251,7 @@ msgid ""
 "Slaníková, Albert Štěrba.</strong> Děkujeme také studentům a studentkám, "
 "kteří s tvorbou Anatoma pomáhali v minulosti: Veronice Puchnerové, Michaele "
 "Janákové a Karolíně Svobodové."
-msgstr ""
+msgstr "Anatomical pictures are described with a great contribution from the following volunteering medical students: <strong>David Dufek, Lydia Novakova, Adriana Slaníkova, Albert Sterba.</strong> Many thanks belong to students who contrbuted to PracticeAnatomy earlier: Veronika Puchnerova, Michaela Janakova and Karolina Svobodova."
 
 #: static/tpl/progress_labels_tpl.html:16
 msgid ""
@@ -272,7 +278,7 @@ msgstr "No"
 msgid "Nenaučeno"
 msgstr "Unlearned"
 
-#: static/js/services.js:413
+#: static/js/services.js:457
 msgid "Neuvedeno"
 msgstr "Unknown"
 
@@ -292,13 +298,13 @@ msgstr "About us"
 msgid "Obličejová část hlavy"
 msgstr "Facial pat of the head"
 
-#: static/js/services.js:401
+#: static/js/services.js:445
 msgid "Obor"
 msgstr "Field of study"
 
 #: static/tpl/about.html:127
 msgid "Ochrana díla"
-msgstr ""
+msgstr "Content protection"
 
 #: static/tpl/color_scale_legend.html:3
 msgid "Odhad tvých znalostí"
@@ -312,13 +318,13 @@ msgstr "Knowledge estimate"
 msgid "Opakování lékařské anatomie"
 msgstr "Review medical anatomy"
 
-#: static/js/controllers.js:354
+#: static/js/controllers.js:356
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
 #: static/tpl/open_questions_alert_tpl.html:3
 msgid "Otevřené otázky byly zakázány."
-msgstr ""
+msgstr "Open questions were forbidden."
 
 #: static/tpl/homepage.html:164
 msgid "Otázky Tobě na míru"
@@ -328,7 +334,7 @@ msgstr "Questions fitted to your knowledge"
 msgid "Pochlub se svými znalostmi"
 msgstr "Show off your knowledge"
 
-#: static/js/services.js:410
+#: static/js/services.js:454
 msgid "Pohlaví"
 msgstr "Sex"
 
@@ -470,7 +476,7 @@ msgstr "Next level"
 msgid "Registrovat se"
 msgstr "Sign up"
 
-#: static/js/services.js:406
+#: static/js/services.js:450
 msgid "Rok zápisu"
 msgstr "Enrollment year"
 
@@ -532,7 +538,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 msgid "Upravit profil"
 msgstr "Edit profile"
 
-#: static/js/controllers.js:447 static/js/directives.js:644
+#: static/js/controllers.js:449 static/js/directives.js:644
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -654,10 +660,10 @@ msgstr "p."
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/js/controllers.js:358
+#: static/js/controllers.js:360
 msgid "Části těla"
 msgstr "Body parts"
 
-#: static/js/services.js:415
+#: static/js/services.js:459
 msgid "Žena"
 msgstr "Woman"
