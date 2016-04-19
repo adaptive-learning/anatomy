@@ -254,7 +254,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('termsLanguageService', ["$cookies", function($cookies) {
+  .factory('termsLanguageService', ["$cookies", "$location",
+      function($cookies, $location) {
     var termsLang;
     var uiLang;
     var possibleLangs = {
@@ -276,12 +277,14 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     var that = {
       init : function(lang) {
         uiLang = lang;
-        if ($cookies.termsLang) {
+        if ($location.search().termsLang) {
+          termsLang = $location.search().termsLang;
+        } else if ($cookies.termsLang) {
           termsLang = $cookies.termsLang;
         } else {
-          $cookies.termsLang = lang;
           termsLang = lang;
         }
+        $cookies.termsLang = termsLang;
       },
       setTermsLang : function(lang) {
         termsLang = lang;
