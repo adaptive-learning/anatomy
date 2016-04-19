@@ -1,0 +1,27 @@
+<div class="btn-group dropup" role="group" style="width: 100%">
+  <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="glyphicon glyphicon-cog"></i>
+    {{'Jazyk terminologie' | translate}}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header" translate>Jazyk terminologie</li>
+    <li ng-repeat="lang in possibleLangs">
+     <a href="/refreshpractice/{{categoryId}}/{{category2Id}}"
+        ng-click="setTermsLang(lang.code)"
+        style="{{lang.code == getTermsLang() ? 'font-weight: bold;' : ''}}">
+        {{lang.name}}
+      </a>
+    </li>
+    <!--
+    <li role="separator" class="divider"></li>
+    <li class="dropdown-header">Otázky s psaním odpovědi</li>
+    <li ng-repeat="lang in possibleLangs">
+      <a href="" ng-click="setTermsLang(lang.code)"
+        style="{{lang.code == getTermsLang() ? 'font-weight: bold;' : ''}}">
+        {{lang.name}} {{lang.code == getTermsLang()}} 
+      </a>
+    </li>
+    -->
+  </ul>
+</div>
