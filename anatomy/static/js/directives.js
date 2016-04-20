@@ -879,6 +879,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         question: '=question',
         imageController: '=imageController',
         clickFn: '=clickFn',
+        categoryId: '=categoryId',
+        category2Id: '=category2Id',
       },
       templateUrl : 'static/tpl/question_and_answer_tpl.html',
       link: function ($scope) {
@@ -936,8 +938,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         question: '=question',
         canNext: '=canNext',
         controller: '=controller',
-        categoryId: '=categoryId',
-        category2Id: '=category2Id',
       },
       templateUrl : 'static/tpl/practice_action_buttons_tpl.html',
       link: function ($scope) {

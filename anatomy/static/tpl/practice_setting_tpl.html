@@ -1,16 +1,15 @@
-<div class="btn-group dropup" role="group" style="width: 100%">
-  <button type="button" class="btn btn-default btn-lg dropdown-toggle"
+<span class="btn-group" role="group">
+  <button type="button" class="btn btn-default btn-sm dropdown-toggle"
     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    style="min-width: auto; margin-bottom: 0"
     track-click="change terms lang">
     <i class="glyphicon glyphicon-cog"></i>
-    {{'Jazyk terminologie' | translate}}
-    <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
     <li class="dropdown-header" translate>Jazyk terminologie</li>
     <li ng-repeat="lang in possibleLangs">
      <a href="/refreshpractice/{{categoryId}}/{{category2Id}}"
-        track-click="change terms lang {{lang.code}}">
+        track-click="change terms lang {{lang.code}}"
         ng-click="setTermsLang(lang.code)"
         style="{{lang.code == getTermsLang() ? 'font-weight: bold;' : ''}}">
         {{lang.name}}
@@ -27,4 +26,4 @@
     </li>
     -->
   </ul>
-</div>
+</span>
