@@ -8,6 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 DATA_DIR = os.environ.get('PROSO_DATA_DIR', os.path.join(BASE_DIR, 'data'))
 MEDIA_ROOT = os.environ.get('PROSO_MEDIA_ROOT', os.path.join(BASE_DIR, '../media'))
 MEDIA_URL = '/media/'
+FILEBROWSER_DIRECTORY = 'thumbs/'
 
 SECRET_KEY = os.getenv('PROSO_SECRET_KEY', 'really secret key')
 
@@ -58,6 +59,8 @@ INSTALLED_APPS = (
     'proso_feedback',
     'proso_flashcards',
     'social.apps.django_app.default',
+    'grappelli',
+    'filebrowser',
     'anatomy',
 )
 

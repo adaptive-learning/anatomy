@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import RedirectView
 from django.http import HttpResponse
+from filebrowser.sites import site
 
 admin.autodiscover()
 
@@ -35,6 +36,8 @@ urlpatterns = patterns(
     url(r'^ab/', include('proso_ab.urls')),
     url(r'^configab/', include('proso_configab.urls')),
     url(r'^common/', include('proso_common.urls')),
+    url(r'^admin/filebrowser/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^convert/', include('lazysignup.urls')),
     url(r'^feedback/', include('proso_feedback.urls')),
