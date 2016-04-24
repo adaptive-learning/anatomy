@@ -28,6 +28,7 @@ urlpatterns = patterns(
     url(r'^robots.txt$', lambda r: HttpResponse(
         "User-agent: *\nDisallow: ", content_type="text/plain")),
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
+    url(r'^savescreenshot/', 'anatomy.views.save_screenshot', name='save_screenshot'),
 
     url(r'^user/', include('proso_user.urls')),
     url(r'^models/', include('proso_models.urls')),

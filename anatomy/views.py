@@ -15,6 +15,7 @@ from proso_models.models import get_environment
 from proso_flashcards.models import FlashcardAnswer, Flashcard
 from datetime import datetime, timedelta
 import random
+import base64
 
 
 @ensure_csrf_cookie
@@ -148,3 +149,36 @@ def load_flashcards(request):
         return HttpResponse(response, content_type='application/javascript')
     else:
         return HttpResponseBadRequest('Error, invalid context: ' + context)
+
+
+def save_screenshot(request):
+    if request.body:
+        data = json.loads(request.body.decode("utf-8"))
+        image = data['image']
+        filename = os.path.join(
+            settings.MEDIA_ROOT, 'thumbs', data['name'] + '.png')
+        save_base64_to_file(filename, image)
+        if hasattr(request.user, "username"):
+            filename = os.path.join(
+                settings.MEDIA_ROOT,
+                'userthumbs',
+                request.user.username + '--' + data['name'] + '.png')
+            save_base64_to_file(filename, image)
+
+        response = """{
+            "type": "success",
+            "msg" : "Obrázek byl úspěšně nahrán"
+        }"""
+        return HttpResponse(response, content_type='application/javascript')
+
+
+def save_base64_to_file(filename, image):
+    directory = os.path.dirname(filename)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    head = 'data:image/png;base64,'
+    if head in image:
+        image = image[len(head):]
+        fh = open(filename, "wb")
+        fh.write(base64.b64decode(image))
+        fh.close()

@@ -958,6 +958,40 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('imageScreenShot', ['$rootScope', '$http', '$timeout',
+      function($rootScope, $http, $timeout) {
+    var screenshotTaken;
+    return {
+      restrict: 'A',
+      replace: true,
+      template : '<canvas style="display: none" id="screen-shot"></canvas> ',
+      link: function () {
+        function takeScreenshot(event, identifier) {
+          if (screenshotTaken) {
+            return;
+          }
+          var svg = document.querySelector( "svg" );
+          var svgData = new XMLSerializer().serializeToString(svg);
+          var canvas = document.getElementById("screen-shot");
+          window.canvg(canvas, svgData);
+          var imgSrc    = canvas.toDataURL("image/png");
+          var data = {
+            name : identifier,
+            image : imgSrc,
+          };
+          $http.post('/savescreenshot/', data);
+          screenshotTaken = true;
+        }
+        $rootScope.$on('imageDisplayed', function(event, identifier) {
+          $timeout(function() {
+            takeScreenshot(event, identifier);
+          }, 500);
+        });
+
+      }
+    };
+  }])
+
   .directive('openQuestionsAlert', ['configService',
       function(configService) {
     return {
