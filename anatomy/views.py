@@ -179,6 +179,9 @@ def save_base64_to_file(filename, image):
     head = 'data:image/png;base64,'
     if head in image:
         image = image[len(head):]
-        fh = open(filename, "wb")
-        fh.write(base64.b64decode(image))
-        fh.close()
+        file_size = os.path.getsize(filename) if os.path.exists(filename) else 0
+        image_encoded = base64.b64decode(image)
+        if file_size < len(image_encoded):
+            fh = open(filename, "wb")
+            fh.write(image_encoded)
+            fh.close()
