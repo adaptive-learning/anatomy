@@ -283,7 +283,9 @@ angular.module('proso.anatomy.controllers', [])
                 });
                 var imageName = active.context.identifier + (
                   active.direction == 'd2t' ? '--' + active.description : '');
-                $rootScope.$emit('imageDisplayed', imageName);
+                if (!active.options || active.options.length === 0) {
+                  $rootScope.$emit('imageDisplayed', imageName);
+                }
               });
         }
 
