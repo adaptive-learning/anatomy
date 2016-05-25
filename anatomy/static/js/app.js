@@ -39,6 +39,8 @@ angular.module('proso.anatomy', [
             templateUrl : 'loading.html'
         }).when('/about', {
             templateUrl : 'static/tpl/about.html'
+        }).when('/offer', {
+            templateUrl : 'static/tpl/offer.html'
         }).when('/view/:category?/image/:context?', {
             controller : 'AppView',
             templateUrl : 'static/tpl/view_tpl.html'

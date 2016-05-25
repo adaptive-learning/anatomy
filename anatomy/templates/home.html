@@ -192,18 +192,7 @@
     </div>
     <rating-modal></rating-modal>
 
-  <div class="beta-alert text-center alert alert-warning" translate
-    ng-if="!('beta'|cookieExists)">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"
-        set-cookie-on-click="beta"
-        track-click="close testing banner">
-      <span aria-hidden="true">&times;</span>
-      <span class="sr-only">Close</span>
-    </button>
-    <strong>{% trans "Aplikace je ve fázi testování." %}</strong>
-    {% trans "Pokud narazíš na jakékoliv problémy s ovládáním nebo obsahem, máš jakékoliv nápady na zlepšení nebo jiné připomínky," %} <a feedback-comment href="" email="{{userService.user.email}}">{% trans "napiš nám" %}</a>{% if LANGUAGE_CODE == "cs" %} nebo vyplň <a href="https://docs.google.com/forms/d/19OIKttWieQRHEmFkn_E6Ilenoavv_umIL2f3RRWmCe4/viewform" target="_blank">strukturovaný formulář</a>{% endif %}.
-  </div>
-
+  <div ng-include="'/static/tpl/offer_banner.html'"></div>
   <div sign-in-banner></div>
   <div user-questions-banner></div>
 
