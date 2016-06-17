@@ -258,6 +258,7 @@ angular.module('proso.anatomy.controllers', [])
             if ($scope.question) {
                 $scope.question.slideOut = true;
             }
+            active.direction = 'd2t';
             $scope.question = active;
             $scope.activeQuestion = active;
             $scope.question.startTime = new Date().valueOf();

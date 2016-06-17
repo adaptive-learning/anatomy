@@ -42,7 +42,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 .directive('anatomyImage', [
     'imageService', '$window', '$', 'colorService', '$timeout', '$filter', 'colors',
     function(imageService, $window, $, colorService, $timeout, $filter, colors) {
-  var ANIMATION_TIME_MS = 1000;
+  var ANIMATION_TIME_MS = 1;
 
   return {
       restrict: 'A',
@@ -162,10 +162,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 if ($filter('isPickNameOfType')(question)) {
                   var callback = function(iteration) {
                     that.highlightItem(
-                      question.description, colors.HIGHLIGHTS[1], true);
+                      question.description, colors.HIGHLIGHTS[6], true);
                     $timeout(function() {
                       if (!question.responseTime) {
-                        callback(iteration + 1);
+                        //callback(iteration + 1);
                       }   
                     }, 2 * ANIMATION_TIME_MS * iteration * iteration);
                   };  

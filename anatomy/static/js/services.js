@@ -16,6 +16,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       '#312883',
       '#fdea11',
       '#951b80',
+      '#ec1c24',
     ],
     'HIGHLIGHTS_CONTRAST' : [
       '#000',
@@ -369,7 +370,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         return '#000000';
       }
       for (i = 0; i < rgb.length; i++) {
-        rgb[i] = Math.floor((rgb[i] + grayAverage * 8) / 9);
+        rgb[i] = grayAverage;
       }
       return that.rgbToHex(rgb);
     },
