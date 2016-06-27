@@ -106,7 +106,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   }
                 });
 
-                if (animate) {
+                if (animate && false) {
                   var highlightEllipse = r.circle(
                     bbox.x + bbox.width / 2,
                     bbox.y + bbox.height / 2,
@@ -958,8 +958,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('imageScreenShot', ['$rootScope', '$http', '$timeout',
-      function($rootScope, $http, $timeout) {
+  .directive('imageScreenShot', ['$rootScope', '$http', '$timeout', '$location',
+      function($rootScope, $http, $timeout, $location) {
     var screenshotTaken;
     return {
       restrict: 'A',
@@ -967,9 +967,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       template : '<canvas style="display: none" id="screen-shot"></canvas> ',
       link: function () {
         function takeScreenshot(event, identifier) {
-          if (screenshotTaken) {
-            return;
-          }
           var svg = document.querySelector( "svg" );
           var svgData = new XMLSerializer().serializeToString(svg);
           var canvas = document.getElementById("screen-shot");
@@ -979,8 +976,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             name : identifier,
             image : imgSrc,
           };
-          $http.post('/savescreenshot/', data);
+          $http.post('/savescreenshot/', data).success(function() {
+          });
           screenshotTaken = true;
+          $location.path("/refreshpractice/");
         }
         $rootScope.$on('imageDisplayed', function(event, identifier) {
           $timeout(function() {
@@ -1026,6 +1025,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
 
+        if (false) {
         $scope.flashcards = [$scope.question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var fcByDescription = {};

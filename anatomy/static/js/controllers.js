@@ -272,6 +272,9 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.imageController.clearHighlights();
                 controller.highlight();
                 $scope.canNext = false;
+                var avoid = window.localStorage.getItem('avoid');
+                avoid += ',' + active.id;
+                window.localStorage.setItem('avoid', avoid);
 
                 $scope.imageController.onClick(function(code) {
                     if ($filter('isFindOnMapType')($scope.question) &&
@@ -282,9 +285,12 @@ angular.module('proso.anatomy.controllers', [])
                         $scope.$apply();
                     }
                 });
-                var imageName = active.context.identifier + (
-                  active.direction == 'd2t' ? '--' + active.description : '');
-                if (!active.options || active.options.length === 0) {
+                var imageName = (active.direction == 'd2t' ?  (
+                    active.description[0] == 'A' ?
+                    active.description :
+                    active.term.name) +
+                  '--': '') + active.context.item_id;
+                if (!active.options || active.options.length === 0 || true) {
                   $rootScope.$emit('imageDisplayed', imageName);
                 }
               });
