@@ -54,10 +54,18 @@ angular.module('proso.anatomy.filters', [])
 
   .filter('questionText', ['gettextCatalog', function(gettextCatalog) {
     return function(question) {
-      if (question && question.question_type == "t2d") {
+      var type = question && question.question_type;
+      var lang = 'cs';
+      if (type == "t2d") {
         return gettextCatalog.getString("Vyber");
-      } else if (question && question.question_type == "d2t") {
+      } else if (type == "d2t") {
         return gettextCatalog.getString("Co je zvýrazněno?");
+      } else if (type == "t2ts") {
+        return question.context.content.question[lang][type].replace('{}',
+          '<span class="label label-default">' + question.term.name + '</span>');
+      } else if (type == "ts2t") {
+        return question.context.content.question[lang][type].replace('{}',
+          '<span class="label label-default">' + question.term_secondary.name + '</span>');
       }
       return "";
     };

@@ -177,18 +177,20 @@ angular.module('proso.anatomy.controllers', [])
                 return;
               }
               var selectedFC;
-              if (selected && selected.description) {
+              if (selected && (selected.description || selected.term_secondary)) {
                 selectedFC = selected;
                 selected = selected.description;
               }
               $scope.checking = true;
               var asked = $scope.question.description;
-              $scope.imageController.highlightAnswer($scope.question, selected);
+              if ($scope.imageController) {
+                $scope.imageController.highlightAnswer($scope.question, selected);
+              }
               saveAnswer(selected, keyboardUsed, selectedFC);
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              var isCorrect = asked == selected;
+              var isCorrect = $scope.question.id == selectedFC.id;
               if (isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
@@ -228,6 +230,7 @@ angular.module('proso.anatomy.controllers', [])
 
         function saveAnswer(selected, keyboardUsed, selectedFC) {
           $scope.question.answered_code = selected;
+          $scope.question.answered_term_secondary = selectedFC.term_secondary;
           $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
           var isCorrect = $scope.question == selected;
           if (!selectedFC) {

@@ -450,9 +450,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         attrs.$observe('skills', function(skills) {
           if(skills !== '') {
             $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_flashcards =
-              Math.max(0, $scope.skills.number_of_practiced_flashcards -
-              ($scope.skills.number_of_mastered_flashcards || 0));
+            $scope.skills.number_of_nonmastered_practiced_items =
+              Math.max(0, $scope.skills.number_of_practiced_items -
+              ($scope.skills.number_of_mastered_items || 0));
           }
         });
         attrs.$observe('hideLabels', function(hideLabels) {
@@ -471,9 +471,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         attrs.$observe('skills', function(skills) {
           if(skills !== '') {
             $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_flashcards =
-              Math.max(0, $scope.skills.number_of_practiced_flashcards -
-              ($scope.skills.number_of_mastered_flashcards || 0));
+            $scope.skills.number_of_nonmastered_practiced_items =
+              Math.max(0, $scope.skills.number_of_practiced_items -
+              ($scope.skills.number_of_mastered_items || 0));
           }
         });
         attrs.$observe('hideLabels', function(hideLabels) {
@@ -856,8 +856,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         function highlightOptions() {
             ($scope.question.options || []).map(function(o) {
-                o.correct = o.description == $scope.question.description;
-                o.selected = o.description == $scope.question.answered_code;
+                o.correct = o.term_secondary ? 
+                  o.term_secondary.id == $scope.question.term_secondary.id :
+                  o.description == $scope.question.description;
+                o.selected = o.term_secondary ?
+                  o.term_secondary.id == $scope.question.answered_term_secondary.id :
+                  o.description == $scope.question.answered_code;
                 if (o.selected || o.correct) {
                   o.bgcolor = undefined;
                   o.color = undefined;
