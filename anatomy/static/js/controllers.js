@@ -49,7 +49,7 @@ angular.module('proso.anatomy.controllers', [])
       $scope.user = $routeParams.user || '';
 
       var filter = {
-          categories : $routeParams.category ? [$routeParams.category] : [],
+          filter : [ $routeParams.category ? ['category/' + $routeParams.category] : []],
       };
 
       categoryService.getAllByType().then(function(){
@@ -66,7 +66,7 @@ angular.module('proso.anatomy.controllers', [])
           var context = data[i];
           var id = context.identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, filter.categories, [id]);
+          userStatsService.addGroupParams(id, filter.filter, [id]);
         }
         userStatsService.getStatsPost(true, $scope.user).success(function(data) {
           angular.forEach($scope.contexts, function(context) {
@@ -112,8 +112,11 @@ angular.module('proso.anatomy.controllers', [])
             });
           }, 400);
           var filter = {
-            contexts : [context.identifier],
-            categories : $routeParams.category ? [$routeParams.category] : [],
+            filter : [ 
+              $routeParams.category ?
+                ['context/' + context.identifier, 'category/' + $routeParams.category] :
+                ['context/' + context.identifier],
+            ],
             stats : true,
             user : $routeParams.user,
           };
@@ -159,10 +162,13 @@ angular.module('proso.anatomy.controllers', [])
             $scope.imageController.highlightQuestion($scope.question);
           },
           getFlashcardByDescription : function(description) {
-            for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
-              var fc = $scope.question.context.flashcards[i];
-              if (fc.description == description) {
-                return fc;
+            if ($scope.question.context.flashcards) {
+              //TODO fix this
+              for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
+                var fc = $scope.question.context.flashcards[i];
+                if (fc.description == description) {
+                  return fc;
+                }
               }
             }
           },
@@ -199,9 +205,10 @@ angular.module('proso.anatomy.controllers', [])
           next : function(callback) {
               if ($scope.progress < 100) {
                   $scope.loadingNextQuestion = true;
-                  practiceService.getFlashcard().then(function(q) {
+                  practiceService.getQuestion().then(function(q) {
                       $scope.loadingNextQuestion = false;
-                      setQuestion(q);
+                      q.payload.question_type = q.question_type;
+                      setQuestion(q.payload);
                       if (callback) callback();
                   }, function(){
                       $scope.loadingNextQuestion = false;
@@ -232,7 +239,7 @@ angular.module('proso.anatomy.controllers', [])
           if (keyboardUsed) {
             meta = {keyboardUsed: keyboardUsed};
           }
-          practiceService.saveAnswerToCurrentFC(
+          practiceService.saveAnswerToCurrentQuestion(
             selectedFC && selectedFC.id, $scope.question.responseTime, meta);
         }
 
@@ -282,33 +289,39 @@ angular.module('proso.anatomy.controllers', [])
                     }
                 });
                 var imageName = active.context.identifier + (
-                  active.direction == 'd2t' ? '--' + active.description : '');
+                  active.question_type == 'd2t' ? '--' + active.description : '');
                 if (!active.options || active.options.length === 0) {
                   $rootScope.$emit('imageDisplayed', imageName);
                 }
               });
         }
 
+        function categoryToFilter(c) {
+          return c.split('-').map(function(c) {
+            return 'category/' + c;
+          });
+        }
+
         $scope.mapCallback = function() {
             practiceService.initSet('common');
-            var filter = {};
-            if ($routeParams.category2) {
-              filter.categories = $routeParams.category2.split('-');
-            }
+            var filter = {
+              filter: [],
+            };
             if ($routeParams.category) {
-              filter.categories = $routeParams.category.split('-');
-              if ($routeParams.category2) {
-                filter.categories = [$routeParams.category.split('-'), $routeParams.category2.split('-')];
-              }
+              filter.filter.push(categoryToFilter($routeParams.category));
+            }
+            if ($routeParams.category2) {
+              filter.filter.push(categoryToFilter($routeParams.category2));
             }
             if ($routeParams.context) {
-                filter.contexts = [$routeParams.context];
+                filter.filter.push('context/' + $routeParams.context);
             }
             filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);
-            practiceService.getFlashcard().then(function(q) {
+            practiceService.getQuestion().then(function(q) {
                 $scope.questions = [];
-                setQuestion(q);
+                q.payload.question_type = q.question_type;
+                setQuestion(q.payload);
 
             }, function(){
                 $scope.error = true;
