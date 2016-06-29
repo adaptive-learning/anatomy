@@ -1,10 +1,10 @@
 <progress class="overview-progress">
   <bar class="progress-bar-practiced" 
-      value="100 * skills.number_of_practiced_flashcards / skills.number_of_flashcards">
+      value="100 * skills.number_of_practiced_items / skills.number_of_items">
   </bar>
   <bar class="progress-bar-learned" 
-      value="100 * skills.number_of_mastered_flashcards / skills.number_of_flashcards"
-      ng-show="skills.number_of_mastered_flashcards">
+      value="100 * skills.number_of_mastered_items / skills.number_of_items"
+      ng-show="skills.number_of_mastered_items">
   </bar>
 </progress>
 <div category-progress-labels skills="{{skills}}" ng-hide="hideLabels"></div>

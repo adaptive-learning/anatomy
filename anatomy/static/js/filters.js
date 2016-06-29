@@ -32,13 +32,13 @@ angular.module('proso.anatomy.filters', [])
 
   .filter('isFindOnMapType', function() {
     return function(question) {
-      return question && question.direction == "t2d";
+      return question && question.question_type == "t2d";
     };
   })
 
   .filter('isPickNameOfType', function() {
     return function(question) {
-      return question && question.direction == "d2t";
+      return question && question.question_type == "d2t";
     };
   })
 
@@ -54,9 +54,9 @@ angular.module('proso.anatomy.filters', [])
 
   .filter('questionText', ['gettextCatalog', function(gettextCatalog) {
     return function(question) {
-      if (question && question.direction == "t2d") {
+      if (question && question.question_type == "t2d") {
         return gettextCatalog.getString("Vyber");
-      } else if (question && question.direction == "d2t") {
+      } else if (question && question.question_type == "d2t") {
         return gettextCatalog.getString("Co je zvýrazněno?");
       }
       return "";
@@ -171,7 +171,7 @@ angular.module('proso.anatomy.filters', [])
             "/view/" + (categoryId || '').split('-')[0] +
             "?context=" + question.context.identifier,
           question: $filter('questionText')(question) +
-            (question.direction == 'd2t' && question.options ?
+            (question.question_type == 'd2t' && question.options ?
               '\n  ' + question.options.map(function(o) {
                 return o.term.name;}).join('\n  ') :
               ' "' + question.term.name + '"'),
