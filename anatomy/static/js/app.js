@@ -8,6 +8,7 @@ angular.module('proso.anatomy', [
     'ngRoute',
     'ngAnimate',
     'ngCookies',
+    'ngSanitize',
     'ngLocationUpdate',
     'proso.anatomy.filters',
     'proso.anatomy.services',
