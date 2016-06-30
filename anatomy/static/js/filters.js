@@ -55,6 +55,7 @@ angular.module('proso.anatomy.filters', [])
   .filter('questionText', ['gettextCatalog', function(gettextCatalog) {
     return function(question) {
       var type = question && question.question_type;
+      //TODO get real lang
       var lang = 'cs';
       if (type == "t2d") {
         return gettextCatalog.getString("Vyber");

@@ -87,7 +87,7 @@ angular.module('proso.anatomy.controllers', [])
       var catId = $routeParams.category;
       userStatsService.clean();
       userStatsService.addGroup(catId, {});
-      userStatsService.addGroupParams(catId, filter.categories);
+      userStatsService.addGroupParams(catId, filter.filter);
       userStatsService.getStatsPost(true, $scope.user).success(function(data) {
         $scope.stats = data.data[catId];
       });
@@ -383,12 +383,12 @@ angular.module('proso.anatomy.controllers', [])
               isActive : isActive('location'),
             }];
             userStatsService.clean();
-            userStatsService.addGroup('all', {});
+            userStatsService.addGroup('all', []);
             for (var i = 0; i < $scope.categories.length; i++) {
               var cat = $scope.categories[i];
               var id = cat.identifier;
               userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [cat.identifier]);
+              userStatsService.addGroupParams(id, [['category/' + cat.identifier]]);
 
               cat.selected = ($cookies.selectedCategoires + '').indexOf(id) != -1;
             }
