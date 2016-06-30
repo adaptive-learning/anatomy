@@ -136,11 +136,11 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             var context = data.data[i];
             var id = context.identifier;
             userStatsService.addGroup(id, {});
-            userStatsService.addGroupParams(id, filter.categories, [id]);
+            userStatsService.addGroupParams(id, filter.filter, [id]);
           }
           var contexts = data.data;
 
-          userStatsService.getFlashcardCounts().success(function(data) {
+          userStatsService.getToPracticeCounts().success(function(data) {
             for (var i = 0; i < contexts.length; i++) {
               var context = contexts[i];
               var id = context.identifier;
@@ -162,7 +162,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getContext: function (id) {
         var deferredContext = $q.defer();
-        $http.get('/flashcards/context/' + id, {cache: true}
+        $http.get('/flashcards/context/' + id + '?contexts_with_flashcards=true', {cache: true}
         ).success(function(data) {
           if (data.data.content) {
             data.data.content = angular.fromJson(data.data.content);
@@ -219,7 +219,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         var category = categoriesByIdentifier[identifier];
         var subcategories;
         var filter = {
-            categories : identifier ? [identifier] : [],
+          filter : identifier ? ['category/' + identifier] : [],
         };
 
         if (category.type == "system") {
@@ -231,9 +231,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         for (var i = 0; i < subcategories.length; i++) {
           var id = subcategories[i].identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, [filter.categories, [id]]);
+          userStatsService.addGroupParams(id, [filter.filter, ['category/' + id]]);
         }
-        userStatsService.getFlashcardCounts().success(function(data) {
+        userStatsService.getToPracticeCounts().success(function(data) {
           for (var i = 0; i < subcategories.length; i++) {
             var subcategory = subcategories[i];
             var id = subcategory.identifier;
