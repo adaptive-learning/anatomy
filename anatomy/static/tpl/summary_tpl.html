@@ -9,12 +9,12 @@
            style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
       </div>
     </div>
-    <span ng-repeat="fc in summary.flashcards" 
+    <span ng-repeat="q in summary.questions" 
           track-click="practice summary change image"
-          ng-click="controller.highlightFlashcard(fc)"
-          class="label label-clickable {{fc.description != fc.answered_code &&
+          ng-click="controller.highlightFlashcard(q.payload)"
+          class="label label-clickable {{q.payload.description != q.payload.answered_code &&
             'label-unlearned' || 'label-learned' }} ">
-       {{fc.term.name | stripAlternatives}}
+       {{q.payload.term.name | stripAlternatives}}
     </span>
      <i class="glyphicon glyphicon-question-sign help-icon"
         popover-trigger="mouseenter"

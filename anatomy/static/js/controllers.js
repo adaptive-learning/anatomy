@@ -190,7 +190,7 @@ angular.module('proso.anatomy.controllers', [])
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              var isCorrect = $scope.question.id == selectedFC.id;
+              var isCorrect = $scope.question.description == selected || $scope.question.id == selectedFC && selectedFC.id;
               if (isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
@@ -230,7 +230,7 @@ angular.module('proso.anatomy.controllers', [])
 
         function saveAnswer(selected, keyboardUsed, selectedFC) {
           $scope.question.answered_code = selected;
-          $scope.question.answered_term_secondary = selectedFC.term_secondary;
+          $scope.question.answered_term_secondary = selectedFC && selectedFC.term_secondary;
           $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
           var isCorrect = $scope.question == selected;
           if (!selectedFC) {
