@@ -136,7 +136,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             var context = data.data[i];
             var id = context.identifier;
             userStatsService.addGroup(id, {});
-            userStatsService.addGroupParams(id, filter.filter, [id]);
+            userStatsService.addGroupParams(id, [filter.filter[0], ['context/' + id]]);
           }
           var contexts = data.data;
 
@@ -144,13 +144,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             for (var i = 0; i < contexts.length; i++) {
               var context = contexts[i];
               var id = context.identifier;
-              var number_of_flashcards = data.data[id];
-              context.stats = {
-                'number_of_flashcards' : number_of_flashcards,
-              };
+              context.stats = data.data[id];
             }
             contexts = contexts.filter(function(c) {
-              return c.stats.number_of_flashcards > 0;
+              return c.stats.number_of_items > 0;
             });
             deferredContext.resolve(contexts);
           });
@@ -237,10 +234,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           for (var i = 0; i < subcategories.length; i++) {
             var subcategory = subcategories[i];
             var id = subcategory.identifier;
-            var number_of_flashcards = data.data[id];
-            subcategory.stats = {
-              'number_of_flashcards' : number_of_flashcards,
-            };
+            subcategory.stats = data.data[id];
           }
           if (!$cookies.practiceDropdownUsed) {
             setTimeout(function() {

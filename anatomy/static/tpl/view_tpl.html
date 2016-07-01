@@ -35,7 +35,7 @@
             </button>
             <ul class="dropdown-menu pull-right">
               <li ng-repeat="subcategory in subcategories"
-                  ng-if="subcategory.stats.number_of_flashcards &gt; 9">
+                  ng-if="subcategory.stats.number_of_items &gt; 9">
                 <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}"
                     track-click="view dropdown practice" >
                  {{category.name}} - {{subcategory.name}}
@@ -57,7 +57,7 @@
 <div class="table table-striped col-sm-12">
 <br>
     <div class="row table-row fade-in-one-by-one {{activeContext==context && 'active'}}"
-      ng-if="context.stats && context.stats.number_of_flashcards"
+      ng-if="context.stats && context.stats.number_of_items"
       id="{{context.identifier}}" ng-repeat="context in contexts">
       <div class="col-md-5 col-md-offset-1 col-sm-6 image-open"
         track-click="view image"
