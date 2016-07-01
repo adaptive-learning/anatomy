@@ -2,12 +2,12 @@
  <span class="badge badge-default" >
    <i class="color-indicator learned"></i>
    <span translate>Naučeno</span>: 
-   <span ng-if="skills.number_of_mastered_flashcards !== undefined"
-     count-to="{{skills.number_of_mastered_flashcards}}"
+   <span ng-if="skills.number_of_mastered_items !== undefined"
+     count-to="{{skills.number_of_mastered_items}}"
      duration="0.6"
      count-from="0"></span>
-   {{skills.number_of_mastered_flashcards === undefined ? '...' : '/'}}
-   {{skills.number_of_flashcards || ''}}
+   {{skills.number_of_mastered_items === undefined ? '...' : '/'}}
+   {{skills.number_of_items || ''}}
    <i class="glyphicon glyphicon-question-sign help-icon"
       popover-trigger="mouseenter"
       popover-placement="bottom"
@@ -20,11 +20,11 @@
  <span class="badge badge-default">
    <i class="color-indicator practiced"></i>
    <span translate>Procvičováno</span>: 
-   <span ng-if="skills.number_of_practiced_flashcards !== undefined"
-     count-to="{{skills.number_of_practiced_flashcards}}"
+   <span ng-if="skills.number_of_practiced_items !== undefined"
+     count-to="{{skills.number_of_practiced_items}}"
      duration="0.6"
      count-from="0"></span>
-   {{skills.number_of_practiced_flashcards === undefined ? '...' : '/'}}
-   {{skills.number_of_flashcards || ''}}
+   {{skills.number_of_practiced_items === undefined ? '...' : '/'}}
+   {{skills.number_of_items || ''}}
  </span>
 </div>
