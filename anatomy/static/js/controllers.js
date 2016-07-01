@@ -191,7 +191,7 @@ angular.module('proso.anatomy.controllers', [])
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              var isCorrect = $scope.question.description == selected || $scope.question.id == selectedFC && selectedFC.id;
+              var isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
               if (isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
