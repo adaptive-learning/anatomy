@@ -1034,14 +1034,22 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var fcByDescription = {};
           flashcards = flashcards.filter(function(fc) {
-              if (fcByDescription[fc.description]) {
+              if ((fc.description && fcByDescription[fc.description]) || !fc.term) {
                   return false;
               }
               fcByDescription[fc.description] = true;
               return true;
           });
+          var initialLength = flashcards.length;
+          for (var i = 0; i < initialLength; i++) {
+            if(flashcards[i].term_secondary) {
+              var fc = angular.copy(flashcards[i]);
+              fc.term = fc.term_secondary;
+              flashcards.push(fc);
+            }
+          }
           $scope.flashcards = flashcards.map(function(f) {
-            f.term.primaryName = $filter('stripAlternatives')(f.term.name);
+            f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
             return f;
           }).sort(function(a, b){
               return a.term.primaryName.length - b.term.primaryName.length; 
@@ -1049,7 +1057,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
 
         $scope.canAnswer = function() {
-          return !$scope.canNext && $scope.answer && $scope.answer.description;
+          return !$scope.canNext && $scope.answer && (
+            $scope.answer.description || $scope.answer.term_secondary);
         };
         $scope.checkAnswer = function(keyboardUsed) {
           if ($scope.canAnswer()) {
