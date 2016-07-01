@@ -307,7 +307,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         filter.language = termsLanguageService.getTermsLang();
         filter.all = 'True';
         filter.without_contexts = 'True';
-        $http.get('/flashcards/flashcards', {
+        $http.get('/models/to_practice', {
           params: filter,
           cache: true,
         }).success(function(data) {

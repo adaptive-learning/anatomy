@@ -113,13 +113,14 @@ angular.module('proso.anatomy.controllers', [])
           }, 400);
           var filter = {
             filter : [ 
-              $routeParams.category ?
-                ['context/' + context.identifier, 'category/' + $routeParams.category] :
                 ['context/' + context.identifier],
             ],
             stats : true,
             user : $routeParams.user,
           };
+          if($routeParams.category) {
+              filter.filter.push(['category/' + $routeParams.category]);
+          }
           var activeContext = $scope.activeContext;
           contextService.getContext(context.id).then(function(fullContext) {
             if (activeContext != $scope.activeContext) {
