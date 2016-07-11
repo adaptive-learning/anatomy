@@ -3,7 +3,11 @@ default:
         random_test:
             nth: 10
         predictive_model:
-            class: proso.models.prediction.PriorCurrentPredictiveModel
+            class: proso.models.prediction.PFAEStaircase
+            parameters:
+              elo_alpha: 0.4
+              pfae_good: 2.6
+              pfae_bad: 0.7
         option_selector:
             class: proso.models.option_selection.AdjustedOptionSelection
         options_number:
