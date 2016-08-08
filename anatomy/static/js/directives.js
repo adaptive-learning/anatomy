@@ -1030,7 +1030,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
 
-        $scope.flashcards = [$scope.question];
+        var question = angular.copy($scope.question);
+        if (question.term_secondary && question.question_type == 't2ts') {
+            question.term = question.term_secondary;
+        }
+        $scope.flashcards = [question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var fcByDescription = {};
           flashcards = flashcards.filter(function(fc) {
@@ -1040,15 +1044,12 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               fcByDescription[fc.description] = true;
               return true;
           });
-          var initialLength = flashcards.length;
-          for (var i = 0; i < initialLength; i++) {
-            if(flashcards[i].term_secondary) {
-              var fc = angular.copy(flashcards[i]);
-              fc.term = fc.term_secondary;
-              flashcards.push(fc);
+          $scope.flashcards = flashcards.filter(function(f) {
+              return !(question.question_type == 't2ts' && f.term.name == question.term.name && !f.term_secondary);
+            }).map(function(f) {
+            if (question.question_type == 't2ts' && f.term_secondary) {
+              f.term = f.term_secondary;
             }
-          }
-          $scope.flashcards = flashcards.map(function(f) {
             f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
             return f;
           }).sort(function(a, b){
