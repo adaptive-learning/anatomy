@@ -94,7 +94,7 @@
       <div ng-if="activeContext==context"
           class="col-md-10 col-md-offset-1 col-sm-12 image-view-container">
         <span>
-          <div color-scale-legend ></div>
+          <div ng-if="context.content.paths" color-scale-legend ></div>
           <div ng-hide="context.flashcards && context.content" class="loading-indicator">
           </div>
           <span page-number="{{context.content.meta['textbook-page']}}"></span>
