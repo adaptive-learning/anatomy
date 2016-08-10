@@ -5,19 +5,19 @@
   category2-id="category2Id" >
 </span>
 <span class="label label-default"
-  tooltip-html-unsafe="{{question.term.name | alternativeNames}}"
+  tooltip-html-unsafe="{{question[question.question_type == 't2ts' ? 'term_secondary' : 'term'].name | alternativeNames}}"
   tooltip-placement="bottom"
   ng-show="(
     question|isFindOnMapType) ||
       (question.responseTime && 
       !question.options.length &&
-      question.answered_code != question.description)">
-{{question.term.name | stripAlternatives}}
+      !question.isCorrect)">
+{{question[question.question_type == 't2ts' ? 'term_secondary' : 'term'].name | stripAlternatives}}
 </span>
 <span ng-if="question.answered_code &&
     !question.options.length &&
     (question|isFindOnMapType) &&
-    question.answered_code != question.description">
+    !question.isCorrect">
   <span>{{'Vybráno' | translate }}</span>
   <span class="label label-default">
      {{getFlashcardByDescription(question.answered_code).term.name  | stripAlternatives}}

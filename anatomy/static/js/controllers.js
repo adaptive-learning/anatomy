@@ -196,6 +196,7 @@ angular.module('proso.anatomy.controllers', [])
                 selectedFC = selected;
                 selected = selected.description;
               }
+              $scope.question.selectedFC = selectedFC;
               $scope.checking = true;
               var asked = $scope.question.description;
               if ($scope.imageController) {
@@ -205,8 +206,8 @@ angular.module('proso.anatomy.controllers', [])
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              var isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
-              if (isCorrect) {
+              $scope.question.isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
+              if ($scope.question.isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
                         $scope.checking = false;
