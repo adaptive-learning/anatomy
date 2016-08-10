@@ -298,6 +298,8 @@ angular.module('proso.anatomy.controllers', [])
                   context.content = angular.fromJson(context.content);
                   imageService.setImage(context.content, setImageCallback);
                 });
+              } else {
+                imageService.setImage(undefined, function(){});
               }
             }
 

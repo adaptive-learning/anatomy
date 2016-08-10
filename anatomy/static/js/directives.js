@@ -55,8 +55,26 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       scope: {
           dset: '='
       },
+      template: '<div class="alert alert-info" ng-if="alert">{{alert}}</div>',
       link: function(scope, element, attrs) {
           element.parent().addClass('anatomy-image');
+
+          function setMinImageHeight() {
+            angular.element('#ng-view').removeClass('horizontal');
+            var screenAspectRatio = $window.innerHeight / $window.innerWidth;
+
+            if (screenAspectRatio < 1 && $window.innerWidth > 600) {
+              angular.element('#ng-view').addClass('horizontal');
+              element.css("min-height", $window.innerHeight);
+            } else {
+              element.css("min-height", $window.innerHeight / 2);
+            }
+          }
+          setMinImageHeight();
+          angular.element(window).bind('resize', function() {
+            setMinImageHeight();
+          });
+
           var initImage = function(image){
             var paper = {
               x : 0,
@@ -366,7 +384,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           attrs.$observe('code', function(value) {
             if (value) {
               imageService.getImage(function(i) {
-                return initImage(i);
+                if (typeof i == 'string') {
+                  scope.alert = i;
+                } else {
+                  return initImage(i);
+                }
               });
             }
           });

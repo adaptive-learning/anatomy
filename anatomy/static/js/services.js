@@ -394,13 +394,16 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   return that;
 })
 
-.service('imageService', function() {
+.service('imageService', ['gettextCatalog', function(gettextCatalog) {
   var image;
   var callback;
   var callback2;
 
   return {
     setImage : function(i, fn) {
+      if (!i) {
+        i = gettextCatalog.getString('Tato otázka je bez obrázku.');
+      }
       if (callback) {
         fn(callback(i));
         callback = undefined;
@@ -419,7 +422,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       }
     },
   };
-})
+}])
 
 
   .factory('confirmModal', ["$modal", function ($modal) {
