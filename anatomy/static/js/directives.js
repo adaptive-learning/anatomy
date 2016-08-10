@@ -65,7 +65,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
             if (screenAspectRatio < 1 && $window.innerWidth > 600) {
               angular.element('#ng-view').addClass('horizontal');
-              element.css("min-height", $window.innerHeight);
+              element.css("min-height", $window.innerHeight * 0.8);
             } else {
               element.css("min-height", $window.innerHeight / 2);
             }
@@ -865,7 +865,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         function optionSelected(event, action) {
           var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
           if (option && ! option.disabled) {
-            $scope.controller.checkAnswer(option.description, true);
+            $scope.controller.checkAnswer(option, true);
           }
         }
 
@@ -888,7 +888,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   o.term_secondary.id == $scope.question.term_secondary.id :
                   o.description == $scope.question.description;
                 o.selected = o.term_secondary ?
-                  o.term_secondary.id == $scope.question.answered_term_secondary.id :
+                  $scope.question.answered_term_secondary &&
+                    o.term_secondary.id == $scope.question.answered_term_secondary.id :
                   o.description == $scope.question.answered_code;
                 if (o.selected || o.correct) {
                   o.bgcolor = undefined;
@@ -1096,7 +1097,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               $scope.answer = $scope.question;
             }
             $scope.controller.checkAnswer($scope.answer, keyboardUsed);
-            if ($scope.question.description == $scope.answer.description) {
+            if (($scope.question.description && 
+                $scope.question.description == $scope.answer.description) ||
+                ($scope.question.term_secondary && $scope.answer.term_secondary &&
+                $scope.question.term_secondary.id == $scope.answer.term_secondary.id)) {
               $scope.question.isCorrect = true;
             } else {
               $scope.question.isIncorrect = true;
