@@ -171,6 +171,27 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
         return deferredContext.promise;
       },
+      getContextByIdentifier: function (id) {
+        var deferredContext = $q.defer();
+        $http.get('/flashcards/contexts' +
+          '?contexts_with_flashcards=true' +
+          '&filter_value=' + id + 
+          '&filter_column=identifier',
+          {cache: true}
+        ).success(function(data) {
+          if (data.data.length == 1) {
+            data.data = data.data[0];
+          }
+          if (data.data.content) {
+            data.data.content = angular.fromJson(data.data.content);
+          }
+          deferredContext.resolve(data.data);
+        }).error(function(error){
+          console.error("Something went wrong while loading contexts from backend.");
+          deferredContext.reject(error);
+        });
+        return deferredContext.promise;
+      },
     };
     return that;
   }])
@@ -214,7 +235,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getSubcategories: function (identifier) {
         var category = categoriesByIdentifier[identifier];
-        var subcategories;
+        var subcategories = [];
         var filter = {
           filter : identifier ? ['category/' + identifier] : [],
         };
@@ -223,6 +244,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           subcategories = angular.copy(categoriesByType.location);
         } else if (category.type == "location") {
           subcategories = angular.copy(categoriesByType.system);
+        } else if (category.identifier == "relations") {
+          subcategories = angular.copy(categoriesByType.relation);
         }
         userStatsService.clean();
         for (var i = 0; i < subcategories.length; i++) {

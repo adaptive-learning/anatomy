@@ -127,17 +127,29 @@ angular.module('proso.anatomy.controllers', [])
               return;
             }
             $scope.activeContext.content = fullContext.content;
-            $scope.activeContext.flashcards = fullContext.flashcards;
-            imageService.setImage($scope.activeContext.content, function(ic) {
-              $scope.imageController = ic;
-              flashcardService.getFlashcards(filter).then(function(data) {
-                context.flashcards = data;
-                for (var i = 0; i < context.flashcards.length; i++) {
-                  var fc = context.flashcards[i];
-                  $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
-                }
-              });
+            $scope.activeContext.flashcards = fullContext.flashcards.map(function(fc) {
+              fc.context = context;
+              return fc;
             });
+            if ($scope.activeContext.content.paths) {
+              imageService.setImage($scope.activeContext.content, function(ic) {
+                $scope.imageController = ic;
+                flashcardService.getFlashcards(filter).then(function(data) {
+                  context.flashcards = data;
+                  for (var i = 0; i < context.flashcards.length; i++) {
+                    var fc = context.flashcards[i];
+                    $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
+                  }
+                });
+              });
+            } else {
+              flashcardService.getFlashcards(filter).then(function(data) {
+                context.flashcards = data.map(function(fc) {
+                  fc.context = context;
+                  return fc;
+                });
+              });
+            }
           });
         }
       };
@@ -150,8 +162,10 @@ angular.module('proso.anatomy.controllers', [])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
     'practiceService', 'userService', 'imageService', 'termsLanguageService',
+    'contextService',
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, imageService, termsLanguageService) {
+        practiceService, userService, imageService, termsLanguageService,
+        contextService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -275,8 +289,19 @@ angular.module('proso.anatomy.controllers', [])
             $scope.questions.push(active);
             active.context.content = angular.fromJson(active.context.content);
 
-            imageService.setImage(active.context.content,
-              function(ic) {
+            if (active.context.content.paths) {
+              imageService.setImage(active.context.content, setImageCallback);
+            } else if (active.additional_info) {
+              var contextId = angular.fromJson(active.additional_info).contexts[active.question_type];
+              if (contextId) {
+                contextService.getContextByIdentifier(contextId).then(function(context) {
+                  context.content = angular.fromJson(context.content);
+                  imageService.setImage(context.content, setImageCallback);
+                });
+              }
+            }
+
+            function setImageCallback(ic) {
                 $scope.imageController = ic;
 
                 $scope.imageController.clearHighlights();
@@ -297,7 +322,7 @@ angular.module('proso.anatomy.controllers', [])
                 if (!active.options || active.options.length === 0) {
                   $rootScope.$emit('imageDisplayed', imageName);
                 }
-              });
+              }
         }
 
         function categoryToFilter(c) {

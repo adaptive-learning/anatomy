@@ -20,7 +20,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           html : true,
           placement: 'bottom',
           container: 'body',
-          title : '<div class="skill-tooltip">' +
+          title : ($scope.flashcard.term_secondary && $scope.flashcard.context ? 
+               '<div>' +
+                 $scope.flashcard.context.name + ': ' +
+                 '<strong>' + $scope.flashcard.term_secondary.name + '</strong>' +
+               '</div><br>':
+               '') +
+                '<div class="skill-tooltip">' +
                 gettextCatalog.getString('Odhad znalosti') +
                 ' <span class="badge badge-default">' +
                   '<i class="color-indicator" style="background-color :' +
