@@ -20,10 +20,13 @@ import base64
 
 @ensure_csrf_cookie
 def home(request, hack=None):
+    min_hack = '.min' if 'unmin' not in request.GET else ''
+    print(min_hack, request.GET.get('unmin', 'HHH'))
+
     JS_FILES = (
-        "dist/js/bower-libs.min.js",
+        "dist/js/bower-libs" + min_hack + ".js",
         "dist/js/unminifiable-libs.js",
-        "dist/js/anatomy.min.js",
+        "dist/js/anatomy" + min_hack + ".js",
     )
     CSS_FILES = (
         "dist/css/bower-libs.css",
