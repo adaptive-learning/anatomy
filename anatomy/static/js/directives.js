@@ -181,6 +181,14 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                       that.highlightItem(asked, colors.GOOD);
                   }
                   that.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
+                  if ((question.question_type == 't2ts' ||
+                        question.question_type == 'ts2t') && 
+                      question.additional_info) {
+                    that.highlightItem(
+                      question.additional_info.descriptions[question.question_type],
+                      question.isCorrect ? colors.GOOD : colors.BAD);
+
+                  }
               },
               highlightQuestion : function (question) {
                 if ($filter('isPickNameOfType')(question)) {
@@ -1072,7 +1080,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 return false;
               }
               if (fc.term) {
-                fcByTerm[fc.term] = true;
+                fcByTerm[fc.term.name] = true;
               }
               if (fc.term_secondary) {
                 fcByTerm[fc.term_secondary.name] = true;

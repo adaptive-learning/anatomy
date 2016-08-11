@@ -199,6 +199,7 @@ angular.module('proso.anatomy.controllers', [])
               $scope.question.selectedFC = selectedFC;
               $scope.checking = true;
               var asked = $scope.question.description;
+              $scope.question.isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
               if ($scope.imageController) {
                 $scope.imageController.highlightAnswer($scope.question, selected);
               }
@@ -206,7 +207,6 @@ angular.module('proso.anatomy.controllers', [])
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              $scope.question.isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
               if ($scope.question.isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
@@ -293,7 +293,8 @@ angular.module('proso.anatomy.controllers', [])
             if (active.context.content.paths) {
               imageService.setImage(active.context.content, setImageCallback);
             } else if (active.additional_info) {
-              var contextId = angular.fromJson(active.additional_info).contexts[active.question_type];
+              active.additional_info = angular.fromJson(active.additional_info);
+              var contextId = active.additional_info.contexts[active.question_type];
               if (contextId) {
                 contextService.getContextByIdentifier(contextId).then(function(context) {
                   context.content = angular.fromJson(context.content);
