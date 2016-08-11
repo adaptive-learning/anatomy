@@ -12,8 +12,8 @@
     <span ng-repeat="q in summary.questions" 
           track-click="practice summary change image"
           ng-click="controller.highlightFlashcard(q.payload)"
-          class="label label-clickable {{q.payload.description != q.payload.answered_code &&
-            'label-unlearned' || 'label-learned' }} ">
+          class="label label-clickable 
+            {{q.payload.isCorrect ? 'label-learned' : 'label-unlearned' }} ">
        {{q.payload.term.name | stripAlternatives}}
     </span>
      <i class="glyphicon glyphicon-question-sign help-icon"
