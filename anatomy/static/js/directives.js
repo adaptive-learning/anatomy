@@ -1065,12 +1065,18 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         }
         $scope.flashcards = [question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
-          var fcByDescription = {};
+          var fcByTerm = {};
           flashcards = flashcards.filter(function(fc) {
-              if ((fc.description && fcByDescription[fc.description]) || !fc.term) {
-                  return false;
+              if ((fc.term && fcByTerm[fc.term.name]) || !fc.term ||
+                  (fc.term_secondary && fcByTerm[fc.term_secondary.name])) {
+                return false;
               }
-              fcByDescription[fc.description] = true;
+              if (fc.term) {
+                fcByTerm[fc.term] = true;
+              }
+              if (fc.term_secondary) {
+                fcByTerm[fc.term_secondary.name] = true;
+              }
               return true;
           });
           $scope.flashcards = flashcards.filter(function(f) {
