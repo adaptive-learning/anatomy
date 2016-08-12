@@ -347,7 +347,7 @@ angular.module('proso.anatomy.controllers', [])
               filter.filter.push(categoryToFilter($routeParams.category2));
             }
             if ($routeParams.context) {
-                filter.filter.push('context/' + $routeParams.context);
+                filter.filter.push(['context/' + $routeParams.context]);
             }
             filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);
