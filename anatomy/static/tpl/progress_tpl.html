@@ -1,10 +1,41 @@
 <progress class="overview-progress">
-  <bar class="progress-bar-practiced" 
+  <bar class="progress-bar-practiced"
       value="100 * skills.number_of_practiced_items / skills.number_of_items">
   </bar>
-  <bar class="progress-bar-learned" 
+  <bar class="progress-bar-learned"
       value="100 * skills.number_of_mastered_items / skills.number_of_items"
       ng-show="skills.number_of_mastered_items">
   </bar>
 </progress>
 <div category-progress-labels skills="{{skills}}" ng-if="!hideLabels"></div>
+  <div class="text-center">
+   <span class="badge badge-default" >
+     <i class="color-indicator learned"></i>
+     <span translate>Naučeno</span>:
+     <span ng-if="skills.number_of_mastered_items !== undefined"
+       count-to="{{skills.number_of_mastered_items}}"
+       duration="0.6"
+       count-from="0"></span>
+     {{skills.number_of_mastered_items === undefined ? '...' : '/'}}
+     {{skills.number_of_items || ''}}
+     <i class="glyphicon glyphicon-question-sign help-icon"
+        popover-trigger="mouseenter"
+        popover-placement="bottom"
+        popover-append-to-body="true"
+        popover-title="{{'Počet naučených pojmů počítá náš prediktivní model' | translate}}"
+        popover="{{'Na základě odpovědí od všech uživatelů model ví, co je jak těžké. Na těžší pojmy se Tě raději zeptá víc krát, než usoudí, že je opravdu umíš, zato lehčími Tě možná vůbec otravovat nebude. Když ti půjdou ty těžší, tak prostě usoudí, že ty lehké umíš taky a zeptá se Tě na ně až po procvičení těch těšžích.' | translate}}"
+        track-hover="learned explanation">
+     </i>
+   </span>
+   <span class="badge badge-default">
+     <i class="color-indicator practiced"></i>
+     <span translate>Procvičováno</span>:
+     <span ng-if="skills.number_of_practiced_items !== undefined"
+       count-to="{{skills.number_of_practiced_items}}"
+       duration="0.6"
+       count-from="0"></span>
+     {{skills.number_of_practiced_items === undefined ? '...' : '/'}}
+     {{skills.number_of_items || ''}}
+   </span>
+  </div>
+</div>
