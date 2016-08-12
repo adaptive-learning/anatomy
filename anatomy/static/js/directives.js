@@ -481,41 +481,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict : 'A',
       templateUrl : 'static/tpl/progress_tpl.html',
-      link : function($scope, elem, attrs) {
-        $scope.skills = undefined;
-        attrs.$observe('skills', function(skills) {
-          if(skills !== '') {
-            $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_items =
-              Math.max(0, $scope.skills.number_of_practiced_items -
-              ($scope.skills.number_of_mastered_items || 0));
-          }
-        });
-        attrs.$observe('hideLabels', function(hideLabels) {
-          $scope.hideLabels = hideLabels;
-        });
-      }
-    };
-  }])
-
-  .directive('categoryProgressLabels', [function() {
-    return {
-      restrict : 'A',
-      templateUrl : 'static/tpl/progress_labels_tpl.html',
-      link : function($scope, elem, attrs) {
-        $scope.skills = undefined;
-        attrs.$observe('skills', function(skills) {
-          if(skills !== '') {
-            $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_items =
-              Math.max(0, $scope.skills.number_of_practiced_items -
-              ($scope.skills.number_of_mastered_items || 0));
-          }
-        });
-        attrs.$observe('hideLabels', function(hideLabels) {
-          $scope.hideLabels = hideLabels;
-        });
-      }
+      scope : {
+        skills : '=skills',
+        hideLabels : '=hideLabels',
+      },
     };
   }])
 

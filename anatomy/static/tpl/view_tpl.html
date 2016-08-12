@@ -46,7 +46,7 @@
           <br>
         </div>
         <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
-          <div category-progress skills="{{stats}}"></div>
+          <div category-progress skills="stats"></div>
           <br>
         </div>
       </div>
@@ -55,7 +55,7 @@
 </div>
 <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
-<br>
+  <br>
     <div class="row table-row fade-in-one-by-one {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_items"
       id="{{context.identifier}}" ng-repeat="context in contexts">
@@ -84,11 +84,8 @@
       <div class="col-md-5 col-sm-6 image-open"
         track-click="view image"
         ng-click="activateContext(context)" >
-        <div category-progress skills="{{context.stats}}"
-          hide-labels="true"></div>
-        <div ng-if="activeContext==context">
-          <div category-progress-labels skills="{{context.stats}}"></div>
-        </div>
+        <div category-progress skills="context.stats"
+          hide-labels="activeContext!=context"></div>
       </div>
       <div class="clearfix"></div>
       <div ng-if="activeContext==context"
