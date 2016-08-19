@@ -29,6 +29,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Vít Stanislav', 'slaweet@gmail.com'),
+    ('Adaptive Learning - Logs', 'al-logs@googlegroups.com'),
 )
 
 EMAIL_SUBJECT_PREFIX = '[anatom.cz] '
