@@ -181,6 +181,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                       that.highlightItem(asked, colors.GOOD);
                   }
                   that.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
+                  /*
                   if ((question.question_type == 't2ts' ||
                         question.question_type == 'ts2t') && 
                       question.additional_info) {
@@ -189,6 +190,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                       question.isCorrect ? colors.GOOD : colors.BAD);
 
                   }
+                  */
               },
               highlightQuestion : function (question) {
                 if ($filter('isPickNameOfType')(question)) {
