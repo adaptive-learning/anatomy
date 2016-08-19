@@ -155,6 +155,7 @@ def save_screenshot(request):
     if request.body:
         data = json.loads(request.body.decode("utf-8"))
         image = data['image']
+        data['name'] = strip_non_ascii(data['name'])
         filename = os.path.join(
             settings.MEDIA_ROOT, 'thumbs', data['name'] + '.png')
         save_base64_to_file(filename, image)
@@ -185,3 +186,9 @@ def save_base64_to_file(filename, image):
             fh = open(filename, "wb")
             fh.write(image_encoded)
             fh.close()
+
+
+def strip_non_ascii(string):
+    ''' Returns the string without non ASCII characters'''
+    stripped = (c for c in string if 0 < ord(c) < 127)
+    return ''.join(stripped)
