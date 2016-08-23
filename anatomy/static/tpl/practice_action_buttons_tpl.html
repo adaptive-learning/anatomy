@@ -4,12 +4,14 @@
         ng-click="controller.next()" 
         ng-disabled="!canNext || error" >
     <i class="glyphicon glyphicon-arrow-right"></i> {{'Pokračovat' | translate }}
+    <span shortcut="Enter"></span>
   </button>
   <button class="btn btn-lg btn-default dont-know" 
         ng-click="controller.checkAnswer()" 
         track-click="dont-know"
         ng-disabled="canNext" >
     <i class="glyphicon glyphicon-question-sign"></i> {{'Nevím' | translate }}
+    <span shortcut="Esc"></span>
   </button>
   <a feedback-comment
     class="btn btn-lg btn-link report-error"
