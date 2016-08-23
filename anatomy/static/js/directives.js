@@ -828,6 +828,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('shortcut', [function() {
+    return {
+      restrict: 'A',
+      scope: {
+        shortcut: '@shortcut',
+      },
+      template: '<span class="pull-right shortcut-info hidden-xs hidden-sm" ' +
+            'title="{{\'Klávesová zkratka: \' | translate}}{{shortcut}}"> ' +
+          '&nbsp;&nbsp;[{{shortcut}}]' +
+        '</span>',
+      replace: true,
+    };
+  }])
+
   .directive('optionButtons', ['$rootScope', 'serverLogger', 'hotkeys',
       function($rootScope, serverLogger, hotkeys) {
     return {
@@ -962,6 +976,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           callback: function() {
             if ($scope.canNext) {
               $scope.controller.next();
+            }
+          }
+        })
+        .add({
+          combo: 'esc',
+          description: 'Nevím',
+          callback: function() {
+            if (!$scope.canNext) {
+              $scope.controller.checkAnswer(undefined, true);
             }
           }
         });
