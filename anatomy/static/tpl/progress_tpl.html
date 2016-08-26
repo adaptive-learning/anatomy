@@ -7,4 +7,4 @@
       ng-show="skills.number_of_mastered_flashcards">
   </bar>
 </progress>
-<div category-progress-labels skills="{{skills}}" ng-hide="hideLabels"></div>
+<div category-progress-labels skills="{{skills}}" ng-if="!hideLabels"></div>
