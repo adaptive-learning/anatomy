@@ -28,7 +28,6 @@ else:
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Vít Stanislav', 'slaweet@gmail.com'),
     ('Adaptive Learning - Logs', 'al-logs@googlegroups.com'),
 )
 
@@ -43,26 +42,27 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = (
+    'anatomy',
     'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sessions',
     'django.contrib.staticfiles',
+    'filebrowser',
     'flatblocks',
+    'gopay_django_api',
+    'grappelli',
     'lazysignup',
-    'proso_ab',
-    'proso_configab',
     'proso_common',
-    'proso_models',
-    'proso_user',
+    'proso_configab',
     'proso_feedback',
     'proso_flashcards',
+    'proso_models',
+    'proso_subscription',
+    'proso_user',
     'social.apps.django_app.default',
-    'grappelli',
-    'filebrowser',
-    'anatomy',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -75,7 +75,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'proso_common.middleware.ToolbarMiddleware',
     'proso.django.request.RequestMiddleware',
-    'proso_ab.models.ABMiddleware',
     'proso.django.cache.RequestCacheMiddleware',
     'proso.django.log.RequestLogMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -274,7 +273,7 @@ elif ON_STAGING:
 else:
     CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
         }
     }
 

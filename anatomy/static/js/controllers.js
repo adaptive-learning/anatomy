@@ -49,7 +49,7 @@ angular.module('proso.anatomy.controllers', [])
       $scope.user = $routeParams.user || '';
 
       var filter = {
-          categories : $routeParams.category ? [$routeParams.category] : [],
+          filter : [ $routeParams.category ? ['category/' + $routeParams.category] : []],
       };
 
       categoryService.getAllByType().then(function(){
@@ -66,7 +66,7 @@ angular.module('proso.anatomy.controllers', [])
           var context = data[i];
           var id = context.identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, filter.categories, [id]);
+          userStatsService.addGroupParams(id, [filter.filter[0], ['context/' + id]]);
         }
         userStatsService.getStatsPost(true, $scope.user).success(function(data) {
           angular.forEach($scope.contexts, function(context) {
@@ -87,7 +87,7 @@ angular.module('proso.anatomy.controllers', [])
       var catId = $routeParams.category;
       userStatsService.clean();
       userStatsService.addGroup(catId, {});
-      userStatsService.addGroupParams(catId, filter.categories);
+      userStatsService.addGroupParams(catId, filter.filter);
       userStatsService.getStatsPost(true, $scope.user).success(function(data) {
         $scope.stats = data.data[catId];
       });
@@ -112,28 +112,44 @@ angular.module('proso.anatomy.controllers', [])
             });
           }, 400);
           var filter = {
-            contexts : [context.identifier],
-            categories : $routeParams.category ? [$routeParams.category] : [],
+            filter : [ 
+                ['context/' + context.identifier],
+            ],
             stats : true,
             user : $routeParams.user,
           };
+          if($routeParams.category) {
+              filter.filter.push(['category/' + $routeParams.category]);
+          }
           var activeContext = $scope.activeContext;
           contextService.getContext(context.id).then(function(fullContext) {
             if (activeContext != $scope.activeContext) {
               return;
             }
             $scope.activeContext.content = fullContext.content;
-            $scope.activeContext.flashcards = fullContext.flashcards;
-            imageService.setImage($scope.activeContext.content, function(ic) {
-              $scope.imageController = ic;
-              flashcardService.getFlashcards(filter).then(function(data) {
-                context.flashcards = data;
-                for (var i = 0; i < context.flashcards.length; i++) {
-                  var fc = context.flashcards[i];
-                  $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
-                }
-              });
+            $scope.activeContext.flashcards = fullContext.flashcards.map(function(fc) {
+              fc.context = context;
+              return fc;
             });
+            if ($scope.activeContext.content.paths) {
+              imageService.setImage($scope.activeContext.content, function(ic) {
+                $scope.imageController = ic;
+                flashcardService.getFlashcards(filter).then(function(data) {
+                  context.flashcards = data;
+                  for (var i = 0; i < context.flashcards.length; i++) {
+                    var fc = context.flashcards[i];
+                    $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
+                  }
+                });
+              });
+            } else {
+              flashcardService.getFlashcards(filter).then(function(data) {
+                context.flashcards = data.map(function(fc) {
+                  fc.context = context;
+                  return fc;
+                });
+              });
+            }
           });
         }
       };
@@ -146,8 +162,10 @@ angular.module('proso.anatomy.controllers', [])
 
 .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter', '$rootScope',
     'practiceService', 'userService', 'imageService', 'termsLanguageService',
+    'contextService',
     function($scope, $routeParams, $timeout, $filter, $rootScope,
-        practiceService, userService, imageService, termsLanguageService) {
+        practiceService, userService, imageService, termsLanguageService,
+        contextService) {
         'use strict';
 
         $scope.categoryId = $routeParams.category;
@@ -159,10 +177,13 @@ angular.module('proso.anatomy.controllers', [])
             $scope.imageController.highlightQuestion($scope.question);
           },
           getFlashcardByDescription : function(description) {
-            for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
-              var fc = $scope.question.context.flashcards[i];
-              if (fc.description == description) {
-                return fc;
+            if ($scope.question.context.flashcards) {
+              //TODO fix this
+              for (var i = 0; i < $scope.question.context.flashcards.length; i++) {
+                var fc = $scope.question.context.flashcards[i];
+                if (fc.description == description) {
+                  return fc;
+                }
               }
             }
           },
@@ -171,19 +192,22 @@ angular.module('proso.anatomy.controllers', [])
                 return;
               }
               var selectedFC;
-              if (selected && selected.description) {
+              if (selected && (selected.description || selected.term_secondary)) {
                 selectedFC = selected;
                 selected = selected.description;
               }
+              $scope.question.selectedFC = selectedFC;
               $scope.checking = true;
               var asked = $scope.question.description;
-              $scope.imageController.highlightAnswer($scope.question, selected);
+              $scope.question.isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
+              if ($scope.imageController) {
+                $scope.imageController.highlightAnswer($scope.question, selected);
+              }
               saveAnswer(selected, keyboardUsed, selectedFC);
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
-              var isCorrect = asked == selected;
-              if (isCorrect) {
+              if ($scope.question.isCorrect) {
                   $timeout(function() {
                       controller.next(function() {
                         $scope.checking = false;
@@ -199,9 +223,10 @@ angular.module('proso.anatomy.controllers', [])
           next : function(callback) {
               if ($scope.progress < 100) {
                   $scope.loadingNextQuestion = true;
-                  practiceService.getFlashcard().then(function(q) {
+                  practiceService.getQuestion().then(function(q) {
                       $scope.loadingNextQuestion = false;
-                      setQuestion(q);
+                      q.payload.question_type = q.question_type;
+                      setQuestion(q.payload);
                       if (callback) callback();
                   }, function(){
                       $scope.loadingNextQuestion = false;
@@ -221,6 +246,7 @@ angular.module('proso.anatomy.controllers', [])
 
         function saveAnswer(selected, keyboardUsed, selectedFC) {
           $scope.question.answered_code = selected;
+          $scope.question.answered_term_secondary = selectedFC && selectedFC.term_secondary;
           $scope.question.responseTime = new Date().valueOf() - $scope.question.startTime;
           var isCorrect = $scope.question == selected;
           if (!selectedFC) {
@@ -232,7 +258,7 @@ angular.module('proso.anatomy.controllers', [])
           if (keyboardUsed) {
             meta = {keyboardUsed: keyboardUsed};
           }
-          practiceService.saveAnswerToCurrentFC(
+          practiceService.saveAnswerToCurrentQuestion(
             selectedFC && selectedFC.id, $scope.question.responseTime, meta);
         }
 
@@ -264,8 +290,22 @@ angular.module('proso.anatomy.controllers', [])
             $scope.questions.push(active);
             active.context.content = angular.fromJson(active.context.content);
 
-            imageService.setImage(active.context.content,
-              function(ic) {
+            if (active.context.content.paths) {
+              imageService.setImage(active.context.content, setImageCallback);
+            } else if (active.additional_info) {
+              active.additional_info = angular.fromJson(active.additional_info);
+              var contextId = active.additional_info.contexts[active.question_type];
+              if (contextId) {
+                contextService.getContextByIdentifier(contextId).then(function(context) {
+                  context.content = angular.fromJson(context.content);
+                  imageService.setImage(context.content, setImageCallback);
+                });
+              } else {
+                imageService.setImage(undefined, function(){});
+              }
+            }
+
+            function setImageCallback(ic) {
                 $scope.imageController = ic;
 
                 $scope.imageController.clearHighlights();
@@ -282,33 +322,39 @@ angular.module('proso.anatomy.controllers', [])
                     }
                 });
                 var imageName = active.context.identifier + (
-                  active.direction == 'd2t' ? '--' + active.description : '');
+                  active.question_type == 'd2t' ? '--' + active.description : '');
                 if (!active.options || active.options.length === 0) {
                   $rootScope.$emit('imageDisplayed', imageName);
                 }
-              });
+              }
+        }
+
+        function categoryToFilter(c) {
+          return c.split('-').map(function(c) {
+            return 'category/' + c;
+          });
         }
 
         $scope.mapCallback = function() {
             practiceService.initSet('common');
-            var filter = {};
-            if ($routeParams.category2) {
-              filter.categories = $routeParams.category2.split('-');
-            }
+            var filter = {
+              filter: [],
+            };
             if ($routeParams.category) {
-              filter.categories = $routeParams.category.split('-');
-              if ($routeParams.category2) {
-                filter.categories = [$routeParams.category.split('-'), $routeParams.category2.split('-')];
-              }
+              filter.filter.push(categoryToFilter($routeParams.category));
+            }
+            if ($routeParams.category2) {
+              filter.filter.push(categoryToFilter($routeParams.category2));
             }
             if ($routeParams.context) {
-                filter.contexts = [$routeParams.context];
+                filter.filter.push(['context/' + $routeParams.context]);
             }
             filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);
-            practiceService.getFlashcard().then(function(q) {
+            practiceService.getQuestion().then(function(q) {
                 $scope.questions = [];
-                setQuestion(q);
+                q.payload.question_type = q.question_type;
+                setQuestion(q.payload);
 
             }, function(){
                 $scope.error = true;
@@ -367,12 +413,12 @@ angular.module('proso.anatomy.controllers', [])
               isActive : isActive('location'),
             }];
             userStatsService.clean();
-            userStatsService.addGroup('all', {});
+            userStatsService.addGroup('all', []);
             for (var i = 0; i < $scope.categories.length; i++) {
               var cat = $scope.categories[i];
               var id = cat.identifier;
               userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [cat.identifier]);
+              userStatsService.addGroupParams(id, [['category/' + cat.identifier]]);
 
               cat.selected = ($cookies.selectedCategoires + '').indexOf(id) != -1;
             }

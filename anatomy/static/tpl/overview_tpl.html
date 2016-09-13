@@ -17,7 +17,7 @@
         </div>
       <div class="row">
         <div class="col-sm-6" ng-if="!user">
-          <a href="/practice/" 
+          <a href="/practice/images/" 
             class="btn btn-default btn-lg" 
             track-click="overview practice" >
             <i class="glyphicon glyphicon-play"></i>
@@ -70,7 +70,7 @@
           <br>
         </div>
         <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
-          <div category-progress skills="{{stats}}"></div>
+          <div category-progress skills="stats"></div>
           <br>
         </div>
       </div>
@@ -107,8 +107,8 @@
                   <div class="dummy"></div>
                   <div class="absolute">
                     <div round-progress 
-                        max="category.stats.number_of_flashcards"
-                        current="category.stats.number_of_practiced_flashcards"
+                        max="category.stats.number_of_items"
+                        current="category.stats.number_of_practiced_items"
                         color="#fe3"
                         bgcolor="rgba(190,190,190,0.5)"
                         radius="{{progressRadius}}"
@@ -118,10 +118,10 @@
                         animation="easeInOutQuart"></div>
                   </div>
                   <div class="absolute"
-                    ng-if="category.stats.number_of_mastered_flashcards">
+                    ng-if="category.stats.number_of_mastered_items">
                     <div round-progress
-                        max="category.stats.number_of_flashcards"
-                        current="category.stats.number_of_mastered_flashcards"
+                        max="category.stats.number_of_items"
+                        current="category.stats.number_of_mastered_items"
                         color="#5CA03C"
                         bgcolor="rgba(0,0,0,0)"
                         radius="{{progressRadius}}"

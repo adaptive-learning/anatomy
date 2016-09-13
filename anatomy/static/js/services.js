@@ -136,21 +136,18 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             var context = data.data[i];
             var id = context.identifier;
             userStatsService.addGroup(id, {});
-            userStatsService.addGroupParams(id, filter.categories, [id]);
+            userStatsService.addGroupParams(id, [filter.filter[0], ['context/' + id]]);
           }
           var contexts = data.data;
 
-          userStatsService.getFlashcardCounts().success(function(data) {
+          userStatsService.getToPracticeCounts().success(function(data) {
             for (var i = 0; i < contexts.length; i++) {
               var context = contexts[i];
               var id = context.identifier;
-              var number_of_flashcards = data.data[id];
-              context.stats = {
-                'number_of_flashcards' : number_of_flashcards,
-              };
+              context.stats = data.data[id];
             }
             contexts = contexts.filter(function(c) {
-              return c.stats.number_of_flashcards > 0;
+              return c.stats.number_of_items > 0;
             });
             deferredContext.resolve(contexts);
           });
@@ -162,8 +159,29 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getContext: function (id) {
         var deferredContext = $q.defer();
-        $http.get('/flashcards/context/' + id, {cache: true}
+        $http.get('/flashcards/context/' + id + '?contexts_with_flashcards=true', {cache: true}
         ).success(function(data) {
+          if (data.data.content) {
+            data.data.content = angular.fromJson(data.data.content);
+          }
+          deferredContext.resolve(data.data);
+        }).error(function(error){
+          console.error("Something went wrong while loading contexts from backend.");
+          deferredContext.reject(error);
+        });
+        return deferredContext.promise;
+      },
+      getContextByIdentifier: function (id) {
+        var deferredContext = $q.defer();
+        $http.get('/flashcards/contexts' +
+          '?contexts_with_flashcards=true' +
+          '&filter_value=' + id + 
+          '&filter_column=identifier',
+          {cache: true}
+        ).success(function(data) {
+          if (data.data.length == 1) {
+            data.data = data.data[0];
+          }
           if (data.data.content) {
             data.data.content = angular.fromJson(data.data.content);
           }
@@ -217,30 +235,29 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       getSubcategories: function (identifier) {
         var category = categoriesByIdentifier[identifier];
-        var subcategories;
+        var subcategories = [];
         var filter = {
-            categories : identifier ? [identifier] : [],
+          filter : identifier ? ['category/' + identifier] : [],
         };
 
         if (category.type == "system") {
           subcategories = angular.copy(categoriesByType.location);
         } else if (category.type == "location") {
           subcategories = angular.copy(categoriesByType.system);
+        } else if (category.identifier == "relations") {
+          subcategories = angular.copy(categoriesByType.relation);
         }
         userStatsService.clean();
         for (var i = 0; i < subcategories.length; i++) {
           var id = subcategories[i].identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, [filter.categories, [id]]);
+          userStatsService.addGroupParams(id, [filter.filter, ['category/' + id]]);
         }
-        userStatsService.getFlashcardCounts().success(function(data) {
+        userStatsService.getToPracticeCounts().success(function(data) {
           for (var i = 0; i < subcategories.length; i++) {
             var subcategory = subcategories[i];
             var id = subcategory.identifier;
-            var number_of_flashcards = data.data[id];
-            subcategory.stats = {
-              'number_of_flashcards' : number_of_flashcards,
-            };
+            subcategory.stats = data.data[id];
           }
           if (!$cookies.practiceDropdownUsed) {
             setTimeout(function() {
@@ -313,7 +330,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         filter.language = termsLanguageService.getTermsLang();
         filter.all = 'True';
         filter.without_contexts = 'True';
-        $http.get('/flashcards/flashcards', {
+        $http.get('/models/to_practice', {
           params: filter,
           cache: true,
         }).success(function(data) {
@@ -369,7 +386,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         return '#000000';
       }
       for (i = 0; i < rgb.length; i++) {
-        rgb[i] = Math.floor((rgb[i] + grayAverage * 8) / 9);
+        rgb[i] = Math.floor((rgb[i] + grayAverage * 18) / 19);
       }
       return that.rgbToHex(rgb);
     },
@@ -377,13 +394,16 @@ angular.module('proso.anatomy.services', ['ngCookies'])
   return that;
 })
 
-.service('imageService', function() {
+.service('imageService', ['gettextCatalog', function(gettextCatalog) {
   var image;
   var callback;
   var callback2;
 
   return {
     setImage : function(i, fn) {
+      if (!i) {
+        i = gettextCatalog.getString('Tato otázka je bez obrázku.');
+      }
       if (callback) {
         fn(callback(i));
         callback = undefined;
@@ -402,7 +422,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       }
     },
   };
-})
+}])
 
 
   .factory('confirmModal', ["$modal", function ($modal) {

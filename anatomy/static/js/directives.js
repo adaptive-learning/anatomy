@@ -20,7 +20,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           html : true,
           placement: 'bottom',
           container: 'body',
-          title : '<div class="skill-tooltip">' +
+          title : ($scope.flashcard.term_secondary && $scope.flashcard.context ? 
+               '<div>' +
+                 $scope.flashcard.context.name + ': ' +
+                 '<strong>' + $scope.flashcard.term_secondary.name + '</strong>' +
+               '</div><br>':
+               '') +
+                '<div class="skill-tooltip">' +
                 gettextCatalog.getString('Odhad znalosti') +
                 ' <span class="badge badge-default">' +
                   '<i class="color-indicator" style="background-color :' +
@@ -49,8 +55,26 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       scope: {
           dset: '='
       },
+      template: '<div class="alert alert-info" ng-if="alert">{{alert}}</div>',
       link: function(scope, element, attrs) {
           element.parent().addClass('anatomy-image');
+
+          function setMinImageHeight() {
+            angular.element('#ng-view').removeClass('horizontal');
+            var screenAspectRatio = $window.innerHeight / $window.innerWidth;
+
+            if (screenAspectRatio < 1 && $window.innerWidth > 600) {
+              angular.element('#ng-view').addClass('horizontal');
+              element.css("min-height", $window.innerHeight * 0.8);
+            } else {
+              element.css("min-height", $window.innerHeight / 2);
+            }
+          }
+          setMinImageHeight();
+          angular.element(window).bind('resize', function() {
+            setMinImageHeight();
+          });
+
           var initImage = function(image){
             var paper = {
               x : 0,
@@ -157,6 +181,16 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                       that.highlightItem(asked, colors.GOOD);
                   }
                   that.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
+                  /*
+                  if ((question.question_type == 't2ts' ||
+                        question.question_type == 'ts2t') && 
+                      question.additional_info) {
+                    that.highlightItem(
+                      question.additional_info.descriptions[question.question_type],
+                      question.isCorrect ? colors.GOOD : colors.BAD);
+
+                  }
+                  */
               },
               highlightQuestion : function (question) {
                 if ($filter('isPickNameOfType')(question)) {
@@ -360,7 +394,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           attrs.$observe('code', function(value) {
             if (value) {
               imageService.getImage(function(i) {
-                return initImage(i);
+                if (typeof i == 'string') {
+                  scope.alert = i;
+                } else {
+                  return initImage(i);
+                }
               });
             }
           });
@@ -445,41 +483,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict : 'A',
       templateUrl : 'static/tpl/progress_tpl.html',
-      link : function($scope, elem, attrs) {
-        $scope.skills = undefined;
-        attrs.$observe('skills', function(skills) {
-          if(skills !== '') {
-            $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_flashcards =
-              Math.max(0, $scope.skills.number_of_practiced_flashcards -
-              ($scope.skills.number_of_mastered_flashcards || 0));
-          }
-        });
-        attrs.$observe('hideLabels', function(hideLabels) {
-          $scope.hideLabels = hideLabels;
-        });
-      }
-    };
-  }])
-
-  .directive('categoryProgressLabels', [function() {
-    return {
-      restrict : 'A',
-      templateUrl : 'static/tpl/progress_labels_tpl.html',
-      link : function($scope, elem, attrs) {
-        $scope.skills = undefined;
-        attrs.$observe('skills', function(skills) {
-          if(skills !== '') {
-            $scope.skills = angular.fromJson(skills);
-            $scope.skills.number_of_nonmastered_practiced_flashcards =
-              Math.max(0, $scope.skills.number_of_practiced_flashcards -
-              ($scope.skills.number_of_mastered_flashcards || 0));
-          }
-        });
-        attrs.$observe('hideLabels', function(hideLabels) {
-          $scope.hideLabels = hideLabels;
-        });
-      }
+      scope : {
+        skills : '=skills',
+        hideLabels : '=hideLabels',
+      },
     };
   }])
 
@@ -821,6 +828,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('shortcut', [function() {
+    return {
+      restrict: 'A',
+      scope: {
+        shortcut: '@shortcut',
+      },
+      template: '<span class="pull-right shortcut-info hidden-xs hidden-sm" ' +
+            'title="{{\'Klávesová zkratka: \' | translate}}{{shortcut}}"> ' +
+          '&nbsp;&nbsp;[{{shortcut}}]' +
+        '</span>',
+      replace: true,
+    };
+  }])
+
   .directive('optionButtons', ['$rootScope', 'serverLogger', 'hotkeys',
       function($rootScope, serverLogger, hotkeys) {
     return {
@@ -837,7 +858,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         function optionSelected(event, action) {
           var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
           if (option && ! option.disabled) {
-            $scope.controller.checkAnswer(option.description, true);
+            $scope.controller.checkAnswer(option, true);
           }
         }
 
@@ -856,8 +877,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         function highlightOptions() {
             ($scope.question.options || []).map(function(o) {
-                o.correct = o.description == $scope.question.description;
-                o.selected = o.description == $scope.question.answered_code;
+                o.correct = o.term_secondary ? 
+                  o.term_secondary.id == $scope.question.term_secondary.id :
+                  o.description == $scope.question.description;
+                o.selected = o.term_secondary ?
+                  $scope.question.answered_term_secondary &&
+                    o.term_secondary.id == $scope.question.answered_term_secondary.id :
+                  o.description == $scope.question.answered_code;
                 if (o.selected || o.correct) {
                   o.bgcolor = undefined;
                   o.color = undefined;
@@ -952,6 +978,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               $scope.controller.next();
             }
           }
+        })
+        .add({
+          combo: 'esc',
+          description: 'Nevím',
+          callback: function() {
+            if (!$scope.canNext) {
+              $scope.controller.checkAnswer(undefined, true);
+            }
+          }
         });
 
       }
@@ -1026,18 +1061,33 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
 
-        $scope.flashcards = [$scope.question];
+        var question = angular.copy($scope.question);
+        if (question.term_secondary && question.question_type == 't2ts') {
+            question.term = question.term_secondary;
+        }
+        $scope.flashcards = [question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
-          var fcByDescription = {};
+          var fcByTerm = {};
           flashcards = flashcards.filter(function(fc) {
-              if (fcByDescription[fc.description]) {
-                  return false;
+              if ((fc.term && fcByTerm[fc.term.name]) || !fc.term ||
+                  (fc.term_secondary && fcByTerm[fc.term_secondary.name])) {
+                return false;
               }
-              fcByDescription[fc.description] = true;
+              if (fc.term) {
+                fcByTerm[fc.term.name] = true;
+              }
+              if (fc.term_secondary) {
+                fcByTerm[fc.term_secondary.name] = true;
+              }
               return true;
           });
-          $scope.flashcards = flashcards.map(function(f) {
-            f.term.primaryName = $filter('stripAlternatives')(f.term.name);
+          $scope.flashcards = flashcards.filter(function(f) {
+              return !(question.question_type == 't2ts' && f.term.name == question.term.name && !f.term_secondary);
+            }).map(function(f) {
+            if (question.question_type == 't2ts' && f.term_secondary) {
+              f.term = f.term_secondary;
+            }
+            f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
             return f;
           }).sort(function(a, b){
               return a.term.primaryName.length - b.term.primaryName.length; 
@@ -1045,7 +1095,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
 
         $scope.canAnswer = function() {
-          return !$scope.canNext && $scope.answer && $scope.answer.description;
+          return !$scope.canNext && $scope.answer && (
+            $scope.answer.description || $scope.answer.term_secondary);
         };
         $scope.checkAnswer = function(keyboardUsed) {
           if ($scope.canAnswer()) {
@@ -1054,7 +1105,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               $scope.answer = $scope.question;
             }
             $scope.controller.checkAnswer($scope.answer, keyboardUsed);
-            if ($scope.question.description == $scope.answer.description) {
+            if (($scope.question.description && 
+                $scope.question.description == $scope.answer.description) ||
+                ($scope.question.term_secondary && $scope.answer.term_secondary &&
+                $scope.question.term_secondary.id == $scope.answer.term_secondary.id)) {
               $scope.question.isCorrect = true;
             } else {
               $scope.question.isIncorrect = true;

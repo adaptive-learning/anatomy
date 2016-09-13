@@ -1,6 +1,6 @@
 <button ng-repeat="option in question.options"
   class="btn btn-lg btn-default btn-option"
-  ng-click="controller.checkAnswer(option.description)"
+  ng-click="controller.checkAnswer(option)"
   ng-class="{'btn-success': option.correct, 'btn-danger':
   option.selected && !option.correct }"
   ng-mouseenter="(question|isFindOnMapType) && imageController.hoverIn(option.description)"
@@ -8,15 +8,15 @@
   style="color: {{(question|isFindOnMapType) && option.color}};
     background-color: {{(question|isFindOnMapType) && option.bgcolor}};"
   ng-disabled="option.disabled">&nbsp;
-   <span ng-show="(question|isPickNameOfType) ||
+   <span ng-show="!(question|isFindOnMapType) ||
      option.selected || option.correct">
-     {{option.term.name | stripAlternatives}}
+     {{question.question_type != 't2ts' ? option.term.name : option.term_secondary.name | stripAlternatives}}
    </span>&nbsp;
-   <span class="pull-right shortcut-info">{{$index + 1}}</span>
+    <span shortcut="{{$index + 1}}"></span>
 </button>
 <div class="clearfix"></div>
 <div open-answer
-   ng-if="(question|isPickNameOfType) && !question.options.length"
+   ng-if="!(question|isFindOnMapType) && !question.options.length"
    question="question"
    controller="controller"
    can-next="canNext"
