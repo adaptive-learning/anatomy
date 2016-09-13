@@ -257,7 +257,15 @@ if ON_PRODUCTION:
             'OPTIONS': {
                 'MAX_ENTRIES': 300000,
             },
-        }
+        },
+        'file': {
+            'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+            'LOCATION': os.path.join(DATA_DIR, '.django_cache'),
+            'TIMEOUT': 60 * 60 * 24 * 7,
+            'OPTIONS': {
+                'MAX_ENTRIES': 30000,
+            },
+        },
     }
 elif ON_STAGING:
     CACHES = {
