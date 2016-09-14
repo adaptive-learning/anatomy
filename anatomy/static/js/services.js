@@ -236,6 +236,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       getSubcategories: function (identifier) {
         var category = categoriesByIdentifier[identifier];
         var subcategories = [];
+        if (!category) {
+          return subcategories;
+        }
         var filter = {
           filter : identifier ? ['category/' + identifier] : [],
         };
