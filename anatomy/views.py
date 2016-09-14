@@ -138,10 +138,6 @@ def load_flashcards(request):
             skip_language_check=True,
             verbosity=0,
             interactive=False)
-        categories = Category.objects.filter(children_type=Category.CATEGORIES)
-        for c in categories:
-            c.children_type = Category.TERMS
-            c.save()
         cache.clear()
         response = """{
             "type": "success",
