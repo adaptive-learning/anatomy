@@ -23,7 +23,7 @@ urlpatterns = patterns(
         }
     ),
     url(r'^$', 'anatomy.views.home', name='home'),
-    url(r'^(about|home|offer|overview|view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
+    url(r'^(about|home|offer|premium|overview|view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^robots.txt$', lambda r: HttpResponse(
@@ -41,6 +41,7 @@ urlpatterns = patterns(
     url(r'^convert/', include('lazysignup.urls')),
     url(r'^feedback/', include('proso_feedback.urls')),
     url(r'^flashcards/', include('proso_flashcards.urls')),
+    url(r'^subscription/', include('proso_subscription.urls')),
     url('', include('social.apps.django_app.urls', namespace='social')),
 )
 urlpatterns += staticfiles_urlpatterns()

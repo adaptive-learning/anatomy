@@ -750,6 +750,17 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('premiumBanner', ['userService',
+      function(userService) {
+    return {
+      restrict: 'A',
+      templateUrl : 'static/tpl/premium_banner.html',
+      link: function ($scope) {
+        $scope.userService = userService;
+      }
+    };
+  }])
+
   .directive('setCookieOnClick', ['$cookies', function($cookies) {
     return {
       restrict: 'A',

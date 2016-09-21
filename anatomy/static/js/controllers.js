@@ -530,4 +530,10 @@ angular.module('proso.anatomy.controllers', [])
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
-  }]);
+}])
+
+.controller('PremiumController', ['$scope', '$http', function($scope, $http){
+  $http.get('/subscription/plans/').success(function(data) {
+    $scope.plans = data.data;
+  });
+}]);

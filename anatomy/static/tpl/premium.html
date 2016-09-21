@@ -1,0 +1,55 @@
+<div class="welcome-page jumbotron">
+    <div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8">
+    <h1>{{ "Premium" | translate }}</h1>
+      <div class="flatblock-content">{{ "..." | translate }}
+      </div>
+      <table class="subscription-table">
+        <tr>
+          <th></th>
+          <th>Free</th>
+          <th>Premium</th>
+        </tr>
+        <tr>
+          <td translate>přes 2000 pojmů na obrázcích</td>
+          <td><i class="glyphicon glyphicon-ok-sign"></i></td>
+          <td><i class="glyphicon glyphicon-ok-sign"></i></td>
+        </tr>
+        <tr>
+          <td translate>přes 1000 souvislostí</td>
+          <td><i class="glyphicon glyphicon-remove-sign"></i></td>
+          <td><i class="glyphicon glyphicon-ok-sign"></i></td>
+        </tr>
+        <tr>
+          <td translate>pokročilé nastavení</td>
+          <td><i class="glyphicon glyphicon-remove-sign"></i></td>
+          <td><i class="glyphicon glyphicon-ok-sign"></i></td>
+        </tr>
+      </table>
+    </div>
+</div>
+<div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
+  <h2>{{ "Plány" | translate }}</h2>
+    <div class="flatblock-content row">
+      <div class="col-sm-4" ng-repeat="plan in plans">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="text-center">{{plan.description.name}}</h2>
+          </div>
+          <div class="panel-body">
+            <h3>{{plan.description.price}} {{plan.description.currency}}</h3>
+            <p>{{plan.description.description}}</p>
+            <a class="btn btn-default btn-lg"
+                href="{{plan.description.actions.subscribe}}"
+                translate>
+              Koupit teď
+            </a>
+           </div>
+         </div>
+       </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>

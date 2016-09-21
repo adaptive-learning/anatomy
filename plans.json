@@ -1,0 +1,55 @@
+{
+    "plans": [
+        {
+            "id": "mothly",
+            "type": "uknown",
+            "months-validity": 1,
+            "description-en": {
+                "price": 4,
+                "currency": "EUR",
+                "name": "Mothly",
+                "description": "description"
+            },
+            "description-cs": {
+                "price": 120,
+                "currency": "CZK",
+                "name": "Měsíční",
+                "description": "popis"
+            }
+        },
+        {
+            "id": "halfyearly",
+            "type": "uknown",
+            "months-validity": 6,
+            "description-en": {
+                "price": 24,
+                "currency": "EUR",
+                "name": " Half-year",
+                "description": "description"
+            },
+            "description-cs": {
+                "price": 600,
+                "currency": "CZK",
+                "name": "Půlroční",
+                "description": "popis"
+            }
+        },
+        {
+            "id": "yearly",
+            "type": "uknown",
+            "months-validity": 12,
+            "description-en": {
+                "price": 40,
+                "currency": "EUR",
+                "name": "Yearly",
+                "description": "description"
+            },
+            "description-cs": {
+                "price": 1000,
+                "currency": "CZK",
+                "name": "Roční",
+                "description": "popis"
+            }
+        }
+    ]
+}

@@ -2,6 +2,7 @@
 import os
 import dj_database_url
 from django.conf import settings
+from gopay.enums import PaymentInstrument, Currency, Language
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -305,3 +306,13 @@ except SyntaxError:
     HASHES = {}
 
 PROSO_JS_FILES = ['dist/js/bower-libs.js', 'dist/js/proso-apps-all.js']
+
+GOPAY_DOMAIN = 'http://anatom.cz'
+GOPAY_GOID = os.environ.get('GOPAY_GOID')
+GOPAY_CLIENT_ID = os.environ.get('GOPAY_CLIENT_ID')
+GOPAY_CLIENT_SECRET = os.environ.get('GOPAY_CLIENT_SECRET')
+GOPAY_IS_PRODUCTION = False
+GOPAY_LANG = Language.CZECH
+GOPAY_DEFAULT_PAYMENT_INSTRUMENT = PaymentInstrument.PAYMENT_CARD
+GOPAY_ALLOWED_PAYMENT_INSTRUMENTS = [PaymentInstrument.PAYMENT_CARD]
+GOPAY_CURRENCY = Currency.CZECH_CROWNS

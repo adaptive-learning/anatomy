@@ -38,6 +38,9 @@ angular.module('proso.anatomy', [
         }).when('/login/:somepath/', {
             controller : 'ReloadController',
             templateUrl : 'loading.html'
+        }).when('/subscription/subscribe/:somepath?', {
+            controller : 'ReloadController',
+            templateUrl : 'loading.html'
         }).when('/about', {
             templateUrl : 'static/tpl/about.html'
         }).when('/offer', {
@@ -65,11 +68,9 @@ angular.module('proso.anatomy', [
         }).when('/u/:user', {
             controller : 'AppUser',
             templateUrl : 'static/tpl/user_tpl.html'
-        }).when('/goals/', {
-            templateUrl : 'static/tpl/personal-goals-page_tpl.html'
-        }).when('/mistakes/', {
-            controller : 'AppConfused',
-            templateUrl : 'static/tpl/confused_tpl.html'
+        }).when('/premium/', {
+            controller : 'PremiumController',
+            templateUrl : 'static/tpl/premium.html'
         }).otherwise({
           //redirectTo : '/'
         });
