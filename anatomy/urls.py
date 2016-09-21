@@ -42,6 +42,7 @@ urlpatterns = patterns(
     url(r'^feedback/', include('proso_feedback.urls')),
     url(r'^flashcards/', include('proso_flashcards.urls')),
     url(r'^subscription/', include('proso_subscription.urls')),
+    url(r'^gopay/', include('gopay_django_api.urls')),
     url('', include('social.apps.django_app.urls', namespace='social')),
 )
 urlpatterns += staticfiles_urlpatterns()
