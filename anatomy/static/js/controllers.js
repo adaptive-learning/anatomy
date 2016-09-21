@@ -532,8 +532,13 @@ angular.module('proso.anatomy.controllers', [])
     };
 }])
 
-.controller('PremiumController', ['$scope', '$http', function($scope, $http){
+.controller('PremiumController', ['$scope', '$http', 'userService', 'signupModal',
+    function($scope, $http, userService, signupModal){
   $http.get('/subscription/plans/').success(function(data) {
     $scope.plans = data.data;
   });
+  $scope.userService = userService;
+  $scope.openSignupModal = function() {
+      signupModal.open();
+  };
 }]);

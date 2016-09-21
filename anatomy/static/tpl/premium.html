@@ -39,7 +39,14 @@
             <h3>{{plan.description.price}} {{plan.description.currency}}</h3>
             <p>{{plan.description.description}}</p>
             <a class="btn btn-default btn-lg"
+                ng-if="userService.status.logged && !userService.status.loading"
                 href="{{plan.description.actions.subscribe}}"
+                translate>
+              Koupit teď
+            </a>
+            <a class="btn btn-default btn-lg"
+                ng-if="!userService.status.logged && !userService.status.loading"
+                ng-click="openSignupModal()"
                 translate>
               Koupit teď
             </a>
