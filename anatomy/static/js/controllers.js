@@ -532,12 +532,23 @@ angular.module('proso.anatomy.controllers', [])
     };
 }])
 
-.controller('PremiumController', ['$scope', '$http', 'userService', 'signupModal',
-    function($scope, $http, userService, signupModal){
+.controller('PremiumController', ['$scope', '$http', 'userService', 'signupModal', '$location', '$window',
+    function($scope, $http, userService, signupModal, $location, $window){
   $http.get('/subscription/plans/').success(function(data) {
     $scope.plans = data.data;
   });
   $scope.userService = userService;
+  $scope.buyPlan = function(plan) {
+    var return_url = $location.absUrl().split('?')[0];
+    if (userService.status.logged && !userService.status.loading) {
+      var url = plan.description.actions.subscribe + '?return_url=' + return_url;
+      $http.get(url).success(function(data) {
+        $window.location.href = data.data.payment.status.gw_url;
+      }).error(function() {
+        $window.alert('Subscription failed');
+      });
+    }
+  };
   $scope.openSignupModal = function() {
       signupModal.open();
   };

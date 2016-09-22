@@ -28,7 +28,7 @@
     </div>
 </div>
 <div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
-  <h2>{{ "Plány" | translate }}</h2>
+  <h2>{{ "Premium plány" | translate }}</h2>
     <div class="flatblock-content row">
       <div class="col-sm-4" ng-repeat="plan in plans">
         <div class="panel panel-default">
@@ -36,17 +36,10 @@
             <h2 class="text-center">{{plan.description.name}}</h2>
           </div>
           <div class="panel-body">
-            <h3>{{plan.description.price}} {{plan.description.currency}}</h3>
+            <h3><span class="price">{{plan.description.price}}</span> {{plan.description.currency}}</h3>
             <p>{{plan.description.description}}</p>
-            <a class="btn btn-default btn-lg"
-                ng-if="userService.status.logged && !userService.status.loading"
-                href="{{plan.description.actions.subscribe}}"
-                translate>
-              Koupit teď
-            </a>
-            <a class="btn btn-default btn-lg"
-                ng-if="!userService.status.logged && !userService.status.loading"
-                ng-click="openSignupModal()"
+            <a class="btn btn-default btn-lg pull-right"
+                ng-click="buyPlan(plan)"
                 translate>
               Koupit teď
             </a>
