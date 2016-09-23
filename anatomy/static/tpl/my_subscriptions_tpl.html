@@ -1,0 +1,26 @@
+<h2 translate>Moje předplatné</h2>
+<div ng-repeat="subscription in subscriptions">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 ng-bind="subscription.plan_description.name"></h3>
+    </div>
+    <div class="panel-body">
+      <span translate>Vytvořeno:</span> {{subscription.created | date:'medium'}}<br>
+      <span translate>Platné do:</span> {{subscription.expiration | date:'medium'}}<br>
+      <span translate>Stav:</span> {{subscription.payment.status.state}}<br>
+      <a href="{{subscription.payment.status.gw_url}}"
+        ng-if="subscription.payment.status.state == 'CREATED'"
+        class="btn btn-primary pull-right"
+        translate>Zaplatit</a>
+    </div>
+  </div>
+</div>
+<div ng-hide="subscriptions.length" class="alert alert-info">
+  <span translate>Nemáš žádné předplatné. Podívej se jaké máš možnosti.</span>
+  <a href="/premium"
+     class="btn btn-primary"
+     track-click="premium banner"
+     translate
+    >Zjistit více</a>
+</div>
+<div ng-show="error" error-message ></div>

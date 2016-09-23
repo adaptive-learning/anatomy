@@ -761,6 +761,21 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('mySubscriptions', ['$http',
+      function($http) {
+    return {
+      restrict: 'A',
+      templateUrl : 'static/tpl/my_subscriptions_tpl.html',
+      link: function ($scope) {
+        $http.get('/subscription/mysubscriptions/').success(function(data) {
+          $scope.subscriptions = data.data;
+        }).error(function() {
+          $scope.error = true;
+        });
+      }
+    };
+  }])
+
   .directive('setCookieOnClick', ['$cookies', function($cookies) {
     return {
       restrict: 'A',

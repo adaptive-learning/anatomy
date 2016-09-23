@@ -463,7 +463,8 @@ angular.module('proso.anatomy.controllers', [])
     function($scope, userService, $routeParams, $location, $timeout, gettextCatalog) {
 
   $scope.profileUrl = $location.absUrl();
-  if ($routeParams.user == userService.user.username) {
+  $scope.isOwnProfile = $routeParams.user == userService.user.username;
+  if ($scope.isOwnProfile) {
     $scope.user = userService.user;
     $scope.editRights = true;
     if ($routeParams.edit !== undefined && $scope.editRights) {
