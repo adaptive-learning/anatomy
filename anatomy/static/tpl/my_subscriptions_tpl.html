@@ -14,6 +14,10 @@
         ng-if="subscription.payment.status.state == 'CREATED'"
         class="btn btn-primary pull-right"
         translate>Zaplatit</a>
+      <a href="/view/relations"
+        ng-if="subscription.payment.status.state == 'PAID'"
+        class="btn btn-primary pull-right"
+        translate>Premium obsah</a>
     </div>
   </div>
 </div>
