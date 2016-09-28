@@ -5,9 +5,11 @@
       <h3 ng-bind="subscription.plan_description.name"></h3>
     </div>
     <div class="panel-body">
+      <span translate>Stav:</span> 
+      <span payment-state="subscription.payment.status.state"></span><br>
+      <span translate>Cena:</span> {{subscription.payment.status.amount / 100}} {{subscription.payment.status.currency}}<br>
       <span translate>Vytvořeno:</span> {{subscription.created | date:'medium'}}<br>
       <span translate>Platné do:</span> {{subscription.expiration | date:'medium'}}<br>
-      <span translate>Stav:</span> {{subscription.payment.status.state}}<br>
       <a href="{{subscription.payment.status.gw_url}}"
         ng-if="subscription.payment.status.state == 'CREATED'"
         class="btn btn-primary pull-right"

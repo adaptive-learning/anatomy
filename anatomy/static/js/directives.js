@@ -788,6 +788,30 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('paymentState', ['gettextCatalog', function(gettextCatalog) {
+    return {
+      restrict: 'A',
+      scope: {
+        paymentState: '=paymentState',
+      },
+      templateUrl : 'static/tpl/payment_state_tpl.html',
+      link: function ($scope) {
+        $scope.paymentStates = {
+          'PAID': gettextCatalog.getString('Zaplaceno'),
+          'TIMEOUTED': gettextCatalog.getString('Vypršel časový limit na zaplacení'),
+          'CREATED': gettextCatalog.getString('Vytvořeno'),
+        };
+        $scope.getLabelClass = function() {
+          return {
+            'PAID': 'success',
+            'CREATED': 'warning',
+            'TIMEOUTED': 'danger',
+          }[$scope.paymentState] || 'default';
+        };
+      }
+    };
+  }])
+
   .directive('setCookieOnClick', ['$cookies', function($cookies) {
     return {
       restrict: 'A',
