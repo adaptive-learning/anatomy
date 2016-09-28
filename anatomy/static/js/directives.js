@@ -750,13 +750,25 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('premiumBanner', ['userService',
-      function(userService) {
+  .directive('premiumBanner', ['userService', '$timeout',
+      function(userService, $timeout) {
     return {
       restrict: 'A',
       templateUrl : 'static/tpl/premium_banner.html',
       link: function ($scope) {
         $scope.userService = userService;
+        $scope.showAlert = function() {
+          var shouldShow = userService.status.logged &&
+            !userService.status.subscribed &&
+            !userService.status.loading && 
+            userService.user.profile.number_of_answers >= 40;
+          if (shouldShow) {
+            $timeout(function() {
+              $scope.class = 'alert-grow';
+            }, 20000);
+          }
+          return shouldShow;
+        };
       }
     };
   }])

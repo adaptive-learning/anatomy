@@ -23,3 +23,47 @@
 
 .price
   font-size: 2em
+
+@-webkit-keyframes growAlert 
+  from 
+    bottom: 0px
+    left: 0
+    width: 100%
+    padding: 15px
+  to  
+    bottom: 200px
+    left: 5%
+    width: 90%
+    padding: 100px 15px
+@-moz-keyframes growAlert 
+  from 
+    bottom: 0px
+    left: 0
+    width: 100%
+    padding: 15px
+  to  
+    bottom: 200px
+    left: 5%
+    width: 90%
+    padding: 100px 15px
+@keyframes growAlert 
+  from 
+    bottom: 0px
+    left: 0
+    width: 100%
+    padding: 15px
+  to  
+    bottom: 200px
+    left: 5%
+    width: 90%
+    padding: 100px 15px
+
+
+.alert-grow
+  -webkit-animation: growAlert 1s ease-out
+  -moz-animation: growAlert 1s ease-out
+  animation: growAlert 1s ease-out
+  bottom: 200px
+  left: 5%
+  width: 90%
+  padding: 100px 15px
