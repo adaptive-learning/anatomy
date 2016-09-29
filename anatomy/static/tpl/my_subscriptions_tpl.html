@@ -7,9 +7,9 @@
     <div class="panel-body">
       <span translate>Stav:</span> 
       <span payment-state="subscription.payment.status.state"></span><br>
-      <span translate>Cena:</span> {{subscription.payment.status.amount / 100}} {{subscription.payment.status.currency}}<br>
-      <span translate>Vytvořeno:</span> {{subscription.created | date:'medium'}}<br>
-      <span translate>Platné do:</span> {{subscription.expiration | date:'medium'}}<br>
+      <span translate>Cena:</span> {{subscription.payment.status.amount / 100 | currency : subscription.payment.status.currency}}<br>
+      <span translate>Vytvořeno:</span> {{subscription.created | date:'longDate'}}<br>
+      <span translate>Platné do:</span> {{subscription.expiration | date:'longDate'}}<br>
       <a href="{{subscription.payment.status.gw_url}}"
         ng-if="subscription.payment.status.state == 'CREATED'"
         class="btn btn-primary pull-right"

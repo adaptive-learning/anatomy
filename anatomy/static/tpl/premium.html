@@ -24,16 +24,24 @@
           <td><i class="glyphicon glyphicon-remove-sign"></i></td>
           <td><i class="glyphicon glyphicon-ok-sign"></i></td>
         </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <a class="btn btn-primary btn-lg" ng-click="scrollToPlans()"
+              translate>Chci premium</a>
+          </td>
+        </tr>
       </table>
     </div>
 </div>
-<div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
-  <h2 translate>Typy předplatného</h2>
+<div id='plans' class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
+  <h2 class="text-center" translate>Typy předplatného</h2>
     <div class="flatblock-content row">
       <div class="col-sm-4" ng-repeat="plan in plans">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h2 class="text-center">{{plan.description.name}}</h2>
+            <h3 class="text-center">{{plan.description.name}}</h3>
           </div>
           <div class="panel-body">
             <h3><span class="price">{{plan.description.price / 100}}</span> {{plan.description.currency}}</h3>

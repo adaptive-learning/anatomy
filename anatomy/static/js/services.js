@@ -466,4 +466,48 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
       }
     };
+  }])
+
+  .factory('subscriptionService', ["$http", "$window", "userService", "$location",
+      function($http, $window, userService, $location) {
+    var mySubscriptionsPromise = $http.get('/subscription/mysubscriptions/');
+
+    var that = {
+      status: {
+        loading: true,
+        hasActiveSubscription: false,
+      },
+      getMyScubscriptions: function() {
+        return mySubscriptionsPromise;
+      },
+      getPlans: function() {
+        return $http.get('/subscription/plans/');
+      },
+      buyPlan: function(plan) {
+        //testing card number 4188030000000003
+        var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);
+        if (userService.status.logged && !userService.status.loading) {
+          var url = plan.description.actions.subscribe + '?return_url=' + return_url;
+          $http.get(url).success(function(data) {
+            $window.location.href = data.data.payment.status.gw_url;
+          }).error(function() {
+            $window.alert('Subscription failed');
+          });
+        }
+      }
+    };
+
+    mySubscriptionsPromise.success(function(data) {
+      data.data.map(function(subscription) {
+        subscription.created = new Date(subscription.created);
+        subscription.expiration = new Date(subscription.expiration);
+        return subscription;
+      });
+      that.status.hasActiveSubscription = data.data.filter(function(subscription) {
+        return subscription.payment.status.state == 'PAID';
+      }).length > 0;
+      that.status.loading = false;
+    });
+
+    return that;
   }]);

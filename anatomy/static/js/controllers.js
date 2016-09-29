@@ -533,24 +533,25 @@ angular.module('proso.anatomy.controllers', [])
     };
 }])
 
-.controller('PremiumController', ['$scope', '$http', 'userService', 'signupModal', '$location', '$window',
-    function($scope, $http, userService, signupModal, $location, $window){
-  $http.get('/subscription/plans/').success(function(data) {
+.controller('PremiumController', ['$scope', 'userService', 'signupModal', 'subscriptionService', 'smoothScroll',
+    function($scope, userService, signupModal, subscriptionService, smoothScroll){
+  subscriptionService.getPlans().success(function(data) {
     $scope.plans = data.data;
   });
   $scope.userService = userService;
   $scope.buyPlan = function(plan) {
-    var return_url = $location.absUrl().split('?')[0];
-    if (userService.status.logged && !userService.status.loading) {
-      var url = plan.description.actions.subscribe + '?return_url=' + return_url;
-      $http.get(url).success(function(data) {
-        $window.location.href = data.data.payment.status.gw_url;
-      }).error(function() {
-        $window.alert('Subscription failed');
-      });
-    }
+    subscriptionService.buyPlan(plan);
   };
+
   $scope.openSignupModal = function() {
       signupModal.open();
+  };
+
+  $scope.scrollToPlans = function() {
+    var elem = document.getElementById('plans');
+    smoothScroll(elem, {
+      offset: 10,
+      duration: 200,
+    });
   };
 }]);

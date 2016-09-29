@@ -750,8 +750,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('premiumBanner', ['userService', '$timeout',
-      function(userService, $timeout) {
+  .directive('premiumBanner', ['userService', '$timeout', 'subscriptionService',
+      function(userService, $timeout, subscriptionService) {
     return {
       restrict: 'A',
       templateUrl : 'static/tpl/premium_banner.html',
@@ -759,8 +759,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.userService = userService;
         $scope.showAlert = function() {
           var shouldShow = userService.status.logged &&
-            !userService.status.subscribed &&
             !userService.status.loading && 
+            !subscriptionService.status.loading &&
+            !subscriptionService.status.hasActiveSubscription &&
+            !$scope.closed && 
             userService.user.profile.number_of_answers >= 40;
           if (shouldShow) {
             $timeout(function() {
@@ -769,17 +771,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
           return shouldShow;
         };
+        $scope.close = function() {
+          $scope.closed = true;
+        };
       }
     };
   }])
 
-  .directive('mySubscriptions', ['$http',
-      function($http) {
+  .directive('mySubscriptions', ['subscriptionService',
+      function(subscriptionService) {
     return {
       restrict: 'A',
       templateUrl : 'static/tpl/my_subscriptions_tpl.html',
       link: function ($scope) {
-        $http.get('/subscription/mysubscriptions/').success(function(data) {
+        subscriptionService.getMyScubscriptions().success(function(data) {
           $scope.subscriptions = data.data;
         }).error(function() {
           $scope.error = true;
