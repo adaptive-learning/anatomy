@@ -1,4 +1,4 @@
-<div class="overview profile">
+<div class="profile welcome-page jumbotron">
   <div class="col-sm-offset-2 col-sm-8">
    <form editable-form name="editableForm" onaftersave="saveUser()">
     <h1>{{user.username}}
@@ -64,11 +64,11 @@
         <input type="text" value="{{profileUrl}}" class="share-input"
           tooltip-placement="right"
           tooltip="{{'Adresa profilu' | translate}}"/>
-
       </div>
-      <div personal-goals user="{{user.username}}"></div>
-      <div ng-if="isOwnProfile" my-subscriptions></div>
     </div>
   </div>
   <div class="clearfix"></div>
+</div>
+<div id='subscriptions' class="flatblock block-welcome_page col-sm-offset-2 col-sm-8">
+  <div ng-if="isOwnProfile" my-subscriptions></div>
 </div>
