@@ -23,7 +23,9 @@ urlpatterns = patterns(
         }
     ),
     url(r'^$', 'anatomy.views.home', name='home'),
-    url(r'^(about|home|offer|premium|overview|view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
+    url(r'^(about|home|offer|premium|overview|unauthorized)',
+        'anatomy.views.home', name='home'),
+    url(r'^(view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^robots.txt$', lambda r: HttpResponse(

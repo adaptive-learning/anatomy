@@ -750,8 +750,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('premiumBanner', ['userService', '$timeout', 'subscriptionService',
-      function(userService, $timeout, subscriptionService) {
+  .directive('premiumBanner', ['userService', '$timeout',
+      function(userService, $timeout) {
     return {
       restrict: 'A',
       templateUrl : 'static/tpl/premium_banner.html',
@@ -760,8 +760,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.showAlert = function() {
           var shouldShow = userService.status.logged &&
             !userService.status.loading && 
-            !subscriptionService.status.loading &&
-            !subscriptionService.status.hasActiveSubscription &&
+            !userService.user.profile.subscribed &&
             !$scope.closed && 
             userService.user.profile.number_of_answers >= 40;
           if (shouldShow) {

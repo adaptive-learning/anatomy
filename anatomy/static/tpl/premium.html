@@ -10,12 +10,12 @@
           <th translate>Premium</th>
         </tr>
         <tr>
-          <td translate>Přes 2000 pojmů na obrázcích</td>
+          <td><a href="/overview/" translate>Přes 2000 pojmů na obrázcích</a></td>
           <td><i class="glyphicon glyphicon-ok-sign"></i></td>
           <td><i class="glyphicon glyphicon-ok-sign"></i></td>
         </tr>
         <tr>
-          <td translate>Přes 1000 souvislostí</td>
+          <td><a href="/view/relations/" translate>Přes 1000 souvislostí</a></td>
           <td><i class="glyphicon glyphicon-remove-sign"></i></td>
           <td><i class="glyphicon glyphicon-ok-sign"></i></td>
         </tr>
@@ -44,7 +44,7 @@
             <h3 class="text-center">{{plan.description.name}}</h3>
           </div>
           <div class="panel-body">
-            <h3><span class="price">{{plan.description.price / 100}}</span> {{plan.description.currency}}</h3>
+            <h3><span class="price">{{plan.description.price / 100 | number}}</span> {{plan.description.currency}}</h3>A
             <p>{{plan.description.description}}</p>
             <a class="btn btn-default btn-lg pull-right"
                 ng-click="buyPlan(plan)"

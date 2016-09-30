@@ -470,14 +470,17 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 
   .factory('subscriptionService', ["$http", "$window", "userService", "$location",
       function($http, $window, userService, $location) {
-    var mySubscriptionsPromise = $http.get('/subscription/mysubscriptions/');
 
     var that = {
-      status: {
-        loading: true,
-        hasActiveSubscription: false,
-      },
       getMyScubscriptions: function() {
+        var mySubscriptionsPromise = $http.get('/subscription/mysubscriptions/');
+        mySubscriptionsPromise.success(function(data) {
+          data.data.map(function(subscription) {
+            subscription.created = new Date(subscription.created);
+            subscription.expiration = new Date(subscription.expiration);
+            return subscription;
+          });
+        });
         return mySubscriptionsPromise;
       },
       getPlans: function() {
@@ -496,18 +499,6 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         }
       }
     };
-
-    mySubscriptionsPromise.success(function(data) {
-      data.data.map(function(subscription) {
-        subscription.created = new Date(subscription.created);
-        subscription.expiration = new Date(subscription.expiration);
-        return subscription;
-      });
-      that.status.hasActiveSubscription = data.data.filter(function(subscription) {
-        return subscription.payment.status.state == 'PAID';
-      }).length > 0;
-      that.status.loading = false;
-    });
 
     return that;
   }]);

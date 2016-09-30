@@ -16,6 +16,7 @@ from proso_flashcards.models import FlashcardAnswer, Flashcard
 from datetime import datetime, timedelta
 import random
 import base64
+from proso_subscription.models import Subscription
 
 
 @ensure_csrf_cookie
@@ -44,7 +45,9 @@ def home(request, hack=None):
     else:
         if hack is None:
             return redirect('/overview/')
-        user = json.dumps(request.user.userprofile.to_json(stats=True))
+        user = request.user.userprofile.to_json(stats=True)
+        user['subscribed'] = has_active_subscription(request)
+        user = json.dumps(user)
         email = request.user.email
         if not request.user.userprofile.public:
             request.user.userprofile.public = True
@@ -191,3 +194,11 @@ def strip_non_ascii(string):
     ''' Returns the string without non ASCII characters'''
     stripped = (c for c in string if 0 < ord(c) < 127)
     return ''.join(stripped)
+
+
+def has_active_subscription(request):
+    active_subscriptions = Subscription.objects.prepare_related().filter(
+        user_id=request.user.id,
+        expiration__gte=datetime.today(),
+    )
+    return len(active_subscriptions) > 0

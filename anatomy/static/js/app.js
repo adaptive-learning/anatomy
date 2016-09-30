@@ -45,6 +45,8 @@ angular.module('proso.anatomy', [
             templateUrl : 'static/tpl/about.html'
         }).when('/offer', {
             templateUrl : 'static/tpl/offer.html'
+        }).when('/unauthorized/', {
+            templateUrl : 'static/tpl/unauthorized.html'
         }).when('/view/:category?/image/:context?', {
             controller : 'AppView',
             templateUrl : 'static/tpl/view_tpl.html'
@@ -137,6 +139,28 @@ angular.module('proso.anatomy', [
             value: answered_count,
           });
         });
+}])
 
-    }
-]);
+.run(['$rootScope', 'userService', '$location',
+    function($rootScope, userService, $location) {
+        $rootScope.$on('$locationChangeStart', function(event, next, current) {
+          var redirects = {
+            'practice/' : '/practice/images/',
+            'practice/relations/' : '/unauthorized/',
+            'view/relations/' : '/unauthorized/',
+          };
+          var nextWithoutDomain = stripDomain(next);
+          var redirect = redirects[nextWithoutDomain];
+          console.log(next, current, nextWithoutDomain, redirect);
+          if (!userService.user.profile.subscribed && redirect) {
+            $location.path(redirect);
+          }
+        });
+
+        function stripDomain(url) {
+          return url.split('/').filter(function(part, index) {
+            return index > 2;
+          }).join('/');
+        }
+
+}]);
