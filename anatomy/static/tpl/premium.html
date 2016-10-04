@@ -1,18 +1,19 @@
-<div class="welcome-page jumbotron">
-    <div class="flatblock block-welcome_page col-lg-offset-2 col-lg-8">
-    <h1 translate>Premium</h1>
-      <div class="flatblock-content">{{ "..." | translate }}
+<div class="premium-page jumbotron">
+    <div class="flatblock block-premium_page col-lg-offset-2 col-lg-8">
+      <h1 translate>Procvičuj si anatomii s námi</h1>
+      <div class="flatblock-content" translate>
+        Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování efektivní.
       </div>
       <table class="subscription-table">
         <tr>
           <th></th>
-          <th translate>Free</th>
-          <th translate>Premium</th>
+          <th translate>Zdarma</th>
+          <th translate>Předplatné</th>
         </tr>
         <tr>
           <td>
             <h4 translate>Pojmy na obrázcích</h4>
-            <div translate>Přes 2000 pojmů na více než 200 obrázcích</div>
+            <div translate>Procvič si polohu více než 2000 pojmů na více než 200 obrázcích.</div>
           </td>
           <td><i class="glyphicon glyphicon-ok"></i></td>
           <td><i class="glyphicon glyphicon-ok"></i></td>
@@ -20,7 +21,7 @@
         <tr>
           <td>
             <h4 translate>Souvislosti</h4>
-            <div translate>Přes 1000 otázek na souvislosti svalů, nervů, ...</div>
+            <div translate>Procvič si více než 1000 souvislostí týkajících se svalů - kde se upínají, jaký nerv je inervuje, ...</div>
           </td>
           <td><i class="glyphicon glyphicon-remove"></i></td>
           <td><i class="glyphicon glyphicon-ok"></i></td>
@@ -28,7 +29,7 @@
         <tr>
           <td>
             <h4 translate>Pokročilé nastavení</h4>
-            <div translate>Obtížnost procvičování, délka sady, typ otázek</div>
+            <div translate>Nastav si obtížnost procvičování, délku sady a typ otázek tak, jak ti vyhovuje.</div>
           </td>
           <td><i class="glyphicon glyphicon-remove"></i></td>
           <td><i class="glyphicon glyphicon-ok"></i></td>
@@ -48,15 +49,16 @@
   <h2 class="text-center" translate>Typy předplatného</h2>
     <div class="flatblock-content row">
       <div class="col-sm-4" ng-repeat="plan in plans">
-        <div class="panel panel-default">
+        <div ng-class="{featured: plan.featured}" class="panel panel-default">
           <div class="panel-heading">
             <h3 class="text-center">{{plan.description.name}}</h3>
           </div>
           <div class="panel-body">
             <h3><span class="price">{{plan.description.price / 100 | number}}</span> {{plan.description.currency}}</h3>
             <p>{{plan.description.description}}</p>
-            <a class="btn btn-default btn-lg pull-right"
+            <a class="btn btn-lg pull-right"
                 ng-click="buyPlan(plan)"
+                ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
                 translate>
               Koupit teď
             </a>
