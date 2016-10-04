@@ -1,14 +1,14 @@
 .subscription-table
   td, th
-    padding: 25px
+    padding: 20px
     border: 2px solid #ddd
     width: 30%
     text-align: center
     .glyphicon
-      font-size: 2em
-    .glyphicon-ok-sign
+      font-size: 1.5em
+    .glyphicon-ok
       color: $learned
-    .glyphicon-remove-sign
+    .glyphicon-remove
       color:  $unlearned
   th
     background: #e6e7e8
@@ -17,9 +17,19 @@
   td:first-child
     background: #e6e7e8
     text-align: right
+    div
+      font-size: 0.7em
+      line-height: initial
+    h4
+      font-size: 0.9em
+      font-weight: bold
   th:first-child
     background: transparent
     border: none
+  tr:last-child
+    td:first-child
+      background: transparent
+      border: 0
 
 .price
   font-size: 2em
