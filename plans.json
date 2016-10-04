@@ -2,53 +2,53 @@
     "plans": [
         {
             "id": "mothly",
-            "type": "uknown",
+            "type": "full",
             "months-validity": 1,
             "description-en": {
                 "price": 4,
                 "currency": "EUR",
-                "name": "Mothly premium",
+                "name": "Month",
                 "description": "description"
             },
             "description-cs": {
                 "price": 120,
                 "currency": "CZK",
-                "name": "Měsíční premium",
-                "description": "popis"
+                "name": "Měsíc",
+                "description": "Vyzkoušej si naši službu na jeden měsíc."
             }
         },
         {
             "id": "halfyearly",
-            "type": "uknown",
+            "type": "full",
             "months-validity": 6,
             "description-en": {
                 "price": 24,
                 "currency": "EUR",
-                "name": " Half-year premium",
+                "name": " Half-year",
                 "description": "description"
             },
             "description-cs": {
                 "price": 600,
                 "currency": "CZK",
-                "name": "Půlroční premium",
-                "description": "popis"
+                "name": "Půl roku",
+                "description": "Absolvuj s námi jeden semestr anatomie."
             }
         },
         {
             "id": "yearly",
-            "type": "uknown",
+            "type": "full",
             "months-validity": 12,
             "description-en": {
                 "price": 40,
                 "currency": "EUR",
-                "name": "Yearly premium",
+                "name": "Year",
                 "description": "description"
             },
             "description-cs": {
                 "price": 1000,
                 "currency": "CZK",
-                "name": "Roční premium",
-                "description": "popis"
+                "name": "Rok",
+                "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
             }
         }
     ]
