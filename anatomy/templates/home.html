@@ -96,6 +96,9 @@
                 <li is-active>
                   <a href="/overview/">{% trans "Kapitoly" %}</a>
                 </li>
+                <li>
+                  <a href="/view/relations/" ng-cloak ng-show="userService.user.profile.subscribed">{% trans "Souvislosti" %}</a>
+                </li>
                 <li is-active>
                     <a href="/about"> {% trans "O projektu" %}</a>
                 </li>
