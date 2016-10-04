@@ -18,51 +18,60 @@
     background: #e6e7e8
     text-align: right
     div
-      font-size: 0.7em
+      font-size: 0.8em
       line-height: initial
     h4
-      font-size: 0.9em
       font-weight: bold
+  td:last-child
+    background: $highlightBackgroundLight
+  th:last-child
+    background: $highlightBackgroundDark
+    color: #fff
+    border-color: $highlightBackgroundDark
   th:first-child
     background: transparent
     border: none
+  th:nth-child(2)
+    border-right: 0
   tr:last-child
-    td:first-child
+    td
       background: transparent
       border: 0
+  .btn
+    font-size: 1.4em
 
 .price
   font-size: 2em
 
-@-webkit-keyframes growAlert 
-  from 
+@-webkit-keyframes growAlert
+  from
     bottom: 0px
     left: 0
     width: 100%
     padding: 15px
-  to  
+  to
     bottom: 200px
     left: 5%
     width: 90%
     padding: 100px 15px
-@-moz-keyframes growAlert 
-  from 
+@-moz-keyframes growAlert
+  from
     bottom: 0px
     left: 0
     width: 100%
     padding: 15px
-  to  
+  to
     bottom: 200px
     left: 5%
     width: 90%
     padding: 100px 15px
-@keyframes growAlert 
-  from 
+@keyframes growAlert
+  from
     bottom: 0px
     left: 0
     width: 100%
     padding: 15px
-  to  
+  to
     bottom: 200px
     left: 5%
     width: 90%
