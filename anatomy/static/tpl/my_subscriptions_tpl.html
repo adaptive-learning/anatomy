@@ -1,15 +1,11 @@
 <h2 class="text-center" translate>Moje předplatné</h2>
 <div ng-repeat="subscription in subscriptions">
-  <div class="panel panel-default">
+  <div class="subscription panel panel-default">
     <div class="panel-heading">
       <h3 ng-bind="subscription.plan_description.name"></h3>
     </div>
     <div class="panel-body">
-      <span translate>Stav:</span> 
-      <span payment-state="subscription.payment.status.state"></span><br>
-      <span translate>Cena:</span> {{subscription.payment.status.amount / 100 | currency : subscription.payment.status.currency}}<br>
-      <span translate>Vytvořeno:</span> {{subscription.created | date:'longDate'}}<br>
-      <span translate>Platné do:</span> {{subscription.expiration | date:'longDate'}}<br>
+      <span payment-state="subscription.payment.status.state"></span>
       <a href="{{subscription.payment.status.gw_url}}"
         ng-if="subscription.payment.status.state == 'CREATED'"
         class="btn btn-primary pull-right"
@@ -18,6 +14,18 @@
         ng-if="subscription.payment.status.state == 'PAID'"
         class="btn btn-primary pull-right"
         translate>Premium obsah</a>
+      <dl>
+        <dt translate>Cena</dt>
+        <dd>{{subscription.payment.status.amount / 100 | currency : subscription.payment.status.currency}}</dd>
+      </dl>
+      <dl>
+        <dt translate>Vytvořeno</dt>
+        <dd>{{subscription.created | date:'longDate'}}</dd>
+      </dl>
+      <dl>
+        <dt translate>Platné do</dt>
+        <dd>{{subscription.expiration | date:'longDate'}}</dd>
+      </dl>
     </div>
   </div>
 </div>
