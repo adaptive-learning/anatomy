@@ -21,6 +21,7 @@
             "id": "halfyearly",
             "type": "full",
             "months-validity": 6,
+            "featured": true,
             "description-en": {
                 "price": 24,
                 "currency": "EUR",
