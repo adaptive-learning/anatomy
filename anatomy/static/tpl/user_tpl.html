@@ -1,48 +1,22 @@
 <div class="profile ">
   <div class="col-sm-offset-2 col-sm-8">
-   <form editable-form name="editableForm" onaftersave="saveUser()">
-    <h1 class="text-center">{{user.username}}
-    </h1>
+    <h1 class="text-center">{{user.username}}</h1>
     <div class="panel panel-default">
       <div class="panel-body">
         <dl ng-show="user.first_name">
           <dt>{{'Jméno' | translate }}</dt>
-          <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
+          <dd>{{user.first_name}}</dd>
         </dl>
         <dl ng-show="user.last_name">
           <dt>{{'Příjmení' | translate }}</dt>
-          <dd editable-text="user.last_name">{{user.last_name}}</dd>
+          <dd>{{user.last_name}}</dd>
         </dl>
         <dl ng-show="editRights">
           <dt>{{'E-mail' | translate }}</dt>
-          <dd editable-text="user.email">{{user.email}}</dd>
+          <dd>{{user.email}}</dd>
         </dl>
       </div>
     </div>
-    <div class="buttons">
-      <span ng-show="editableForm.$visible">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" ng-model="user.send_emails">
-            {{'Poslat mi email při neplnění cílů' | translate}}
-        </label>
-      </div>
-        <br>
-        <button type="submit" class="btn btn-primary" ng-disabled="editableForm.$waiting">
-          {{'Uložit' | translate}}
-        </button>
-        <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
-          {{'Zrušit' | translate}}
-        </button>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-      </span>
-    </div>
-    </form>
     <div ng-show="error" ng-bind="error" class="alert alert-danger" ></div>
   </div>
   <div class="clearfix"></div>
