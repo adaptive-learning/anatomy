@@ -1,34 +1,24 @@
-<div class="profile welcome-page jumbotron">
+<div class="profile ">
   <div class="col-sm-offset-2 col-sm-8">
    <form editable-form name="editableForm" onaftersave="saveUser()">
-    <h1>{{user.username}}
-      <i tooltip="{{'Upravit profil' | translate }}"
-         ng-show="editRights && !editableForm.$visible"
-         tooltip-placement="bottom"
-         ng-click="editableForm.$show()"
-         class=" pull-right glyphicon glyphicon-edit">
-      </i>
+    <h1 class="text-center">{{user.username}}
     </h1>
-    <div ng-hide="editableForm.$visible">
-      <dl class="points" ng-show="user.points">
-        <dt>{{'Body' | translate }}</dt>
-        <dd class="badge" ng-bind="user.points"
-          tooltip="{{'přibývají za každou správnou odpověď' | translate }}" 
-          tooltip-placement="bottom" ></dd>
-      </dl>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <dl ng-show="user.first_name">
+          <dt>{{'Jméno' | translate }}</dt>
+          <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
+        </dl>
+        <dl ng-show="user.last_name">
+          <dt>{{'Příjmení' | translate }}</dt>
+          <dd editable-text="user.last_name">{{user.last_name}}</dd>
+        </dl>
+        <dl ng-show="editRights">
+          <dt>{{'E-mail' | translate }}</dt>
+          <dd editable-text="user.email">{{user.email}}</dd>
+        </dl>
+      </div>
     </div>
-    <dl ng-show="user.first_name">
-      <dt>{{'Jméno' | translate }}</dt>
-      <dd editable-text="user.first_name"  e-name="first_name">{{user.first_name}}</dd>
-    </dl>
-    <dl ng-show="user.last_name">
-      <dt>{{'Příjmení' | translate }}</dt>
-      <dd editable-text="user.last_name">{{user.last_name}}</dd>
-    </dl>
-    <dl ng-show="editRights">
-      <dt>{{'E-mail' | translate }}</dt>
-      <dd editable-text="user.email">{{user.email}}</dd>
-    </dl>
     <div class="buttons">
       <span ng-show="editableForm.$visible">
       <div class="checkbox">
@@ -54,18 +44,6 @@
     </div>
     </form>
     <div ng-show="error" ng-bind="error" class="alert alert-danger" ></div>
-    <div ng-hide="editableForm.$visible || error">
-      <a href="/overview/{{user.username}}">
-        {{'Přehled znalostí uživatele' | translate}} {{ user.username && ' - ' + user.username }}
-      </a>
-      <div ng-show="editRights">
-        <br>
-        <h4>{{'Sdílej svůj profil' | translate }}</h4>
-        <input type="text" value="{{profileUrl}}" class="share-input"
-          tooltip-placement="right"
-          tooltip="{{'Adresa profilu' | translate}}"/>
-      </div>
-    </div>
   </div>
   <div class="clearfix"></div>
 </div>
