@@ -468,8 +468,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
   }])
 
-  .factory('subscriptionService', ["$http", "$window", "userService", "$location",
-      function($http, $window, userService, $location) {
+  .factory('subscriptionService', ["$http", "$window", "userService", "$location", "loginModal",
+      function($http, $window, userService, $location, loginModal) {
 
     var that = {
       getMyScubscriptions: function() {
@@ -496,6 +496,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           }).error(function() {
             $window.alert('Subscription failed');
           });
+        } else {
+          loginModal.open();
         }
       }
     };
