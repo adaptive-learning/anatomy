@@ -52,5 +52,13 @@
                 "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
             }
         }
+    ],
+    "discount-codes": [
+        {
+            "id": "intro",
+            "discount-percentage": 50,
+            "usage-limit": 10,
+            "code": "intro"
+        }
     ]
 }
