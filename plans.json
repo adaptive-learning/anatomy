@@ -4,6 +4,7 @@
             "id": "mothly",
             "type": "full",
             "months-validity": 1,
+            "months-referral": 0.1,
             "description-en": {
                 "price": 4,
                 "currency": "EUR",
@@ -21,6 +22,7 @@
             "id": "halfyearly",
             "type": "full",
             "months-validity": 6,
+            "months-referral": 0.6,
             "featured": true,
             "description-en": {
                 "price": 24,
@@ -39,6 +41,7 @@
             "id": "yearly",
             "type": "full",
             "months-validity": 12,
+            "months-referral": 1.2,
             "description-en": {
                 "price": 40,
                 "currency": "EUR",
