@@ -491,7 +491,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       getPlans: function() {
         return $http.get('/subscription/plans/');
       },
-      buyPlan: function(plan, discountCode, referalUsername) {
+      buyPlan: function(plan, discountCode, referralUsername) {
         //testing card number 4188030000000003
         var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);
         if (userService.status.logged && !userService.status.loading) {
@@ -499,8 +499,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           if (discountCode) {
             url += '&discount_code=' + discountCode;
           }
-          if (referalUsername) {
-            url += '&referal_username=' + referalUsername;
+          if (referralUsername) {
+            url += '&referral_username=' + referralUsername;
           }
           $http.get(url).success(function(data) {
             $window.location.href = data.data.payment.status.gw_url;
