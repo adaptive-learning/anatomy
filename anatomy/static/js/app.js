@@ -143,7 +143,7 @@ angular.module('proso.anatomy', [
 
 .run(['$rootScope', 'userService', '$location',
     function($rootScope, userService, $location) {
-        $rootScope.$on('$locationChangeStart', function(event, next, current) {
+        $rootScope.$on('$locationChangeStart', function(event, next) {
           var redirects = {
             'practice/' : '/practice/images/',
             'practice/relations/' : '/unauthorized/',
@@ -151,7 +151,6 @@ angular.module('proso.anatomy', [
           };
           var nextWithoutDomain = stripDomain(next);
           var redirect = redirects[nextWithoutDomain];
-          console.log(next, current, nextWithoutDomain, redirect);
           if (!userService.user.profile.subscribed && redirect) {
             $location.path(redirect);
           }
