@@ -486,11 +486,14 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       getPlans: function() {
         return $http.get('/subscription/plans/');
       },
-      buyPlan: function(plan) {
+      buyPlan: function(plan, discountCode) {
         //testing card number 4188030000000003
         var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);
         if (userService.status.logged && !userService.status.loading) {
           var url = plan.description.actions.subscribe + '?return_url=' + return_url;
+          if (discountCode) {
+            url += '&discount_code=' + discountCode;
+          }
           $http.get(url).success(function(data) {
             $window.location.href = data.data.payment.status.gw_url;
           }).error(function() {

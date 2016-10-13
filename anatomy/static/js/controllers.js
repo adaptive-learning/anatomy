@@ -533,14 +533,15 @@ angular.module('proso.anatomy.controllers', [])
     };
 }])
 
-.controller('PremiumController', ['$scope', 'userService', 'subscriptionService', 'smoothScroll',
-    function($scope, userService, subscriptionService, smoothScroll){
+.controller('PremiumController', ['$scope', 'userService', 'subscriptionService', 'smoothScroll', '$routeParams',
+    function($scope, userService, subscriptionService, smoothScroll, $routeParams){
   subscriptionService.getPlans().success(function(data) {
     $scope.plans = data.data;
   });
   $scope.userService = userService;
   $scope.buyPlan = function(plan) {
-    subscriptionService.buyPlan(plan);
+    var discountCode = $routeParams.discount_code;
+    subscriptionService.buyPlan(plan, discountCode);
   };
 
   $scope.scrollToPlans = function() {
