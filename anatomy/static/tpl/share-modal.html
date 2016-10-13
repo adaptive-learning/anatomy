@@ -2,7 +2,7 @@
   <button type="button" class="close" ng-click="cancel()">
       <span aria-hidden="true">&times;</span>
   </button>
-  <h3 class="modal-title" translate>Pochlub se svými znalostmi</h3>
+  <h3 class="modal-title" ng-bind="title"></h3>
 </div>
 <div class="modal-body">
   <div class="text-center">
@@ -21,13 +21,11 @@
         ng-click="openSharePage('google')"
         class="btn btn-lg btn-danger"
       ><i class="social-google"></i> Google+</button>
-    <br>
-    <br>
-    <button
-        track-click="share demo"
+    <input class="form-control share-input" value="{{url}}"/>
+    <a track-click="share demo"
         ng-click="openSharePage('demo')"
-       class="btn btn-lg btn-link" translate
-     >Co uvidí na sdílené stránce ostatní?</a>
+        class="btn btn-lg btn-link" translate
+        ng-bind="demoTitle"></a>
   </div>
 </div>
 <div class="modal-footer" >

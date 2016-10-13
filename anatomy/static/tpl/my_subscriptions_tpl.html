@@ -6,14 +6,25 @@
     </div>
     <div class="panel-body">
       <span payment-state="subscription.payment.status.state"></span>
-      <a href="{{subscription.payment.status.gw_url}}"
-        ng-if="subscription.payment.status.state == 'CREATED'"
-        class="btn btn-primary pull-right"
-        translate>Zaplatit</a>
-      <a href="/view/relations/"
-        ng-if="subscription.payment.status.state == 'PAID'"
-        class="btn btn-primary pull-right"
-        translate>Premium obsah</a>
+      <span class="pull-right">
+        <a href="{{subscription.payment.status.gw_url}}"
+          ng-if="subscription.payment.status.state == 'CREATED'"
+          class="btn btn-primary"
+          translate>Zaplatit</a>
+        <a href=""
+          ng-click=""
+          share-button
+          share-url="{{referalLink}}"
+          share-demo-title=""
+          share-title="{{'Sdílej referal odkaz, prodluž si své předplatné' | translate}}"
+          ng-if="subscription.payment.status.state == 'PAID'"
+          class="btn btn-default"
+          translate>Doporučit kamarádovi</a>
+        <a href="/view/relations/"
+          ng-if="subscription.payment.status.state == 'PAID'"
+          class="btn btn-primary"
+          translate>Premium obsah</a>
+      </span>
       <dl>
         <dt translate>Cena</dt>
         <dd>{{subscription.payment.status.amount / 100 | currency : subscription.payment.status.currency}}</dd>

@@ -728,9 +728,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('shareButton', ['shareModal', function(shareModal) {
     return {
       restrict: 'A',
-      link: function (scope, element) {
+      link: function (scope, element, attrs) {
         element.bind('click', function(){
-          shareModal.open();
+          shareModal.open(attrs);
         });
       }
     };
@@ -777,8 +777,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('mySubscriptions', ['subscriptionService',
-      function(subscriptionService) {
+  .directive('mySubscriptions', ['subscriptionService', '$location',
+      function(subscriptionService, $location) {
     return {
       restrict: 'A',
       templateUrl : 'static/tpl/my_subscriptions_tpl.html',
@@ -788,6 +788,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         }).error(function() {
           $scope.error = true;
         });
+        $scope.referalLink = $location.absUrl().split('?')[0].replace(
+          'u/', 'premium/?referal_username=');
       }
     };
   }])

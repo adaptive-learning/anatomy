@@ -459,10 +459,15 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 
   .factory('shareModal', ["$modal", function($modal) {
     return {
-      open: function() {
+      open: function(attrs) {
         $modal.open({
           templateUrl: 'static/tpl/share-modal.html',
           controller: 'ShareController',
+          resolve: {
+            data: function() {
+              return attrs;
+            },
+          },
         });
       }
     };
@@ -486,13 +491,16 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       getPlans: function() {
         return $http.get('/subscription/plans/');
       },
-      buyPlan: function(plan, discountCode) {
+      buyPlan: function(plan, discountCode, referalUsername) {
         //testing card number 4188030000000003
         var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);
         if (userService.status.logged && !userService.status.loading) {
           var url = plan.description.actions.subscribe + '?return_url=' + return_url;
           if (discountCode) {
             url += '&discount_code=' + discountCode;
+          }
+          if (referalUsername) {
+            url += '&referal_username=' + referalUsername;
           }
           $http.get(url).success(function(data) {
             $window.location.href = data.data.payment.status.gw_url;

@@ -9,6 +9,9 @@
           <button class="btn btn-default btn-lg pull-right btn-share"
             track-click="share overview"
             ng-if="!user"
+            share-url="{{$location.absUrl() + userService.user.username}}"
+            share-title="{{'Pochlub se svými znalostmi' | translate}}"
+            share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
             share-button>
               <i class="glyphicon glyphicon-share"></i>
               <span translate>Sdílet</span>

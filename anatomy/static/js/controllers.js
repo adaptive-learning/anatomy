@@ -6,7 +6,8 @@ angular.module('proso.anatomy.controllers', [])
     function($scope, $rootScope, userService, pageTitle, configService, gettextCatalog, $location, categoryService, termsLanguageService) {
         'use strict';
         $scope.configService = configService;
-        $scope.userService = userService;
+        $rootScope.userService = userService;
+        $rootScope.$location = $location;
 
         $rootScope.initTitle = function (title) {
             $rootScope.initialTitle = title;
@@ -503,11 +504,14 @@ angular.module('proso.anatomy.controllers', [])
     $window.location.reload();
 }])
 
-.controller('ShareController', ['$scope', '$modalInstance', 'loginModal', 'userService', 'gettextCatalog', '$analytics', '$location', '$window',
-    function ($scope, $modalInstance, loginModal, userService, gettextCatalog, $analytics, $location, $window) {
+.controller('ShareController', ['$scope', '$modalInstance', 'loginModal', 'userService', 'gettextCatalog', '$analytics', '$location', '$window', 'data',
+    function ($scope, $modalInstance, loginModal, userService, gettextCatalog, $analytics, $location, $window, data) {
 
     $scope.credentials = {};
     $scope.alerts = [];
+    $scope.title = data.shareTitle;
+    $scope.url = data.shareUrl;
+    $scope.demoTitle = data.shareDemoTitle;
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
@@ -521,7 +525,7 @@ angular.module('proso.anatomy.controllers', [])
         demo : "",
       };
       if (userService.user.username) {
-        var shareUrl = siteUrls[site] + $location.absUrl() + userService.user.username;
+        var shareUrl = siteUrls[site] + data.shareUrl;
         $window.open(shareUrl, "_blank");
       } else {
         loginModal.open();
@@ -540,8 +544,9 @@ angular.module('proso.anatomy.controllers', [])
   });
   $scope.userService = userService;
   $scope.buyPlan = function(plan) {
-    var discountCode = $routeParams.discount_code;
-    subscriptionService.buyPlan(plan, discountCode);
+    subscriptionService.buyPlan(plan,
+      $routeParams.discount_code,
+      $routeParams.referral_username);
   };
 
   $scope.scrollToPlans = function() {
