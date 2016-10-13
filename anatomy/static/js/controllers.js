@@ -539,10 +539,13 @@ angular.module('proso.anatomy.controllers', [])
 
 .controller('PremiumController', ['$scope', 'userService', 'subscriptionService', 'smoothScroll', '$routeParams',
     function($scope, userService, subscriptionService, smoothScroll, $routeParams){
-  subscriptionService.getPlans().success(function(data) {
+  subscriptionService.getPlans($routeParams.discount_code).success(function(data) {
     $scope.plans = data.data;
   });
+
   $scope.userService = userService;
+  $scope.discountCode = $routeParams.discount_code;
+
   $scope.buyPlan = function(plan) {
     subscriptionService.buyPlan(plan,
       $routeParams.discount_code,

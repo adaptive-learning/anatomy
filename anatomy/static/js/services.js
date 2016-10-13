@@ -488,8 +488,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
         return mySubscriptionsPromise;
       },
-      getPlans: function() {
-        return $http.get('/subscription/plans/');
+      getPlans: function(discountCode) {
+        var url = '/subscription/plans/' +
+          (discountCode ? '?discount_code=' + discountCode : '');
+        return $http.get(url);
       },
       buyPlan: function(plan, discountCode, referralUsername) {
         //testing card number 4188030000000003

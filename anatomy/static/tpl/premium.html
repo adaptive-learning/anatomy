@@ -47,24 +47,46 @@
 </div>
 <div id='plans' class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
   <h2 class="text-center" translate>Typy předplatného</h2>
-    <div class="flatblock-content row">
-      <div class="col-sm-4" ng-repeat="plan in plans">
-        <div ng-class="{featured: plan.featured}" class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="text-center">{{plan.description.name}}</h3>
-          </div>
-          <div class="panel-body">
-            <h3><span class="price">{{plan.description.price / 100 | number}}</span> {{plan.description.currency}}</h3>
-            <p>{{plan.description.description}}</p>
-            <a class="btn btn-lg pull-right"
-                ng-click="buyPlan(plan)"
-                ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
-                translate>
-              Koupit teď
-            </a>
-           </div>
+  <div class="alert alert-info col-sm-12" ng-if="discountCode" translate>
+    Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'.
+  </div>
+  <form ng-if="!discountCode" class="form-inline text-center">
+    <label translate>Slevový kód: </label>
+    <input class="form-control" ng-model="discountCodeInput">
+    <a class="btn btn-default"
+      href="/premium/?discount_code={{discountCodeInput}}" 
+      translate>Uplatnit slevový kód</a>
+      <br>
+      <br>
+  </form>
+  <div class="flatblock-content row">
+    <div class="col-sm-4" ng-repeat="plan in plans">
+      <div ng-class="{featured: plan.featured}" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="text-center">{{plan.description.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <h3 ng-class="{'discount': plan.description.price_after_discount}">
+            <span class="price" >
+              {{plan.description.price / 100 | number}}</span>
+            {{plan.description.currency}}
+          </h3>
+          <h3 ng-if="plan.description.price_after_discount">
+            <span class="price" >
+              {{plan.description.price_after_discount / 100 | number}}
+            </span>
+            {{plan.description.currency}}
+          </h3>
+          <p>{{plan.description.description}}</p>
+          <a class="btn btn-lg pull-right"
+              ng-click="buyPlan(plan)"
+              ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
+              translate>
+            Koupit teď
+          </a>
          </div>
        </div>
+     </div>
     </div>
     <br>
     <br>
