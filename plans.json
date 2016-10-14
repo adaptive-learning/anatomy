@@ -28,7 +28,7 @@
                 "price": 40,
                 "currency": "EUR",
                 "name": " Half-year",
-                "description": "Take one semester of anatomy with us."
+                "description": "Go through one semester of anatomy with us."
             },
             "description-cs": {
                 "price": 1000,
@@ -46,7 +46,7 @@
                 "price": 64,
                 "currency": "EUR",
                 "name": "Year",
-                "description": "Take a whole year of anatomy with us."
+                "description": "Go through a whole year of anatomy with us."
             },
             "description-cs": {
                 "price": 1600,
