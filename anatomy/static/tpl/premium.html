@@ -71,13 +71,13 @@
           <h3 ng-class="{'discount': plan.description.price_after_discount}">
             <span class="price" >
               {{plan.description.price / 100 | number}}</span>
-            {{plan.description.currency}}
+            {{plan.description.currency | currencySymbol}}
           </h3>
           <h3 ng-if="plan.description.price_after_discount">
             <span class="price" >
               {{plan.description.price_after_discount / 100 | number}}
             </span>
-            {{plan.description.currency}}
+            {{plan.description.currency | currencySymbol}}
           </h3>
           <p>{{plan.description.description}}</p>
           <a class="btn btn-lg pull-right"

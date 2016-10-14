@@ -237,4 +237,14 @@ angular.module('proso.anatomy.filters', [])
       return function(name) {
         return $cookies[name];
       };
+  }])
+
+  .filter('currencySymbol', [function () {
+      var symbols = {
+        'CZK': 'Kč',
+        'EUR': '€',
+      };
+      return function(code) {
+        return symbols[code];
+      };
   }]);
