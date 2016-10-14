@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-10-13 16:20+0000\n"
+"PO-Revision-Date: 2016-10-14 19:11+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,7 +200,7 @@ msgstr "Development"
 msgid "Kontaktní informace"
 msgstr "Contact info"
 
-#: static/tpl/premium.html:59
+#: static/tpl/premium.html:83
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -554,6 +554,10 @@ msgstr "Share referral link, extend your subscription"
 msgid "Sdílet"
 msgstr "Share"
 
+#: static/tpl/premium.html:54
+msgid "Slevový kód:"
+msgstr "Discount code:"
+
 #: static/tpl/about.html:114
 msgid "Soukromí"
 msgstr "Privacy "
@@ -599,6 +603,14 @@ msgid ""
 "Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?\n"
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
 msgstr "Which muscle is highlighted? Can you find a given structure in the picture? You will see the correct answer immediately after you choose your answer."
+
+#: static/tpl/premium.html:56
+msgid "Uplatnit slevový kód"
+msgstr "Redeem discount code"
+
+#: static/tpl/premium.html:50
+msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
+msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
 #: static/js/controllers.js:494 static/js/directives.js:651
 msgid "V aplikaci bohužel nastala chyba."
