@@ -60,6 +60,7 @@
       <br>
   </form>
   <div class="flatblock-content row">
+    <div ng-hide="plans.length" class="loading-indicator"></div>
     <div class="col-sm-4" ng-repeat="plan in plans">
       <div ng-class="{featured: plan.featured}" class="panel panel-default">
         <div class="panel-heading">
