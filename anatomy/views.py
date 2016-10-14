@@ -197,10 +197,4 @@ def strip_non_ascii(string):
 
 
 def has_active_subscription(request):
-    if hasattr(request, 'user') and request.user is not None and request.user.is_staff:
-        return True
-    active_subscriptions = Subscription.objects.prepare_related().filter(
-        user_id=request.user.id,
-        expiration__gte=datetime.today(),
-    )
-    return len(active_subscriptions) > 0
+    return Subscription.objects.is_active(request.user, 'full')
