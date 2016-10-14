@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-10-14 19:11+0000\n"
+"PO-Revision-Date: 2016-10-14 19:18+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -606,7 +606,7 @@ msgstr "Which muscle is highlighted? Can you find a given structure in the pictu
 
 #: static/tpl/premium.html:56
 msgid "Uplatnit slevový kód"
-msgstr "Redeem discount code"
+msgstr "Use discount code"
 
 #: static/tpl/premium.html:50
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
