@@ -541,6 +541,12 @@ angular.module('proso.anatomy.controllers', [])
     function($scope, userService, subscriptionService, smoothScroll, $routeParams){
   subscriptionService.getPlans($routeParams.discount_code).success(function(data) {
     $scope.plans = data.data;
+  }).error(function(data, status) {
+    if ($routeParams.discount_code && status == 404) {
+      $scope.invalidCode = true;
+    } else {
+      $scope.error = true;
+    }
   });
 
   $scope.userService = userService;
