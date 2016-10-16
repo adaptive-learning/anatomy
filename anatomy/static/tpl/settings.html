@@ -1,0 +1,115 @@
+<div class="profile">
+  <div class="col-sm-offset-2 col-sm-8">
+    <h1 class="text-center" translate>Nastavení</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form ng-submit="save()">
+          <div class="alert alert-danger" ng-if="!user.profile.subscribed">
+            <span translate>Toto nastavení mohou měnit jen uživatelé s předplatným.</span>
+            <a class="btn btn-default" href="/premium/" translate>Zjistit více</a>
+          </div>
+          <div class="form-group">
+            <label for="targetDifficulty"
+              class=" control-label" translate>Obtížnost otázek</label>
+            <div class="">
+              <label class="radio-inline">
+                <input type="radio" name="targetDifficulty"
+                  ng-disabled="!user.profile.subscribed"
+                  value="95" ng-model="form.targetDifficulty">
+                <span translate>Extra jednoduché</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="targetDifficulty"
+                  ng-disabled="!user.profile.subscribed"
+                  value="80" ng-model="form.targetDifficulty">
+                <span translate>Jednoduché</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="targetDifficulty"
+                  ng-disabled="!user.profile.subscribed"
+                  value="65" ng-model="form.targetDifficulty">
+                <span translate>Výchozí</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="targetDifficulty"
+                  ng-disabled="!user.profile.subscribed"
+                  value="50" ng-model="form.targetDifficulty">
+                <span translate>Těžké</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="targetDifficulty"
+                  ng-disabled="!user.profile.subscribed"
+                  value="35" ng-model="form.targetDifficulty">
+                <span translate>Extra těžké</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="questionType"
+              class="control-label" translate>Typ otázek</label>
+            <div class="">
+              <label class="radio-inline">
+                <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
+                  value="all" ng-model="form.questionType">
+                <span translate>Všechny typy</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
+                  value="no-write" ng-model="form.questionType">
+                <span translate>Bez psaní</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
+                  value="options" ng-model="form.questionType">
+                <span translate>Výběr z možností</span>
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
+                  value="no-options" ng-model="form.questionType">
+                <span translate>Bez možností</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="setLength"
+              class=" control-label" translate>Délka sady</label>
+            <div class="">
+              <label class="radio-inline">
+                <input type="radio" name="setLength" value="5"
+                  ng-disabled="!user.profile.subscribed"
+                  ng-model="form.setLength"> 5
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="setLength" value="10"
+                  ng-disabled="!user.profile.subscribed"
+                  ng-model="form.setLength"> 10
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="setLength" value="20" 
+                  ng-disabled="!user.profile.subscribed"
+                  ng-model="form.setLength"> 20
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="setLength" value="30" 
+                  ng-disabled="!user.profile.subscribed"
+                  ng-model="form.setLength"> 30
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="setLength" value="50" 
+                  ng-disabled="!user.profile.subscribed"
+                  ng-model="form.setLength"> 50
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="pull-right">
+              <button type="submit" class="btn btn-default"
+                ng-disabled="!user.profile.subscribed"
+                translate>Uložit</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

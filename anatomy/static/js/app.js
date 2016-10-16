@@ -73,6 +73,9 @@ angular.module('proso.anatomy', [
         }).when('/premium/', {
             controller : 'PremiumController',
             templateUrl : 'static/tpl/premium.html'
+        }).when('/settings/', {
+            controller : 'SettingsController',
+            templateUrl : 'static/tpl/settings.html'
         }).otherwise({
           //redirectTo : '/'
         });

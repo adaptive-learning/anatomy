@@ -23,7 +23,7 @@ urlpatterns = patterns(
         }
     ),
     url(r'^$', 'anatomy.views.home', name='home'),
-    url(r'^(about|home|offer|premium|overview|unauthorized)',
+    url(r'^(about|home|offer|premium|overview|unauthorized|settings)',
         'anatomy.views.home', name='home'),
     url(r'^(view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),

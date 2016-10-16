@@ -565,4 +565,16 @@ angular.module('proso.anatomy.controllers', [])
       duration: 200,
     });
   };
+}])
+
+.controller('SettingsController', ['$scope', 'userService', function($scope, userService) {
+  $scope.form = {
+    setLength: 10,
+    targetDifficulty: 65,
+    questionType: 1,
+  };
+  $scope.user = userService.user;
+
+  $scope.save = function() {
+  };
 }]);
