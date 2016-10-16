@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-10-14 19:18+0000\n"
+"PO-Revision-Date: 2016-10-16 16:18+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,6 +88,14 @@ msgid ""
 "contact\">anatom{zavinac}memorix.cz</span> a domluvíme se."
 msgstr "Do you enjoy anatomy? Would you like to contributo to PracticeAnatomy? He are looking for volunteers, who would help us translate our app to local languages, name anatomical structures on pictures, add anatomical and clinical correlations or test new features. The intensity of contribution depends on your capacity, even 2-4 hours per month may help improve the features of PracticeAnatomy. Please contact us at <span class=\"email contact\">anatom{zavinac}memorix.cz</span> and we'll find what fits you."
 
+#: static/tpl/settings.html:59
+msgid "Bez psaní"
+msgstr "No writing"
+
+#: static/tpl/premium.html:62
+msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
+msgstr "Invalid discount code '{{discountCode}}'."
+
 #: static/tpl/my_subscriptions_tpl.html:29
 msgid "Cena"
 msgstr "Price"
@@ -123,13 +131,13 @@ msgstr "Data about your responses are being saved and used in order to improve u
 msgid "Data od všech uživatelů"
 msgstr "As you learn, we learn with you"
 
-#: static/tpl/order.html:5
-msgid "Dokončit objednávku"
-msgstr "Finish order"
-
 #: static/tpl/my_subscriptions_tpl.html:14
 msgid "Doporučit kamarádovi"
 msgstr "Recommend to a friend"
+
+#: static/tpl/settings.html:69
+msgid "Délka sady"
+msgstr "Set length"
 
 #: static/tpl/homepage.html:146
 msgid ""
@@ -145,9 +153,13 @@ msgstr "The application remember responses from all users who have ever used it,
 msgid "E-mail"
 msgstr "E-mail"
 
-#: static/tpl/order.html:4
-msgid "Email"
-msgstr "Email"
+#: static/tpl/settings.html:19
+msgid "Extra jednoduché"
+msgstr "Extra easy"
+
+#: static/tpl/settings.html:43
+msgid "Extra těžké"
+msgstr "Extra hard"
 
 #: static/js/controllers.js:481
 msgid "Hledaný profil neexistuje."
@@ -168,6 +180,10 @@ msgstr "How does it work?"
 #: static/tpl/practice_setting_tpl.html:9
 msgid "Jazyk terminologie"
 msgstr "Terminology language"
+
+#: static/tpl/settings.html:25
+msgid "Jednoduché"
+msgstr "Easy"
 
 #: static/tpl/sign_in_banner.html:9
 msgid ""
@@ -196,11 +212,7 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/order.html:3
-msgid "Kontaktní informace"
-msgstr "Contact info"
-
-#: static/tpl/premium.html:83
+#: static/tpl/premium.html:86
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -294,6 +306,14 @@ msgid ""
 "vyhovuje."
 msgstr "Adjust the difficulty of the practice, set length and type of questions as it suits you."
 
+#: static/tpl/settings.html:3
+msgid "Nastavení"
+msgstr "Settings"
+
+#: static/js/controllers.js:613
+msgid "Nastavení bylo uloženo."
+msgstr "Settings were saved"
+
 #: static/tpl/color_scale_legend.html:18 static/tpl/progress_tpl.html:14
 msgid "Naučeno"
 msgstr "Learned"
@@ -322,13 +342,13 @@ msgstr "Feedback"
 msgid "O projektu"
 msgstr "About us"
 
-#: static/tpl/order.html:2
-msgid "Objednávka"
-msgstr "Order"
-
 #: static/js/services.js:77
 msgid "Obličejová část hlavy"
 msgstr "Facial pat of the head"
+
+#: static/tpl/settings.html:12
+msgid "Obtížnost otázek"
+msgstr "Questions' difficulty"
 
 #: static/tpl/about.html:127
 msgid "Ochrana díla"
@@ -554,7 +574,7 @@ msgstr "Share referral link, extend your subscription"
 msgid "Sdílet"
 msgstr "Share"
 
-#: static/tpl/premium.html:54
+#: static/tpl/premium.html:51
 msgid "Slevový kód:"
 msgstr "Discount code:"
 
@@ -586,9 +606,29 @@ msgstr "This question is without an image"
 msgid "Tip k ovládání"
 msgstr "Control tip"
 
+#: static/tpl/settings.html:8
+msgid "Toto nastavení mohou měnit jen uživatelé s předplatným."
+msgstr "These settings can only be changed by users with subscription."
+
+#: static/tpl/settings.html:48
+msgid "Typ otázek"
+msgstr "Question type"
+
 #: static/tpl/premium.html:49
 msgid "Typy předplatného"
 msgstr "Subscription types"
+
+#: static/tpl/settings.html:37
+msgid "Těžké"
+msgstr "Hard"
+
+#: static/js/controllers.js:616
+msgid "Ukládání nastavení selhalo."
+msgstr "Saving settings failed."
+
+#: static/js/controllers.js:587
+msgid "Ukládání změn..."
+msgstr "Saving changes..."
 
 #: static/tpl/homepage.html:92
 msgid "Ukázka procvičování"
@@ -598,17 +638,21 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
+#: static/tpl/settings.html:103
+msgid "Uložit"
+msgstr "Save"
+
 #: static/tpl/homepage.html:86
 msgid ""
 "Umíš pojmenovat zvýrazněný sval? Umíš na obrázku najít zadanou strukturu?\n"
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
 msgstr "Which muscle is highlighted? Can you find a given structure in the picture? You will see the correct answer immediately after you choose your answer."
 
-#: static/tpl/premium.html:56
+#: static/tpl/premium.html:53
 msgid "Uplatnit slevový kód"
 msgstr "Use discount code"
 
-#: static/tpl/premium.html:50
+#: static/tpl/premium.html:59
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
@@ -686,6 +730,18 @@ msgstr "Created"
 msgid "Výběr kapitoly"
 msgstr "Chapter selection"
 
+#: static/tpl/settings.html:64
+msgid "Výběr z možností"
+msgstr "Multiple-choice"
+
+#: static/tpl/settings.html:31
+msgid "Výchozí"
+msgstr "Default"
+
+#: static/tpl/settings.html:54
+msgid "Všechny typy"
+msgstr "All types"
+
 #: static/tpl/premium.html:4
 msgid ""
 "Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování "
@@ -721,7 +777,8 @@ msgid "Zdroj"
 msgstr "Source"
 
 #: static/tpl/homepage.html:56 static/tpl/my_subscriptions_tpl.html:45
-#: static/tpl/premium_banner.html:11 static/tpl/unauthorized.html:5
+#: static/tpl/premium_banner.html:11 static/tpl/settings.html:9
+#: static/tpl/unauthorized.html:5
 msgid "Zjistit více"
 msgstr "Learn more"
 

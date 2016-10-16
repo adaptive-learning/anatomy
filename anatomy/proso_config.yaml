@@ -24,6 +24,8 @@ default:
         empty_option_set:
             force_direction: t2d
     proso_common:
+        config:
+          is_custom_config_allowed: true
         logging:
             js_errors: true
         events:

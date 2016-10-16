@@ -516,4 +516,17 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
 
     return that;
+  }])
+
+  .factory('customConfigService', ["$http", "configService", function($http, configService) {
+    var that = {
+      setConfig: function (config) {
+        var promise = $http.post('/common/custom_config/', config);
+        promise.success(function() {
+          configService.loadConfig();
+        });
+        return promise;
+      },
+    };
+    return that;
   }]);

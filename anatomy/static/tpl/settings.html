@@ -60,13 +60,8 @@
               </label>
               <label class="radio-inline">
                 <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
-                  value="options" ng-model="form.questionType">
+                  value="options-only" ng-model="form.questionType">
                 <span translate>Výběr z možností</span>
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="questionType" ng-disabled="!user.profile.subscribed"
-                  value="no-options" ng-model="form.questionType">
-                <span translate>Bez možností</span>
               </label>
             </div>
           </div>
@@ -100,6 +95,8 @@
                   ng-model="form.setLength"> 50
               </label>
             </div>
+          </div>
+          <div class="alert alert-{{messageType}}" ng-if="message" ng-bind="message">
           </div>
           <div class="form-group">
             <div class="pull-right">
