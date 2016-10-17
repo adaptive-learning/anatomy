@@ -5,7 +5,8 @@
       <h3 ng-bind="subscription.plan_description.name"></h3>
     </div>
     <div class="panel-body">
-      <span payment-state="subscription.payment.status.state"></span>
+      <span ng-if="subscription.payment"
+        payment-state="subscription.payment.status.state"></span>
       <span class="pull-right">
         <a href="{{subscription.payment.status.gw_url}}"
           ng-if="subscription.payment.status.state == 'CREATED'"
@@ -21,13 +22,16 @@
           class="btn btn-default"
           translate>Doporučit kamarádovi</a>
         <a href="/view/relations/"
-          ng-if="subscription.payment.status.state == 'PAID'"
+          ng-if="subscription.payment.status.state == 'PAID' || !subscription.payment"
           class="btn btn-primary"
           translate>Premium obsah</a>
       </span>
       <dl>
         <dt translate>Cena</dt>
-        <dd>{{subscription.payment.status.amount / 100 | currency : subscription.payment.status.currency}}</dd>
+        <dd>{{subscription.payment ? 
+          (subscription.payment.status.amount / 100 | 
+            currency : subscription.payment.status.currency) :
+          0}}</dd>
       </dl>
       <dl>
         <dt translate>Vytvořeno</dt>

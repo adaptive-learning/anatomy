@@ -505,7 +505,11 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             url += '&referral_username=' + referralUsername;
           }
           $http.get(url).success(function(data) {
-            $window.location.href = data.data.payment.status.gw_url;
+            if (plan.description.price_after_discount !== 0) {
+              $window.location.href = data.data.payment.status.gw_url;
+            } else {
+              $window.location.href = '/u/' + userService.user.username;
+            }
           }).error(function() {
             $window.alert('Subscription failed');
           });
