@@ -165,4 +165,11 @@ angular.module('proso.anatomy', [
           }).join('/');
         }
 
+}])
+
+.run(['$rootScope', '$window', function($rootScope, $window) {
+  $rootScope.$on('userLogin', function() {
+    console.log('userLogin');
+    $window.location.reload();
+  });
 }]);
