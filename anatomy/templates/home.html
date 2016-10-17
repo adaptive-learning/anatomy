@@ -96,12 +96,15 @@
                 <li is-active>
                   <a href="/overview/">{% trans "Kapitoly" %}</a>
                 </li>
+    {% if not is_production  %}
+    <!-- TODO: remove this hack when launching subscriptions -->
                 <li>
                   <a href="/view/relations/" ng-cloak ng-show="userService.user.profile.subscribed">{% trans "Souvislosti" %}</a>
                 </li>
                 <li is-active>
                     <a href="/premium"> {% trans "Předplatné" %}</a>
                 </li>
+    {% endif %}
                 <li is-active>
                     <a href="/about"> {% trans "O projektu" %}</a>
                 </li>
@@ -133,11 +136,14 @@
                         {% trans "Můj profil" %}
                       </a>
                     </li>
+    {% if not is_production  %}
+    <!-- TODO: remove this hack when launching subscriptions -->
                     <li>
                       <a href="/settings/" >
                         {% trans "Nastavení" %}
                       </a>
                     </li>
+    {% endif %}
                     <li class="forgot-pwd">
                       <a href="/" ng-click="logout()">
                         {% trans "Odhlásit se" %}

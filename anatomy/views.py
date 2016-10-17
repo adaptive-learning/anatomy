@@ -46,7 +46,8 @@ def home(request, hack=None):
         if hack is None:
             return redirect('/overview/')
         user = request.user.userprofile.to_json(stats=True)
-        user['subscribed'] = has_active_subscription(request)
+        # TODO remove settings.ON_PRODUCTION hack when launching subscriptions
+        user['subscribed'] = settings.ON_PRODUCTION or has_active_subscription(request)
         user = json.dumps(user)
         email = request.user.email
         if not request.user.userprofile.public:
