@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 import json
 from django.utils.translation import ugettext as _
 from django.utils.translation import get_language
-from proso.django.config import get_global_config
+from proso_common.models import get_global_config
 from proso_flashcards.models import Category
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import management
