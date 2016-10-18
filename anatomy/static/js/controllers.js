@@ -415,6 +415,7 @@ angular.module('proso.anatomy.controllers', [])
             }];
             userStatsService.clean();
             userStatsService.addGroup('all', []);
+            userStatsService.addGroupParams('all', [['category/images']]);
             for (var i = 0; i < $scope.categories.length; i++) {
               var cat = $scope.categories[i];
               var id = cat.identifier;
