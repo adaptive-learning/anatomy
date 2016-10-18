@@ -15,6 +15,7 @@ python $DIR/manage.py compilemessages
 python $DIR/manage.py load_user_questions $DIR/data/user-questions.json
 python $DIR/manage.py load_configab_experiments $DIR/ab_experiments.json
 python $DIR/manage.py load_subscription_plans $DIR/plans.json
+python $DIR/manage.py load_global_custom_config --file $DIR/anatomy/proso_custom_config.yaml
 
 cd $DIR/anatomy
 npm install --python=/usr/bin/python2.7
