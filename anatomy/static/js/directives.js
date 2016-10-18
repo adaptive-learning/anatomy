@@ -1136,27 +1136,25 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.flashcards = [question];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var fcByTerm = {};
-          flashcards = flashcards.filter(function(fc) {
-              if ((fc.term && fcByTerm[fc.term.name]) || !fc.term ||
-                  (fc.term_secondary && fcByTerm[fc.term_secondary.name])) {
+          flashcards = flashcards.map(function(f) {
+            if (question.question_type == 't2ts' && f.term_secondary) {
+              f.term = f.term_secondary;
+            }
+            if (f.term) {
+              f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
+            }
+            return f;
+          }).filter(function(fc) {
+              if ((fc.term && fcByTerm[fc.term.name]) || !fc.term) {
                 return false;
               }
               if (fc.term) {
                 fcByTerm[fc.term.name] = true;
               }
-              if (fc.term_secondary) {
-                fcByTerm[fc.term_secondary.name] = true;
-              }
               return true;
           });
           $scope.flashcards = flashcards.filter(function(f) {
               return !(question.question_type == 't2ts' && f.term.name == question.term.name && !f.term_secondary);
-            }).map(function(f) {
-            if (question.question_type == 't2ts' && f.term_secondary) {
-              f.term = f.term_secondary;
-            }
-            f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
-            return f;
           }).sort(function(a, b){
               return a.term.primaryName.length - b.term.primaryName.length; 
           });
