@@ -1,0 +1,9 @@
+proso_models:
+  option_selector.parameters.allow_zero_options_restriction:
+    - value: true
+      condition_key: selected_item_has_parent
+      condition_value: en@category/action
+  random_test.nth:
+    - value: -1
+      condition_key: has_active_subscription
+      condition_value: full
