@@ -17,6 +17,22 @@ from datetime import datetime, timedelta
 import random
 import base64
 from proso_subscription.models import Subscription
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+from gopay.enums import PaymentStatus
+
+
+@login_required
+def invoice(request, subscription_id):
+    subscription = get_object_or_404(Subscription, pk=subscription_id)
+    if not request.user.is_staff and subscription.user_id != request.user.id:
+        return HttpResponse('Unauthorized', status=401)
+    if subscription.payment is None or subscription.payment.state != PaymentStatus.PAID:
+        return HttpResponse('There is no invoice for the given subscription.', 400)
+    return render_to_response('invoice.html', {
+        'subscription': subscription,
+        'user': request.user,
+    })
 
 
 @ensure_csrf_cookie

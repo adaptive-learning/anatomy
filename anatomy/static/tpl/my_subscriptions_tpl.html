@@ -21,6 +21,11 @@
           ng-if="subscription.payment.status.state == 'PAID'"
           class="btn btn-default"
           translate>Doporučit kamarádovi</a>
+        <a href="/invoice/{{subscription.id}}"
+          ng-if="subscription.payment.status.state == 'PAID'"
+          class="btn btn-default"
+          target="_self"
+          translate>Faktura</a>
         <a href="/view/relations/"
           ng-if="subscription.payment.status.state == 'PAID' || !subscription.payment"
           class="btn btn-primary"
@@ -28,8 +33,8 @@
       </span>
       <dl>
         <dt translate>Cena</dt>
-        <dd>{{subscription.payment ? 
-          (subscription.payment.status.amount / 100 | 
+        <dd>{{subscription.payment ?
+          (subscription.payment.status.amount / 100 |
             currency : subscription.payment.status.currency) :
           0}}</dd>
       </dl>
