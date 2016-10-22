@@ -92,7 +92,7 @@ module.exports = function(grunt) {
                 "maxparams": 12,
             },
             dist: {
-                src: 'static/js/',
+                src: 'static/js/*.js',
             }
         },
         nggettext_compile: {
@@ -179,7 +179,7 @@ module.exports = function(grunt) {
         watch: {
             'anatomy-js': {
                 files: '<%= concat.anatomy.src %>',
-                tasks: ['jshint', 'concat:anatomy', 'uglify:anatomy', 'nggettext_extract']
+                tasks: ['anatomy-js']
             },
             'unminifiable-libs': {
                 files: '<%= concat.unminifiable.src %>',
@@ -187,33 +187,65 @@ module.exports = function(grunt) {
             },
             'anatomy-css': {
                 files: 'static/sass/*.sass',
-                tasks: ['sass:anatomy', 'copy:above-fold']
+                tasks: ['anatomy-css']
             },
             'anatomy-tpls': {
                 files: '<%= html2js.anatomy.src %>',
-                tasks: ['string-replace:homepage', 'html2js:anatomy', 'nggettext_extract']
+                tasks: ['anatomy-tpls']
             },
             'anatomy-nggettext_compile': {
                 files: '<%= nggettext_compile.all.src %>',
-                tasks: ['nggettext_compile']
+                tasks: ['newer:nggettext_compile']
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-bower-concat');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-string-replace');
-    grunt.loadNpmTasks('grunt-html2js');
-    grunt.loadNpmTasks('grunt-angular-gettext');
+    grunt.loadNpmTasks('grunt-newer');
 
-    grunt.registerTask('collect-libs', ['bower_concat:all', 'concat:unminifiable', 'uglify:libs', 'copy:fonts', 'copy:proso-apps-js']);
-    grunt.registerTask('prepare-libs', ['shell:bower_install', 'collect-libs']);
-    grunt.registerTask('prepare', ['jshint','nggettext_compile','string-replace:homepage', 'html2js:anatomy', 'concat:anatomy', 'uglify:anatomy', 'sass:anatomy', 'copy:above-fold', 'copy:images']);
+    grunt.registerTask('static-check', [], function() {
+      grunt.loadNpmTasks('grunt-contrib-jshint');
+      grunt.task.run('newer:jshint:dist');
+    });
+
+    grunt.registerTask('collect-libs', [], function() {
+      grunt.loadNpmTasks('grunt-bower-concat');
+      grunt.loadNpmTasks('grunt-contrib-concat');
+      grunt.loadNpmTasks('grunt-contrib-copy');
+      grunt.loadNpmTasks('grunt-contrib-uglify');
+      grunt.task.run('bower_concat:all', 'concat:unminifiable', 'uglify:libs', 'copy:fonts', 'copy:proso-apps-js');
+    });
+
+    grunt.registerTask('prepare-libs', [], function() {
+      grunt.loadNpmTasks('grunt-shell');
+      grunt.task.run('shell:bower_install', 'collect-libs');
+    });
+
+    grunt.registerTask('anatomy-js', [], function() {
+      grunt.loadNpmTasks('grunt-contrib-concat');
+      grunt.loadNpmTasks('grunt-contrib-uglify');
+      grunt.loadNpmTasks('grunt-angular-gettext');
+      grunt.task.run('static-check', 'newer:concat:anatomy', 'newer:uglify:anatomy', 'newer:nggettext_extract:pot');
+    });
+
+    grunt.registerTask('prepare', [], function() {
+      grunt.loadNpmTasks('grunt-contrib-copy');
+      grunt.loadNpmTasks('grunt-angular-gettext');
+      grunt.task.run('newer:nggettext_compile', 'anatomy-tpls', 'anatomy-js', 'anatomy-css', 'newer:copy:images');
+    });
+
+    grunt.registerTask('anatomy-tpls', [], function() {
+      grunt.loadNpmTasks('grunt-string-replace');
+      grunt.loadNpmTasks('grunt-html2js');
+      grunt.loadNpmTasks('grunt-angular-gettext');
+      grunt.task.run('newer:string-replace:homepage', 'newer:html2js:anatomy',  'newer:nggettext_extract:pot');
+    });
+
+    grunt.registerTask('anatomy-css', [], function() {
+      grunt.loadNpmTasks('grunt-contrib-copy');
+      grunt.loadNpmTasks('grunt-contrib-sass');
+      grunt.task.run('sass:anatomy', 'newer:copy:above-fold');
+    });
+
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
 };
