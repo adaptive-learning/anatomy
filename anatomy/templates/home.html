@@ -202,10 +202,19 @@
      {% endif %}
     </div>
   </div>
-    <div id="feedback-btn">
-      <a feedback-comment email="{{email}}" href="">
-       {% trans "Napiš nám" %}
-     </a>
+    <div id="feedback-btn" ng-hide="hideFeedback">
+      <span class="rotate">
+        <span class="placer">
+          <a class='main-btn' feedback-comment email="{{email}}" href="">
+            {% trans "Napište nám" %}
+          </a>
+          <a href="" title="{% trans "Skrýt tlačítko" %}"
+              class="hide-btn btn btn-xs btn-primary"
+              ng-click="hideFeedback=true">
+            <i class="glyphicon glyphicon-remove-sign"></i>
+          </a>
+        </span>
+      </span>
     </div>
     <rating-modal></rating-modal>
 

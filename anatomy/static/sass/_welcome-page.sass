@@ -105,31 +105,44 @@ img
   text-shadow: none
 
 #feedback-btn
-  position: fixed
-  top: 250px
-  left: -50px
   z-index: 999
-  a
+  position: fixed
+  top: 0px
+  .rotate
     transform: rotate(-90deg)
     -webkit-transform: rotate(-90deg)
     -moz-transform: rotate(-90deg)
     -o-transform: rotate(-90deg)
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)
     display: inline-block
-    width: 140px
-    background: #428bca
-    padding: 8px 16px
-    color: #fff
-    text-decoration: none
-    border: 1px solid transparent
-    border-radius: 0 0 4px 4px
-    border-color: #285e8e
-    padding: 6px 12px
-    text-align: center
-    font-size: 1.3em
-    &:hover
-      background-color: #3071a9
-      border-color: #285e8e
+    .placer
+      position: fixed
+      top: 0px
+      left: -400px
+      a.main-btn
+        display: inline-block
+        background: #428bca
+        padding: 8px 16px
+        color: #fff
+        text-decoration: none
+        border: 1px solid transparent
+        border-radius: 0 0 4px 4px
+        border-color: #285e8e
+        padding: 6px 12px
+        text-align: center
+        font-size: 1.3em
+        &:hover
+          background-color: #3071a9
+          border-color: #285e8e
+      a.hide-btn
+        visibility: hidden
+        position: absolute
+        bottom: -11px
+        right: -11px
+  .rotate:hover
+    a.hide-btn
+      visibility: visible
+
 
 #___plusone_0 iframe
   position: relative !important
