@@ -20,6 +20,7 @@ from proso_subscription.models import Subscription
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from gopay.enums import PaymentStatus
+from django.db.models import Q
 
 
 @login_required
@@ -29,10 +30,17 @@ def invoice(request, subscription_id):
         return HttpResponse('Unauthorized', status=401)
     if subscription.payment is None or subscription.payment.state != PaymentStatus.PAID:
         return HttpResponse('There is no invoice for the given subscription.', 400)
-    return render_to_response('invoice.html', {
+    data = {
+        'request': request,
         'subscription': subscription,
         'user': request.user,
-    })
+        'invoice_number': get_invoice_number(subscription),
+    }
+    if request.user.is_staff:
+        other_keys = ['first_name', 'last_name', 'ic', 'dic', 'address_1', 'address_2', 'address_3']
+        for key in other_keys:
+            data[key] = request.GET.get(key)
+    return render_to_response('invoice.html', data)
 
 
 @ensure_csrf_cookie
@@ -215,3 +223,15 @@ def strip_non_ascii(string):
 
 def has_active_subscription(request):
     return Subscription.objects.is_active(request.user, 'full')
+
+
+def get_invoice_number(subscription):
+    if subscription.payment_id is None or subscription.payment.state != PaymentStatus.PAID:
+        return None
+    before = Subscription.objects.filter(
+        Q(payment__state=PaymentStatus.PAID, payment__updated__year=subscription.payment.updated.year) & (
+            Q(payment__updated__lt=subscription.payment.updated) |
+            Q(payment__updated=subscription.payment.updated, payment__pk__lt=subscription.payment.pk)
+        )
+    ).count()
+    return '{}1{}'.format(subscription.payment.updated.year, str(before + 1).zfill(5))
