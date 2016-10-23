@@ -18,7 +18,8 @@
     "grunt-contrib-watch": "~0.6.1",
     "bower": "~1.4.1",
     "grunt-angular-gettext": "~2.1.0",
-    "grunt-newer": "~1.2.0"
+    "grunt-newer": "~1.2.0",
+    "jit-grunt": "~0.10.0"
   },
   "license": "MIT"
 }
