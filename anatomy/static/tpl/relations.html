@@ -58,35 +58,45 @@
 </div>
 <div class="table table-striped col-sm-12 relations-table">
   <div class="row table-row fade-in-one-by-one">
-    <strong>
-      <span class="col-sm-2" translate>Sval</span>
-      <span class="col-sm-10">
-        <span class="col-sm-2"
-          ng-repeat="c in subcategories"
-          ng-bind="c.name"></span>
-        </span>
-      </span>
-    </strong>
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <strong>
+        <div class="row">
+          <span class="col-sm-2" translate>Sval</span>
+          <span class="col-sm-10">
+            <span class="col-sm-2"
+              ng-repeat="c in subcategories"
+              ng-bind="c.name"></span>
+            </span>
+          </span>
+        </div>
+      </strong>
+    </div>
     <div class="clearfix"></div>
   </div>
   <div class="row table-row fade-in-one-by-one"
       ng-repeat="relation in relations">
-    <div class="col-sm-2">
-      <span class="label label-default"
-        ng-bind="relation.primaryTerm.name | stripAlternatives" >
-      </span>
-    </div>
-    <div class="col-sm-10">
-      <div class="col-sm-2"
-        ng-repeat="c in subcategories">
-        <div ng-repeat="flashcard in relation[c.identifier]">
-          <div term-label
-            ng-bind="flashcard.term.name | stripAlternatives" >
+    <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="col-sm-2">
+          <span class="label label-default"
+            ng-bind="relation.primaryTerm.name | stripAlternatives" >
+          </span>
+        </div>
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-2"
+              ng-repeat="c in subcategories">
+              <div ng-repeat="flashcard in relation[c.identifier]">
+                <div term-label
+                  ng-bind="flashcard.term.name | stripAlternatives" >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="clearfix"></div>
       </div>
     </div>
-    <div class="clearfix"></div>
   </div>
   <div ng-hide="(relations) || error" class="loading-indicator"></div>
 </div>
