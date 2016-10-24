@@ -81,7 +81,7 @@ angular.module('proso.anatomy', [
         }).when('/settings/', {
             controller : 'SettingsController',
             templateUrl : 'static/tpl/settings.html'
-        }).when('/relations/', {
+        }).when('/relations/:user?', {
             controller : 'RelationsController',
             templateUrl : 'static/tpl/relations.html'
         }).otherwise({
@@ -159,6 +159,7 @@ angular.module('proso.anatomy', [
             'practice/' : '/practice/images/',
             'practice/relations/' : '/unauthorized/',
             'view/relations/' : '/unauthorized/',
+            'relations/' : '/unauthorized/',
           };
           var nextWithoutDomain = stripDomain(next);
           var redirect = redirects[nextWithoutDomain];
