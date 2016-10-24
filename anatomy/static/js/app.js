@@ -80,6 +80,9 @@ angular.module('proso.anatomy', [
         }).when('/settings/', {
             controller : 'SettingsController',
             templateUrl : 'static/tpl/settings.html'
+        }).when('/relations/', {
+            controller : 'RelationsController',
+            templateUrl : 'static/tpl/relations.html'
         }).otherwise({
           //redirectTo : '/'
         });

@@ -630,4 +630,62 @@ angular.module('proso.anatomy.controllers', [])
       return 'all';
     }
   }
+}])
+
+.controller('RelationsController', ['$scope',  '$routeParams', 'categoryService', 'contextService', 'userStatsService',
+    function($scope, $routeParams, categoryService, contextService, userStatsService) {
+      $scope.user = $routeParams.user || '';
+      var category = 'relations';
+
+      var filter = {
+          filter : [['category/' + category]],
+      };
+
+      categoryService.getAllByType().then(function(){
+        $scope.category = categoryService.getCategory(category);
+        $scope.subcategories = categoryService.getSubcategories(category);
+        $scope.contexts = [];
+        $scope.subcategories.forEach(function(c) {
+          contextService.getContextByIdentifier(c.identifier).then(function(context) {
+            $scope.contexts.push(context);
+            if ($scope.contexts.length == $scope.subcategories.length) {
+              $scope.parseRelations();
+            }
+          });
+        });
+      });
+
+      $scope.parseRelations = function() {
+        var relationsByMuscle = {};
+        $scope.contexts.forEach(function(c) {
+          c.flashcards.forEach(function(fc) {
+            var relationsObj = relationsByMuscle[fc.term.identifier] || {};
+            relationsObj.primaryTerm = fc.term;
+            relationsObj[c.identifier] = relationsObj[c.identifier] || [];
+            var fc_secondary = angular.copy(fc);
+            fc_secondary.term = fc_secondary.term_secondary;
+            relationsObj[c.identifier].push(fc_secondary);
+            relationsByMuscle[fc.term.identifier] = relationsObj;
+
+          });
+        });
+        $scope.relations = [];
+        for (var i in relationsByMuscle) {
+          $scope.relations.push(relationsByMuscle[i]);
+        }
+        $scope.relations = $scope.relations.sort(function(a, b) {
+          return a.primaryTerm.name < b.primaryTerm.name;
+        });
+      };
+
+      var catId = category;
+      userStatsService.clean();
+      userStatsService.addGroup(catId, {});
+      userStatsService.addGroupParams(catId, filter.filter);
+      userStatsService.getStatsPost(true, $scope.user).success(function(data) {
+        $scope.stats = data.data[catId];
+
+        console.log('sta', data.data[catId]);
+      });
+
 }]);
