@@ -24,7 +24,7 @@ urlpatterns = patterns(
     ),
     url(r'^$', 'anatomy.views.home', name='home'),
     url(r'^invoice/(?P<subscription_id>\d+)$', 'anatomy.views.invoice', name='invoice'),
-    url(r'^(about|home|offer|premium|overview|unauthorized|settings)',
+    url(r'^(about|home|offer|premium|overview|unauthorized|settings|terms-of-use-)',
         'anatomy.views.home', name='home'),
     url(r'^(view/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
