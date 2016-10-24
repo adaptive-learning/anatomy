@@ -5,6 +5,7 @@ angular.module('proso.anatomy', [
     'angular-svg-round-progress',
     'gettext',
     'googleExperiments',
+    'infinite-scroll',
     'ngRoute',
     'ngAnimate',
     'ngCookies',

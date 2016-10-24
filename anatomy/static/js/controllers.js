@@ -650,18 +650,19 @@ angular.module('proso.anatomy.controllers', [])
             $scope.contexts.push(context);
             if ($scope.contexts.length == $scope.subcategories.length) {
               $scope.parseRelations();
-        flashcardService.getFlashcards(
-            angular.extend(filter, {stats:true})).then(function(data) {
-          $scope.flashcards = data;
-          $scope.flashcards.forEach(function(fc) {
-            var originalFc = $scope.flashcardsById[fc.id];
-            if (originalFc) {
-            originalFc.prediction = fc.prediction;
-            originalFc.practiced = fc.practiced;
-            originalFc.mastered = fc.mastered;
-            }
-          });
-        });
+
+              flashcardService.getFlashcards(
+                  angular.extend(filter, {stats:true})).then(function(data) {
+                $scope.flashcards = data;
+                $scope.flashcards.forEach(function(fc) {
+                  var originalFc = $scope.flashcardsById[fc.id];
+                  if (originalFc) {
+                  originalFc.prediction = fc.prediction;
+                  originalFc.practiced = fc.practiced;
+                  originalFc.mastered = fc.mastered;
+                  }
+                });
+              });
             }
           });
         });
@@ -700,4 +701,10 @@ angular.module('proso.anatomy.controllers', [])
         $scope.stats = data.data[catId];
       });
 
+      $scope.rowsLimit = 30;
+      $scope.addRows = function() {
+        if ($scope.relations && $scope.rowsLimit < $scope.relations.length) {
+          $scope.rowsLimit += 30;
+        }
+      };
 }]);
