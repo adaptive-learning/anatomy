@@ -632,8 +632,8 @@ angular.module('proso.anatomy.controllers', [])
   }
 }])
 
-.controller('RelationsController', ['$scope',  '$routeParams', 'categoryService', 'contextService', 'userStatsService',
-    function($scope, $routeParams, categoryService, contextService, userStatsService) {
+.controller('RelationsController', ['$scope',  '$routeParams', 'categoryService', 'contextService', 'userStatsService', 'flashcardService',
+    function($scope, $routeParams, categoryService, contextService, userStatsService, flashcardService) {
       $scope.user = $routeParams.user || '';
       var category = 'relations';
 
@@ -650,6 +650,18 @@ angular.module('proso.anatomy.controllers', [])
             $scope.contexts.push(context);
             if ($scope.contexts.length == $scope.subcategories.length) {
               $scope.parseRelations();
+        flashcardService.getFlashcards(
+            angular.extend(filter, {stats:true})).then(function(data) {
+          $scope.flashcards = data;
+          $scope.flashcards.forEach(function(fc) {
+            var originalFc = $scope.flashcardsById[fc.id];
+            if (originalFc) {
+            originalFc.prediction = fc.prediction;
+            originalFc.practiced = fc.practiced;
+            originalFc.mastered = fc.mastered;
+            }
+          });
+        });
             }
           });
         });
@@ -657,6 +669,7 @@ angular.module('proso.anatomy.controllers', [])
 
       $scope.parseRelations = function() {
         var relationsByMuscle = {};
+        $scope.flashcardsById = {};
         $scope.contexts.forEach(function(c) {
           c.flashcards.forEach(function(fc) {
             var relationsObj = relationsByMuscle[fc.term.identifier] || {};
@@ -666,6 +679,7 @@ angular.module('proso.anatomy.controllers', [])
             fc_secondary.term = fc_secondary.term_secondary;
             relationsObj[c.identifier].push(fc_secondary);
             relationsByMuscle[fc.term.identifier] = relationsObj;
+            $scope.flashcardsById[fc_secondary.id] = fc_secondary;
 
           });
         });
@@ -684,8 +698,6 @@ angular.module('proso.anatomy.controllers', [])
       userStatsService.addGroupParams(catId, filter.filter);
       userStatsService.getStatsPost(true, $scope.user).success(function(data) {
         $scope.stats = data.data[catId];
-
-        console.log('sta', data.data[catId]);
       });
 
 }]);

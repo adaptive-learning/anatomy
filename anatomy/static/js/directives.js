@@ -8,39 +8,46 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       link : function($scope, elem) {
         elem.addClass('label');
         elem.addClass('label-default');
-        elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
-        if ($scope.flashcard.practiced) {
-          elem.css('border-left', '5px solid #fe3');
+        $scope.$watch('flashcard.prediction', update);
+
+        function update() {
+          if ($scope.flashcard.prediction) {
+            elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
+            if ($scope.flashcard.practiced) {
+              elem.css('border-left', '5px solid #fe3');
+            }
+            if ($scope.flashcard.mastered) {
+              elem.css('border-left', '5px solid #5ca03c');
+            }
+            var alternativeNames = $scope.flashcard.term.name.split(';').splice(1).join('<br>');
+            elem.tooltip({
+              html : true,
+              placement: 'bottom',
+              container: 'body',
+              title : ($scope.flashcard.term_secondary && $scope.flashcard.context ? 
+                   '<div>' +
+                     $scope.flashcard.context.name + ': ' +
+                     '<strong>' + $scope.flashcard.term_secondary.name + '</strong>' +
+                   '</div><br>':
+                   '') +
+                    '<div class="skill-tooltip">' +
+                    gettextCatalog.getString('Odhad znalosti') +
+                    ' <span class="badge badge-default">' +
+                      '<i class="color-indicator" style="background-color :' +
+                      colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex() + '"></i>' +
+                      (Math.ceil(10 * $scope.flashcard.prediction)) + ' / 10 ' +
+                    '</span>' +
+                   '</div>' +
+                   (alternativeNames ? 
+                   '<div>' +
+                    gettextCatalog.getString('Alternativní názvy') +
+                    ':<br> <strong>' + alternativeNames + '</strong>' +
+                   '</div>':
+                   ''),
+            });
+          }
         }
-        if ($scope.flashcard.mastered) {
-          elem.css('border-left', '5px solid #5ca03c');
-        }
-        var alternativeNames = $scope.flashcard.term.name.split(';').splice(1).join('<br>');
-        elem.tooltip({
-          html : true,
-          placement: 'bottom',
-          container: 'body',
-          title : ($scope.flashcard.term_secondary && $scope.flashcard.context ? 
-               '<div>' +
-                 $scope.flashcard.context.name + ': ' +
-                 '<strong>' + $scope.flashcard.term_secondary.name + '</strong>' +
-               '</div><br>':
-               '') +
-                '<div class="skill-tooltip">' +
-                gettextCatalog.getString('Odhad znalosti') +
-                ' <span class="badge badge-default">' +
-                  '<i class="color-indicator" style="background-color :' +
-                  colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex() + '"></i>' +
-                  (Math.ceil(10 * $scope.flashcard.prediction)) + ' / 10 ' +
-                '</span>' +
-               '</div>' +
-               (alternativeNames ? 
-               '<div>' +
-                gettextCatalog.getString('Alternativní názvy') +
-                ':<br> <strong>' + alternativeNames + '</strong>' +
-               '</div>':
-               ''),
-        });
+        update();
       }
     };
   }])
