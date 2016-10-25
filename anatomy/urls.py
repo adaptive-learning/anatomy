@@ -30,7 +30,7 @@ urlpatterns = patterns(
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^robots.txt$', lambda r: HttpResponse(
-        "User-agent: *\nDisallow: ", content_type="text/plain")),
+        "User-agent: *\nDisallow: /terms-of-use-*", content_type="text/plain")),
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
     url(r'^savescreenshot/', 'anatomy.views.save_screenshot', name='save_screenshot'),
 
