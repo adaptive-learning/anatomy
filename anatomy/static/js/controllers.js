@@ -558,14 +558,6 @@ angular.module('proso.anatomy.controllers', [])
       $routeParams.discount_code,
       $routeParams.referral_username);
   };
-
-  $scope.scrollToPlans = function() {
-    var elem = document.getElementById('plans');
-    smoothScroll(elem, {
-      offset: 10,
-      duration: 200,
-    });
-  };
 }])
 
 .controller('SettingsController', ['$scope', 'userService', 'configService', 'customConfigService', 'gettextCatalog',
