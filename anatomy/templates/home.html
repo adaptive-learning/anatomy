@@ -225,41 +225,55 @@
 
     <div class="" id="footer">
       <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
-        <span class="col-sm-3">
-        <ul>
-          <li class="visible-xs">
-            <a feedback-comment  email="{{email}}" href="" class="btn btn-primary">
-               {% trans "Napište nám" %}
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <a href="/about" scroll-top>
+              {% trans "O projeku" %}</a> |
+            <a href="/terms-of-use-{{LANGUAGE_CODE}}" scroll-top>
+              {% trans "Právní podmínky" %}</a> |
+            <a href="/TODO">{% trans "Zásady ochrany osobních údajů" %}</a> |
+            <a feedback-comment email="{{email}}" href="" scroll-top>
+              {% trans "Napište nám" %}</a>
+          </div>
+          <div class="clearfix"></div>
+          <br>
+          <br>
+        </div>
+        <div class="row">
+          <span class="col-sm-3">
+          <ul>
+            <li class="visible-xs">
+              <br>
+              <br>
+            </li>
+            <li>
+              <a href="https://play.google.com/store/apps/details?id=martinmatko.Anatom"
+                  track-click="android footer">
+                <img src="{% static 'img/android.png' %}"
+                  alt="{% trans "Aplikace na Google Play" %}" >
+              </a>
+            </li>
+          </ul>
+          </span>
+          <span class="col-sm-3">
+            <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
+              <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
+                  alt="{% trans 'Memorix Anatomie' %}"/>
             </a>
-            <br>
-            <br>
-          </li>
-          <li>
-            <a href="https://play.google.com/store/apps/details?id=martinmatko.Anatom"
-                track-click="android footer">
-              <img src="{% static 'img/android.png' %}"
-                alt="{% trans "Aplikace na Google Play" %}" >
+          </span>
+          <span class="col-sm-3">
+            <a href="http://www.fi.muni.cz/adaptivelearning/" class="">
+              <img src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
             </a>
-          </li>
-        </ul>
-        </span>
-        <span class="col-sm-3">
-          <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
-            <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
-                alt="{% trans 'Memorix Anatomie' %}"/>
-          </a>
-        </span>
-        <span class="col-sm-3">
-          <a href="http://www.fi.muni.cz/adaptivelearning/" class="">
-            <img src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
-          </a>
-        </span>
-        <span class="col-sm-3">
-          <a href="https://vpsfree.cz/" title="vpsFree hostuje tento web">
-            <img id="imgVPS" alt="vpsFree" style="height: 50px"
-              src="{% static 'img/vpsfree-logo.png' %}">
-          </a>
-        </span>
+          </span>
+          <span class="col-sm-3">
+            <a href="https://vpsfree.cz/" title="vpsFree hostuje tento web">
+              <img id="imgVPS" alt="vpsFree" style="height: 50px"
+                src="{% static 'img/vpsfree-logo.png' %}">
+            </a>
+          </span>
+          <div class="clearfix"></div>
+        </div>
       </div>
       <div class="clearfix"></div>
     </div>

@@ -1123,6 +1123,22 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('scrollTop', ['smoothScroll', function(smoothScroll) {
+    return {
+      restrict: 'A',
+      link: function ($scope, element) {
+        element.click(function() {
+          console.log('cliucke');
+          var elem = document.getElementById('wrap');
+          smoothScroll(elem, {
+            offset: 10,
+            duration: 200,
+          });
+        });
+      }
+    };
+  }])
+
   .directive('openAnswer', ['flashcardService', 'configService', '$window', '$filter',
       function(flashcardService, configService, $window, $filter) {
     return {
