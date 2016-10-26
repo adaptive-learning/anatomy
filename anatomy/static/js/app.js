@@ -85,7 +85,7 @@ angular.module('proso.anatomy', [
             controller : 'RelationsController',
             templateUrl : 'static/tpl/relations.html'
         }).otherwise({
-          //redirectTo : '/'
+            templateUrl : 'static/tpl/404.html'
         });
 
         var languages = ['cs', 'en'];

@@ -1128,7 +1128,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       restrict: 'A',
       link: function ($scope, element) {
         element.click(function() {
-          console.log('cliucke');
           var elem = document.getElementById('wrap');
           smoothScroll(elem, {
             offset: 10,
