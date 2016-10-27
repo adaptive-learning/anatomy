@@ -649,10 +649,31 @@ angular.module('proso.anatomy.controllers', [])
                 $scope.flashcards.forEach(function(fc) {
                   var originalFc = $scope.flashcardsById[fc.id];
                   if (originalFc) {
-                  originalFc.prediction = fc.prediction;
-                  originalFc.practiced = fc.practiced;
-                  originalFc.mastered = fc.mastered;
+                    originalFc.prediction = fc.prediction;
+                    originalFc.practiced = fc.practiced;
+                    originalFc.mastered = fc.mastered;
                   }
+                });
+                $scope.relations.forEach(function(relation) {
+                    var mastered = 0;
+                    var practiced = 0;
+                    var total = 0;
+                    for (var i = 0; i < $scope.subcategories.length; i++) {
+                        var c = $scope.subcategories[i].identifier;
+                        if (!relation[c]) {
+                            continue;
+                        }
+                        for (var j = 0; j < relation[c].length; j++) {
+                            mastered += relation[c][j].mastered;
+                            practiced += relation[c][j].practiced;
+                            total++;
+                        }
+                    }
+                    relation.stats = {
+                        number_of_practiced_items: practiced,
+                        number_of_mastered_items: mastered,
+                        number_of_items: total
+                    };
                 });
               });
             }
@@ -683,6 +704,13 @@ angular.module('proso.anatomy.controllers', [])
         $scope.relations = $scope.relations.sort(function(a, b) {
           return a.primaryTerm.name < b.primaryTerm.name;
         });
+      };
+
+      $scope.activateRelation = function(relation) {
+        if ($scope.user) {
+          return;
+        }
+        $scope.activeRelation = $scope.activeRelation !== relation ? relation : undefined;
       };
 
       var catId = category;

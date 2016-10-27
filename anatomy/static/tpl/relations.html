@@ -1,105 +1,93 @@
 <div class="container-fluid">
-  <div class="row header">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-        <h1>
-          <span>{{user ? user + ' - ' : ''}}</span>
-          <span>{{category.name}}</span>
-        </h1>
-        <div>
-          <button class="btn btn-default btn-lg pull-right btn-share"
-            track-click="share overview"
-            ng-if="!user"
-            share-url="{{$location.absUrl() + userService.user.username}}"
-            share-title="{{'Pochlub se svými znalostmi' | translate}}"
-            share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
-            share-button>
-              <i class="glyphicon glyphicon-share"></i>
-              <span translate>Sdílet</span>
-          </button>
-          <div class="clearfix"></div>
-        </div>
-      <div class="row">
-        <div class="col-sm-6" ng-if="!user">
-          <a href="/practice/{{category.identifier}}/" 
-            class="btn btn-default btn-lg" 
-            track-click="view practice" >
-            <i class="glyphicon glyphicon-play"></i>
-            <span translate>
-              Procvičovat kapitolu
-            </span>
-          </a>
-          <span class="dropdown" style="display: inline-block">
-            <button type="button"
-              class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              ng-click="usePracticeDwopdown()">
-              {{"Procvičovat podkapitolu" | translate}}
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right">
-              <li ng-repeat="subcategory in subcategories"
-                  ng-if="subcategory.stats.number_of_items &gt; 9">
-                <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}"
-                    track-click="view dropdown practice" >
-                 {{category.name}} - {{subcategory.name}}
-                </a>
-              </li>
-            </ul>
-          </span>
-          <br>
-        </div>
-        <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
-          <div category-progress skills="stats"></div>
-          <br>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="table table-striped col-sm-12 relations-table"
-    infinite-scroll="addRows()"
-    infinite-scroll-distance="3" >
-  <div class="row table-row fade-in-one-by-one">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <strong>
-        <div class="row">
-          <span class="col-sm-2" translate>Sval</span>
-          <span class="col-sm-10">
-            <span class="col-sm-2"
-              ng-repeat="c in subcategories"
-              ng-bind="c.name"></span>
-            </span>
-          </span>
-        </div>
-      </strong>
-    </div>
-    <div class="clearfix"></div>
-  </div>
-  <div class="row table-row fade-in-one-by-one"
-      ng-repeat="relation in relations | limitTo : rowsLimit">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-      <div class="row">
-        <div class="col-sm-2">
-          <span class="label label-default"
-            ng-bind="relation.primaryTerm.name | stripAlternatives" >
-          </span>
-        </div>
-        <div class="col-sm-10">
-          <div class="row">
-            <div class="col-sm-2"
-              ng-repeat="c in subcategories">
-              <div ng-repeat="flashcard in relation[c.identifier]">
-                <div term-label
-                  ng-bind="flashcard.term.name | stripAlternatives" >
-                </div>
-              </div>
+    <div class="row header">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <h1>
+                <span>{{user ? user + ' - ' : ''}}</span>
+                <span>{{category.name}}</span>
+            </h1>
+            <div>
+                <button class="btn btn-default btn-lg pull-right btn-share"
+                    track-click="share overview"
+                    ng-if="!user"
+                    share-url="{{$location.absUrl() + userService.user.username}}"
+                    share-title="{{'Pochlub se svými znalostmi' | translate}}"
+                    share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
+                    share-button>
+                    <i class="glyphicon glyphicon-share"></i>
+                    <span translate>Sdílet</span>
+                </button>
+                <div class="clearfix"></div>
             </div>
-          </div>
+            <div class="row">
+                <div class="col-sm-6" ng-if="!user">
+                    <a href="/practice/{{category.identifier}}/"
+                        class="btn btn-default btn-lg"
+                        track-click="view practice" >
+                        <i class="glyphicon glyphicon-play"></i>
+                        <span translate>
+                            Procvičovat kapitolu
+                        </span>
+                    </a>
+                    <span class="dropdown" style="display: inline-block">
+                        <button type="button"
+                            class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            ng-click="usePracticeDwopdown()">
+                            {{"Procvičovat podkapitolu" | translate}}
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li ng-repeat="subcategory in subcategories"
+                            ng-if="subcategory.stats.number_of_items &gt; 9">
+                            <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}"
+                                track-click="view dropdown practice" >
+                                {{category.name}} - {{subcategory.name}}
+                            </a>
+                            </li>
+                        </ul>
+                    </span>
+                    <br>
+                </div>
+                <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
+                    <div category-progress skills="stats"></div>
+                    <br>
+                </div>
+            </div>
         </div>
-        <div class="clearfix"></div>
-      </div>
     </div>
-  </div>
-  <div ng-hide="(relations) || error" class="loading-indicator"></div>
 </div>
 
+<div class="table table-striped col-sm-12 relations-table" infinite-scroll="addRows()" infinite-scroll-distance="3">
+    <br>
+    <div class="row table-row fade-in-one-by-one {{activeRelation == relation && 'active'}}" id="{{relation.primaryTerm.identifier}}" ng-repeat="relation in relations | limitTo : rowsLimit">
+        <div class="col-md-5 col-md-offset-1 col-sm-6 table-open" ng-click="activateRelation(relation)">
+            <h3 class="relation-list-title">
+                <i ng-if="activeRelation!=relation && !user" class="glyphicon glyphicon-chevron-down" ></i>
+                <i ng-if="activeRelation==relation && !user" class="glyphicon glyphicon-chevron-up" ></i>
+                {{relation.primaryTerm.name}}
+            </h3>
+        </div>
+        <div class="col-md-5 col-sm-6 table-open" ng-click="activateRelation(relation)" >
+            <div category-progress skills="relation.stats" hide-labels="activeRelation != relation"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div ng-if="activeRelation==relation" class="table col-sm-12 relations-table-zoom">
+            <div class="row table-row">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <div class="row relation-row" ng-repeat="c in subcategories">
+                        <div class="col-sm-2 text-right">
+                            <strong ng-bind="c.name" />
+                        </div>
+                        <div class="col-sm-10">
+                            <div term-label
+                                ng-repeat="flashcard in relation[c.identifier]"
+                                ng-bind="flashcard.term.name | stripAlternatives" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-hide="(relations) || error" class="loading-indicator"></div>
+</div>
