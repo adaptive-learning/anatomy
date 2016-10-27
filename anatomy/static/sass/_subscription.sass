@@ -1,8 +1,7 @@
 .subscription-table
+  margin-bottom: 20px
   td, th
-    padding: 20px
-    border: 2px solid #ddd
-    width: 30%
+    padding: 10px
     text-align: center
     .glyphicon
       font-size: 1.5em
@@ -11,12 +10,15 @@
     .glyphicon-remove
       color:  $unlearned
   th
-    background: #e6e7e8
+    background: $highlightBackgroundLight
   td
+    border-bottom: 2px solid #ddd
     background: white
+    width: 25%
   td:first-child
-    background: #e6e7e8
+    width: 50%
     text-align: right
+    background: $highlightBackgroundLight
     div
       font-size: 0.8em
       line-height: initial
@@ -34,12 +36,8 @@
   th:nth-child(2)
     border-right: 0
   tr:last-child
-    td
-      background: transparent
+    td:not(first-child)
       border: 0
-  .btn
-    font-size: 1.4em
-    white-space: initial
 
 .price
   font-size: 2em
@@ -111,8 +109,7 @@
 .premium-page.jumbotron
   background-color: #8dc63f
   color: black
-  padding-left: 20px
-  padding-right: 20px
+  line-height: 1.6
   h1
     color: white
     text-align: center
@@ -120,8 +117,6 @@
     left: 0
     margin-top: 0px
     word-wrap: break-word
-  [class*="col-"]
-    float: none
   .block-premium_page
     padding: 0
     .flatblock-content
@@ -136,6 +131,8 @@
       color: black
   .btn
     margin: 5px
+    font-size: 1.4em
+    white-space: initial
 
 #plans
   h2

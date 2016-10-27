@@ -1,114 +1,125 @@
-<div class="premium-page jumbotron">
+<div class="premium-page jumbotron row">
     <div class="flatblock block-premium_page col-lg-offset-2 col-lg-8">
-      <h1 translate>Procvičuj si anatomii s námi</h1>
-      <div class="flatblock-content" translate>
-        Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování efektivní.
-      </div>
-      <table class="subscription-table">
-        <tr>
-          <th></th>
-          <th translate>Zdarma</th>
-          <th translate>Předplatné</th>
-        </tr>
-        <tr>
-          <td>
-            <h4 translate>Pojmy na obrázcích</h4>
-            <div translate>Procvič si polohu více než 2000 pojmů na více než 200 obrázcích.</div>
-          </td>
-          <td><i class="glyphicon glyphicon-ok"></i></td>
-          <td><i class="glyphicon glyphicon-ok"></i></td>
-        </tr>
-        <tr>
-          <td>
-            <h4 translate>Souvislosti</h4>
-            <div translate>Procvič si více než 1000 souvislostí týkajících se svalů - kde se upínají, jaký nerv je inervuje, ...</div>
-          </td>
-          <td><i class="glyphicon glyphicon-remove"></i></td>
-          <td><i class="glyphicon glyphicon-ok"></i></td>
-        </tr>
-        <tr>
-          <td>
-            <h4 translate>Pokročilé nastavení</h4>
-            <div translate>Nastav si obtížnost procvičování, délku sady a typ otázek tak, jak ti vyhovuje.</div>
-          </td>
-          <td><i class="glyphicon glyphicon-remove"></i></td>
-          <td><i class="glyphicon glyphicon-ok"></i></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td>
-            <a class="btn btn-primary btn-lg" scroll-to="plans"
-              translate>Vybrat předplatné</a>
-          </td>
-        </tr>
-      </table>
+        <h1 translate>Procvičuj si anatomii s námi</h1>
+        <div class="flatblock-content" translate>
+            <strong>Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování efektivní.</strong>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <table class="subscription-table">
+                    <tr>
+                        <th></th>
+                        <th translate>Zdarma</th>
+                        <th translate>Předplatné</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 translate>Pojmy na obrázcích</h4>
+                            <div translate>Procvič si polohu více než 2000 pojmů na více než 200 obrázcích.</div>
+                        </td>
+                        <td><i class="glyphicon glyphicon-ok"></i></td>
+                        <td><i class="glyphicon glyphicon-ok"></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 translate>Souvislosti</h4>
+                            <div translate>Procvič si více než 1000 souvislostí týkajících se svalů - kde se upínají, jaký nerv je inervuje, ...</div>
+                        </td>
+                        <td><i class="glyphicon glyphicon-remove"></i></td>
+                        <td><i class="glyphicon glyphicon-ok"></i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4 translate>Pokročilé nastavení</h4>
+                            <div translate>Nastav si obtížnost procvičování, délku sady a typ otázek tak, jak ti vyhovuje.</div>
+                        </td>
+                        <td><i class="glyphicon glyphicon-remove"></i></td>
+                        <td><i class="glyphicon glyphicon-ok"></i></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div class="panel panel-default" style="font-size: initial">
+                    <div class="panel-body text-left">
+                        Od našich uživatelů jsme nasbírali již
+                        <strong ng-bind="stats.number_of_answers | number" ></strong>
+                        odpovědí, čehož si nesmírně vážíme. Soudíme z toho, že aplikace opravdu
+                        pomáhá a naše práce má smysl. Vývoj a rozšiřování aplikace nás však stojí hodně úsilí, a proto
+                        budeme rádi, když nás finačně podpoříš. Pokud tak učiníš, poskytneme ti
+                        rozšířený výukový obsah a možnost nastavit si různé aspekty
+                        procvičování podle osobních preferencí.
+                        <div class="text-right" style="margin-top: 15px">Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa</div>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-lg" scroll-to="plans" translate>Vybrat předplatné</a>
+            </div>
+        </div>
     </div>
 </div>
 <div id='plans' class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
-  <h2 class="text-center" translate>Typy předplatného</h2>
-  <form ng-if="!discountCode || invalidCode" class="form-inline text-center">
-    <label translate>Slevový kód: </label>
-    <input class="form-control" ng-model="discountCodeInput">
-    <a class="btn btn-default"
-      href="/premium/?discount_code={{discountCodeInput}}" 
-      translate>Uplatnit slevový kód</a>
-      <br>
-      <br>
-  </form>
-  <div class="alert alert-info col-sm-12" ng-if="discountCode && !invalidCode" translate>
-    Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'.
-  </div>
-  <div class="alert alert-danger col-sm-12" ng-if="invalidCode" translate>
-      Byl zadán neplatný slevový kód '{{discountCode}}'.
-  </div>
-  <div class="clearfix"></div>
-  <div class="flatblock-content row">
-    <div ng-hide="plans.length || invalidCode" class="loading-indicator"></div>
-    <div class="col-sm-4" ng-repeat="plan in plans">
-      <div ng-class="{featured: plan.featured}" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="text-center">{{plan.description.name}}</h3>
-        </div>
-        <div class="panel-body">
-          <h3 ng-class="{'discount': plan.description.price_after_discount !== undefined}">
-            <span class="price" >
-              {{plan.description.price / 100 | number}}</span>
-            {{plan.description.currency | currencySymbol}}
-          </h3>
-          <h3 ng-if="plan.description.price_after_discount !== undefined">
-            <span class="price" >
-              {{plan.description.price_after_discount / 100 | number}}
-            </span>
-            {{plan.description.currency | currencySymbol}}
-          </h3>
-          <p class="plan-description">{{plan.description.description}}</p>
-          <a class="btn btn-lg pull-right"
-              ng-click="buyPlan(plan)"
-              ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
-              translate>
-            Koupit teď
-          </a>
-         </div>
-       </div>
-     </div>
-      <div class="col-sm-12">
-        <div class="panel panel-default text-center">
-          <div class="panel-body payment-icons">
-            <img src="/static/img/gopay/gopay_bannery-barevne.png"/>
-            <img src="/static/img/gopay/verified-by-visa.png"/>
-            <img src="/static/img/gopay/master-card-secude-code.png"/>
-            <img src="/static/img/gopay/visa.png"/>
-            <img src="/static/img/gopay/visa-electron.png"/>
-            <img src="/static/img/gopay/master-card.png"/>
-            <img src="/static/img/gopay/master-card-electronic.png"/>
-            <img src="/static/img/gopay/maestro.png"/>
-          </div>
-      </div>
+    <h2 class="text-center" translate>Typy předplatného</h2>
+    <form ng-if="!discountCode || invalidCode" class="form-inline text-center">
+        <label translate>Slevový kód: </label>
+        <input class="form-control" ng-model="discountCodeInput">
+        <a class="btn btn-default"
+            href="/premium/?discount_code={{discountCodeInput}}"
+            translate>Uplatnit slevový kód</a>
+        <br>
+        <br>
+    </form>
+    <div class="alert alert-info col-sm-12" ng-if="discountCode && !invalidCode" translate>
+        Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'.
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
+    <div class="alert alert-danger col-sm-12" ng-if="invalidCode" translate>
+        Byl zadán neplatný slevový kód '{{discountCode}}'.
+    </div>
+    <div class="clearfix"></div>
+    <div class="flatblock-content row">
+        <div ng-hide="plans.length || invalidCode" class="loading-indicator"></div>
+        <div class="col-sm-4" ng-repeat="plan in plans">
+            <div ng-class="{featured: plan.featured}" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center">{{plan.description.name}}</h3>
+                </div>
+                <div class="panel-body">
+                    <h3 ng-class="{'discount': plan.description.price_after_discount !== undefined}">
+                        <span class="price" >
+                            {{plan.description.price / 100 | number}}</span>
+                        {{plan.description.currency | currencySymbol}}
+                    </h3>
+                    <h3 ng-if="plan.description.price_after_discount !== undefined">
+                        <span class="price" >
+                            {{plan.description.price_after_discount / 100 | number}}
+                        </span>
+                        {{plan.description.currency | currencySymbol}}
+                    </h3>
+                    <p class="plan-description">{{plan.description.description}}</p>
+                    <a class="btn btn-lg pull-right"
+                        ng-click="buyPlan(plan)"
+                        ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
+                        translate>
+                        Koupit teď
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-body payment-icons">
+                    <img src="/static/img/gopay/gopay_bannery-barevne.png"/>
+                    <img src="/static/img/gopay/verified-by-visa.png"/>
+                    <img src="/static/img/gopay/master-card-secude-code.png"/>
+                    <img src="/static/img/gopay/visa.png"/>
+                    <img src="/static/img/gopay/visa-electron.png"/>
+                    <img src="/static/img/gopay/master-card.png"/>
+                    <img src="/static/img/gopay/master-card-electronic.png"/>
+                    <img src="/static/img/gopay/maestro.png"/>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
