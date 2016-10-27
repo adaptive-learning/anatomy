@@ -15,7 +15,7 @@
         font-size:16px;
         line-height:24px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color:#555;
+        color:#999;
     }
 
     .invoice-box table{
@@ -40,6 +40,10 @@
     .invoice-box table tr.top table td.title{
         line-height:45px;
         color:#333;
+    }
+
+    .not-important {
+        color: #bbb;
     }
 
     .invoice-box table tr.information table td{
@@ -96,12 +100,12 @@
                             </td>
 
                             <td>
-                                {% trans "Faktura" %} - {% trans "Daňový doklad číslo" %}: {{ invoice_number }}<br>
-                                {% trans "Číslo platby" %}: {{ subscription.payment.id }}<br>
-                                {% trans "Objednávka" %}: {{ subscription.payment.status.order_number }}<br>
-                                {% trans "Datum objednávky" %}: {{ subscription.created|localize|remove_time}}<br>
-                                {% trans "Datum přijetí platby" %}: {{ subscription.payment.updated|localize|remove_time }}<br>
-                                {% trans "Datum vystavení" %}: {{ subscription.payment.updated|localize|remove_time }}<br>
+                                {% trans "Faktura - Daňový doklad číslo" %}: {{ invoice_number }}<br>
+                                <span class="not-important">{% trans "Číslo platby" %}: {{ subscription.payment.id }}</span><br>
+                                <span class="not-important">{% trans "Objednávka" %}: {{ subscription.payment.status.order_number }}</span><br>
+                                <span class="not-important">{% trans "Datum objednávky" %}: {{ subscription.created|localize|remove_time}}</span><br>
+                                <span class="not-important">{% trans "Datum přijetí platby" %}: {{ subscription.payment.updated|localize|remove_time }}</span><br>
+                                <span class="not-important">{% trans "Datum vystavení" %}: {{ subscription.payment.updated|localize|remove_time }}</span><br>
                             </td>
                         </tr>
                     </table>
@@ -202,7 +206,11 @@
         </div>
         <div style="margin-top: 20px">
           ŽL: MmB, ŽÚmB, Malinovského nám. 3, Brno, Č.j.: ŽÚ/60433/06/Van<br>
-          {% trans "Číslo účtu" %}: 2300822398/2010
+        </div>
+        <div style="margin-top: 20px">
+          {% trans "Číslo účtu" %}: 2300822398/2010<br>
+          {% trans "IBAN" %}: CZ29 2010 0000 0023 0082 2398<br>
+          {% trans "BIC (SWIFT)" %}: FIOBCZPPXXX
         </div>
     </div>
   </body>
