@@ -72,14 +72,13 @@
             "id": "kickoff",
             "discount-percentage": 100,
             "plan": "mothly",
-            "usage-limit": 10,
+            "usage-limit": 10
 
         },
         {
             "id": "kickoff-continue",
             "discount-percentage": 50,
             "usage-limit": 100
-        },
-
+        }
     ]
 }
