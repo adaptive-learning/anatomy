@@ -75,13 +75,14 @@
         <div ng-if="activeRelation==relation" class="table col-sm-12 relations-table-zoom">
             <div class="row table-row">
                 <div class="col-sm-12 col-md-10 col-md-offset-1">
-                    <div class="row relation-row" ng-repeat="c in subcategories">
-                        <div class="col-sm-2 text-right">
+                    <div class="row relation-row" ng-repeat="c in subcategories"
+                          ng-if="relation[contextsByIdentifier[c.identifier].id]">
+                        <div class="col-sm-3 text-right">
                             <strong ng-bind="c.name" />
                         </div>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <div term-label
-                                ng-repeat="flashcard in relation[c.identifier]"
+                                ng-repeat="flashcard in relation[contextsByIdentifier[c.identifier].id]"
                                 ng-bind="flashcard.term.name | stripAlternatives" >
                             </div>
                         </div>

@@ -667,29 +667,33 @@ angular.module('proso.anatomy.controllers', [])
         if (subcategory) {
           $scope.subcategory = categoryService.getCategory(subcategory);
         }
-        $scope.subcategories = categoryService.getSubcategories(category);
-        $scope.contexts = [];
-        $scope.subcategories.forEach(function(c) {
-          contextService.getContextByIdentifier(c.identifier).then(function(context) {
-            $scope.contexts.push(context);
-            if ($scope.contexts.length == $scope.subcategories.length) {
-              $scope.parseRelations();
 
-              flashcardService.getFlashcards(
-                  angular.extend(filter, {stats:true})).then(function(data) {
-                $scope.flashcards = data;
-                $scope.flashcards.forEach(function(fc) {
-                  var originalFc = $scope.flashcardsById[fc.id];
-                  if (originalFc) {
-                    originalFc.prediction = fc.prediction;
-                    originalFc.practiced = fc.practiced;
-                    originalFc.mastered = fc.mastered;
-                  }
-                });
-                makeRelationsStats();
-              });
-            }
+        $scope.subcategories = categoryService.getSubcategories(category);
+        $scope.contextsByIdentifier = {};
+        $scope.subcategories.forEach(function(subcategory) {
+          contextService.getContextByIdentifier(
+            subcategory.identifier, {withoutFlashcards:true}).then(function(context) {
+              $scope.contextsByIdentifier[context.identifier] = context;
           });
+        });
+
+        flashcardService.getFlashcards(filter).then(function(data) {
+            $scope.flashcards = data;
+            $scope.parseRelations();
+
+            flashcardService.getFlashcards(
+                angular.extend(filter, {stats:true})).then(function(data) {
+              $scope.flashcards = data;
+              $scope.flashcards.forEach(function(fc) {
+                var originalFc = $scope.flashcardsById[fc.id];
+                if (originalFc) {
+                  originalFc.prediction = fc.prediction;
+                  originalFc.practiced = fc.practiced;
+                  originalFc.mastered = fc.mastered;
+                }
+              });
+              makeRelationsStats();
+            });
         });
       });
 
@@ -699,7 +703,7 @@ angular.module('proso.anatomy.controllers', [])
           var practiced = 0;
           var total = 0;
           for (var i = 0; i < $scope.subcategories.length; i++) {
-            var c = $scope.subcategories[i].identifier;
+            var c = $scope.contextsByIdentifier[$scope.subcategories[i].identifier].id;
             if (!relation[c]) {
               continue;
             }
@@ -720,18 +724,15 @@ angular.module('proso.anatomy.controllers', [])
       $scope.parseRelations = function() {
         var relationsByMuscle = {};
         $scope.flashcardsById = {};
-        $scope.contexts.forEach(function(c) {
-          c.flashcards.forEach(function(fc) {
-            var relationsObj = relationsByMuscle[fc.term.identifier] || {};
-            relationsObj.primaryTerm = fc.term;
-            relationsObj[c.identifier] = relationsObj[c.identifier] || [];
-            var fc_secondary = angular.copy(fc);
-            fc_secondary.term = fc_secondary.term_secondary;
-            relationsObj[c.identifier].push(fc_secondary);
-            relationsByMuscle[fc.term.identifier] = relationsObj;
-            $scope.flashcardsById[fc_secondary.id] = fc_secondary;
-
-          });
+        $scope.flashcards.forEach(function(fc) {
+          var relationsObj = relationsByMuscle[fc.term.identifier] || {};
+          relationsObj.primaryTerm = fc.term;
+          relationsObj[fc.context_id] = relationsObj[fc.context_id] || [];
+          var fc_secondary = angular.copy(fc);
+          fc_secondary.term = fc_secondary.term_secondary;
+          relationsObj[fc.context_id].push(fc_secondary);
+          relationsByMuscle[fc.term.identifier] = relationsObj;
+          $scope.flashcardsById[fc_secondary.id] = fc_secondary;
         });
         $scope.relations = [];
         for (var i in relationsByMuscle) {

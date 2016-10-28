@@ -171,11 +171,11 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
         return deferredContext.promise;
       },
-      getContextByIdentifier: function (id) {
+      getContextByIdentifier: function (id, params) {
         var deferredContext = $q.defer();
         $http.get('/flashcards/contexts' +
-          '?contexts_with_flashcards=true' +
-          '&filter_value=' + id + 
+          '?filter_value=' + id + 
+          (params && params.withoutFlashcards ? '' : '&contexts_with_flashcards=true') +
           '&filter_column=identifier',
           {cache: true}
         ).success(function(data) {
@@ -327,13 +327,14 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     var that = {
       getFlashcards: function (filter) {
         var deferredFlashcards = $q.defer();
+        filter = angular.copy(filter);
         for (var i in filter) {
           filter[i] = angular.toJson(filter[i]);
         }
         filter.language = termsLanguageService.getTermsLang();
         filter.all = 'True';
         filter.without_contexts = 'True';
-        $http.get('/models/to_practice', {
+        $http.get('/models/to_practice/', {
           params: filter,
           cache: true,
         }).success(function(data) {
