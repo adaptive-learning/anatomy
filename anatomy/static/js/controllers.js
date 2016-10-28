@@ -382,6 +382,7 @@ angular.module('proso.anatomy.controllers', [])
         $scope.viewPath = overviewType == 'overview' ? 'view' : 'relations';
         $scope.practicePath = overviewType == 'overview' ? 'practice' : 'practice/relations';
         $scope.allCategory = overviewType == 'overview' ? 'images' : 'relations';
+        $scope.defaultTab = overviewType == 'overview' ? 'system' : 'location';
         $scope.title = overviewType == 'overview' ?
           gettextCatalog.getString("Přehled znalostí") :
           gettextCatalog.getString("Souvislosti");
@@ -410,7 +411,7 @@ angular.module('proso.anatomy.controllers', [])
             $cookies[activeTypeCookieName] = $routeParams.tab;
           }
           return $cookies[activeTypeCookieName] == categoryType ||
-            (categoryType != 'location' && !$cookies[activeTypeCookieName]);
+            (categoryType == $scope.defaultTab && !$cookies[activeTypeCookieName]);
         }
 
         $scope.user = $routeParams.user || '';
@@ -429,7 +430,7 @@ angular.module('proso.anatomy.controllers', [])
                 isActive : isActive('system'),
               });
             } else {
-              $scope.categoriesByType.unshift({
+              $scope.categoriesByType.push({
                 name: gettextCatalog.getString('Souvislosti'),
                 categories : categoriesByType.relation,
                 isActive : isActive('relation'),
