@@ -380,6 +380,7 @@ angular.module('proso.anatomy.controllers', [])
         var activeTypeCookieName = overviewType + 'activeType';
         var selectedCategoriesCookieName = overviewType + 'selectedCategoires';
         $scope.viewPath = overviewType == 'overview' ? 'view' : 'relations';
+        $scope.practicePath = overviewType == 'overview' ? 'practice' : 'practice/relations';
         $scope.allCategory = overviewType == 'overview' ? 'images' : 'relations';
         $scope.title = overviewType == 'overview' ?
           gettextCatalog.getString("Přehled znalostí") :

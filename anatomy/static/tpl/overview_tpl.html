@@ -32,7 +32,7 @@
             <span style="display: inline-block"
               tooltip-placement="bottom"
               tooltip-html-unsafe="{{categories | getSelectedCategoriesText}}">
-              <a href="/practice/{{categories | getSelectedIdentifiers : 'system'}}/{{categories | getSelectedIdentifiers : 'location'}}" 
+              <a href="/{{practicePath}}/{{categories | getSelectedIdentifiers : 'system'}}/{{categories | getSelectedIdentifiers : 'location'}}" 
                 class="btn btn-default btn-lg" 
                 ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
                 ng-disabled="(categories | getSelectedCategories).length == 0"
@@ -136,7 +136,7 @@
                   <h2 ng-bind="category.name"></h2>
                 </a>
                 <div class="dropdown" ng-if="!user">
-                  <a href="/practice/{{category.identifier}}/"
+                  <a href="/{{practicePath}}/{{category.identifier}}/"
                       class="btn btn-default btn-sm"
                       tooltip="{{'Procvičovat' | translate}}"
                       tooltip-placement="right"
