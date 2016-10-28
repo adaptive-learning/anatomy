@@ -62,6 +62,24 @@
             "discount-percentage": 50,
             "usage-limit": 10,
             "code": "intro"
-        }
+        },
+        {
+            "id": "memorix-muscle-relations-testing",
+            "discount-percentage": 100,
+            "usage-limit": 20
+        },
+        {
+            "id": "kickoff",
+            "discount-percentage": 100,
+            "plan": "mothly",
+            "usage-limit": 10,
+
+        },
+        {
+            "id": "kickoff-continue",
+            "discount-percentage": 50,
+            "usage-limit": 100
+        },
+
     ]
 }
