@@ -72,6 +72,9 @@ angular.module('proso.anatomy', [
         }).when('/overview/:user?', {
             controller : 'AppOverview',
             templateUrl : 'static/tpl/overview_tpl.html'
+        }).when('/relationsoverview/:user?', {
+            controller : 'AppOverview',
+            templateUrl : 'static/tpl/overview_tpl.html'
         }).when('/u/:user', {
             controller : 'AppUser',
             templateUrl : 'static/tpl/user_tpl.html'
@@ -81,7 +84,7 @@ angular.module('proso.anatomy', [
         }).when('/settings/', {
             controller : 'SettingsController',
             templateUrl : 'static/tpl/settings.html'
-        }).when('/relations/:user?', {
+        }).when('/relations/:category?/:user?', {
             controller : 'RelationsController',
             templateUrl : 'static/tpl/relations.html'
         }).otherwise({

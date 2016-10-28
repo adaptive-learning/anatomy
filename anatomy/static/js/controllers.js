@@ -350,6 +350,9 @@ angular.module('proso.anatomy.controllers', [])
             if ($routeParams.context) {
                 filter.filter.push(['context/' + $routeParams.context]);
             }
+            if (!userService.user.profile.subscribed) {
+              filter.filter.push(['cateogry/images']);
+            }
             filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);
             practiceService.getQuestion().then(function(q) {
@@ -365,20 +368,28 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies', '$filter',
-    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies', '$filter', '$location',
+    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter, $location) {
         'use strict';
 
         function getProgressRadius() {
           var radius =  $('.tile').width() / 2;
           return radius;
         }
+        var overviewType = $location.path().split('/')[1];
+        var activeTypeCookieName = overviewType + 'activeType';
+        var selectedCategoriesCookieName = overviewType + 'selectedCategoires';
+        $scope.viewPath = overviewType == 'overview' ? 'view' : 'relations';
+        $scope.allCategory = overviewType == 'overview' ? 'images' : 'relations';
+        $scope.title = overviewType == 'overview' ?
+          gettextCatalog.getString("Přehled znalostí") :
+          gettextCatalog.getString("Souvislosti");
 
         $scope.activateCatType = function(categoryType) {
           angular.forEach($scope.categoriesByType, function(ct) {
             ct.isActive = ct == categoryType;
           });
-          $cookies.activeType = categoryType.categories[0] && categoryType.categories[0].type;
+          $cookies[activeTypeCookieName] = categoryType.categories[0] && categoryType.categories[0].type;
         };
 
         $scope.toggleSelectedCategories = function(selected) {
@@ -390,39 +401,51 @@ angular.module('proso.anatomy.controllers', [])
 
         $scope.saveSelectedCategoriesToCookie = function() {
           var selected = $filter('getSelectedIdentifiers')($scope.categories);
-          $cookies.selectedCategoires = selected;
+          $cookies[selectedCategoriesCookieName] = selected;
         };
 
         function isActive(categoryType) {
-          if ($routeParams.tab && $routeParams.tab != $cookies.activeType){
-            $cookies.activeType = $routeParams.tab;
+          if ($routeParams.tab && $routeParams.tab != $cookies[activeTypeCookieName]){
+            $cookies[activeTypeCookieName] = $routeParams.tab;
           }
-          return $cookies.activeType == categoryType ||
-          (categoryType =='system' && !$cookies.activeType);
+          return $cookies[activeTypeCookieName] == categoryType ||
+            (categoryType != 'location' && !$cookies[activeTypeCookieName]);
         }
 
         $scope.user = $routeParams.user || '';
         categoryService.getAllByType().then(function(categoriesByType){
-            $scope.categories = categoriesByType.system.concat(categoriesByType.location);
-            $scope.categoriesByType = [{
-              name: gettextCatalog.getString('Orgánové systémy'),
-              categories : categoriesByType.system,
-              isActive : isActive('system'),
-            }, {
+            $scope.categories = categoriesByType.system.concat(
+              categoriesByType.location).concat(categoriesByType.relation);
+            $scope.categoriesByType = [ {
               name: gettextCatalog.getString('Části těla'),
               categories : categoriesByType.location,
               isActive : isActive('location'),
             }];
+            if ($location.path().indexOf('relations') === -1) {
+              $scope.categoriesByType.unshift({
+                name: gettextCatalog.getString('Orgánové systémy'),
+                categories : categoriesByType.system,
+                isActive : isActive('system'),
+              });
+            } else {
+              $scope.categoriesByType.unshift({
+                name: gettextCatalog.getString('Souvislosti'),
+                categories : categoriesByType.relation,
+                isActive : isActive('relation'),
+              });
+            }
             userStatsService.clean();
             userStatsService.addGroup('all', []);
-            userStatsService.addGroupParams('all', [['category/images']]);
+            userStatsService.addGroupParams('all', [['category/' + $scope.allCategory]]);
             for (var i = 0; i < $scope.categories.length; i++) {
               var cat = $scope.categories[i];
               var id = cat.identifier;
               userStatsService.addGroup(id, {});
-              userStatsService.addGroupParams(id, [['category/' + cat.identifier]]);
+              userStatsService.addGroupParams(id, [
+                ['category/' + $scope.allCategory],
+                ['category/' + cat.identifier]]);
 
-              cat.selected = ($cookies.selectedCategoires + '').indexOf(id) != -1;
+              cat.selected = ($cookies[selectedCategoriesCookieName] + '').indexOf(id) != -1;
             }
 
             userStatsService.getStatsPost(true, $scope.user).success(processStats);
@@ -628,13 +651,22 @@ angular.module('proso.anatomy.controllers', [])
     function($scope, $routeParams, categoryService, contextService, userStatsService, flashcardService) {
       $scope.user = $routeParams.user || '';
       var category = 'relations';
+      var subcategory;
 
       var filter = {
           filter : [['category/' + category]],
       };
 
+      if ($routeParams.category) {
+          subcategory = $routeParams.category;
+          filter.filter.push(['category/' + $routeParams.category]);
+      }
+
       categoryService.getAllByType().then(function(){
         $scope.category = categoryService.getCategory(category);
+        if (subcategory) {
+          $scope.subcategory = categoryService.getCategory(subcategory);
+        }
         $scope.subcategories = categoryService.getSubcategories(category);
         $scope.contexts = [];
         $scope.subcategories.forEach(function(c) {
@@ -654,32 +686,36 @@ angular.module('proso.anatomy.controllers', [])
                     originalFc.mastered = fc.mastered;
                   }
                 });
-                $scope.relations.forEach(function(relation) {
-                    var mastered = 0;
-                    var practiced = 0;
-                    var total = 0;
-                    for (var i = 0; i < $scope.subcategories.length; i++) {
-                        var c = $scope.subcategories[i].identifier;
-                        if (!relation[c]) {
-                            continue;
-                        }
-                        for (var j = 0; j < relation[c].length; j++) {
-                            mastered += relation[c][j].mastered;
-                            practiced += relation[c][j].practiced;
-                            total++;
-                        }
-                    }
-                    relation.stats = {
-                        number_of_practiced_items: practiced,
-                        number_of_mastered_items: mastered,
-                        number_of_items: total
-                    };
-                });
+                makeRelationsStats();
               });
             }
           });
         });
       });
+
+      function makeRelationsStats() {
+        $scope.relations.forEach(function(relation) {
+          var mastered = 0;
+          var practiced = 0;
+          var total = 0;
+          for (var i = 0; i < $scope.subcategories.length; i++) {
+            var c = $scope.subcategories[i].identifier;
+            if (!relation[c]) {
+              continue;
+            }
+            for (var j = 0; j < relation[c].length; j++) {
+              mastered += relation[c][j].mastered;
+              practiced += relation[c][j].practiced;
+              total++;
+            }
+          }
+          relation.stats = {
+            number_of_practiced_items: practiced,
+            number_of_mastered_items: mastered,
+            number_of_items: total
+          };
+        });
+      }
 
       $scope.parseRelations = function() {
         var relationsByMuscle = {};
