@@ -741,7 +741,7 @@ angular.module('proso.anatomy.controllers', [])
           $scope.relations.push(relationsByMuscle[i]);
         }
         $scope.relations = $scope.relations.sort(function(a, b) {
-          return a.primaryTerm.name < b.primaryTerm.name;
+          return a.primaryTerm.name < b.primaryTerm.name ? -1 : 1;
         });
       };
 
