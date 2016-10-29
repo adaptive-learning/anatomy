@@ -52,6 +52,7 @@ angular.module('proso.anatomy.controllers', [])
       var filter = {
           filter : [ $routeParams.category ? ['category/' + $routeParams.category] : []],
       };
+      filter.filter.push(['category/images']);
 
       categoryService.getAllByType().then(function(){
         $scope.category = categoryService.getCategory($routeParams.category);
@@ -67,7 +68,8 @@ angular.module('proso.anatomy.controllers', [])
           var context = data[i];
           var id = context.identifier;
           userStatsService.addGroup(id, {});
-          userStatsService.addGroupParams(id, [filter.filter[0], ['context/' + id]]);
+          userStatsService.addGroupParams(id, filter.filter.concat([['context/' + id]]));
+          console.log(id, filter.filter.concat([['context/' + id]]));
         }
         userStatsService.getStatsPost(true, $scope.user).success(function(data) {
           angular.forEach($scope.contexts, function(context) {
@@ -351,7 +353,7 @@ angular.module('proso.anatomy.controllers', [])
                 filter.filter.push(['context/' + $routeParams.context]);
             }
             if (!userService.user.profile.subscribed) {
-              filter.filter.push(['cateogry/images']);
+              filter.filter.push(['category/images']);
             }
             filter.language = termsLanguageService.getTermsLang();
             practiceService.setFilter(filter);

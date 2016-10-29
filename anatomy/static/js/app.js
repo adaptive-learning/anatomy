@@ -166,7 +166,8 @@ angular.module('proso.anatomy', [
           };
           var nextWithoutDomain = stripDomain(next);
           var redirect = redirects[nextWithoutDomain];
-          if (!userService.user.profile.subscribed && redirect) {
+          if (!userService.user.profile.subscribed && 
+              !userService.user.profile.subscription_hack && redirect) {
             $location.path(redirect);
           }
         });

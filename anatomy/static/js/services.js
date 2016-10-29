@@ -136,7 +136,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             var context = data.data[i];
             var id = context.identifier;
             userStatsService.addGroup(id, {});
-            userStatsService.addGroupParams(id, [filter.filter[0], ['context/' + id]]);
+            userStatsService.addGroupParams(id, filter.filter.concat([['context/' + id]]));
           }
           var contexts = data.data;
 

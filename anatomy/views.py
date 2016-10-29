@@ -61,6 +61,8 @@ def home(request, hack=None):
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
         environment = get_environment()
         user = json.dumps({
+            # TODO remove settings.ON_PRODUCTION hack when launching subscriptions
+            'subscription_hack': settings.ON_PRODUCTION,
             'user': {},
             'number_of_answers': environment.number_of_answers(user=request.user.id) if request.user.id is not None else 0,
             'number_of_correct_answers': environment.number_of_correct_answers(user=request.user.id) if request.user.id is not None else 0,
@@ -70,8 +72,9 @@ def home(request, hack=None):
         if hack is None:
             return redirect('/overview/')
         user = request.user.userprofile.to_json(stats=True)
-        # TODO remove settings.ON_PRODUCTION hack when launching subscriptions
-        user['subscribed'] = settings.ON_PRODUCTION or has_active_subscription(request)
+        # todo remove settings.on_production hack when launching subscriptions
+        user['subscription_hack'] = settings.ON_PRODUCTION
+        user['subscribed'] = has_active_subscription(request)
         user = json.dumps(user)
         email = request.user.email
         if not request.user.userprofile.public:
