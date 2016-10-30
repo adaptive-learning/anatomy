@@ -333,7 +333,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         }
         filter.language = termsLanguageService.getTermsLang();
         filter.all = 'True';
-        filter.without_contexts = 'True';
+        if (!filter.with_contexts) {
+          filter.without_contexts = 'True';
+        }
         $http.get('/models/to_practice/', {
           params: filter,
           cache: true,

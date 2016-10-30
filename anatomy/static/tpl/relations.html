@@ -72,20 +72,16 @@
             <div category-progress skills="relation.stats" hide-labels="activeRelation != relation"></div>
         </div>
         <div class="clearfix"></div>
-        <div ng-if="activeRelation==relation" class="table col-sm-12 relations-table-zoom">
-            <div class="row table-row">
-                <div class="col-sm-12 col-md-10 col-md-offset-1">
-                    <div class="row relation-row" ng-repeat="c in subcategories"
-                          ng-if="relation[contextsByIdentifier[c.identifier].id]">
-                        <div class="col-sm-3 text-right">
-                            <strong ng-bind="c.name" />
-                        </div>
-                        <div class="col-sm-9">
-                            <div term-label
-                                ng-repeat="flashcard in relation[contextsByIdentifier[c.identifier].id]"
-                                ng-bind="flashcard.term.name | stripAlternatives" >
-                            </div>
-                        </div>
+        <div ng-if="activeRelation==relation" class="table relations-table-zoom">
+            <div class="relation-row" ng-repeat="c in subcategories"
+                  ng-if="relation[c.identifier]">
+                <div class="col-md-2 col-md-offset-1 col-sm-3">
+                    <strong ng-bind="c.name" />
+                </div>
+                <div class="col-md-8 col-sm-9">
+                    <div term-label
+                        ng-repeat="flashcard in relation[c.identifier]"
+                        ng-bind="flashcard.term.name | stripAlternatives" >
                     </div>
                 </div>
             </div>

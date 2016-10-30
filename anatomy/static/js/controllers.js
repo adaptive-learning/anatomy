@@ -673,15 +673,9 @@ angular.module('proso.anatomy.controllers', [])
         }
 
         $scope.subcategories = categoryService.getSubcategories(category);
-        $scope.contextsByIdentifier = {};
-        $scope.subcategories.forEach(function(subcategory) {
-          contextService.getContextByIdentifier(
-            subcategory.identifier, {withoutFlashcards:true}).then(function(context) {
-              $scope.contextsByIdentifier[context.identifier] = context;
-          });
-        });
 
-        flashcardService.getFlashcards(filter).then(function(data) {
+        flashcardService.getFlashcards(
+                angular.extend(filter, {with_contexts:true})).then(function(data) {
             $scope.flashcards = data;
             $scope.parseRelations();
 
@@ -707,7 +701,7 @@ angular.module('proso.anatomy.controllers', [])
           var practiced = 0;
           var total = 0;
           for (var i = 0; i < $scope.subcategories.length; i++) {
-            var c = $scope.contextsByIdentifier[$scope.subcategories[i].identifier].id;
+            var c = $scope.subcategories[i].identifier;
             if (!relation[c]) {
               continue;
             }
@@ -731,10 +725,10 @@ angular.module('proso.anatomy.controllers', [])
         $scope.flashcards.forEach(function(fc) {
           var relationsObj = relationsByMuscle[fc.term.identifier] || {};
           relationsObj.primaryTerm = fc.term;
-          relationsObj[fc.context_id] = relationsObj[fc.context_id] || [];
+          relationsObj[fc.context.identifier] = relationsObj[fc.context.identifier] || [];
           var fc_secondary = angular.copy(fc);
           fc_secondary.term = fc_secondary.term_secondary;
-          relationsObj[fc.context_id].push(fc_secondary);
+          relationsObj[fc.context.identifier].push(fc_secondary);
           relationsByMuscle[fc.term.identifier] = relationsObj;
           $scope.flashcardsById[fc_secondary.id] = fc_secondary;
         });
