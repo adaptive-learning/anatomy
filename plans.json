@@ -70,7 +70,7 @@
         },
         {
             "id": "kickoff",
-            "discount-percentage": 100,
+            "discount-percentage": 90,
             "plan": "mothly",
             "usage-limit": 10
 
