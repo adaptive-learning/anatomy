@@ -48,6 +48,10 @@ angular.module('proso.anatomy', [
             templateUrl : 'static/tpl/terms_of_use_cs.html'
         }).when('/terms-of-use-en', {
             templateUrl : 'static/tpl/terms_of_use_en.html'
+        }).when('/privacy-policy-cs', {
+            templateUrl : 'static/tpl/privacy_policy_cs.html'
+        }).when('/privacy-policy-en', {
+            templateUrl : 'static/tpl/privacy_policy_en.html'
         }).when('/offer', {
             templateUrl : 'static/tpl/offer.html'
         }).when('/unauthorized/', {
