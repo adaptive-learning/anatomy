@@ -229,10 +229,12 @@
           <div class="col-sm-12 text-center">
             <a href="/about" scroll-top>
               {% trans "O projeku" %}</a> |
+    {% if not is_production  %}
             <a href="/terms-of-use-{{LANGUAGE_CODE}}" scroll-top>
               {% trans "Právní podmínky" %}</a> |
             <a href="/TODO" scroll-top>
               {% trans "Zásady ochrany osobních údajů" %}</a> |
+    {% endif %}
             <a feedback-comment email="{{email}}" href="" scroll-top>
               {% trans "Napište nám" %}</a>
           </div>
