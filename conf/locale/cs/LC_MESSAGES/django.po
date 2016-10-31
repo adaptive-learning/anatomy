@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-28 20:18+0000\n"
-"PO-Revision-Date: 2016-10-28 20:24+0000\n"
+"POT-Creation-Date: 2016-10-31 08:23+0000\n"
+"PO-Revision-Date: 2016-10-31 08:24+0000\n"
 "Last-Translator: Jan Papoušek <jan.papousek@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/adaptive-learning/anatomcz/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +51,7 @@ msgid "Mozek"
 msgstr "Mozek"
 
 #: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:93
-#: anatomy/views.py:91
+#: anatomy/views.py:94
 msgid "Anatom.cz"
 msgstr "Anatom.cz"
 
@@ -100,7 +101,7 @@ msgstr "Ukázka procvičování"
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. Sleduješ, jak ti rostou znalosti"
 
-#: anatomy/templates/generated/homepage.html:108 anatomy/views.py:154
+#: anatomy/templates/generated/homepage.html:108 anatomy/views.py:157
 msgid "Přehled znalostí"
 msgstr "Přehled znalostí"
 
@@ -113,12 +114,12 @@ msgid "Kvalitní obrázky"
 msgstr "Kvalitní obrázky"
 
 #: anatomy/templates/generated/homepage.html:132
-#: anatomy/templates/home.html:173 anatomy/templates/home.html.py:260
+#: anatomy/templates/home.html:173 anatomy/templates/home.html.py:262
 msgid "anatomie.memorix.cz"
 msgstr "anatomie.memorix.cz"
 
 #: anatomy/templates/generated/homepage.html:134
-#: anatomy/templates/home.html:262
+#: anatomy/templates/home.html:264
 msgid "Memorix Anatomie"
 msgstr "Memorix Anatomie"
 
@@ -184,7 +185,7 @@ msgstr "Nastavení"
 msgid "Odhlásit se"
 msgstr "Odhlásit se"
 
-#: anatomy/templates/home.html:209 anatomy/templates/home.html.py:237
+#: anatomy/templates/home.html:209 anatomy/templates/home.html.py:239
 msgid "Napište nám"
 msgstr "Napiš nám"
 
@@ -196,15 +197,15 @@ msgstr "Skrýt tlačítko"
 msgid "O projeku"
 msgstr "O projeku"
 
-#: anatomy/templates/home.html:233
-msgid "Právní podmínky"
-msgstr "Právní podmínky"
+#: anatomy/templates/home.html:234
+msgid "Podmínky použití"
+msgstr "Podmínky použití"
 
-#: anatomy/templates/home.html:235
+#: anatomy/templates/home.html:236
 msgid "Zásady ochrany osobních údajů"
 msgstr "Zásady ochrany osobních údajů"
 
-#: anatomy/templates/home.html:254
+#: anatomy/templates/home.html:256
 msgid "Aplikace na Google Play"
 msgstr "Aplikace na Google Play"
 
@@ -300,9 +301,12 @@ msgstr "IBAN"
 msgid "BIC (SWIFT)"
 msgstr "BIC (SWIFT)"
 
-#: anatomy/views.py:91
+#: anatomy/views.py:94
 msgid "procvičování anatomie člověka v obrázcích"
 msgstr "procvičování anatomie člověka v obrázcích"
+
+#~ msgid "Právní podmínky"
+#~ msgstr "Právní podmínky"
 
 #~ msgid "Napiš nám"
 #~ msgstr "Napiš nám"
