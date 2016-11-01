@@ -23,6 +23,12 @@ default:
                 save_answer_immediately: false
                 cache_context: true
                 queue_length: 10
+            intro:
+                set_length: 10
+                save_answer_immediately: false
+                cache_context: true
+                question_queue_size_max: 10
+                question_queue_size_min: 10
         empty_option_set:
             force_direction: t2d
     proso_common:

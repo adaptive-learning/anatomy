@@ -339,7 +339,7 @@ angular.module('proso.anatomy.controllers', [])
         }
 
         $scope.mapCallback = function() {
-            practiceService.initSet('common');
+            practiceService.initSet($routeParams.config || 'common');
             var filter = {
               filter: [],
             };
