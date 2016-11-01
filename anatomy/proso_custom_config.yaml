@@ -1,9 +1,16 @@
 proso_models:
   option_selector.parameters.allow_zero_options_restriction:
     - value: true
-      condition_key: selected_item_has_parent
-      condition_value: en@category/action
+      condition_key: practice_filter_contains
+      condition_value: category/releations
   random_test.nth:
     - value: -1
       condition_key: has_active_subscription
       condition_value: full
+    - value: -1
+      condition_key: practice_filter_contains
+      condition_value: category/releations
+  item_selector.class:
+    - value: proso.models.item_selection.RandomItemSelection
+      condition_key: practice_filter_contains
+      condition_value: category/relations
