@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-01 07:24+0000\n"
+"PO-Revision-Date: 2016-11-01 07:38+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +101,7 @@ msgstr "No writing"
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/controllers.js:582
+#: static/js/controllers.js:583
 msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
 msgstr "Invalid discount code '{{discountCode}}'."
 
@@ -243,7 +243,14 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/premium.html:102
+#: static/tpl/premium.html:79
+msgid ""
+"Kód již využilo {{discountCodeUsage.usage}} uživatelů.\n"
+"        Zbývá <strong>{{discountCodeUsage.usage_limit -\n"
+"        discountCodeUsage.usage}}</strong> použití."
+msgstr "The code has been used by {{discountCodeUsage.usage}} users.\nRemaining number of usages is <strong> {{discountCodeUsage.usage_limit -\ndiscountCodeUsage.usage}} </ strong>."
+
+#: static/tpl/premium.html:109
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -349,7 +356,7 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:655
+#: static/js/controllers.js:661
 msgid "Nastavení bylo uloženo."
 msgstr "Settings were saved"
 
@@ -707,11 +714,11 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:658
+#: static/js/controllers.js:664
 msgid "Ukládání nastavení selhalo."
 msgstr "Saving settings failed."
 
-#: static/js/controllers.js:629
+#: static/js/controllers.js:635
 msgid "Ukládání změn..."
 msgstr "Saving changes..."
 
@@ -733,7 +740,7 @@ msgstr "Use discount code"
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/tpl/premium.html:75
+#: static/tpl/premium.html:76
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 

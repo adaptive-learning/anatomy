@@ -496,6 +496,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           (discountCode ? '?discount_code=' + discountCode : '');
         return $http.get(url);
       },
+      getDiscountCode: function(discountCode) {
+        var url = '/subscription/discount_code/' + discountCode;
+        return $http.get(url);
+      },
       buyPlan: function(plan, discountCode, referralUsername) {
         //testing card number 4188030000000003
         var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);

@@ -72,8 +72,15 @@
         <br>
         <br>
     </form>
-    <div class="alert alert-info col-sm-12" ng-if="discountCode && !error" translate>
+    <div class="alert alert-info col-sm-12" ng-if="discountCode && !error">
+      <span translate>
         Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'.
+      </span>
+      <span ng-if="discountCodeUsage" translate>
+        Kód již využilo {{discountCodeUsage.usage}} uživatelů.
+        Zbývá <strong>{{discountCodeUsage.usage_limit -
+        discountCodeUsage.usage}}</strong> použití.
+      </span>
     </div>
     <div class="alert alert-danger col-sm-12" ng-if="error"
       ng-bind="error">

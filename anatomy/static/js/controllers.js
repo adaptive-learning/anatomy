@@ -577,6 +577,7 @@ angular.module('proso.anatomy.controllers', [])
 
   subscriptionService.getPlans($routeParams.discount_code).success(function(data) {
     $scope.plans = data.data;
+    loadDiscountCodeUsage();
   }).error(function(data, status) {
     if ($routeParams.discount_code && status == 404) {
       $scope.error = gettextCatalog.getString(
@@ -599,6 +600,13 @@ angular.module('proso.anatomy.controllers', [])
     }
   }
 
+  function loadDiscountCodeUsage() {
+    if ($routeParams.discount_code) {
+      subscriptionService.getDiscountCode($routeParams.discount_code).success(function(data) {
+        $scope.discountCodeUsage = data.data;
+      });
+    }
+  }
   $scope.userService = userService;
   $scope.discountCode = $routeParams.discount_code;
 
