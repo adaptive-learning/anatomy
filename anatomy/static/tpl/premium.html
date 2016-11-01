@@ -78,8 +78,7 @@
       </span>
       <span ng-if="discountCodeUsage" translate>
         Kód již využilo {{discountCodeUsage.usage}} uživatelů.
-        Zbývá <strong>{{discountCodeUsage.usage_limit -
-        discountCodeUsage.usage}}</strong> použití.
+        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití.
       </span>
     </div>
     <div class="alert alert-danger col-sm-12" ng-if="error"

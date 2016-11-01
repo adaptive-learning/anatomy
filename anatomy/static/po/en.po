@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-01 07:38+0000\n"
+"PO-Revision-Date: 2016-11-01 08:16+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,11 +246,10 @@ msgstr "Development"
 #: static/tpl/premium.html:79
 msgid ""
 "Kód již využilo {{discountCodeUsage.usage}} uživatelů.\n"
-"        Zbývá <strong>{{discountCodeUsage.usage_limit -\n"
-"        discountCodeUsage.usage}}</strong> použití."
-msgstr "The code has been used by {{discountCodeUsage.usage}} users.\nRemaining number of usages is <strong> {{discountCodeUsage.usage_limit -\ndiscountCodeUsage.usage}} </ strong>."
+"        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití."
+msgstr ""
 
-#: static/tpl/premium.html:109
+#: static/tpl/premium.html:108
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -356,7 +355,7 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:661
+#: static/js/controllers.js:665
 msgid "Nastavení bylo uloženo."
 msgstr "Settings were saved"
 
@@ -714,11 +713,11 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:664
+#: static/js/controllers.js:668
 msgid "Ukládání nastavení selhalo."
 msgstr "Saving settings failed."
 
-#: static/js/controllers.js:635
+#: static/js/controllers.js:639
 msgid "Ukládání změn..."
 msgstr "Saving changes..."
 
