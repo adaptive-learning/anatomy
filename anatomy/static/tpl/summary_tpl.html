@@ -27,7 +27,15 @@
   </div>
   <h2 class="clearfix" ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
   <br>
-  <div class="col-sm-12">
+  <div class="col-sm-12" ng-if="intro">
+    <br>
+    <a class="btn-continue btn btn-lg btn-primary" 
+       href="/premium/"
+       track-click="demo set premium" >
+      <i class="glyphicon glyphicon-arrow-right"></i> {{'Vybrat předplatné' | translate }}
+    </a>
+  </div>
+  <div class="col-sm-12" ng-if="!intro">
     <br>
     <a class="btn-continue btn btn-lg btn-primary" 
        href="/refreshpractice/{{categoryId}}/{{category2Id}}"

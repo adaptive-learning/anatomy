@@ -878,8 +878,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('summary', ['practiceService', 'hotkeys', '$location',
-      function(practiceService, hotkeys, $location) {
+  .directive('summary', ['practiceService', 'hotkeys', '$location', '$routeParams',
+      function(practiceService, hotkeys, $location, $routeParams) {
     return {
       restrict: 'A',
       replace: true,
@@ -890,6 +890,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       templateUrl : 'static/tpl/summary_tpl.html',
       link: function ($scope) {
+        $scope.intro = $routeParams.config === 'intro';
         $scope.summary = practiceService.getSummary();
         $scope.summary.correctlyAnsweredRatio = 
           $scope.summary.correct / $scope.summary.count;
