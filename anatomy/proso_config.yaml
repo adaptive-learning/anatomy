@@ -25,7 +25,7 @@ default:
                 queue_length: 10
             intro:
                 set_length: 10
-                save_answer_immediately: false
+                save_answer_immediately: true
                 cache_context: true
                 question_queue_size_max: 10
                 question_queue_size_min: 10
