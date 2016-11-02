@@ -814,6 +814,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           'PAID': gettextCatalog.getString('Zaplaceno'),
           'TIMEOUTED': gettextCatalog.getString('Vypršel časový limit na zaplacení'),
           'CREATED': gettextCatalog.getString('Vytvořeno'),
+          'CANCELED': gettextCatalog.getString('Zrušeno'),
+          'AUTHORIZED': gettextCatalog.getString('Předautorizováno'),
+          'REFUNDED': gettextCatalog.getString('Refundováno'),
+          'PARTIALLY_REFUNDED': gettextCatalog.getString('Částečně refundováno')
         };
         $scope.getLabelClass = function() {
           return {
