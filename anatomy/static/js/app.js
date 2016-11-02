@@ -163,7 +163,6 @@ angular.module('proso.anatomy', [
     function($rootScope, userService, $location) {
   $rootScope.$on('$locationChangeStart', function(event, next) {
     if (!userService.user.profile.subscribed && 
-        !userService.user.profile.subscription_hack &&
         next.indexOf('/relations') !== -1 &&
         next.indexOf('/relationsoverview') === -1 &&
         next.indexOf('/demo') === -1) {

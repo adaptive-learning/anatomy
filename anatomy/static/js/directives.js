@@ -768,7 +768,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           var shouldShow = userService.status.logged &&
             !userService.status.loading && 
             !userService.user.profile.subscribed &&
-            !userService.user.profile.subscription_hack &&
             !$scope.closed && 
             userService.user.profile.number_of_answers >= 40;
           if (shouldShow) {
