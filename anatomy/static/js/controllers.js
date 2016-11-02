@@ -352,7 +352,7 @@ angular.module('proso.anatomy.controllers', [])
             if ($routeParams.context) {
                 filter.filter.push(['context/' + $routeParams.context]);
             }
-            if (!userService.user.profile.subscribed) {
+            if (!userService.user.profile.subscribed && $scope.categoryId != 'relations') {
               filter.filter.push(['category/images']);
             }
             filter.language = termsLanguageService.getTermsLang();
