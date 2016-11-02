@@ -370,8 +370,8 @@ angular.module('proso.anatomy.controllers', [])
         $scope.mapCallback();
   }])
 
-.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies', '$filter', '$location',
-    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter, $location) {
+.controller('AppOverview', ['$scope', '$routeParams', 'categoryService', 'userStatsService', 'gettextCatalog', '$cookies', '$filter', '$location', 'userService',
+    function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter, $location, userService) {
         'use strict';
 
         function getProgressRadius() {
@@ -381,13 +381,21 @@ angular.module('proso.anatomy.controllers', [])
         var overviewType = $location.path().split('/')[1];
         var activeTypeCookieName = overviewType + 'activeType';
         var selectedCategoriesCookieName = overviewType + 'selectedCategoires';
-        $scope.viewPath = overviewType == 'overview' ? 'view' : 'relations';
-        $scope.practicePath = overviewType == 'overview' ? 'practice' : 'practice/relations';
-        $scope.allCategory = overviewType == 'overview' ? 'images' : 'relations';
-        $scope.defaultTab = overviewType == 'overview' ? 'system' : 'location';
-        $scope.title = overviewType == 'overview' ?
-          gettextCatalog.getString("Přehled znalostí") :
-          gettextCatalog.getString("Souvislosti");
+        if (overviewType == 'overview') {
+          $scope.viewPath = 'view';
+          $scope.practicePath = 'practice';
+          $scope.disabled = false;
+          $scope.allCategory = 'images';
+          $scope.defaultTab = 'system';
+          $scope.title = gettextCatalog.getString("Přehled znalostí");
+        } else {
+          $scope.viewPath = 'relations';
+          $scope.practicePath = 'practice/relations';
+          $scope.disabled = !userService.user.profile.subscribed;
+          $scope.allCategory = 'relations';
+          $scope.defaultTab = 'location';
+          $scope.title = gettextCatalog.getString("Souvislosti");
+        }
 
         $scope.activateCatType = function(categoryType) {
           angular.forEach($scope.categoriesByType, function(ct) {

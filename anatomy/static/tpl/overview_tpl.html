@@ -9,6 +9,7 @@
           <button class="btn btn-default btn-lg pull-right btn-share"
             track-click="share overview"
             ng-if="!user"
+            ng-disabled="disabled"
             share-url="{{$location.absUrl() + userService.user.username}}"
             share-title="{{'Pochlub se svými znalostmi' | translate}}"
             share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
@@ -22,6 +23,7 @@
         <div class="col-sm-6" ng-if="!user">
           <a href="/practice/{{allCategory}}/" 
             class="btn btn-default btn-lg" 
+            ng-disabled="disabled"
             track-click="overview practice" >
             <i class="glyphicon glyphicon-play"></i>
             <span translate>
@@ -49,6 +51,7 @@
             </span>
             <div style="display: inline-block" class="dropdown">
               <button type="button"
+                ng-disabled="disabled"
                 ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
                 class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -98,15 +101,24 @@
       <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
+      <div class="alert alert-info text-center" ng-if="disabled">
+        <p translate>Získej přístup k tomuto obsahu zakoupením předplatného.</p>
+        <br>
+        <a href="/practice/relations/demo/?config=intro"
+          class="btn btn-primary btn-lg" translate>Vyzkoušet zdarma</a>
+        <a href="/premium/" class="btn btn-default btn-lg" translate>
+          Zjistit více o předplatném</a>
+      </div>
             <span ng-repeat="category in categoryType.categories"
               ng-class="{
                 'active' : category.selected && !user,
-                'disabled' : category.type == 'system' && category['not-in-model']}"
+                'disabled' : disabled}"
               class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
               <span class="in-tile">
                 <a href="/{{viewPath}}/{{category.identifier}}/{{user}}" class="tile-link"
                   style="background-image: url('/static/img/{{category.identifier}}.png');" >
-                  <div class="top" translate>Připravujeme</div>
+                  <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
+                  <div class="top" ng-if="disabled" translate>Premium obsah</div>
                   <div class="dummy"></div>
                   <div class="absolute">
                     <div round-progress 
