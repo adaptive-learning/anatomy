@@ -161,27 +161,16 @@ angular.module('proso.anatomy', [
 
 .run(['$rootScope', 'userService', '$location',
     function($rootScope, userService, $location) {
-        $rootScope.$on('$locationChangeStart', function(event, next) {
-          var redirects = {
-            'practice/' : '/practice/images/',
-            'practice/relations/' : '/unauthorized/',
-            'view/relations/' : '/unauthorized/',
-            'relations/' : '/unauthorized/',
-          };
-          var nextWithoutDomain = stripDomain(next);
-          var redirect = redirects[nextWithoutDomain];
-          if (!userService.user.profile.subscribed && 
-              !userService.user.profile.subscription_hack && redirect) {
-            $location.path(redirect);
-          }
-        });
-
-        function stripDomain(url) {
-          return url.split('/').filter(function(part, index) {
-            return index > 2;
-          }).join('/');
-        }
-
+  $rootScope.$on('$locationChangeStart', function(event, next) {
+    if (!userService.user.profile.subscribed && 
+        !userService.user.profile.subscription_hack &&
+        next.indexOf('/relations') !== -1 &&
+        next.indexOf('/relationsoverview') === -1 &&
+        next.indexOf('/demo') === -1) {
+      $location.replace();
+      $location.path('/unauthorized/');
+    }
+  });
 }])
 
 .run(['$rootScope', '$window', function($rootScope, $window) {
