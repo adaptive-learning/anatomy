@@ -54,7 +54,9 @@
                         <div class="text-right" style="margin-top: 15px" translate>Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa</div>
                     </div>
                 </div>
-                <a class="btn btn-primary btn-lg" scroll-to="plans" translate>Vybrat předplatné</a>
+                <a class="btn btn-primary btn-lg" scroll-to="plans"
+                  track-click="choose subscription"
+                  translate>Vybrat předplatné</a>
             </div>
         </div>
       </div>
@@ -107,6 +109,7 @@
                     <p class="plan-description">{{plan.description.description}}</p>
                     <a class="btn btn-lg pull-right"
                         ng-click="buyPlan(plan)"
+                        track-click="buy plan {{plan.description.name}}"
                         ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
                         translate>
                         Koupit teď
