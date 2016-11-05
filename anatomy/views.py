@@ -168,8 +168,8 @@ def load_flashcards(request):
         cache.clear()
         response = """{
             "type": "success",
-            "msg" : "Obrázek byl úspěšně nahrán na %s"
-        }""" % request.build_absolute_uri('/')[:-1]
+            "msg" : "Kontext '%s' byl úspěšně nahrán na %s"
+        }""" % (context, request.build_absolute_uri('/')[:-1])
         if request.GET['callback'] is not None:
                 response = request.GET['callback'] + '(' + response + ')'
         return HttpResponse(response, content_type='application/javascript')
