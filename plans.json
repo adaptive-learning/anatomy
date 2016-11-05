@@ -12,7 +12,7 @@
                 "description": "Try out our service for one month."
             },
             "description-cs": {
-                "price": 200,
+                "price": 189,
                 "currency": "CZK",
                 "name": "Měsíc",
                 "description": "Vyzkoušej si naši službu na jeden měsíc."
@@ -25,13 +25,13 @@
             "months-referral": 1,
             "featured": true,
             "description-en": {
-                "price": 40,
+                "price": 39,
                 "currency": "EUR",
                 "name": " Half-year",
                 "description": "Go through one semester of anatomy with us."
             },
             "description-cs": {
-                "price": 1000,
+                "price": 989,
                 "currency": "CZK",
                 "name": "Půl roku",
                 "description": "Absolvuj s námi jeden semestr anatomie."
@@ -49,7 +49,7 @@
                 "description": "Go through a whole year of anatomy with us."
             },
             "description-cs": {
-                "price": 1600,
+                "price": 1589,
                 "currency": "CZK",
                 "name": "Rok",
                 "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
