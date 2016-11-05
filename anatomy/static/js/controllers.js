@@ -575,6 +575,8 @@ angular.module('proso.anatomy.controllers', [])
 
 .controller('PremiumController', ['$scope', 'userService', 'subscriptionService', 'smoothScroll', '$routeParams', 'gettextCatalog',
     function($scope, userService, subscriptionService, smoothScroll, $routeParams, gettextCatalog){
+  $scope.userService = userService;
+  $scope.discountCode = $routeParams.discount_code;
 
   var errorMessages = {
     'discount_code_limit_exceeded' : gettextCatalog.getString(
@@ -589,7 +591,7 @@ angular.module('proso.anatomy.controllers', [])
   }).error(function(data, status) {
     if ($routeParams.discount_code && status == 404) {
       $scope.error = gettextCatalog.getString(
-        "Byl zadán neplatný slevový kód '{{discountCode}}'.");
+        "Byl zadán neplatný slevový kód '{{discountCode}}'.", $scope);
     } else if ($routeParams.discount_code && status == 400) {
       $scope.error = errorMessages[data.error_type];
     } else {
@@ -617,8 +619,6 @@ angular.module('proso.anatomy.controllers', [])
       });
     }
   }
-  $scope.userService = userService;
-  $scope.discountCode = $routeParams.discount_code;
 
   $scope.buyPlan = function(plan) {
     subscriptionService.buyPlan(plan,
