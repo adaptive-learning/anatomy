@@ -632,8 +632,8 @@ angular.module('proso.anatomy.controllers', [])
   var keys = {
     targetDifficulty: "item_selector.parameters.target_probability",
     setLength: 'practice.common.set_length',
-    allowOpenQuestions: "option_selector.parameters.allow_zero_options",
-    allowWriting: "option_selector.parameters.allow_zero_options_restriction",
+    allowOpenQuestions: "options_number.parameters.allow_zero_options",
+    allowWriting: "options_number.parameters.allow_zero_options_restriction",
   };
   $scope.form = {
     targetDifficulty: configService.getConfig("proso_models", keys.targetDifficulty, 65),
