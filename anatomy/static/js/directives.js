@@ -24,7 +24,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               html : true,
               placement: 'bottom',
               container: 'body',
-              title : ($scope.flashcard.term_secondary && $scope.flashcard.context ? 
+              title : ($scope.flashcard.term_secondary && $scope.flashcard.context ?
                    '<div>' +
                      $scope.flashcard.context.name + ': ' +
                      '<strong>' + $scope.flashcard.term_secondary.name + '</strong>' +
@@ -38,7 +38,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                       (Math.ceil(10 * $scope.flashcard.prediction)) + ' / 10 ' +
                     '</span>' +
                    '</div>' +
-                   (alternativeNames ? 
+                   (alternativeNames ?
                    '<div>' +
                     gettextCatalog.getString('Alternativní názvy') +
                     ':<br> <strong>' + alternativeNames + '</strong>' +
@@ -190,7 +190,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                   that.highlightItem(selected, asked == selected ? colors.GOOD : colors.BAD);
                   /*
                   if ((question.question_type == 't2ts' ||
-                        question.question_type == 'ts2t') && 
+                        question.question_type == 'ts2t') &&
                       question.additional_info) {
                     that.highlightItem(
                       question.additional_info.descriptions[question.question_type],
@@ -207,9 +207,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                     $timeout(function() {
                       if (!question.responseTime) {
                         callback(iteration + 1);
-                      }   
+                      }
                     }, 2 * ANIMATION_TIME_MS * iteration * iteration);
-                  };  
+                  };
                   callback(1);
                 }
                 if ($filter('isFindOnMapType')(question) && question.options) {
@@ -242,7 +242,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               var zoomRatio = Math.max(1.05, minRatio);
               return zoomRatio;
             }
-            
+
             function canBeSelected(code) {
               return $filter('isFindOnMapType')(scope.$parent.question) &&
                 !scope.$parent.canNext &&
@@ -409,7 +409,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               });
             }
           });
-          
+
       }
   };
 }])
@@ -766,9 +766,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.userService = userService;
         $scope.showAlert = function() {
           var shouldShow = userService.status.logged &&
-            !userService.status.loading && 
+            !userService.status.loading &&
             !userService.user.profile.subscribed &&
-            !$scope.closed && 
+            !$scope.closed &&
             userService.user.profile.number_of_answers >= 40;
           if (shouldShow) {
             $timeout(function() {
@@ -841,7 +841,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   }])
 
   .directive('countFrom', ['$interval', function($interval) {
-    var stop; 
+    var stop;
     return {
       restrict: 'A',
       template: '<span>{{count | number}}</span>',
@@ -891,7 +891,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       link: function ($scope) {
         $scope.intro = $routeParams.config === 'intro';
         $scope.summary = practiceService.getSummary();
-        $scope.summary.correctlyAnsweredRatio = 
+        $scope.summary.correctlyAnsweredRatio =
           $scope.summary.correct / $scope.summary.count;
 
         hotkeys.bindTo($scope).add({
@@ -934,7 +934,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       templateUrl : 'static/tpl/option_buttons_tpl.html',
       link: function ($scope) {
-        
+
         function optionSelected(event, action) {
           var option = $scope.question && $scope.question.options && $scope.question.options[action.combo[0] - 1];
           if (option && ! option.disabled) {
@@ -957,7 +957,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         function highlightOptions() {
             ($scope.question.options || []).map(function(o) {
-                o.correct = o.term_secondary ? 
+                o.correct = o.term_secondary ?
                   o.term_secondary.id == $scope.question.term_secondary.id :
                   o.description == $scope.question.description;
                 o.selected = o.term_secondary ?
@@ -1183,7 +1183,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           $scope.flashcards = flashcards.filter(function(f) {
               return !(question.question_type == 't2ts' && f.term.name == question.term.name && !f.term_secondary);
           }).sort(function(a, b){
-              return a.term.primaryName.length - b.term.primaryName.length; 
+              return a.term.primaryName.length - b.term.primaryName.length;
           });
         });
 
@@ -1198,7 +1198,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               $scope.answer = $scope.question;
             }
             $scope.controller.checkAnswer($scope.answer, keyboardUsed);
-            if (($scope.question.description && 
+            if (($scope.question.description &&
                 $scope.question.description == $scope.answer.description) ||
                 ($scope.question.term_secondary && $scope.answer.term_secondary &&
                 $scope.question.term_secondary.id == $scope.answer.term_secondary.id)) {

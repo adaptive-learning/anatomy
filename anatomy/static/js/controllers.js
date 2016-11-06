@@ -115,7 +115,7 @@ angular.module('proso.anatomy.controllers', [])
             });
           }, 400);
           var filter = {
-            filter : [ 
+            filter : [
                 ['context/' + context.identifier],
             ],
             stats : true,
@@ -614,7 +614,7 @@ angular.module('proso.anatomy.controllers', [])
     if ($routeParams.discount_code) {
       subscriptionService.getDiscountCode($routeParams.discount_code).success(function(data) {
         $scope.discountCodeUsage = data.data;
-        $scope.discountCodeUsage.usage_left = Math.max(0, 
+        $scope.discountCodeUsage.usage_left = Math.max(0,
           $scope.discountCodeUsage.usage_limit - $scope.discountCodeUsage.usage);
       });
     }
