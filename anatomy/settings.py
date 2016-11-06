@@ -52,7 +52,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'filebrowser',
-    'flatblocks',
     'gopay_django_api',
     'grappelli',
     'lazysignup',
