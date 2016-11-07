@@ -52,11 +52,11 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
-  .filter('questionText', ['gettextCatalog', function(gettextCatalog) {
+  .filter('questionText', ['gettextCatalog', '$rootScope',
+      function(gettextCatalog, $rootScope) {
     return function(question) {
       var type = question && question.question_type;
-      //TODO get real lang
-      var lang = 'cs';
+      var lang = $rootScope.LANGUAGE_CODE;
       if (type == "t2d") {
         return gettextCatalog.getString("Vyber");
       } else if (type == "d2t") {
