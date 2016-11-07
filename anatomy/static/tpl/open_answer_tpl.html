@@ -6,7 +6,7 @@
   }">
   <input type="text"
       ng-model="answer"
-      placeholder="Začni psát odpověď..."
+      placeholder="{{'Začni psát odpověď...' | translate}}"
       typeahead="fc as fc.term.name for fc in flashcards |
                filter:{term: {name: $viewValue}} |
                limitTo:($viewValue.length > 2 ? $viewValue.length * 2 : 6)"

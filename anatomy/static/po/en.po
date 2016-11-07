@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-07 05:30+0000\n"
+"PO-Revision-Date: 2016-11-07 14:14+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "No writing"
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/controllers.js:593
+#: static/js/controllers.js:594
 msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
 msgstr "Invalid discount code '{{discountCode}}'."
 
@@ -113,7 +113,7 @@ msgstr "badly written web address (typo, outdated bookmark, etc.)"
 msgid "Částečně refundováno"
 msgstr "Partly refunded"
 
-#: static/js/controllers.js:432
+#: static/js/controllers.js:433
 msgid "Části těla"
 msgstr "Body parts"
 
@@ -189,7 +189,7 @@ msgstr "Invoice"
 msgid "Hledáme dobrovolníky"
 msgstr "We are looking for volunteers"
 
-#: static/js/controllers.js:517
+#: static/js/controllers.js:518
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
@@ -347,7 +347,7 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:673
+#: static/js/controllers.js:674
 msgid "Nastavení bylo uloženo."
 msgstr "Settings were saved"
 
@@ -426,7 +426,7 @@ msgstr "We are sorry, the requested page is not found, unfortunately."
 msgid "Opakování lékařské anatomie"
 msgstr "Review medical anatomy"
 
-#: static/js/controllers.js:438
+#: static/js/controllers.js:439
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -503,7 +503,7 @@ msgstr "Pre-authorized"
 msgid "Předplatné"
 msgstr "Subscription"
 
-#: static/js/controllers.js:390 static/tpl/homepage.html:108
+#: static/js/controllers.js:391 static/tpl/homepage.html:108
 #: static/tpl/summary_tpl.html:48
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
@@ -647,7 +647,7 @@ msgstr "Discount code:"
 msgid "Soukromí"
 msgstr "Privacy "
 
-#: static/js/controllers.js:397 static/js/controllers.js:444
+#: static/js/controllers.js:398 static/js/controllers.js:445
 #: static/tpl/premium.html:26
 msgid "Souvislosti"
 msgstr "Relations"
@@ -704,11 +704,11 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:676
+#: static/js/controllers.js:677
 msgid "Ukládání nastavení selhalo."
 msgstr "Saving settings failed."
 
-#: static/js/controllers.js:647
+#: static/js/controllers.js:648
 msgid "Ukládání změn..."
 msgstr "Saving changes..."
 
@@ -734,7 +734,7 @@ msgstr "Success rate"
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
-#: static/js/controllers.js:530 static/js/directives.js:658
+#: static/js/controllers.js:531 static/js/directives.js:658
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -838,11 +838,15 @@ msgstr "Start practice"
 msgid "Začít procvičovat vše"
 msgstr "Start practicing all"
 
-#: static/js/controllers.js:582
+#: static/tpl/open_answer_tpl.html:9
+msgid "Začni psát odpověď..."
+msgstr "Start typing the answer..."
+
+#: static/js/controllers.js:583
 msgid "Zadaný slevový kód byl již použit maximálním počtem uživatelů."
 msgstr "The specified discount code has already been used the maximum number of users."
 
-#: static/js/controllers.js:584
+#: static/js/controllers.js:585
 msgid "Zadaný slevový kód nemůžež použít podruhé."
 msgstr "You cannot use the given discount code again."
 

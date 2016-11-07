@@ -162,10 +162,12 @@ angular.module('proso.anatomy', [
 .run(['$rootScope', 'userService', '$location',
     function($rootScope, userService, $location) {
   $rootScope.$on('$locationChangeStart', function(event, next) {
-    if (!userService.user.profile.subscribed && 
-        next.indexOf('/relations') !== -1 &&
+    if (next.indexOf('/relations') !== -1 &&
         next.indexOf('/relationsoverview') === -1 &&
-        next.indexOf('/demo') === -1) {
+        next.indexOf('/demo') === -1 &&
+        !(userService.user &&
+          userService.user.profile &&
+          userService.user.profile.subscribed)) {
       $location.replace();
       $location.path('/unauthorized/');
     }
