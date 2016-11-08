@@ -171,6 +171,7 @@ angular.module('proso.anatomy', [
       $location.replace();
       $location.path('/unauthorized/');
     }
+    $rootScope.isPractice = next.indexOf('/practice') !== -1;
   });
 }])
 
