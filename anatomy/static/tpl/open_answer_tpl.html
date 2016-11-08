@@ -7,8 +7,8 @@
   <input type="text"
       ng-model="answer"
       placeholder="{{'Začni psát odpověď...' | translate}}"
-      typeahead="fc as fc.term.name for fc in flashcards |
-               filter:{term: {name: $viewValue}} |
+      typeahead="qa as qa.answer for qa in questionsAndAnswers |
+               filter:{answer: $viewValue} |
                limitTo:($viewValue.length > 2 ? $viewValue.length * 2 : 6)"
       typeahead-loading="loadingLocations"
       typeahead-no-results="noResults"
@@ -23,7 +23,7 @@
         ng-show="!question.slideOut"
         aria-hidden="true"></span>
    <button class="btn btn-primary btn-lg"
-      ng-click="checkAnswer(answer)"
+      ng-click="checkAnswer()"
       ng-disabled="!canAnswer()"
       translate>
     Potvrdit

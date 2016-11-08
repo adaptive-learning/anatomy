@@ -294,6 +294,7 @@ angular.module('proso.anatomy.controllers', [])
             active.context.content = angular.fromJson(active.context.content);
 
             if (active.context.content.paths) {
+              $scope.canNext = false;
               imageService.setImage(active.context.content, setImageCallback);
             } else if (active.additional_info) {
               active.additional_info = angular.fromJson(active.additional_info);
@@ -301,6 +302,7 @@ angular.module('proso.anatomy.controllers', [])
               if (contextId) {
                 contextService.getContextByIdentifier(contextId).then(function(context) {
                   context.content = angular.fromJson(context.content);
+                  $scope.canNext = false;
                   imageService.setImage(context.content, setImageCallback);
                 });
               } else {
@@ -313,7 +315,6 @@ angular.module('proso.anatomy.controllers', [])
 
                 $scope.imageController.clearHighlights();
                 controller.highlight();
-                $scope.canNext = false;
 
                 $scope.imageController.onClick(function(code) {
                     if ($filter('isFindOnMapType')($scope.question) &&

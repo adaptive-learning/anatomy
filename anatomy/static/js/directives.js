@@ -1155,53 +1155,58 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       templateUrl : 'static/tpl/open_answer_tpl.html',
       link: function ($scope, element) {
+        $scope.canNext = false;
 
         var question = angular.copy($scope.question);
-        if (question.term_secondary && question.question_type == 't2ts') {
-            question.term = question.term_secondary;
-        }
-        $scope.flashcards = [question];
+        $scope.questionAndAnswer = toQuestionAndAnswer(question);
+
+        $scope.questionsAndAnswers = [$scope.questionAndAnswer]; 
         flashcardService.getFlashcards({}).then(function(flashcards) {
-          var fcByTerm = {};
-          flashcards = flashcards.map(function(f) {
-            if (question.question_type == 't2ts' && f.term_secondary) {
-              f.term = f.term_secondary;
-            }
-            if (f.term) {
-              f.term.primaryName = $filter('stripAlternatives')(f.term && f.term.name);
-            }
-            return f;
-          }).filter(function(fc) {
-              if ((fc.term && fcByTerm[fc.term.name]) || !fc.term) {
-                return false;
-              }
-              if (fc.term) {
-                fcByTerm[fc.term.name] = true;
-              }
+          var qaaByAnswer = {};
+          $scope.questionsAndAnswers = flashcards.filter(function(fc) {
+            return fc.term && fc.term.name;
+          }).map(toQuestionAndAnswer
+            ).filter(function(qaa) {
+              return qaa.answer;
+          }).filter(function(qaa) {
+            if (!qaaByAnswer[qaa.answer]) {
+              qaaByAnswer[qaa.answer] = qaa;
               return true;
-          });
-          $scope.flashcards = flashcards.filter(function(f) {
-              return !(question.question_type == 't2ts' && f.term.name == question.term.name && !f.term_secondary);
+            } else if (qaa.question == $scope.questionAndAnswer.question) {
+              qaaByAnswer[qaa.answer].flashcard = qaa.flashcard;
+              qaaByAnswer[qaa.answer].question = qaa.question;
+            }
+            return false;
           }).sort(function(a, b){
-              return a.term.primaryName.length - b.term.primaryName.length;
+            return a.answer.length - b.answer.length;
           });
         });
 
+        function toQuestionAndAnswer(fc) {
+          return {
+            question: $filter('stripAlternatives')(
+              $scope.question.question_type == 't2ts' ?
+              fc.term.name : (fc.description || 
+                (fc.term_secondary && fc.term_secondary.name))),
+            answer: $filter('stripAlternatives')(
+              $scope.question.question_type == 't2ts' ?
+              (fc.term_secondary && fc.term_secondary.name) : fc.term.name),
+            flashcard: fc,
+          };
+        }
+
         $scope.canAnswer = function() {
           return !$scope.canNext && $scope.answer && (
-            $scope.answer.description || $scope.answer.term_secondary);
+            $scope.answer.answer);
         };
         $scope.checkAnswer = function(keyboardUsed) {
           if ($scope.canAnswer()) {
-            if ($scope.question.description != $scope.answer.description &&
-                $scope.question.term.name == $scope.answer.term.name) {
-              $scope.answer = $scope.question;
+            console.log($scope.answer.question, $scope.questionAndAnswer.question);
+            if ($scope.answer.question == $scope.questionAndAnswer.question) {
+              $scope.answer = $scope.questionAndAnswer;
             }
-            $scope.controller.checkAnswer($scope.answer, keyboardUsed);
-            if (($scope.question.description &&
-                $scope.question.description == $scope.answer.description) ||
-                ($scope.question.term_secondary && $scope.answer.term_secondary &&
-                $scope.question.term_secondary.id == $scope.answer.term_secondary.id)) {
+            $scope.controller.checkAnswer(keyboardUsed);
+            if ($scope.answer.answer == $scope.questionAndAnswer.answer) {
               $scope.question.isCorrect = true;
             } else {
               $scope.question.isIncorrect = true;
