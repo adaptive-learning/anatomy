@@ -152,7 +152,7 @@
                 </td>
 
                 <td colspan="2">
-                    {{ subscription.plan_description.price | price }} {% if subscription.plan_description.currency == 'CZK' %}Kč{% else %}€{% endif %}
+                    {{ subscription.payment.status.amount | price }} {% if subscription.payment.status.currency == 'CZK' %}Kč{% else %}€{% endif %}
                 </td>
             </tr>
 
@@ -172,7 +172,7 @@
                 </td>
 
                 <td colspan="2">
-                    {{ subscription.plan_description.price | price }} {% if subscription.plan_description.currency == 'CZK' %}Kč{% else %}€{% endif %}
+                    {{ subscription.payment.status.amount | price }} {% if subscription.payment.status.currency == 'CZK' %}Kč{% else %}€{% endif %}
                 </td>
             </tr>
 
@@ -181,14 +181,14 @@
                 <td>
                    {% trans "Celkem" %}:
                 </td><td>
-                   {{ subscription.plan_description.price | price }} {% if subscription.plan_description.currency == 'CZK' %}Kč{% else %}€{% endif %}
+                   {{ subscription.payment.status.amount | price }} {% if subscription.payment.status.currency == 'CZK' %}Kč{% else %}€{% endif %}
                 </td>
             </tr><tr class="total">
                 <td></td>
                 <td>
                    {% trans "K úhradě" %}:
                 </td><td>
-                   0 {% if subscription.plan_description.currency == 'CZK' %}Kč{% else %}€{% endif %}
+                   0 {% if subscription.payment.status.currency == 'CZK' %}Kč{% else %}€{% endif %}
                 </td>
             </tr>
         </table>
