@@ -33,7 +33,7 @@ def invoice(request, subscription_id):
     data = {
         'request': request,
         'subscription': subscription,
-        'user': request.user,
+        'user': subscription.user,
         'invoice_number': get_invoice_number(subscription),
     }
     if request.user.is_staff:
