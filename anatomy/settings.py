@@ -64,6 +64,11 @@ INSTALLED_APPS = (
     'proso_user',
     'social.apps.django_app.default',
 )
+if ON_PRODUCTION or ON_STAGING:
+    INSTALLED_APPS += ('raven.contrib.django.raven_compat',)
+    RAVEN_CONFIG = {
+        'dsn': os.getenv('RAVEN_DSN')
+    }
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -220,8 +225,12 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': os.path.join(DATA_DIR, 'anatomy.log'),
             'formatter': 'simple',
-        }
-
+        },
+        'sentry': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        },
     },
     'formatters': {
         'simple': {
@@ -230,12 +239,12 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['console', 'request', 'mail_admins', 'anatomy_file'],
+            'handlers': ['console', 'request', 'mail_admins', 'anatomy_file', 'sentry'],
             'propagate': True,
             'level': 'DEBUG'
         },
         'javascript': {
-            'handlers': ['console', 'mail_admins_javascript', 'anatomy_file'],
+            'handlers': ['console', 'mail_admins_javascript', 'anatomy_file', 'sentry'],
             'propagate': True,
             'level': 'INFO',
         },
