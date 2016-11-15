@@ -502,7 +502,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
       buyPlan: function(plan, discountCode, referralUsername) {
         //testing card number 4188030000000003
-        var return_url = $location.absUrl().split('?')[0].replace('premium','u/' + userService.user.username);
+        var return_url = $location.absUrl().split('?')[0].replace('premium','u/');
         if (userService.status.logged && !userService.status.loading) {
           var url = plan.description.actions.subscribe + '?return_url=' + return_url;
           if (discountCode) {
