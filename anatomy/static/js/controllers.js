@@ -389,6 +389,7 @@ angular.module('proso.anatomy.controllers', [])
           $scope.disabled = false;
           $scope.allCategory = 'images';
           $scope.defaultTab = 'system';
+          $scope.secondTab = 'location';
           $scope.title = gettextCatalog.getString("Přehled znalostí");
         } else {
           $scope.viewPath = 'relations';
@@ -396,6 +397,7 @@ angular.module('proso.anatomy.controllers', [])
           $scope.disabled = !userService.user.profile.subscribed;
           $scope.allCategory = 'relations';
           $scope.defaultTab = 'location';
+          $scope.secondTab = 'relation';
           $scope.title = gettextCatalog.getString("Souvislosti");
         }
 

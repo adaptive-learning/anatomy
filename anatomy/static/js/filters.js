@@ -211,23 +211,29 @@ angular.module('proso.anatomy.filters', [])
 
   .filter('getSelectedCategoriesText', ['gettextCatalog', '$filter',
       function(gettextCatalog, $filter) {
+
+    function getSection(title, categories, categoryType) {
+      var selectedCategoires = $filter('getSelectedCategories')(
+          categories, categoryType).map(function(c) {
+        return c.name;
+      });
+      var text = '';
+      if (selectedCategoires.length) {
+        text += title + '<br>' + '<b>' + selectedCategoires.join(', ') + '</b><br><br>';
+      }
+      return text;
+    }
     return function(categories) {
       var text;
       if ($filter('getSelectedCategories')(categories).length === 0) {
         text = gettextCatalog.getString('Vyber si libovolnou kombinaci orgánových sytémů a částí těla (v pravém horním rohu každé dlaždice).');
       } else {
-        text = gettextCatalog.getString('Vybrané orgánové systémy:');
-        text += '<br>' + '<b>' +
-          $filter('getSelectedCategories')(
-            categories, 'system').map(function(c) {
-          return c.name;
-        }).join(', ') + '</b>';
-        text += '<br><br>' + gettextCatalog.getString('Vybrané části těla:');
-        text += '<br>' + '<b>' + 
-          $filter('getSelectedCategories')(
-            categories, 'location').map(function(c) {
-          return c.name;
-        }).join(', ') + '</b>';
+        text = getSection(gettextCatalog.getString('Vybrané orgánové systémy:'),
+          categories, 'system');
+        text += getSection(gettextCatalog.getString('Vybrané části těla:'),
+          categories, 'location');
+        text += getSection(gettextCatalog.getString('Vybrané typy souvislostí:'),
+          categories, 'relation');
       }
       return text;
     };
