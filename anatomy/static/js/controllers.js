@@ -515,7 +515,7 @@ angular.module('proso.anatomy.controllers', [])
     }
   } else {
     $scope.user = {username: $routeParams.user};
-    userService.getUserProfile($routeParams.username, true).success(function(response){
+    userService.getUserProfile($routeParams.user, true).success(function(response){
       $scope.user = response.data;
     }).error(function() {
       $scope.error = gettextCatalog.getString("Hledaný profil neexistuje.");
