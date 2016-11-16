@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6" ng-if="!user">
-                    <a href="/practice/{{category.identifier}}/"
+                    <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}/"
                         class="btn btn-default btn-lg"
                         track-click="view practice" >
                         <i class="glyphicon glyphicon-play"></i>
@@ -38,11 +38,11 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu pull-right">
-                            <li ng-repeat="subcategory in subcategories"
-                            ng-if="subcategory.stats.number_of_items &gt; 9">
-                            <a href="/practice/{{category.identifier}}/{{subcategory.identifier}}"
+                            <li ng-repeat="sc in subcategories"
+                            ng-if="sc.stats.number_of_items &gt; 9">
+                            <a href="/practice/{{subcategory.identifier}}/{{sc.identifier}}"
                                 track-click="view dropdown practice" >
-                                {{category.name}} - {{subcategory.name}}
+                                {{subcategory.name}} - {{sc.name}}
                             </a>
                             </li>
                         </ul>

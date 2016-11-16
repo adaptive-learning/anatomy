@@ -195,6 +195,9 @@ angular.module('proso.anatomy.filters', [])
       selected = selected.map(function(c) {
         return c.identifier;
       }).join('-');
+      if (!selected && type == 'relation') {
+        selected = 'relations';
+      }
       return selected;
     };
   }])
