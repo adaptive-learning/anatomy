@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-07 14:14+0000\n"
+"PO-Revision-Date: 2016-11-17 08:39+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgstr "No writing"
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/controllers.js:594
+#: static/js/controllers.js:596
 msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
 msgstr "Invalid discount code '{{discountCode}}'."
 
@@ -113,7 +113,7 @@ msgstr "badly written web address (typo, outdated bookmark, etc.)"
 msgid "Částečně refundováno"
 msgstr "Partly refunded"
 
-#: static/js/controllers.js:433
+#: static/js/controllers.js:436
 msgid "Části těla"
 msgstr "Body parts"
 
@@ -189,11 +189,11 @@ msgstr "Invoice"
 msgid "Hledáme dobrovolníky"
 msgstr "We are looking for volunteers"
 
-#: static/js/controllers.js:518
+#: static/js/controllers.js:520
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
-#: static/tpl/premium.html:54
+#: static/tpl/premium.html:56
 msgid "Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa"
 msgstr "Good luck with practicing anatomy, <br>Honza, Linda, Marek a Víťa"
 
@@ -244,13 +244,13 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/premium.html:81
+#: static/tpl/premium.html:83
 msgid ""
 "Kód již využilo {{discountCodeUsage.usage}} uživatelů.\n"
 "        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití."
 msgstr "The code has been used by {{discountCodeUsage.usage}} users.\nRemaining number of usages is <strong> {{discountCodeUsage.usage_left}} </ strong>."
 
-#: static/tpl/premium.html:110
+#: static/tpl/premium.html:112
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -329,6 +329,10 @@ msgstr "Based on the answers from all users the model knows how difficult each t
 msgid "Nahlásit chybu"
 msgstr "Report Error"
 
+#: static/tpl/premium.html:19
+msgid "Najdi a pojmenuj 2000 pojmů na více než 200 obrázcích."
+msgstr "Recognize and name 2000 anatomical structures in more than 200 pictures."
+
 #: static/js/directives.js:669
 msgid "nám napiště"
 msgstr "write to us"
@@ -337,7 +341,7 @@ msgstr "write to us"
 msgid "Náměty a připomínky"
 msgstr "Feedback"
 
-#: static/tpl/premium.html:35
+#: static/tpl/premium.html:37
 msgid ""
 "Nastav si obtížnost procvičování, délku sady a typ otázek tak, jak ti "
 "vyhovuje."
@@ -347,7 +351,7 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:674
+#: static/js/controllers.js:676
 msgid "Nastavení bylo uloženo."
 msgstr "Settings were saved"
 
@@ -391,16 +395,16 @@ msgstr "Questions' difficulty"
 msgid "Ochrana díla"
 msgstr "Content protection"
 
-#: static/tpl/premium.html:45
+#: static/tpl/premium.html:47
 msgid ""
 "Od našich uživatelů jsme nasbírali již\n"
 "                        <strong ng-bind=\"stats.number_of_answers | number\"></strong>\n"
-"                        odpovědí, čehož si nesmírně vážíme. Soudíme z toho, že aplikace opravdu\n"
-"                        pomáhá a naše práce má smysl. Vývoj a rozšiřování aplikace nás však stojí hodně úsilí, a proto\n"
-"                        budeme rádi, když nás finačně podpoříš. Pokud tak učiníš, poskytneme ti\n"
-"                        rozšířený výukový obsah a možnost nastavit si různé aspekty\n"
+"                        odpovědí, čehož si nesmírně vážíme. Aplikace opravdu\n"
+"                        pomáhá a my ji chceme dál rozvíjet. Vývoj a rozšiřování aplikace nás však stojí hodně úsilí, a proto\n"
+"                        budeme rádi, když nás finačně podpoříš. Poskytneme ti\n"
+"                        užitečný výukový obsah a možnost nastavit si \n"
 "                        procvičování podle osobních preferencí."
-msgstr "We have already collected <strong ng-bind=\"stats.number_of_answers | number\"></strong> answers from our users, each and every one of them is greatly appreciated. We therefore believe that the app actually helps and our work is meaningful. The development and expansion of the app is, however, quite time-consuming, so we will appreciate if you could support us not also by using the app and sending us your feedback, but also financially. If you decide to do so, you will get access to extended educational content and the opportunity to set various aspects of practice according to your personal preferences."
+msgstr "Our users already practiced \n<strong ng-bind=\"stats.number_of_answers | number\"></strong>\nanatomical questions. We are delighted that we are helping them to become great physicians. But we can still improve. Broadening the scope and it's clinical relevance is a \ndemanding job, and we are grateful for your contribution. We will give you access to premium content and advanced settings."
 
 #: static/tpl/color_scale_legend.html:3
 msgid "Odhad tvých znalostí"
@@ -426,7 +430,7 @@ msgstr "We are sorry, the requested page is not found, unfortunately."
 msgid "Opakování lékařské anatomie"
 msgstr "Review medical anatomy"
 
-#: static/js/controllers.js:439
+#: static/js/controllers.js:442
 msgid "Orgánové systémy"
 msgstr "Organ systems"
 
@@ -463,7 +467,7 @@ msgstr "Continue"
 msgid "Pokračovat v procvičování"
 msgstr "Continue to practice"
 
-#: static/tpl/premium.html:34
+#: static/tpl/premium.html:36
 msgid "Pokročilé nastavení"
 msgstr "Advanced setting"
 
@@ -482,6 +486,12 @@ msgid ""
 "Pomocí názvů dotázaných pojmů můžeš přepínat mezi obrázky k jednotlivým "
 "odpovědím."
 msgstr "Using names of asked terms you can switch between images for individual answers."
+
+#: static/tpl/premium.html:27
+msgid ""
+"Pospojuj si vědomosti o svalech - začátek a úpon, funkce a antagonista, "
+"inervace a cévní zásobení. Dalších 1000 otázek!"
+msgstr "Connect your knowledge of muscle anatomy. Practice additional 1000 questions on origin, insertion, function, antagonist, innervation, and blood supply!"
 
 #: static/tpl/open_answer_tpl.html:25
 msgid "Potvrdit"
@@ -503,7 +513,7 @@ msgstr "Pre-authorized"
 msgid "Předplatné"
 msgstr "Subscription"
 
-#: static/js/controllers.js:391 static/tpl/homepage.html:108
+#: static/js/controllers.js:393 static/tpl/homepage.html:108
 #: static/tpl/summary_tpl.html:48
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
@@ -557,16 +567,6 @@ msgstr "Access denied"
 #: static/js/directives.js:661
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
-
-#: static/tpl/premium.html:19
-msgid "Procvič si polohu více než 2000 pojmů na více než 200 obrázcích."
-msgstr "Practice location of more than 2,000 terms in more than 200 pictures."
-
-#: static/tpl/premium.html:27
-msgid ""
-"Procvič si více než 1000 souvislostí týkajících se svalů - kde se upínají, "
-"jaký nerv je inervuje, ..."
-msgstr "Practice more than 1000 relations of the muscles - their origins, insertions, innervations ..."
 
 #: static/tpl/homepage.html:26
 msgid "Procvičování anatomie člověka na míru tvým znalostem."
@@ -639,7 +639,7 @@ msgstr "Share referral link, extend your subscription"
 msgid "Sdílet"
 msgstr "Share"
 
-#: static/tpl/premium.html:69
+#: static/tpl/premium.html:71
 msgid "Slevový kód:"
 msgstr "Discount code:"
 
@@ -647,10 +647,13 @@ msgstr "Discount code:"
 msgid "Soukromí"
 msgstr "Privacy "
 
-#: static/js/controllers.js:398 static/js/controllers.js:445
-#: static/tpl/premium.html:26
+#: static/js/controllers.js:401 static/js/controllers.js:448
 msgid "Souvislosti"
 msgstr "Relations"
+
+#: static/tpl/premium.html:26
+msgid "Souvislosti svalů"
+msgstr "Muscle properties"
 
 #: static/tpl/homepage.html:22
 msgid "Srdce"
@@ -692,7 +695,7 @@ msgstr "These settings can only be changed by users with subscription."
 msgid "Typ otázek"
 msgstr "Question type"
 
-#: static/tpl/premium.html:67
+#: static/tpl/premium.html:69
 msgid "Typy předplatného"
 msgstr "Subscription types"
 
@@ -704,11 +707,11 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:677
+#: static/js/controllers.js:679
 msgid "Ukládání nastavení selhalo."
 msgstr "Saving settings failed."
 
-#: static/js/controllers.js:648
+#: static/js/controllers.js:650
 msgid "Ukládání změn..."
 msgstr "Saving changes..."
 
@@ -722,7 +725,7 @@ msgid ""
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
 msgstr "Which muscle is highlighted? Can you find a given structure in the picture? You will see the correct answer immediately after you choose your answer."
 
-#: static/tpl/premium.html:71
+#: static/tpl/premium.html:73
 msgid "Uplatnit slevový kód"
 msgstr "Use discount code"
 
@@ -730,11 +733,11 @@ msgstr "Use discount code"
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/tpl/premium.html:78
+#: static/tpl/premium.html:80
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
-#: static/js/controllers.js:531 static/js/directives.js:658
+#: static/js/controllers.js:533 static/js/directives.js:658
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -754,7 +757,7 @@ msgstr "Choose"
 msgid "Výběr kapitoly"
 msgstr "Chapter selection"
 
-#: static/js/filters.js:217
+#: static/js/filters.js:232
 msgid ""
 "Vyber si libovolnou kombinaci orgánových sytémů a částí těla (v pravém "
 "horním rohu každé dlaždice)."
@@ -772,13 +775,17 @@ msgid ""
 "        odpovědí našich uživatelů."
 msgstr "The app selects questions for you with the aid of\n<span class=\"badge badge-default\" ng-bind=\"stats.number_of_answers | number\">\n</span>\nanswers of our users."
 
-#: static/js/filters.js:225
+#: static/js/filters.js:236
 msgid "Vybrané části těla:"
 msgstr "Selected body parts"
 
-#: static/js/filters.js:219
+#: static/js/filters.js:234
 msgid "Vybrané orgánové systémy:"
 msgstr "Selected organ systems"
+
+#: static/js/filters.js:238
+msgid "Vybrané typy souvislostí:"
+msgstr "Selected types of muscle properties:"
 
 #: static/tpl/question_and_answer_tpl.html:22
 msgid "Vybráno"
@@ -800,7 +807,7 @@ msgstr "Select a chapter"
 msgid "Vybrat orgánový systém"
 msgstr "Select an organ system"
 
-#: static/tpl/premium.html:57 static/tpl/summary_tpl.html:35
+#: static/tpl/premium.html:59 static/tpl/summary_tpl.html:35
 msgid "Vybrat předplatné"
 msgstr "Choose subscription"
 
@@ -819,6 +826,10 @@ msgstr "Timeouted"
 #: static/js/directives.js:815 static/tpl/my_subscriptions_tpl.html:42
 msgid "Vytvořeno"
 msgstr "Created"
+
+#: static/tpl/premium.html:28
+msgid "Vyzkoušej demo"
+msgstr "Try demo"
 
 #: static/tpl/overview_tpl.html:107
 msgid "Vyzkoušet zdarma"
@@ -842,11 +853,11 @@ msgstr "Start practicing all"
 msgid "Začni psát odpověď..."
 msgstr "Start typing the answer..."
 
-#: static/js/controllers.js:583
+#: static/js/controllers.js:585
 msgid "Zadaný slevový kód byl již použit maximálním počtem uživatelů."
 msgstr "The specified discount code has already been used the maximum number of users."
 
-#: static/js/controllers.js:585
+#: static/js/controllers.js:587
 msgid "Zadaný slevový kód nemůžež použít podruhé."
 msgstr "You cannot use the given discount code again."
 
