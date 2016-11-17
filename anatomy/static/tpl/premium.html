@@ -73,6 +73,10 @@
         <a class="btn btn-default"
             href="/premium/?discount_code={{discountCodeInput}}"
             translate>Uplatnit slevový kód</a>
+        <a class="btn btn-default"
+            ng-if="discountCode"
+            href="/premium/"
+            translate>Bez kódu</a>
         <br>
         <br>
     </form>
