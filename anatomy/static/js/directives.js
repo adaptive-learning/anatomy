@@ -978,7 +978,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('questionAndAnswer', [function() {
+  .directive('questionAndAnswer', ['flashcardService', function(flashcardService) {
     return {
       restrict: 'A',
       scope: {
@@ -998,6 +998,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             }
           }
         };
+        $scope.wrongAnswers = [];
+        if ($scope.question.options.length === 0) {
+          var question = $scope.question.question_type == 't2ts' ?
+            'term' : 'term_secondary';
+          var answer = $scope.question.question_type == 'ts2t' ?
+            'term' : 'term_secondary';
+          flashcardService.getFlashcards({}).then(function(flashcards) {
+            $scope.wrongAnswers = flashcards.filter(function(fc) {
+              return fc.context_id == $scope.question.context.id &&
+                fc[question] && fc[question].id == $scope.question[question].id &&
+                fc[answer] && fc[answer].id != $scope.question[answer].id;
+            });
+          });
+        }
       },
     };
   }])
@@ -1169,6 +1183,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             ).filter(function(qaa) {
               return qaa.answer;
           }).filter(function(qaa) {
+            if (qaa.question == $scope.questionAndAnswer.question &&
+                qaa.answer != $scope.questionAndAnswer.answer) {
+              return false;
+            }
             if (!qaaByAnswer[qaa.answer]) {
               qaaByAnswer[qaa.answer] = qaa;
               return true;
