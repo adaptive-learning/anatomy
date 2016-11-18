@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-17 08:39+0000\n"
+"PO-Revision-Date: 2016-11-18 17:55+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,6 +92,10 @@ msgid ""
 "contact\">anatom{zavinac}memorix.cz</span> a domluvíme se."
 msgstr "Do you enjoy anatomy? Would you like to contributo to PracticeAnatomy? He are looking for volunteers, who would help us translate our app to local languages, name anatomical structures on pictures, add anatomical and clinical correlations or test new features. The intensity of contribution depends on your capacity, even 2-4 hours per month may help improve the features of PracticeAnatomy. Please contact us at <span class=\"email contact\">anatom{zavinac}memorix.cz</span> and we'll find what fits you."
 
+#: static/tpl/premium.html:76
+msgid "Bez kódu"
+msgstr "No code"
+
 #: static/tpl/settings.html:59
 msgid "Bez psaní"
 msgstr "No writing"
@@ -100,7 +104,7 @@ msgstr "No writing"
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
 
-#: static/js/controllers.js:596
+#: static/js/controllers.js:597
 msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
 msgstr "Invalid discount code '{{discountCode}}'."
 
@@ -244,13 +248,13 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/premium.html:83
+#: static/tpl/premium.html:87
 msgid ""
 "Kód již využilo {{discountCodeUsage.usage}} uživatelů.\n"
 "        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití."
 msgstr "The code has been used by {{discountCodeUsage.usage}} users.\nRemaining number of usages is <strong> {{discountCodeUsage.usage_left}} </ strong>."
 
-#: static/tpl/premium.html:112
+#: static/tpl/premium.html:116
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -351,7 +355,7 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:676
+#: static/js/controllers.js:677
 msgid "Nastavení bylo uloženo."
 msgstr "Settings were saved"
 
@@ -707,11 +711,11 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:679
+#: static/js/controllers.js:680
 msgid "Ukládání nastavení selhalo."
 msgstr "Saving settings failed."
 
-#: static/js/controllers.js:650
+#: static/js/controllers.js:651
 msgid "Ukládání změn..."
 msgstr "Saving changes..."
 
@@ -733,7 +737,7 @@ msgstr "Use discount code"
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/tpl/premium.html:80
+#: static/tpl/premium.html:84
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
@@ -853,11 +857,11 @@ msgstr "Start practicing all"
 msgid "Začni psát odpověď..."
 msgstr "Start typing the answer..."
 
-#: static/js/controllers.js:585
+#: static/js/controllers.js:586
 msgid "Zadaný slevový kód byl již použit maximálním počtem uživatelů."
 msgstr "The specified discount code has already been used the maximum number of users."
 
-#: static/js/controllers.js:587
+#: static/js/controllers.js:588
 msgid "Zadaný slevový kód nemůžež použít podruhé."
 msgstr "You cannot use the given discount code again."
 
