@@ -999,7 +999,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
         };
         $scope.wrongAnswers = [];
-        if ($scope.question.options.length === 0) {
+        if ($scope.question.options && $scope.question.options.length === 0) {
           var question = $scope.question.question_type == 't2ts' ?
             'term' : 'term_secondary';
           var answer = $scope.question.question_type == 'ts2t' ?
