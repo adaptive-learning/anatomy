@@ -16,7 +16,7 @@
 </button>
 <div class="clearfix"></div>
 <div open-answer
-   ng-if="!(question|isFindOnMapType) && !question.options.length"
+   ng-if="question.term && !(question|isFindOnMapType) && !question.options.length"
    question="question"
    controller="controller"
    can-next="canNext"

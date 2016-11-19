@@ -1,4 +1,5 @@
 <span
+  ng-if="question"
   class="pull-right"
   practice-setting
   category-id="categoryId"
@@ -16,7 +17,10 @@
         (question.responseTime && 
         !question.options.length &&
         !question.isCorrect)">
-  <span>{{'Správná odpověď' | translate }}</span>
+  <span ng-show="question.responseTime && 
+        !question.options.length &&
+        !question.isCorrect">
+    {{'Správná odpověď' | translate }}</span>
   <span class="label label-default"
     tooltip-html-unsafe="{{question[question.question_type == 't2ts' ? 'term_secondary' : 'term'].name | alternativeNames}}"
     tooltip-placement="bottom">
