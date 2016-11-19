@@ -24,6 +24,7 @@
     <div ng-show="error" error-message ></div>
     <div class="practice">
       <div ng-repeat="question in questions"
+          ng-if="question"
           ng-class="{'slide-out': question.slideOut}"
           class="inner-practice row">
         <div class="question col-sm-12"
