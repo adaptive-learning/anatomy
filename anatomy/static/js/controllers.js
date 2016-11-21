@@ -581,6 +581,7 @@ angular.module('proso.anatomy.controllers', [])
   $scope.userService = userService;
   $scope.discountCode = $routeParams.discount_code;
   $scope.discountCodeInput = $routeParams.discount_code;
+  $scope.isSubscribed = subscriptionService.isSubscribed;
 
   var errorMessages = {
     'discount_code_limit_exceeded' : gettextCatalog.getString(

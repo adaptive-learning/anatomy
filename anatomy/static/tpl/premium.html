@@ -115,7 +115,12 @@
                     <p class="plan-description">{{plan.description.description}}</p>
                     <a class="btn btn-lg pull-right"
                         ng-click="buyPlan(plan)"
-                        track-click="buy plan {{plan.description.name}}"
+                        track-click="{{isSubscribed() ? 'buy' : 'login'}} plan"
+                        track-label="{{plan.description.name}}"
+                        track-value="{{isSubscribed() ?
+                          (plan.description.price_after_discount ||
+                            plan.description.price) / 100 :
+                          1}}"
                         ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
                         translate>
                         Koupit teď

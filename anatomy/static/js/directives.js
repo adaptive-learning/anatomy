@@ -602,7 +602,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         element.bind("click", function(){
           $analytics.eventTrack('click', {
             category: attrs.trackClick,
-            label: attrs.href,
+            label: attrs.trackLabel || attrs.href,
+            value: attrs.trackValue,
           });
         });
       }
