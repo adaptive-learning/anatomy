@@ -28,6 +28,24 @@
   .map-container
     #map-holder
       width: 100%
+  .overview-header
+    h1
+      font-size: 1.5em
+      text-align: left
+    h2
+      font-size: 1em
+  .practice, .overview-header
+    .btn
+      padding: 3px 9px
+      font-size: 13.9px
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+      border-radius: 3px
+      [class^="flag-"], [class^="icon-"], [class*=" icon-"]
+        margin-top: 0
+  .overview-header
+    .btn
+      padding: 5px 9px
   .practice 
     .question
       padding-right: 5px
@@ -39,14 +57,6 @@
         width: 45%
         width: calc(50% - 13px)
         padding: 3px 1px
-    .btn
-      padding: 3px 9px
-      font-size: 13.9px
-      -webkit-border-radius: 3px
-      -moz-border-radius: 3px
-      border-radius: 3px
-      [class^="flag-"], [class^="icon-"], [class*=" icon-"]
-        margin-top: 0
     .question 
       font-size: 16px
       margin: 0
@@ -92,6 +102,14 @@
     padding: 0px
     padding-top: 10px
     font-size: 1em
+
+  .nav-tabs.nav-justified > li 
+    display: table-cell
+    width: 1%
+    a
+      border-radius: 4px 4px 0 0
+      margin-bottom: 0px
+    
 
 
 @media (max-width: 520px)

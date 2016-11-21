@@ -9,9 +9,11 @@
 </progress>
 <div skills="{{skills}}" ng-if="!hideLabels">
   <div class="text-center">
-   <span class="badge badge-default" >
+   <span class="badge badge-default" tooltip="{{'Naučeno' | translate}}">
      <i class="color-indicator learned"></i>
-     <span translate>Naučeno</span>:
+     <span class="hidden-xs">
+       <span translate>Naučeno</span>:
+     </span>
      <span ng-if="skills.number_of_mastered_items !== undefined"
        count-to="{{skills.number_of_mastered_items}}"
        duration="0.6"
@@ -27,9 +29,11 @@
         track-hover="learned explanation">
      </i>
    </span>
-   <span class="badge badge-default">
+   <span class="badge badge-default" tooltip="{{'Procvičováno' | translate}}">
      <i class="color-indicator practiced"></i>
-     <span translate>Procvičováno</span>:
+     <span class="hidden-xs">
+       <span translate>Procvičováno</span>:
+     </span>
      <span ng-if="skills.number_of_practiced_items !== undefined"
        count-to="{{skills.number_of_practiced_items}}"
        duration="0.6"
