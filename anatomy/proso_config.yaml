@@ -1,7 +1,5 @@
 default:
     proso_models:
-        random_test:
-            nth: 10
         environment:
           class: proso_flashcards.environment.DatabaseEnvironment
         predictive_model:
