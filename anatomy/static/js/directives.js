@@ -765,8 +765,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       link: function ($scope) {
         $scope.userService = userService;
         $scope.showAlert = function() {
-          var shouldShow = userService.status.logged &&
-            !userService.status.loading &&
+          var shouldShow = !userService.status.loading &&
             !userService.user.profile.subscribed &&
             !$scope.closed &&
             userService.user.profile.number_of_answers >= 40;
