@@ -43,5 +43,4 @@ default:
     proso_feedback:
         domain: anatom.cz
         to: [anatom@googlegroups.com]
-        evaluation_checkpoints: [30, 70, 120, 200]
 
