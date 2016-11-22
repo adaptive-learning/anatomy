@@ -1,5 +1,5 @@
 <div class="beta-alert text-center alert alert-info {{class}}"
-    ng-if="showAlert()">
+    ng-if="show">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"
       track-click="close premium banner">
     <span aria-hidden="true">&times;</span>
@@ -8,10 +8,9 @@
   <span translate>
   Pomáhá ti anatom.cz s učením? Podpoř další rozvoj projektu zakoupením předplatného a získej přístup k premium obsahu.
   </span>
-  <a href="/premium/"
-     class="btn btn-primary"
+  <a class="btn btn-primary"
      track-click="premium banner"
-     ng-click="close()"
+     ng-click="goto('/premium/')"
      translate
     >Zjistit více</a>
 </div>
