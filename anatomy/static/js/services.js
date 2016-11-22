@@ -476,10 +476,21 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     };
   }])
 
-  .factory('subscriptionService', ["$http", "$window", "userService", "$location", "loginModal",
-      function($http, $window, userService, $location, loginModal) {
+  .factory('subscriptionService', ["$http", "$window", "userService", "$location", "loginModal", "$analytics", "$routeParams",
+      function($http, $window, userService, $location, loginModal, $analytics, $routeParams) {
+
 
     var that = {
+      trackSubsctription: function(subscription) {
+        if (subscription && $routeParams.return_from_payment &&
+          subscription.payment.status.state == 'PAID') {
+          $analytics.eventTrack('pay', {
+            category: 'subscription paid',
+            label: subscription.plan_description.name,
+            value: subscription.payment.status.amount / 100,
+          });
+        }
+      },
       getMyScubscriptions: function() {
         var mySubscriptionsPromise = $http.get('/subscription/mysubscriptions/');
         mySubscriptionsPromise.success(function(data) {
@@ -488,6 +499,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             subscription.expiration = new Date(subscription.expiration);
             return subscription;
           });
+          that.trackSubsctription(data.data[0]);
         });
         return mySubscriptionsPromise;
       },
