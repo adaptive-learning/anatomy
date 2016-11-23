@@ -99,6 +99,7 @@ def home(request, hack=None):
         'LANGUAGES': settings.LANGUAGES,
         'LANGUAGE_DOMAINS': settings.LANGUAGE_DOMAINS,
         'is_homepage': hack is None,
+        'is_practice': hack.startswith("practice/"),
         'hack': hack or '',
         'config_json': json.dumps(get_global_config()),
         'DOMAIN': request.build_absolute_uri('/')[:-1],
@@ -151,6 +152,8 @@ def get_headline_from_url(hack):
                 pass
         elif url[0] == 'overview':
             headline = _('Přehled znalostí')
+        elif url[0] == 'relationsoverview':
+            headline = _('Souvislosti')
     return headline
 
 

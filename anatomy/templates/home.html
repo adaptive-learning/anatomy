@@ -185,12 +185,9 @@
             <div class="col-sm-12">
               <h1> {{headline}}</h1>
               <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
+              {% if not is_practice %}
+                <br><br><br><br><br><br>
+              {% endif %}
             </div>
           </div>
           <div class="loading-indicator"></div>
