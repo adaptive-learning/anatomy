@@ -81,7 +81,7 @@
         <a href="/premium/" class="btn btn-default btn-lg" translate>
           Zjistit více o předplatném</a>
       </div>
-            <span ng-repeat="category in categoryType.categories"
+            <span ng-repeat="category in categoryType.categories | orderBy : 'display_priority'"
               ng-class="{
                 'active' : category.selected && !user,
                 'disabled' : disabled}"
