@@ -52,9 +52,10 @@ angular.module('proso.anatomy.filters', [])
     };
   })
 
-  .filter('questionText', ['gettextCatalog', '$rootScope',
-      function(gettextCatalog, $rootScope) {
+  .filter('questionText', ['gettextCatalog', '$rootScope', '$filter',
+      function(gettextCatalog, $rootScope, $filter) {
     return function(question) {
+      var stripAlts = $filter('stripAlternatives');
       var type = question && question.question_type;
       var lang = $rootScope.LANGUAGE_CODE;
       if (type == "t2d") {
@@ -63,10 +64,10 @@ angular.module('proso.anatomy.filters', [])
         return gettextCatalog.getString("Co je zvýrazněno?");
       } else if (type == "t2ts") {
         return question.context.content.question[lang][type].replace('{}',
-          '<span class="label label-default">' + question.term.name + '</span>');
+          '<span class="label label-default">' + stripAlts(question.term.name) + '</span>');
       } else if (type == "ts2t") {
         return question.context.content.question[lang][type].replace('{}',
-          '<span class="label label-default">' + question.term_secondary.name + '</span>');
+          '<span class="label label-default">' + stripAlts(question.term_secondary.name) + '</span>');
       }
       return "";
     };
