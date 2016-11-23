@@ -67,6 +67,7 @@
 </div>
 <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
 <div class="table table-striped col-sm-12">
+  <div ng-show="error" error-message ></div>
   <br>
     <div class="row table-row fade-in-one-by-one {{activeContext==context && 'active'}}"
       ng-if="context.stats && context.stats.number_of_items"

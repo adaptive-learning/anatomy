@@ -67,10 +67,10 @@
     <div class="clearfix"></div>
   </div>
   <div class="overview">
-    <div ng-hide="categoriesByType" class="loading-indicator">
-    </div>
+    <div ng-hide="categoriesByType || error" class="loading-indicator"></div>
     <div class="row ng-cloak">
       <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <div ng-show="error" error-message ></div>
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
       <div class="alert alert-info text-center ng-cloak" ng-if="disabled">

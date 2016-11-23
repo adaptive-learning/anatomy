@@ -57,6 +57,8 @@ angular.module('proso.anatomy.controllers', [])
       categoryService.getAllByType().then(function(){
         $scope.category = categoryService.getCategory($routeParams.category);
         $scope.subcategories = categoryService.getSubcategories($routeParams.category);
+      }, function() {
+        $scope.error = true;
       });
 
       contextService.getContexts(filter).then(function(data) {
@@ -81,6 +83,8 @@ angular.module('proso.anatomy.controllers', [])
             }
           });
         });
+      }, function() {
+        $scope.error = true;
       });
 
       if ($routeParams.user == 'average') {
@@ -479,7 +483,9 @@ angular.module('proso.anatomy.controllers', [])
               $scope.stats = data.data.all;
               $scope.statsLoaded = true;
             }
-        }, function(){});
+        }, function(){
+          $scope.error = true;
+        });
     }
 
 ])
