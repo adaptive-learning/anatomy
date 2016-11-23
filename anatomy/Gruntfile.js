@@ -143,8 +143,11 @@ module.exports = function(grunt) {
                   }
                 ]
               },
-              src: ['static/tpl/homepage.html'],
-              dest: 'templates/generated/homepage.html',
+              src: [
+                'static/tpl/homepage.html',
+                'static/tpl/premium.html'
+              ],
+              dest: 'templates/generated/',
             },
         },
         uglify: {

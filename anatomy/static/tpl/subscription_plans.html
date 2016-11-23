@@ -1,0 +1,84 @@
+<div id='plans' class="flatblock block-welcome_page col-lg-offset-2 col-lg-8 col-sm-12">
+    <h2 class="text-center" translate>Typy předplatného</h2>
+    <form ng-if="!discountCode || error" class="form-inline text-center">
+        <label translate>Slevový kód: </label>
+        <input class="form-control" ng-model="discountCodeInput">
+        <a class="btn btn-default"
+            href="/premium/?discount_code={{discountCodeInput}}"
+            translate>Uplatnit slevový kód</a>
+        <a class="btn btn-default"
+            ng-if="discountCode"
+            href="/premium/"
+            translate>Bez kódu</a>
+        <br>
+        <br>
+    </form>
+    <div class="alert alert-info col-sm-12" ng-if="discountCode && !error">
+      <span translate>
+        Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'.
+      </span>
+      <span ng-if="discountCodeUsage" translate>
+        Kód již využilo {{discountCodeUsage.usage}} uživatelů.
+        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití.
+      </span>
+    </div>
+    <div class="alert alert-danger col-sm-12" ng-if="error"
+      ng-bind="error">
+    </div>
+    <div class="clearfix"></div>
+    <div class="flatblock-content row">
+        <div ng-hide="plans.length || error" class="loading-indicator"></div>
+        <div class="col-sm-4" ng-repeat="plan in plans">
+            <div ng-class="{featured: plan.featured}" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center">{{plan.description.name}}</h3>
+                </div>
+                <div class="panel-body">
+                    <h3 ng-class="{'discount': plan.description.price_after_discount !== undefined}">
+                        <span class="price" >
+                            {{plan.description.price / 100 | number}}</span>
+                        {{plan.description.currency | currencySymbol}}
+                    </h3>
+                    <h3 ng-if="plan.description.price_after_discount !== undefined">
+                        <span class="price" >
+                            {{plan.description.price_after_discount / 100 | number}}
+                        </span>
+                        {{plan.description.currency | currencySymbol}}
+                    </h3>
+                    <p class="plan-description">{{plan.description.description}}</p>
+                    <a class="btn btn-lg pull-right"
+                        ng-click="buyPlan(plan)"
+                        track-click="{{isSubscribed() ? 'buy' : 'login'}} plan"
+                        track-label="{{plan.description.name}}"
+                        track-value="{{isSubscribed() ?
+                          (plan.description.price_after_discount ||
+                            plan.description.price) / 100 :
+                          1}}"
+                        ng-class="plan.featured ? 'btn-primary' : 'btn-default'"
+                        translate>
+                        Koupit teď
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-body payment-icons">
+                    <img src="/static/img/gopay/gopay_bannery-barevne.png"/>
+                    <img src="/static/img/gopay/verified-by-visa.png"/>
+                    <img src="/static/img/gopay/master-card-secude-code.png"/>
+                    <img src="/static/img/gopay/visa.png"/>
+                    <img src="/static/img/gopay/visa-electron.png"/>
+                    <img src="/static/img/gopay/master-card.png"/>
+                    <img src="/static/img/gopay/master-card-electronic.png"/>
+                    <img src="/static/img/gopay/maestro.png"/>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
