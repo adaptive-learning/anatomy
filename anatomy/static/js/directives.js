@@ -770,7 +770,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           var shouldShow = !userService.status.loading &&
             !userService.user.profile.subscribed &&
             !$scope.closed &&
-            userService.user.profile.number_of_answers >= 40;
+            userService.user.profile.number_of_answers >= 30;
           if (shouldShow) {
             $scope.show = true;
           }
@@ -788,7 +788,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.goto = function(link) {
           $scope.closed = true;
           $scope.show = false;
-          $location.path(link);
+          $location.url(link);
         };
       }
     };
