@@ -98,9 +98,8 @@ def home(request, hack=None):
         'LANGUAGE_CODE': get_language(),
         'LANGUAGES': settings.LANGUAGES,
         'LANGUAGE_DOMAINS': settings.LANGUAGE_DOMAINS,
-        'is_homepage': hack is None,
         'is_practice': hack is not None and hack.startswith("practice/"),
-        'is_premium': hack is not None and hack.startswith("premium"),
+        'include_template': get_template(request, hack),
         'hack': hack or '',
         'config_json': json.dumps(get_global_config()),
         'DOMAIN': request.build_absolute_uri('/')[:-1],
@@ -111,6 +110,18 @@ def home(request, hack=None):
         'canonical_path':  request.get_full_path().split('?')[0][1:].replace('//', '/'),
     }
     return render_to_response('home.html', c)
+
+
+def get_template(request, hack):
+    mapping = {
+        'premium': "generated/static/tpl/premium.html",
+        'overview': "generated/static/tpl/overview_tpl.html",
+        'relationsoverview': "generated/static/tpl/overview_tpl.html",
+    }
+    if hack is None:
+        return "generated/static/tpl/homepage.html"
+    elif hack in mapping:
+        return mapping[hack]
 
 
 def get_screenshot_files(request, hack):
@@ -138,7 +149,7 @@ def get_headline_from_url(hack):
     headline = ""
     if hack:
         url = hack.split('/')
-        if url[0] == 'view' or url[0] == 'practice':
+        if url[0] == 'view' or url[0] == 'relations' or url[0] == 'practice':
             try:
                 category = Category.objects.get(
                     lang=get_language(), identifier=url[1])

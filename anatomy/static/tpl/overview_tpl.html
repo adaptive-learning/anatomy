@@ -1,15 +1,18 @@
+  <!--
+  {% load i18n %}
+    -->
 <div class="container-fluid">
   <div class="row header">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <h1>
-          <span>{{user ? user + ' - ' : ''}}</span>
-          <span ng-bind="title"></span>
+          <span ng-bind="user ? user + ' - ' : ''"></span>
+          <span>{{headline}}</span>
         </h1>
         <div>
           <button class="btn btn-default btn-lg pull-right btn-share show hidden-xs"
             track-click="share overview"
             ng-disabled="disabled"
-            share-url="{{$location.absUrl() + userService.user.username}}"
+            share-url="{{absUrl}}{{userService.user.username}}"
             share-title="{{'Pochlub se svými znalostmi' | translate}}"
             share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
             share-button>
@@ -20,10 +23,10 @@
         </div>
       <div class="row">
         <div class="col-sm-6" ng-if="!user">
-          <button class="btn btn-default btn-lg pull-right btn-share show visible-xs-block"
+          <button class="btn btn-default btn-lg pull-right btn-share show visible-xs-block ng-cloak"
             track-click="share overview"
             ng-disabled="disabled"
-            share-url="{{$location.absUrl() + userService.user.username}}"
+            share-url="{{absUrl}}{{userService.user.username}}"
             share-title="{{'Pochlub se svými znalostmi' | translate}}"
             share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
             share-button>
@@ -39,48 +42,7 @@
               Procvičovat vše
             </span>
           </a>
-          <div class="btn-group" role="group">
-            <span style="display: inline-block"
-              tooltip-placement="bottom"
-              tooltip-html-unsafe="{{categories | getSelectedCategoriesText}}">
-              <a href="/practice/{{categories | getSelectedIdentifiers : defaultTab}}/{{categories | getSelectedIdentifiers : secondTab}}" 
-                class="btn btn-default btn-lg" 
-                ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
-                ng-disabled="(categories | getSelectedCategories).length == 0"
-                ng-click="saveSelectedCategoriesToCookie()"
-                track-click="overview practice" >
-                <span translate>
-                  Procvičovat vybrané
-                </span>
-                <span class="ng-cloak">
-                  ({{(categories | getSelectedCategories : defaultTab).length}},
-                   {{(categories | getSelectedCategories : secondTab).length}})
-                </span>
-              </a>
-            </span>
-            <div style="display: inline-block" class="dropdown">
-              <button type="button"
-                ng-disabled="disabled"
-                ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
-                class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                >
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu pull-right">
-                <li>
-                  <a href="" translate
-                    ng-click="toggleSelectedCategories(true)"
-                    >Vybrat všechno</a>
-                </li>
-                <li>
-                  <a href="" translate
-                    ng-click="toggleSelectedCategories(false)"
-                    >Zrušit výběr</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <span ng-include="'static/tpl/selected_practice_button.html'"></span>
           <br>
           <br>
         </div>
@@ -102,15 +64,16 @@
         </li>
       </ul>
     </div>
+    <div class="clearfix"></div>
   </div>
   <div class="overview">
     <div ng-hide="categoriesByType" class="loading-indicator">
     </div>
-    <div class="row">
+    <div class="row ng-cloak">
       <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
-      <div class="alert alert-info text-center" ng-if="disabled">
+      <div class="alert alert-info text-center ng-cloak" ng-if="disabled">
         <p translate>Získej přístup k tomuto obsahu zakoupením předplatného.</p>
         <br>
         <a href="/practice/relations/demo/?config=intro"

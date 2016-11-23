@@ -145,7 +145,8 @@ module.exports = function(grunt) {
               },
               src: [
                 'static/tpl/homepage.html',
-                'static/tpl/premium.html'
+                'static/tpl/premium.html',
+                'static/tpl/overview_tpl.html',
               ],
               dest: 'templates/generated/',
             },

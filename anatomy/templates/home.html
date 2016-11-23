@@ -177,10 +177,8 @@
     <!-- Main content
     ================================================== -->
     <div data-ng-view id="ng-view" >
-     {% if is_homepage %}
-        {% include "generated/static/tpl/homepage.html" %}
-     {% elif is_premium %}
-        {% include "generated/static/tpl/premium.html" %}
+     {% if include_template != None %}
+        {% include include_template %}
      {% elif headline != '' %}
         <div class="container-fluid">
           <div class="row header">
@@ -191,6 +189,7 @@
                 <br><br><br><br><br><br>
               {% endif %}
             </div>
+            <div class="clearfix"></div>
           </div>
           <div class="loading-indicator"></div>
         </div>

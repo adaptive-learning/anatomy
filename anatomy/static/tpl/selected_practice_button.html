@@ -1,0 +1,43 @@
+<div class="btn-group" role="group">
+  <span style="display: inline-block"
+    tooltip-placement="bottom"
+    tooltip-html-unsafe="{{categories | getSelectedCategoriesText}}">
+    <a href="/practice/{{categories | getSelectedIdentifiers : defaultTab}}/{{categories | getSelectedIdentifiers : secondTab}}" 
+      class="btn btn-default btn-lg" 
+      ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
+      ng-disabled="(categories | getSelectedCategories).length == 0"
+      ng-click="saveSelectedCategoriesToCookie()"
+      track-click="overview practice" >
+      <span translate>
+        Procvičovat vybrané
+      </span>
+      <span class="ng-cloak">
+        ({{(categories | getSelectedCategories : defaultTab).length}},
+         {{(categories | getSelectedCategories : secondTab).length}})
+      </span>
+    </a>
+  </span>
+  <div style="display: inline-block" class="dropdown">
+    <button type="button"
+      ng-disabled="disabled"
+      ng-class="{'btn-primary' : (categories | getSelectedCategories).length != 0}"
+      class="btn btn-default btn-lg dropdown-toggle practice-dropdown"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+      >
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right">
+      <li>
+        <a href="" translate
+          ng-click="toggleSelectedCategories(true)"
+          >Vybrat všechno</a>
+      </li>
+      <li>
+        <a href="" translate
+          ng-click="toggleSelectedCategories(false)"
+          >Zrušit výběr</a>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -380,6 +380,7 @@ angular.module('proso.anatomy.controllers', [])
           var radius =  $('.tile').width() / 2;
           return radius;
         }
+        $scope.absUrl = $location.absUrl();
         var overviewType = $location.path().split('/')[1];
         var activeTypeCookieName = overviewType + 'activeType';
         var selectedCategoriesCookieName = overviewType + 'selectedCategoires';
@@ -390,7 +391,7 @@ angular.module('proso.anatomy.controllers', [])
           $scope.allCategory = 'images';
           $scope.defaultTab = 'system';
           $scope.secondTab = 'location';
-          $scope.title = gettextCatalog.getString("Přehled znalostí");
+          $scope.headline = gettextCatalog.getString("Přehled znalostí");
         } else {
           $scope.viewPath = 'relations';
           $scope.practicePath = 'practice/relations';
@@ -398,7 +399,7 @@ angular.module('proso.anatomy.controllers', [])
           $scope.allCategory = 'relations';
           $scope.defaultTab = 'location';
           $scope.secondTab = 'relation';
-          $scope.title = gettextCatalog.getString("Souvislosti");
+          $scope.headline = gettextCatalog.getString("Souvislosti");
         }
 
         $scope.activateCatType = function(categoryType) {
