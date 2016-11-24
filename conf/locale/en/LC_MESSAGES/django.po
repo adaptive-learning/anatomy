@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 14:19+0000\n"
-"PO-Revision-Date: 2016-11-24 14:21+0000\n"
+"POT-Creation-Date: 2016-11-24 15:24+0000\n"
+"PO-Revision-Date: 2016-11-24 15:25+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -157,15 +157,21 @@ msgstr "Practice"
 msgid "Vybrat"
 msgstr "Select"
 
-#: anatomy/templates/generated/static/tpl/premium.html:4
+#: anatomy/templates/generated/static/tpl/premium.html:7
 msgid "Procvičuj si anatomii s námi"
 msgstr "Practice anatomy with us"
 
-#: anatomy/templates/generated/static/tpl/premium.html:13
+#: anatomy/templates/generated/static/tpl/premium.html:9
+msgid ""
+"Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování "
+"efektivní."
+msgstr "Using data on learning that we have available, we will make your practice efficient."
+
+#: anatomy/templates/generated/static/tpl/premium.html:16
 msgid "Zdarma"
 msgstr "Free"
 
-#: anatomy/templates/generated/static/tpl/premium.html:14
+#: anatomy/templates/generated/static/tpl/premium.html:17
 #: anatomy/templates/home.html:103
 msgid "Předplatné"
 msgstr "Subscription"

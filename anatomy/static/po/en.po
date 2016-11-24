@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-24 14:21+0000\n"
+"PO-Revision-Date: 2016-11-24 15:24+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,8 +128,7 @@ msgstr "What is highlighted?"
 
 #: static/tpl/overview_tpl.html:17 static/tpl/overview_tpl.html:31
 #: static/tpl/relations.html:15 static/tpl/relations.html:28
-#: static/tpl/share_button.html:6 static/tpl/view_tpl.html:14
-#: static/tpl/view_tpl.html:27
+#: static/tpl/view_tpl.html:14 static/tpl/view_tpl.html:27
 msgid "Co uvidí na sdílené stránce ostatní?"
 msgstr "What can others see on the shared page?"
 
@@ -192,7 +191,7 @@ msgstr "We are looking for volunteers"
 msgid "Hledaný profil neexistuje."
 msgstr "The profile does not exist."
 
-#: static/tpl/premium.html:58
+#: static/tpl/premium.html:61
 msgid "Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa"
 msgstr "Good luck with practicing anatomy, <br>Honza, Linda, Marek a Víťa"
 
@@ -332,7 +331,7 @@ msgstr "Based on the answers from all users the model knows how difficult each t
 msgid "Nahlásit chybu"
 msgstr "Report Error"
 
-#: static/tpl/premium.html:19
+#: static/tpl/premium.html:22
 msgid "Najdi a pojmenuj 2000 pojmů na více než 200 obrázcích."
 msgstr "Recognize and name 2000 anatomical structures in more than 200 pictures."
 
@@ -344,7 +343,7 @@ msgstr "write to us"
 msgid "Náměty a připomínky"
 msgstr "Feedback"
 
-#: static/tpl/premium.html:37
+#: static/tpl/premium.html:40
 msgid ""
 "Nastav si obtížnost procvičování, délku sady a typ otázek tak, jak ti "
 "vyhovuje."
@@ -399,7 +398,7 @@ msgstr "Questions' difficulty"
 msgid "Ochrana díla"
 msgstr "Content protection"
 
-#: static/tpl/premium.html:47
+#: static/tpl/premium.html:50
 msgid ""
 "Od našich uživatelů jsme nasbírali již\n"
 "                        <strong ng-bind=\"stats.number_of_answers | number\">\n"
@@ -458,12 +457,11 @@ msgstr "The number of learned terms is computed by our predictive model"
 
 #: static/tpl/overview_tpl.html:16 static/tpl/overview_tpl.html:30
 #: static/tpl/relations.html:14 static/tpl/relations.html:27
-#: static/tpl/share_button.html:5 static/tpl/view_tpl.html:13
-#: static/tpl/view_tpl.html:26
+#: static/tpl/view_tpl.html:13 static/tpl/view_tpl.html:26
 msgid "Pochlub se svými znalostmi"
 msgstr "Show off your knowledge"
 
-#: static/tpl/premium.html:18
+#: static/tpl/premium.html:21
 msgid "Pojmy na obrázcích"
 msgstr "Terms in images"
 
@@ -475,7 +473,7 @@ msgstr "Continue"
 msgid "Pokračovat v procvičování"
 msgstr "Continue to practice"
 
-#: static/tpl/premium.html:36
+#: static/tpl/premium.html:39
 msgid "Pokročilé nastavení"
 msgstr "Advanced setting"
 
@@ -501,7 +499,7 @@ msgid ""
 "odpovědím."
 msgstr "Using names of asked terms you can switch between images for individual answers."
 
-#: static/tpl/premium.html:27
+#: static/tpl/premium.html:30
 msgid ""
 "Pospojuj si vědomosti o svalech - začátek a úpon, funkce a antagonista, "
 "inervace a cévní zásobení. Dalších 1000 otázek!"
@@ -523,7 +521,7 @@ msgstr "Probably one of the following situations happened:"
 msgid "Předautorizováno"
 msgstr "Pre-authorized"
 
-#: static/tpl/premium.html:14
+#: static/tpl/premium.html:17
 msgid "Předplatné"
 msgstr "Subscription"
 
@@ -614,7 +612,7 @@ msgstr "Practice selected"
 msgid "Procvičuj"
 msgstr "Quiz"
 
-#: static/tpl/premium.html:4
+#: static/tpl/premium.html:7
 msgid "Procvičuj si anatomii s námi"
 msgstr "Practice anatomy with us"
 
@@ -650,8 +648,7 @@ msgstr "Share referral link, extend your subscription"
 
 #: static/tpl/overview_tpl.html:20 static/tpl/overview_tpl.html:34
 #: static/tpl/relations.html:18 static/tpl/relations.html:31
-#: static/tpl/share_button.html:9 static/tpl/view_tpl.html:17
-#: static/tpl/view_tpl.html:30
+#: static/tpl/view_tpl.html:17 static/tpl/view_tpl.html:30
 msgid "Sdílet"
 msgstr "Share"
 
@@ -667,7 +664,7 @@ msgstr "Privacy "
 msgid "Souvislosti"
 msgstr "Relations"
 
-#: static/tpl/premium.html:26
+#: static/tpl/premium.html:29
 msgid "Souvislosti svalů"
 msgstr "Muscle properties"
 
@@ -828,7 +825,7 @@ msgstr "Select a chapter"
 msgid "Vybrat orgánový systém"
 msgstr "Select an organ system"
 
-#: static/tpl/premium.html:61 static/tpl/summary_tpl.html:35
+#: static/tpl/premium.html:64 static/tpl/summary_tpl.html:35
 msgid "Vybrat předplatné"
 msgstr "Choose subscription"
 
@@ -848,13 +845,19 @@ msgstr "Timeouted"
 msgid "Vytvořeno"
 msgstr "Created"
 
-#: static/tpl/premium.html:28
+#: static/tpl/premium.html:31
 msgid "Vyzkoušej demo"
 msgstr "Try demo"
 
 #: static/tpl/overview_tpl.html:84 static/tpl/premium_banner.html:16
 msgid "Vyzkoušet zdarma"
 msgstr "Try for free"
+
+#: static/tpl/premium.html:9
+msgid ""
+"Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování "
+"efektivní."
+msgstr ""
 
 #: static/tpl/homepage.html:182
 msgid "Začít procvičovat"
@@ -888,7 +891,7 @@ msgstr "Pay"
 msgid "Zavřít"
 msgstr "Close"
 
-#: static/tpl/premium.html:13
+#: static/tpl/premium.html:16
 msgid "Zdarma"
 msgstr "Free"
 
