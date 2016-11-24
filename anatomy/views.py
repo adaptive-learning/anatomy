@@ -76,13 +76,8 @@ def home(request, hack=None):
         if not request.user.userprofile.public:
             request.user.userprofile.public = True
             request.user.userprofile.save()
-    hour_ago = datetime.now() - timedelta(hours=1)
     stats = {
         'number_of_answers': FlashcardAnswer.objects.count(),
-        'answers_per_second': FlashcardAnswer.objects.filter(
-            time__gt=hour_ago).count() / 3600.0,
-        'number_of_flashcards': Flashcard.objects.filter(
-            active=True, lang=get_language()).count(),
     }
     if hack == 'home':
         hack = None
