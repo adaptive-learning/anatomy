@@ -401,8 +401,8 @@ angular.module('proso.anatomy.controllers', [])
           $scope.practicePath = 'practice/relations';
           $scope.disabled = !userService.user.profile.subscribed;
           $scope.allCategory = 'relations';
-          $scope.defaultTab = 'location';
-          $scope.secondTab = 'relation';
+          $scope.defaultTab = 'relation';
+          $scope.secondTab = 'location';
           $scope.headline = gettextCatalog.getString("Souvislosti");
         }
 
@@ -449,7 +449,7 @@ angular.module('proso.anatomy.controllers', [])
                 isActive : isActive('system'),
               });
             } else {
-              $scope.categoriesByType.push({
+              $scope.categoriesByType.unshift({
                 name: gettextCatalog.getString('Souvislosti'),
                 categories : categoriesByType.relation,
                 isActive : isActive('relation'),
