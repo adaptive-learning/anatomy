@@ -17,7 +17,7 @@
             share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
             share-button>
               <i class="glyphicon glyphicon-share"></i>
-              <span translate>Sdílet</span>
+              {{'Sdílet' | translate}}
           </button>
           <div class="clearfix"></div>
         </div>
@@ -31,23 +31,28 @@
             share-demo-title="{{'Co uvidí na sdílené stránce ostatní?' | translate}}"
             share-button>
               <i class="glyphicon glyphicon-share"></i>
-              <span translate>Sdílet</span>
+              {{'Sdílet' | translate}}
           </button>
           <a href="/practice/{{allCategory}}/" 
             class="btn btn-default btn-lg" 
             ng-disabled="disabled"
             track-click="overview practice" >
             <i class="glyphicon glyphicon-play"></i>
-            <span translate>
-              Procvičovat vše
-            </span>
+            {{'Procvičovat vše' | translate}}
           </a>
-          <span ng-include="'static/tpl/selected_practice_button.html'"></span>
+          <span ng-include="'static/tpl/selected_practice_button.html'">
+            <a disabled class="btn btn-default btn-lg" >
+                {{'Procvičovat vybrané' | translate}}
+                (0, 0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+          </span>
           <br>
           <br>
         </div>
         <div class="col-sm-6" ng-class="{'col-sm-offset-3' : user}">
-          <div category-progress skills="stats"></div>
+          <div category-progress skills="stats">
+            <div class="progress overview-progress"> </div>
+          </div>
           <br>
         </div>
       </div>

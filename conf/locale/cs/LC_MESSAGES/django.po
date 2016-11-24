@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 09:49+0000\n"
+"POT-Creation-Date: 2016-11-24 14:19+0000\n"
 "PO-Revision-Date: 2016-10-31 08:24+0000\n"
 "Last-Translator: Jan Papoušek <jan.papousek@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/adaptive-learning/anatomcz/"
@@ -19,126 +19,155 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: anatomy/templates/create_goal.html:5
-msgid "Vytvořit cíl"
-msgstr "Vytvořit cíl"
-
-#: anatomy/templates/create_goal.html:9
-msgid "Mapa"
-msgstr "Mapa"
-
-#: anatomy/templates/create_goal.html:36
-msgid "Datum splnění cíle"
-msgstr "Datum splnění cíle"
-
-#: anatomy/templates/create_goal.html:64
-msgid "Vytvořit"
-msgstr "Vytvořit"
-
-#: anatomy/templates/create_goal.html:67
-msgid "Zavřít"
-msgstr "Zavřít"
-
-#: anatomy/templates/generated/homepage.html:21
+#: anatomy/templates/generated/static/tpl/homepage.html:21
 msgid "Lebka"
 msgstr "Lebka"
 
-#: anatomy/templates/generated/homepage.html:22
+#: anatomy/templates/generated/static/tpl/homepage.html:22
 msgid "Srdce"
 msgstr "Srdce"
 
-#: anatomy/templates/generated/homepage.html:23
+#: anatomy/templates/generated/static/tpl/homepage.html:23
 msgid "Mozek"
 msgstr "Mozek"
 
-#: anatomy/templates/generated/homepage.html:25 anatomy/templates/home.html:93
-#: anatomy/views.py:90
+#: anatomy/templates/generated/static/tpl/homepage.html:25
+#: anatomy/templates/home.html:93 anatomy/views.py:85
 msgid "Anatom.cz"
 msgstr "Anatom.cz"
 
-#: anatomy/templates/generated/homepage.html:26
+#: anatomy/templates/generated/static/tpl/homepage.html:26
 msgid "Procvičování anatomie člověka na míru tvým znalostem."
 msgstr "Procvičování anatomie člověka na míru tvým znalostem."
 
-#: anatomy/templates/generated/homepage.html:32
+#: anatomy/templates/generated/static/tpl/homepage.html:32
 msgid "Začít procvičovat vše"
 msgstr "Začít procvičovat vše"
 
-#: anatomy/templates/generated/homepage.html:37
-#: anatomy/templates/generated/homepage.html:186
+#: anatomy/templates/generated/static/tpl/homepage.html:37
+#: anatomy/templates/generated/static/tpl/homepage.html:187
 msgid "Vybrat orgánový systém"
 msgstr "Vybrat orgánový systém"
 
-#: anatomy/templates/generated/homepage.html:42
-#: anatomy/templates/generated/homepage.html:191
+#: anatomy/templates/generated/static/tpl/homepage.html:42
+#: anatomy/templates/generated/static/tpl/homepage.html:192
 msgid "Vybrat část těla"
 msgstr "Vybrat část těla"
 
-#: anatomy/templates/generated/homepage.html:56
+#: anatomy/templates/generated/static/tpl/homepage.html:57
 msgid "Zjistit více"
 msgstr "Zjistit více"
 
-#: anatomy/templates/generated/homepage.html:66
+#: anatomy/templates/generated/static/tpl/homepage.html:67
 msgid "Jak to funguje?"
 msgstr "Jak to funguje?"
 
-#: anatomy/templates/generated/homepage.html:70
+#: anatomy/templates/generated/static/tpl/homepage.html:71
 msgid "1. Vybereš si orgánový systém nebo část těla"
 msgstr "1. Vybereš si orgánový systém nebo část těla"
 
-#: anatomy/templates/generated/homepage.html:77
+#: anatomy/templates/generated/static/tpl/homepage.html:78
 msgid "Výběr kapitoly"
 msgstr "Výběr kapitoly"
 
-#: anatomy/templates/generated/homepage.html:85
+#: anatomy/templates/generated/static/tpl/homepage.html:86
 msgid "2. Poznáváš anatomické struktury a názvy"
 msgstr "2. Poznáváš anatomické struktury a názvy"
 
-#: anatomy/templates/generated/homepage.html:92
+#: anatomy/templates/generated/static/tpl/homepage.html:93
 msgid "Ukázka procvičování"
 msgstr "Ukázka procvičování"
 
-#: anatomy/templates/generated/homepage.html:100
+#: anatomy/templates/generated/static/tpl/homepage.html:101
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. Sleduješ, jak ti rostou znalosti"
 
-#: anatomy/templates/generated/homepage.html:108 anatomy/views.py:153
+#: anatomy/templates/generated/static/tpl/homepage.html:109
+#: anatomy/views.py:162
 msgid "Přehled znalostí"
 msgstr "Přehled znalostí"
 
-#: anatomy/templates/generated/homepage.html:117
+#: anatomy/templates/generated/static/tpl/homepage.html:118
 msgid "V čem je Anatom.cz výjimečný?"
 msgstr "V čem je Anatom.cz výjimečný?"
 
-#: anatomy/templates/generated/homepage.html:123
+#: anatomy/templates/generated/static/tpl/homepage.html:124
 msgid "Kvalitní obrázky"
 msgstr "Kvalitní obrázky"
 
-#: anatomy/templates/generated/homepage.html:132
-#: anatomy/templates/home.html:167 anatomy/templates/home.html.py:246
+#: anatomy/templates/generated/static/tpl/homepage.html:133
+#: anatomy/templates/home.html:167 anatomy/templates/home.html.py:244
 msgid "anatomie.memorix.cz"
 msgstr "anatomie.memorix.cz"
 
-#: anatomy/templates/generated/homepage.html:134
-#: anatomy/templates/home.html:248
+#: anatomy/templates/generated/static/tpl/homepage.html:135
+#: anatomy/templates/home.html:246
 msgid "Memorix Anatomie"
 msgstr "Memorix Anatomie"
 
-#: anatomy/templates/generated/homepage.html:145
+#: anatomy/templates/generated/static/tpl/homepage.html:146
 msgid "Data od všech uživatelů"
 msgstr "Data od všech uživatelů"
 
-#: anatomy/templates/generated/homepage.html:156
+#: anatomy/templates/generated/static/tpl/homepage.html:157
 msgid "Ukázka znalostí"
 msgstr "Ukázka znalostí"
 
-#: anatomy/templates/generated/homepage.html:164
+#: anatomy/templates/generated/static/tpl/homepage.html:165
 msgid "Otázky Tobě na míru"
 msgstr "Otázky Tobě na míru"
 
-#: anatomy/templates/generated/homepage.html:181
+#: anatomy/templates/generated/static/tpl/homepage.html:182
 msgid "Začít procvičovat"
 msgstr "Začít procvičovat"
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:16
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:30
+msgid "Pochlub se svými znalostmi"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:17
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:31
+msgid "Co uvidí na sdílené stránce ostatní?"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:20
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:34
+msgid "Sdílet"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:41
+#, fuzzy
+#| msgid "Začít procvičovat vše"
+msgid "Procvičovat vše"
+msgstr "Začít procvičovat vše"
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:45
+msgid "Procvičovat vybrané"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:130
+#, fuzzy
+#| msgid "Začít procvičovat"
+msgid "Procvičovat"
+msgstr "Začít procvičovat"
+
+#: anatomy/templates/generated/static/tpl/overview_tpl.html:140
+msgid "Vybrat"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/premium.html:4
+msgid "Procvičuj si anatomii s námi"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/premium.html:13
+msgid "Zdarma"
+msgstr ""
+
+#: anatomy/templates/generated/static/tpl/premium.html:14
+#: anatomy/templates/home.html:103
+msgid "Předplatné"
+msgstr "Předplatné"
 
 #: anatomy/templates/home.html:11
 msgid "meta content"
@@ -154,13 +183,9 @@ msgstr "anatomie, procvičování, opakování, online, schema, anatomická sch�
 msgid "Kapitoly"
 msgstr "Kapitoly"
 
-#: anatomy/templates/home.html:100
+#: anatomy/templates/home.html:100 anatomy/views.py:164
 msgid "Souvislosti"
 msgstr "Souvislosti"
-
-#: anatomy/templates/home.html:103
-msgid "Předplatné"
-msgstr "Předplatné"
 
 #: anatomy/templates/home.html:106
 msgid "O projektu"
@@ -190,27 +215,27 @@ msgstr "Nastavení"
 msgid "Odhlásit se"
 msgstr "Odhlásit se"
 
-#: anatomy/templates/home.html:207 anatomy/templates/home.html.py:233
+#: anatomy/templates/home.html:205 anatomy/templates/home.html.py:231
 msgid "Napište nám"
 msgstr "Napiš nám"
 
-#: anatomy/templates/home.html:209
+#: anatomy/templates/home.html:207
 msgid "Skrýt tlačítko"
 msgstr "Skrýt tlačítko"
 
-#: anatomy/templates/home.html:227
+#: anatomy/templates/home.html:225
 msgid "O projeku"
 msgstr "O projeku"
 
-#: anatomy/templates/home.html:229
+#: anatomy/templates/home.html:227
 msgid "Podmínky použití"
 msgstr "Podmínky použití"
 
-#: anatomy/templates/home.html:231
+#: anatomy/templates/home.html:229
 msgid "Zásady ochrany osobních údajů"
 msgstr "Zásady ochrany osobních údajů"
 
-#: anatomy/templates/home.html:242
+#: anatomy/templates/home.html:240
 msgid "Aplikace na Google Play"
 msgstr "Aplikace na Google Play"
 
@@ -318,9 +343,24 @@ msgstr "IBAN"
 msgid "BIC (SWIFT)"
 msgstr "BIC (SWIFT)"
 
-#: anatomy/views.py:90
+#: anatomy/views.py:85
 msgid "procvičování anatomie člověka v obrázcích"
 msgstr "procvičování anatomie člověka v obrázcích"
+
+#~ msgid "Vytvořit cíl"
+#~ msgstr "Vytvořit cíl"
+
+#~ msgid "Mapa"
+#~ msgstr "Mapa"
+
+#~ msgid "Datum splnění cíle"
+#~ msgstr "Datum splnění cíle"
+
+#~ msgid "Vytvořit"
+#~ msgstr "Vytvořit"
+
+#~ msgid "Zavřít"
+#~ msgstr "Zavřít"
 
 #~ msgid "Právní podmínky"
 #~ msgstr "Právní podmínky"
