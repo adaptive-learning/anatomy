@@ -10,8 +10,8 @@ default:
               pfae_bad: 0.7
         option_selector:
             class: proso.models.option_selection.AdjustedOptionSelection
-        options_number:
-            class: AdjustedOptionsNumber
+        options_count:
+            class: proso_models.option_selection.AdjustedOptionsNumber
             parameters:
                 allow_zero_options_restriction: false
         mastery_threshold: 0.901

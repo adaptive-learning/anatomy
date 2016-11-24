@@ -1,9 +1,9 @@
 proso_models:
-  options_number.parameters.allow_zero_options_restriction:
+  options_count.parameters.allow_zero_options_restriction:
     - value: true
       condition_key: practice_filter_contains
       condition_value: category/relations
-  options_number.parameters.allow_zero_options_restriction:
+  options_count.parameters.allow_zero_options_restriction:
     - value: true
       condition_key: device
       condition_value: touchscreen

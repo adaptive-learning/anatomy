@@ -1140,7 +1140,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       templateUrl : 'static/tpl/open_questions_alert_tpl.html',
       link: function ($scope) {
-        var restrictionKey = 'proso_models.options_number.parameters.allow_zero_options_restriction';
+        var restrictionKey = 'proso_models.options_count.parameters.allow_zero_options_restriction';
         $scope.configService = configService;
         $scope.openQuestionsDisabled = configService.getOverridden()[restrictionKey];
 
@@ -1242,7 +1242,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
         };
         $scope.disableOpenQuestions = function() {
-          var restrictionKey = 'proso_models.options_number.parameters.allow_zero_options_restriction';
+          var restrictionKey = 'proso_models.options_count.parameters.allow_zero_options_restriction';
           configService.override(restrictionKey, true);
           $window.location.reload();
         };
