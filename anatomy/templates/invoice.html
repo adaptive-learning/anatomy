@@ -148,7 +148,15 @@
             </tr>
             <tr class="details">
                 <td>
-                    {% trans "Platba kartou" %}
+                    {% if subscription.payment.status.payment_instrument == 'PAYMENT_CARD' %}
+                        {% trans "Platba kartou" %}
+                    {% elif subscription.payment.status.payment_instrument == 'PAYPAL' %}
+                        {% trans "PayPal" %}
+                    {% elif subscription.payment.status.payment_instrument == 'BANK_ACCOUNT' %}
+                        {% trans "Bankovní převod" %}
+                    {% else %}
+                        {% trans "Ostatní" %}
+                    {% endif %}
                 </td>
 
                 <td colspan="2">
