@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-24 15:24+0000\n"
+"PO-Revision-Date: 2016-11-24 17:54+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,7 +85,7 @@ msgid ""
 "contact\">anatom{zavinac}memorix.cz</span> a domluvíme se."
 msgstr "Do you enjoy anatomy? Would you like to contributo to PracticeAnatomy? He are looking for volunteers, who would help us translate our app to local languages, name anatomical structures on pictures, add anatomical and clinical correlations or test new features. The intensity of contribution depends on your capacity, even 2-4 hours per month may help improve the features of PracticeAnatomy. Please contact us at <span class=\"email contact\">anatom{zavinac}memorix.cz</span> and we'll find what fits you."
 
-#: static/tpl/subscription_plans.html:9
+#: static/tpl/subscription_plans.html:11
 msgid "Bez kódu"
 msgstr "No code"
 
@@ -242,13 +242,13 @@ msgstr "Content"
 msgid "Kdo stojí za vývojem"
 msgstr "Development"
 
-#: static/tpl/subscription_plans.html:20
+#: static/tpl/subscription_plans.html:24
 msgid ""
 "Kód již využilo {{discountCodeUsage.usage}} uživatelů.\n"
 "        Zbývá <strong>{{discountCodeUsage.usage_left}}</strong> použití."
 msgstr "The code has been used by {{discountCodeUsage.usage}} users.\nRemaining number of usages is <strong> {{discountCodeUsage.usage_left}} </ strong>."
 
-#: static/tpl/subscription_plans.html:49
+#: static/tpl/subscription_plans.html:53
 msgid "Koupit teď"
 msgstr "Buy now"
 
@@ -742,15 +742,15 @@ msgid ""
 "      Po odpovědi se okamžitě dozvíš správnou odpověď."
 msgstr "Which muscle is highlighted? Can you find a given structure in the picture? You will see the correct answer immediately after you choose your answer."
 
-#: static/tpl/subscription_plans.html:6
-msgid "Uplatnit slevový kód"
-msgstr "Use discount code"
+#: static/tpl/subscription_plans.html:8
+msgid "Uplatnit"
+msgstr "Use"
 
 #: static/tpl/summary_tpl.html:6
 msgid "Úspěšnost"
 msgstr "Success rate"
 
-#: static/tpl/subscription_plans.html:17
+#: static/tpl/subscription_plans.html:21
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
@@ -857,7 +857,7 @@ msgstr "Try for free"
 msgid ""
 "Za použití dat o učení, které máme k dispozici, učiníme tvoje procvičování "
 "efektivní."
-msgstr ""
+msgstr "Using data on learning that we have available, we will make your practice efficient."
 
 #: static/tpl/homepage.html:182
 msgid "Začít procvičovat"
