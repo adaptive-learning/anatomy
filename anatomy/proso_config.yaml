@@ -37,7 +37,6 @@ default:
         events:
             source_name: anatomy
             endpoint: https://events.proso.hkar.eu
-    proso_flashcards:
     proso_feedback:
         domain: anatom.cz
         to: [anatom@googlegroups.com]
