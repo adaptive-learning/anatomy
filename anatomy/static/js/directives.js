@@ -1184,7 +1184,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         var question = angular.copy($scope.question);
         $scope.questionAndAnswer = toQuestionAndAnswer(question);
 
-        $scope.questionsAndAnswers = [$scope.questionAndAnswer]; 
+        $scope.questionsAndAnswers = [$scope.questionAndAnswer];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var qaaByAnswer = {};
           $scope.questionsAndAnswers = flashcards.filter(function(fc) {
@@ -1214,7 +1214,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           return {
             question: $filter('stripAlternatives')(
               $scope.question.question_type == 't2ts' ?
-              fc.term.name : (fc.description || 
+              fc.term.name : (fc.description ||
                 (fc.term_secondary && fc.term_secondary.name))),
             answer: $filter('stripAlternatives')(
               $scope.question.question_type == 't2ts' ?
