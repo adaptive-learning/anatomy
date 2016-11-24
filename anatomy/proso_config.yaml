@@ -11,7 +11,7 @@ default:
         option_selector:
             class: proso.models.option_selection.AdjustedOptionSelection
         options_count:
-            class: proso_models.option_selection.AdjustedOptionsNumber
+            class: proso.models.option_selection.AdjustedOptionsNumber
             parameters:
                 allow_zero_options_restriction: false
         mastery_threshold: 0.901
