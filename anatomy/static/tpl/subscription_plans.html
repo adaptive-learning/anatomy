@@ -2,14 +2,18 @@
     <h2 class="text-center" translate>Typy předplatného</h2>
     <form ng-if="!discountCode || error" class="form-inline text-center">
         <label translate>Slevový kód: </label>
-        <input class="form-control" ng-model="discountCodeInput">
-        <a class="btn btn-default"
-            href="/premium/?discount_code={{discountCodeInput}}"
-            translate>Uplatnit slevový kód</a>
-        <a class="btn btn-default"
-            ng-if="discountCode"
-            href="/premium/"
-            translate>Bez kódu</a>
+        <div class="input-group">
+          <input class="form-control" ng-model="discountCodeInput">
+          <span class="input-group-btn">
+            <a class="btn btn-default"
+                href="/premium/?discount_code={{discountCodeInput}}"
+                translate>Uplatnit</a>
+            <a class="btn btn-default"
+                ng-if="discountCode"
+                href="/premium/"
+                translate>Bez kódu</a>
+          </span>
+        </div>
         <br>
         <br>
     </form>
