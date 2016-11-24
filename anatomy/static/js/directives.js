@@ -902,7 +902,10 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.intro = $routeParams.config === 'intro';
         $scope.summary = practiceService.getSummary();
         $scope.summary.correctlyAnsweredRatio =
-          $scope.summary.correct / $scope.summary.count;
+          $scope.summary.questions.filter(function(q) {
+            return q.payload.isCorrect;
+          }).length / 
+          $scope.summary.questions.length;
 
         hotkeys.bindTo($scope).add({
           combo: 'enter',

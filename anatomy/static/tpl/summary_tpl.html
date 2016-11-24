@@ -3,7 +3,7 @@
     <div class="summary-progress progress" ng-show="summary != undefined">
       <div class="progress-bar progress-bar-learned" 
            style="width: {{summary.correctlyAnsweredRatio | percent }};">
-        {{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}
+        <span>{{'Úspěšnost' | translate}}: {{summary.correctlyAnsweredRatio | percent }}</span>
       </div>
       <div class="progress-bar progress-bar-unlearned" 
            style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
