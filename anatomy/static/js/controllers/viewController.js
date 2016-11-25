@@ -27,7 +27,6 @@ angular.module('proso.anatomy.controllers')
       var id = context.identifier;
       userStatsService.addGroup(id, {});
       userStatsService.addGroupParams(id, filter.filter.concat([['context/' + id]]));
-      console.log(id, filter.filter.concat([['context/' + id]]));
     }
     userStatsService.getStatsPost(true, $scope.user).success(function(data) {
       angular.forEach($scope.contexts, function(context) {

@@ -11,6 +11,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.$watch('flashcard.prediction', update);
 
         function update() {
+          elem.css('border-bottom', '5px solid #777');
           if ($scope.flashcard.prediction) {
             elem.css('border-bottom', '5px solid ' + colorScale(Math.ceil(10 * $scope.flashcard.prediction) / 10).hex());
             if ($scope.flashcard.practiced) {
