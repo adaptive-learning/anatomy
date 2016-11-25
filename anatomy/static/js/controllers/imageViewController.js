@@ -12,6 +12,9 @@ angular.module('proso.anatomy.controllers')
 
       contextService.getContextByIdentifier($scope.contextId).then(function(data) {
         $scope.context = data;
+        if ($scope.stats) {
+          $scope.context.stats = $scope.stats;
+        }
       });
     }
   });

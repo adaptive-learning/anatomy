@@ -758,6 +758,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       scope: {
         context: '=?context',
         contextId: '=?contextId',
+        stats: '=stats',
       },
       restrict: 'A',
       templateUrl: 'static/tpl/image_view.html',

@@ -1,6 +1,6 @@
 <div> 
-  <div image-view context-id="contextId"></div> 
-  <div class="modal-footer">
+  <div image-view context-id="contextId" stats="context.stats"></div> 
+  <div class="modal-footer" ng-if="contexts.length">
     <a ng-click="prew()" class="btn btn-default">
       <i class="glyphicon glyphicon-arrow-left"></i>
     </a>
