@@ -1,7 +1,7 @@
 angular.module('proso.anatomy.controllers')
 
-.controller('viewController', ['$scope', '$routeParams', 'contextService', 'flashcardService', 'categoryService', 'userStatsService', 'imageService', 'colorScale', '$cookies', 'smoothScroll', '$location', '$rootScope',
-    function($scope, $routeParams, contextService, flashcardService, categoryService, userStatsService, imageService, colorScale,  $cookies, smoothScroll, $location, $rootScope) {
+.controller('viewController', ['$scope', '$routeParams', 'contextService', 'categoryService', 'userStatsService', '$cookies', '$location', '$rootScope',
+    function($scope, $routeParams, contextService, categoryService, userStatsService, $cookies, $location, $rootScope) {
   'use strict';
   $scope.user = $routeParams.user || '';
 
@@ -66,55 +66,6 @@ angular.module('proso.anatomy.controllers')
     setTimeout(function() {
       $rootScope.title = contextName + $rootScope.title;
     }, 10);
-    if ($scope.activeContext) {
-      setTimeout(function() {
-        var elem = document.getElementById(context.identifier);
-        smoothScroll(elem, {
-          offset: 10,
-          duration: 200,
-        });
-      }, 400);
-      var filter = {
-        filter : [
-            ['context/' + context.identifier],
-        ],
-        stats : true,
-        user : $routeParams.user,
-      };
-      if($routeParams.category) {
-          filter.filter.push(['category/' + $routeParams.category]);
-      }
-      var activeContext = $scope.activeContext;
-      contextService.getContext(context.id).then(function(fullContext) {
-        if (activeContext != $scope.activeContext) {
-          return;
-        }
-        $scope.activeContext.content = fullContext.content;
-        $scope.activeContext.flashcards = fullContext.flashcards.map(function(fc) {
-          fc.context = context;
-          return fc;
-        });
-        if ($scope.activeContext.content.paths) {
-          imageService.setImage($scope.activeContext.content, function(ic) {
-            $scope.imageController = ic;
-            flashcardService.getFlashcards(filter).then(function(data) {
-              context.flashcards = data;
-              for (var i = 0; i < context.flashcards.length; i++) {
-                var fc = context.flashcards[i];
-                $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
-              }
-            });
-          });
-        } else {
-          flashcardService.getFlashcards(filter).then(function(data) {
-            context.flashcards = data.map(function(fc) {
-              fc.context = context;
-              return fc;
-            });
-          });
-        }
-      });
-    }
   };
 
   $scope.usePracticeDwopdown = function() {

@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <div class="row">
+      <div class="col-sm-6">
+        <a class="pull-left"
+          href="/view/{{category.identifier}}/image/{{context.identifier}}">
+        </a>
+        <a ng-if="userService.user.staff"
+          class="pull-right"
+          href="http://znackuj.anatom.cz/image/{{context.identifier}}">
+          <i class="glyphicon glyphicon-edit" ></i>
+        </a>
+        <a ng-if="userService.user.staff"
+          class="pull-right"
+          href="/practice/{{category.identifier}}/?context={{context.identifier}}">
+          <i class="glyphicon glyphicon-check" ></i>
+        </a>
+        <h3>
+          {{context.name}}
+        </h3>
+      </div>
+      <div class="col-sm-6 image-open"
+        track-click="view image"
+        ng-click="activateContext(context)" >
+        <div category-progress skills="context.stats"
+          hide-labels="hideLabels"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body image-view-container">
+    <div ng-hide="context" class="loading-indicator">
+    </div>
+    <div ng-if="context">
+      <span>
+        <div ng-if="context.content.paths" color-scale-legend ></div>
+        <div ng-hide="context.flashcards && context.content" class="loading-indicator">
+        </div>
+        <span page-number="{{context.content.meta['textbook-page']}}"></span>
+        <span anatomy-image code="{{context.identifier}}" ></span>
+      </span>
+      <span ng-hide="loading" class="terms-container">
+        <span class="label label-default"
+          ng-repeat="flashcard in context.flashcards | orderBy : 'term.name'"
+          ng-class="{'btn-info' : flashcard.term == activeTerm}"
+          ng-click="imageController.clearHighlights();imageController.highlightItem(flashcard.description, 'no-change', true)"
+          ng-mouseenter="imageController.hoverIn(flashcard.description)"
+          ng-mouseleave="imageController.hoverOut(flashcard.description)"
+          term-label
+          ng-bind="flashcard.term.name | stripAlternatives" >
+        </span>
+      </span>
+    </div>
+  </div>
+</div>

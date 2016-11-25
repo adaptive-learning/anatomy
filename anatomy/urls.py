@@ -26,7 +26,7 @@ urlpatterns = patterns(
     url(r'^invoice/(?P<subscription_id>\d+)$', 'anatomy.views.invoice', name='invoice'),
     url(r'^(about|home|offer|premium|overview|unauthorized|settings|relationsoverview|terms-of-use-|privacy-policy-)',
         'anatomy.views.home', name='home'),
-    url(r'^(view/\w*|u/\w*|relations/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
+    url(r'^(view/\w*|u/\w*|relations/\w*|u/\w*|image/\w*|u/\w*|practice/\w*/?\w*|refreshpractice/\w*/?\w*)',
         'anatomy.views.home', name='home'),
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^robots.txt$', lambda r: HttpResponse(

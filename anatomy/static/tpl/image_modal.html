@@ -1,0 +1,16 @@
+<div> 
+  <div image-view context-id="contextId"></div> 
+  <div class="modal-footer">
+    <a ng-click="prew()" class="btn btn-default">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+    </a>
+    {{contexts.indexOf(context) + 1}} / {{contexts.length}}
+    <a ng-click="next()" class="btn btn-default">
+      <i class="glyphicon glyphicon-arrow-right"></i>
+    </a>
+    <a ng-click="close()" class="btn btn-default"> 
+      <i class="glyphicon glyphicon-remove"></i>
+    </a>
+  </div>
+</div>
+

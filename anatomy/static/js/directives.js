@@ -67,11 +67,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           element.parent().addClass('anatomy-image');
 
           function setMinImageHeight() {
-            angular.element('#ng-view').removeClass('horizontal');
+            angular.element('body').removeClass('horizontal');
             var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
             if (screenAspectRatio < 1 && $window.innerWidth > 600) {
-              angular.element('#ng-view').addClass('horizontal');
+              angular.element('body').addClass('horizontal');
               element.css("min-height", $window.innerHeight * 0.8);
             } else {
               element.css("min-height", $window.innerHeight / 2);
@@ -339,7 +339,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
               if (!attrs.practice) {
                 var height;
                 if (screenAspectRatio < 1) {
-                  height = $window.innerHeight * 0.7 + 40;
+                  height = $window.innerHeight * 0.7;
                 } else {
                   height = ($window.innerHeight / 2) - 40;
                 }
@@ -358,25 +358,22 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
                 paper.height = $window.innerHeight - (25 + headerHeight + alertHeight);
                 paper.width = $window.innerWidth  * 0.7 - 20;
               } else {
-                if ($window.innerWidth > 992) {
-                  imageOfWindowWidthRatio *= 10 / 12;
-                }
-                paper.height = $window.innerHeight * 0.7 - 20;
-                paper.width = $window.innerWidth * imageOfWindowWidthRatio - 40;
+                paper.height = $window.innerHeight * 0.7 - 90;
+                paper.width = $('.panel-body').innerWidth() * imageOfWindowWidthRatio - 40;
               }
               return paper;
             }
 
             function onWidowResize(){
-              angular.element('#ng-view').removeClass('horizontal');
+              angular.element('body').removeClass('horizontal');
               var screenAspectRatio = $window.innerHeight / $window.innerWidth;
 
               if (screenAspectRatio < 1 && $window.innerWidth > 600) {
-                angular.element('#ng-view').addClass('horizontal');
+                angular.element('body').addClass('horizontal');
                 paper = getHorizontalViewDimensions(paper);
               } else {
                 paper.height = ($window.innerHeight / 2) * (attrs.relativeHeight || 1);
-                paper.width = $window.innerWidth - 35;
+                paper.width = $window.innerWidth - (attrs.practice ? 35 : 75);
               }
               setTermsConteinerHeight(screenAspectRatio);
 
@@ -741,6 +738,30 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           shareModal.open(attrs);
         });
       }
+    };
+  }])
+
+  .directive('imageModal', [function() {
+    return {
+      scope: {
+        context: '=context',
+        contexts: '=contexts',
+        openAction: '=openAction',
+      },
+      restrict: 'E',
+      controller: 'imageModalController',
+    };
+  }])
+
+  .directive('imageView', [function() {
+    return {
+      scope: {
+        context: '=?context',
+        contextId: '=?contextId',
+      },
+      restrict: 'A',
+      templateUrl: 'static/tpl/image_view.html',
+      controller: 'imageViewController',
     };
   }])
 
