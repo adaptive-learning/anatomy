@@ -465,7 +465,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       open: function(attrs) {
         $modal.open({
           templateUrl: 'static/tpl/share-modal.html',
-          controller: 'ShareController',
+          controller: 'shareController',
           resolve: {
             data: function() {
               return attrs;

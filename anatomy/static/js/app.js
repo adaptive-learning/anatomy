@@ -37,10 +37,10 @@ angular.module('proso.anatomy', [
         }).when('/_=_', {
             redirectTo : '/overview/'
         }).when('/login/:somepath/', {
-            controller : 'ReloadController',
+            controller : 'reloadController',
             templateUrl : 'loading.html'
         }).when('/subscription/subscribe/:somepath?', {
-            controller : 'ReloadController',
+            controller : 'reloadController',
             templateUrl : 'loading.html'
         }).when('/about', {
             templateUrl : 'static/tpl/about.html'
@@ -57,39 +57,39 @@ angular.module('proso.anatomy', [
         }).when('/unauthorized/', {
             templateUrl : 'static/tpl/unauthorized.html'
         }).when('/view/:category?/image/:context?', {
-            controller : 'AppView',
+            controller : 'viewController',
             templateUrl : 'static/tpl/view_tpl.html'
         }).when('/view/:category?/:user?', {
-            controller : 'AppView',
+            controller : 'viewController',
             templateUrl : 'static/tpl/view_tpl.html'
         }).when('/practice/', {
-            controller : 'AppPractice',
+            controller : 'practiceController',
             templateUrl : 'static/tpl/practice_tpl.html'
         }).when('/refreshpractice/:category?/:category2?', {
             redirectTo : '/practice/:category/:category2'
         }).when('/practice/:category?/:category2?', {
-            controller : 'AppPractice',
+            controller : 'practiceController',
             templateUrl : 'static/tpl/practice_tpl.html'
         }).when('/overview/tab/:tab', {
-            controller : 'AppOverview',
+            controller : 'overviewController',
             templateUrl : 'static/tpl/overview_tpl.html'
         }).when('/overview/:user?', {
-            controller : 'AppOverview',
+            controller : 'overviewController',
             templateUrl : 'static/tpl/overview_tpl.html'
         }).when('/relationsoverview/:user?', {
-            controller : 'AppOverview',
+            controller : 'overviewController',
             templateUrl : 'static/tpl/overview_tpl.html'
         }).when('/u/:user?', {
-            controller : 'AppUser',
+            controller : 'userController',
             templateUrl : 'static/tpl/user_tpl.html'
         }).when('/premium/', {
-            controller : 'PremiumController',
+            controller : 'premiumController',
             templateUrl : 'static/tpl/premium.html'
         }).when('/settings/', {
-            controller : 'SettingsController',
+            controller : 'settingsController',
             templateUrl : 'static/tpl/settings.html'
         }).when('/relations/:category?/:user?', {
-            controller : 'RelationsController',
+            controller : 'relationsController',
             templateUrl : 'static/tpl/relations.html'
         }).otherwise({
             templateUrl : 'static/tpl/404.html'
@@ -98,10 +98,10 @@ angular.module('proso.anatomy', [
         var languages = ['cs', 'en'];
         for (var i = 0; i < languages.length; i++) {
             $routeProvider.when('/' + languages[i] + '/:somepath?', {
-                controller : 'ReloadController',
+                controller : 'reloadController',
                 templateUrl : 'loading.html'
             }).when('/' + languages[i] + '/:somepath/:more?/:path?', {
-                controller : 'ReloadController',
+                controller : 'reloadController',
                 templateUrl : 'loading.html'
             });
         }
