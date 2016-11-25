@@ -921,6 +921,27 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('tile', [function() {
+    return {
+      restrict: 'A',
+      replace: true,
+      scope: {
+        category: '=category',
+        practicePath: '=practicePath',
+        viewPath: '=viewPath',
+      },
+      templateUrl : 'static/tpl/tile.html',
+      link: function ($scope, element) {
+        $scope.progressRadius = getProgressRadius();
+
+        function getProgressRadius() {
+          var radius =  $(element).width() / 2;
+          return radius;
+        }
+      },
+    };
+  }])
+
   .directive('shortcut', [function() {
     return {
       restrict: 'A',

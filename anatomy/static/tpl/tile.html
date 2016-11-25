@@ -1,0 +1,60 @@
+<span 
+  ng-class="{
+    'active' : category.selected && !user,
+    'disabled' : disabled}"
+  class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
+  <span class="in-tile">
+    <a href="/{{viewPath}}/{{category.identifier}}/{{user}}" class="tile-link"
+      style="background-image: url('/static/img/{{category.identifier}}.png');" >
+      <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
+      <div class="top" ng-if="disabled" translate>Premium obsah</div>
+      <div class="dummy"></div>
+      <div class="absolute">
+        <div round-progress 
+            max="category.stats.number_of_items"
+            current="category.stats.number_of_practiced_items"
+            color="#fe3"
+            bgcolor="rgba(190,190,190,0.5)"
+            radius="{{progressRadius}}"
+            stroke="15"
+            rounded="true"
+            iterations="50"
+            animation="easeInOutQuart"></div>
+      </div>
+      <div class="absolute"
+        ng-if="category.stats.number_of_mastered_items">
+        <div round-progress
+            max="category.stats.number_of_items"
+            current="category.stats.number_of_mastered_items"
+            color="#5CA03C"
+            bgcolor="rgba(0,0,0,0)"
+            radius="{{progressRadius}}"
+            stroke="15"
+            rounded="true"
+            iterations="50"
+            animation="easeInOutQuart"></div>
+      </div>
+      <h2 ng-bind="category.name"></h2>
+    </a>
+    <div class="dropdown" ng-if="!user">
+      <a href="/{{practicePath}}/{{category.identifier}}/"
+          class="btn btn-default btn-sm"
+          tooltip="{{'Procvičovat' | translate}}"
+          tooltip-placement="right"
+          track-click="overview practice" >
+          <i class="glyphicon glyphicon-play"></i>
+      </a>
+    </div> 
+    <div class="selector pull-right" ng-if="!user">
+      <button class="btn btn-default btn-sm"
+          ng-class="{'btn-primary' : category.selected}"
+          ng-click="category.selected = !category.selected"
+          tooltip="{{'Vybrat' | translate}}"
+          tooltip-placement="left"
+          track-click="overview selector" >
+          <i ng-class="{'glyphicon-empty' : !category.selected}"
+            class="glyphicon glyphicon-ok"></i>
+      </button>
+    </div> 
+  </span>
+</span>

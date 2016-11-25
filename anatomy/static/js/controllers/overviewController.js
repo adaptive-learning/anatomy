@@ -4,10 +4,6 @@ angular.module('proso.anatomy.controllers')
     function($scope, $routeParams, categoryService, userStatsService, gettextCatalog, $cookies, $filter, $location, userService) {
   'use strict';
 
-  function getProgressRadius() {
-    var radius =  $('.tile').width() / 2;
-    return radius;
-  }
   $scope.absUrl = $location.absUrl();
   var overviewType = $location.path().split('/')[1];
   var activeTypeCookieName = overviewType + 'activeType';
@@ -96,7 +92,6 @@ angular.module('proso.anatomy.controllers')
       userStatsService.getStatsPost(true, $scope.user).success(processStats);
 
       function processStats(data) {
-        $scope.progressRadius = getProgressRadius();
         $scope.userStats = data.data;
         $scope.stats = {};
         angular.forEach($scope.categories, function(map) {
