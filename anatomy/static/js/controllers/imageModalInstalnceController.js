@@ -11,22 +11,13 @@ angular.module('proso.anatomy.controllers')
     $modalInstance.dismiss('cancel');
   };
 
-  $scope.next = function() {
-    setNextContext(+1);
-    prefetchContext(+2);
-  };
-
-  $scope.prew = function() {
-    setNextContext(-1);
-    prefetchContext(-2);
-  };
-
-  function setNextContext(n) {
+  $scope.setNextContext = function(n) {
     var nextContext = getNextContext(n);
     $scope.context = nextContext;
     $scope.contextId = nextContext.identifier;
     setPath();
-  }
+    prefetchContext(n * 2);
+  };
 
   function setPath() {
     console.log('yupdate', data);

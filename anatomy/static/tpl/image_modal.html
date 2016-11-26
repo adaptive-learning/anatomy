@@ -1,11 +1,13 @@
 <div> 
   <div image-view context-id="contextId" stats="context.stats"></div> 
   <div class="modal-footer" ng-if="contexts.length">
-    <a ng-click="prew()" class="btn btn-default">
+    <a ng-click="setNextContext(-1)" class="btn btn-default">
       <i class="glyphicon glyphicon-arrow-left"></i>
+      {{contexts[contexts.indexOf(context) - 1].name}}
     </a>
     {{contexts.indexOf(context) + 1}} / {{contexts.length}}
-    <a ng-click="next()" class="btn btn-default">
+    <a ng-click="setNextContext(+1)" class="btn btn-default">
+      {{contexts[contexts.indexOf(context) + 1].name}}
       <i class="glyphicon glyphicon-arrow-right"></i>
     </a>
     <a ng-click="close()" class="btn btn-default"> 
