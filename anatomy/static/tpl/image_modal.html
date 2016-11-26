@@ -3,11 +3,15 @@
   <div class="modal-footer" ng-if="contexts.length">
     <a ng-click="setNextContext(-1)" class="btn btn-default">
       <i class="glyphicon glyphicon-arrow-left"></i>
-      {{contexts[contexts.indexOf(context) - 1].name}}
+      <span class="hidden-xs">
+        {{contexts[contexts.indexOf(context) - 1].name}}
+      </span>
     </a>
     {{contexts.indexOf(context) + 1}} / {{contexts.length}}
     <a ng-click="setNextContext(+1)" class="btn btn-default">
-      {{contexts[contexts.indexOf(context) + 1].name}}
+      <span class="hidden-xs">
+        {{contexts[contexts.indexOf(context) + 1].name}}
+      </span>
       <i class="glyphicon glyphicon-arrow-right"></i>
     </a>
     <a ng-click="close()" class="btn btn-default"> 
