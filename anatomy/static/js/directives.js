@@ -951,11 +951,21 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       replace: true,
       scope: {
         category: '=category',
+        clickAction: '=clickAction',
         practicePath: '=practicePath',
         viewPath: '=viewPath',
+        thumbnailPath: '=thumbnailPath',
       },
       templateUrl : 'static/tpl/tile.html',
       link: function ($scope, element) {
+        $scope.clickFn = function(event) {
+          console.log(event);
+          if ($scope.clickAction) {
+            $scope.clickAction($scope.category);
+            event.preventDefault();
+          }
+        };
+        
         angular.element(window).bind('resize', function() {
           $timeout(function() { }, 1); // I don't see why, but this line is necessary
           $scope.progressRadius = getProgressRadius();

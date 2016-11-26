@@ -4,8 +4,10 @@
     'disabled' : disabled}"
   class="col-xs-6 col-sm-3 tile fade-in-one-by-one">
   <span class="in-tile">
-    <a href="/{{viewPath}}/{{category.identifier}}/{{user}}" class="tile-link"
-      style="background-image: url('/static/img/{{category.identifier}}.png');" >
+    <a class="tile-link"
+      href="/{{viewPath}}/{{category.identifier}}/{{user}}"
+      ng-click="clickFn($event)"
+      style="background-image: url('{{thumbnailPath + category.identifier}}.png');" >
       <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
       <div class="top" ng-if="disabled" translate>Premium obsah</div>
       <div class="dummy"></div>
@@ -41,6 +43,7 @@
           class="btn btn-default btn-sm"
           tooltip="{{'Procvičovat' | translate}}"
           tooltip-placement="right"
+          ng-if="practicePath"
           track-click="overview practice" >
           <i class="glyphicon glyphicon-play"></i>
       </a>

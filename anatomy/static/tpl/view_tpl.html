@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row header">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <h1>
           <span>{{user ? user + ' - ' : ''}}</span>
           <span>{{category.name || ('Všechna schémata' | translate)}}</span>
@@ -66,39 +66,19 @@
   </div>
 </div>
 <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
-<div class="table table-striped col-sm-12">
-  <div ng-show="error" error-message ></div>
-  <br>
-    <div class="row table-row fade-in-one-by-one"
-      ng-if="context.stats && context.stats.number_of_items"
-      id="{{context.identifier}}" ng-repeat="context in contexts">
-      <div class="col-md-5 col-md-offset-1 col-sm-6 image-open"
-        track-click="view image"
-        ng-click="activateContext(context)" >
-        <a class="pull-left"
-          href="/view/{{category.identifier}}/image/{{context.identifier}}">
-        </a>
-        <h3 class="image-list-title">
-          {{context.name || '[MISSING]'}}
-        </h3>
-        <a ng-if="userService.user.staff"
-          class="pull-right"
-          href="http://znackuj.anatom.cz/image/{{context.identifier}}">
-          <i class="glyphicon glyphicon-edit" ></i>
-        </a>
-        <a ng-if="userService.user.staff"
-          class="pull-right"
-          href="/practice/{{category.identifier}}/?context={{context.identifier}}">
-          <i class="glyphicon glyphicon-check" ></i>
-        </a>
-      </div>
-      <div class="col-md-5 col-sm-6 image-open"
-        track-click="view image"
-        ng-click="activateContext(context)" >
-        <div category-progress skills="context.stats"
-          hide-labels="true"></div>
-      </div>
-      <div class="clearfix"></div>
+<div class="overview">
+  <div class="row ng-cloak">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <span tile
+        ng-repeat="context in contexts"
+        category="context"
+        thumbnail-path="'/media/tile-thumbs/'"
+        view-path="'image'"
+        click-action="activateContext"
+        practice-path="userService.user.staff && 'practice/?context='">
+      </span>
+    </div>
+  </div>
 </div>
 <image-modal 
   open-action="activateContext"

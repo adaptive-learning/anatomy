@@ -78,18 +78,19 @@
         <div ng-show="error" error-message ></div>
         <div ng-repeat="categoryType in categoriesByType"
             ng-if="categoryType.isActive">
-      <div class="alert alert-info text-center ng-cloak" ng-if="disabled">
-        <p translate>Získej přístup k tomuto obsahu zakoupením předplatného.</p>
-        <br>
-        <a href="/practice/relations/demo/?config=intro"
-          class="btn btn-primary btn-lg" translate>Vyzkoušet zdarma</a>
-        <a href="/premium/" class="btn btn-default btn-lg" translate>
-          Zjistit více o předplatném</a>
-      </div>
+        <div class="alert alert-info text-center ng-cloak" ng-if="disabled">
+          <p translate>Získej přístup k tomuto obsahu zakoupením předplatného.</p>
+          <br>
+          <a href="/practice/relations/demo/?config=intro"
+            class="btn btn-primary btn-lg" translate>Vyzkoušet zdarma</a>
+          <a href="/premium/" class="btn btn-default btn-lg" translate>
+            Zjistit více o předplatném</a>
+        </div>
         <span tile
           ng-repeat="category in categoryType.categories | orderBy : 'display_priority'"
           category="category"
           view-path="viewPath"
+          thumbnail-path="'/static/img/'"
           practice-path="practicePath">
         </span>
         <div class="clearfix"></div>
