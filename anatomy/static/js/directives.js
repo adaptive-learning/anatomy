@@ -745,6 +745,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
   .directive('imageModal', [function() {
     return {
       scope: {
+        category: '=category',
         context: '=context',
         contexts: '=contexts',
         openAction: '=openAction',

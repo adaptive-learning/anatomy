@@ -1,7 +1,7 @@
 angular.module('proso.anatomy.controllers')
 
-.controller('imageModalController', ['$scope', '$rootScope', '$modal', '$routeParams',       'configService',
-        function ($scope, $rootScope, $modal, $routeParams, configService) {
+.controller('imageModalController', ['$scope', '$rootScope', '$modal', '$routeParams',
+        function ($scope, $rootScope, $modal, $routeParams) {
 
     $scope.openModal = function(config) {
 
@@ -10,14 +10,13 @@ angular.module('proso.anatomy.controllers')
             controller: 'imageModalInstanceController',
             size: 'lg',
             resolve: {
-                contextId: function () {
-                    return config.contextId;
-                },
-                context: function () {
-                    return config.context;
-                },
-                contexts: function () {
-                    return $scope.contexts;
+                data: function () {
+                  return {
+                    contextId: config.contextId,
+                    context: $scope.context,
+                    contexts: $scope.contexts,
+                    category: $scope.category,
+                  };
                 },
             }
         });
@@ -36,9 +35,9 @@ angular.module('proso.anatomy.controllers')
       }
     });
 
-    $scope.$watch('context', function(oldContext, newContext) {
+    $scope.$watch('context', function() {
       if ($scope.context) {
-        $scope.openModal({context: $scope.context});
+        $scope.openModal({});
       }
     });
 }]);
