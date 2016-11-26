@@ -1,25 +1,25 @@
 <div class="panel panel-default">
   <div class="panel panel-heading">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <a class="pull-left"
           href="/view/{{category.identifier}}/image/{{context.identifier}}">
         </a>
-        <a ng-if="userService.user.staff"
-          class="pull-right"
-          href="http://znackuj.anatom.cz/image/{{context.identifier}}">
-          <i class="glyphicon glyphicon-edit" ></i>
-        </a>
-        <a ng-if="userService.user.staff"
-          class="pull-right"
-          href="/practice/{{category.identifier}}/?context={{context.identifier}}">
-          <i class="glyphicon glyphicon-check" ></i>
-        </a>
-        <h3>
+        <h4>
+          <a ng-if="userService.user.staff"
+            class="pull-right"
+            href="http://znackuj.anatom.cz/image/{{context.identifier}}">
+            <i class="glyphicon glyphicon-edit" ></i>
+          </a>
+          <a ng-if="userService.user.staff"
+            class="pull-right"
+            href="/practice/{{category.identifier}}/?context={{context.identifier}}">
+            <i class="glyphicon glyphicon-check" ></i>
+          </a>
           {{context.name}}
-        </h3>
+        </h4>
       </div>
-      <div class="col-sm-6 image-open"
+      <div class="col-sm-5 image-open"
         track-click="view image"
         ng-click="activateContext(context)" >
         <div category-progress skills="context.stats"

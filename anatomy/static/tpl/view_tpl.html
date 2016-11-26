@@ -66,7 +66,7 @@
   </div>
 </div>
 <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
-<div class="overview">
+<div class="overview view">
   <div class="row ng-cloak">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
       <span tile
@@ -75,7 +75,8 @@
         thumbnail-path="'/media/tile-thumbs/'"
         view-path="'image'"
         click-action="activateContext"
-        practice-path="userService.user.staff && 'practice/?context='">
+        hide-select="true"
+        practice-path="userService.user.staff && '/practice/?context='">
       </span>
     </div>
   </div>

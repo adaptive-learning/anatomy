@@ -39,7 +39,7 @@
       <h2 ng-bind="category.name"></h2>
     </a>
     <div class="dropdown" ng-if="!user">
-      <a href="/{{practicePath}}/{{category.identifier}}/"
+      <a href="{{practicePath}}{{category.identifier}}"
           class="btn btn-default btn-sm"
           tooltip="{{'Procvičovat' | translate}}"
           tooltip-placement="right"
@@ -48,7 +48,7 @@
           <i class="glyphicon glyphicon-play"></i>
       </a>
     </div> 
-    <div class="selector pull-right" ng-if="!user">
+    <div class="selector pull-right" ng-if="!user && !hideSelect">
       <button class="btn btn-default btn-sm"
           ng-class="{'btn-primary' : category.selected}"
           ng-click="category.selected = !category.selected"

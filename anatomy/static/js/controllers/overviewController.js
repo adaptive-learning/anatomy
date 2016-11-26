@@ -10,7 +10,7 @@ angular.module('proso.anatomy.controllers')
   var selectedCategoriesCookieName = overviewType + 'selectedCategoires';
   if (overviewType == 'overview') {
     $scope.viewPath = 'view';
-    $scope.practicePath = 'practice';
+    $scope.practicePath = '/practice/';
     $scope.disabled = false;
     $scope.allCategory = 'images';
     $scope.defaultTab = 'system';
@@ -18,7 +18,7 @@ angular.module('proso.anatomy.controllers')
     $scope.headline = gettextCatalog.getString("Přehled znalostí");
   } else {
     $scope.viewPath = 'relations';
-    $scope.practicePath = 'practice/relations';
+    $scope.practicePath = '/practice/relations/';
     $scope.disabled = !userService.user.profile.subscribed;
     $scope.allCategory = 'relations';
     $scope.defaultTab = 'relation';

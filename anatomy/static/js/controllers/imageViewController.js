@@ -1,9 +1,10 @@
 angular.module('proso.anatomy.controllers')
 
-.controller('imageViewController', ['$scope', '$routeParams', 'contextService', 'imageService', 'flashcardService', 'colorScale',
-    function($scope, $routeParams, contextService, imageService, flashcardService, colorScale) {
+.controller('imageViewController', ['$scope', '$routeParams', 'contextService', 'imageService', 'flashcardService', 'colorScale', 'userService',
+    function($scope, $routeParams, contextService, imageService, flashcardService, colorScale, userService) {
   'use strict';
   $scope.contextId = $scope.contextId || $routeParams.context;
+  $scope.userService = userService;
 
 
   $scope.$watch('contextId', function() {
@@ -33,6 +34,7 @@ angular.module('proso.anatomy.controllers')
           filter.filter.push(['category/' + $scope.category.identifier]);
         }
         $scope.imageController = ic;
+        $scope.context.flashcards = [];
         flashcardService.getFlashcards(filter).then(function(data) {
           $scope.context.flashcards = data;
           for (var i = 0; i < $scope.context.flashcards.length; i++) {

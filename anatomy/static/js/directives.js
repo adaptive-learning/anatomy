@@ -957,6 +957,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         practicePath: '=practicePath',
         viewPath: '=viewPath',
         thumbnailPath: '=thumbnailPath',
+        hideSelect: '=hideSelect',
       },
       templateUrl : 'static/tpl/tile.html',
       link: function ($scope, element) {
