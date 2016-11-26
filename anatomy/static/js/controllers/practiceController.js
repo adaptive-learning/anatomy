@@ -207,6 +207,4 @@ angular.module('proso.anatomy.controllers')
 
         };
         $scope.mapCallback();
-  }])
-
-
+  }]);
