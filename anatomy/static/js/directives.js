@@ -66,6 +66,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       template: '<div class="alert alert-info" ng-if="alert">{{alert}}</div>',
       link: function(scope, element, attrs) {
           element.parent().addClass('anatomy-image');
+          element.parent().addClass(attrs.code);
 
           function setMinImageHeight() {
             angular.element('body').removeClass('horizontal');
@@ -1168,12 +1169,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       replace: true,
       template : '<canvas style="display: none" id="screen-shot"></canvas> ',
       link: function () {
-        function takeScreenshot(event, identifier) {
-          if (screenshotTaken) {
+        function takeScreenshot(event, identifier, force) {
+          if (screenshotTaken && !force) {
             return;
           }
-          var svg = document.querySelector( "svg" );
-          var svgData = new XMLSerializer().serializeToString(svg);
+          var allSvg = document.querySelectorAll(".anatomy-image." + identifier.split('--') + " svg");
+          var lastSvg = allSvg[allSvg.length - 1];
+          var svgData = new XMLSerializer().serializeToString(lastSvg);
           var canvas = document.getElementById("screen-shot");
           window.canvg(canvas, svgData);
           var imgSrc    = canvas.toDataURL("image/png");
@@ -1184,9 +1186,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           $http.post('/savescreenshot/', data);
           screenshotTaken = true;
         }
-        $rootScope.$on('imageDisplayed', function(event, identifier) {
+        $rootScope.$on('imageDisplayed', function(event, identifier, force) {
           $timeout(function() {
-            takeScreenshot(event, identifier);
+            takeScreenshot(event, identifier, force);
           }, 500);
         });
 

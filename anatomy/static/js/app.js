@@ -62,6 +62,9 @@ angular.module('proso.anatomy', [
         }).when('/view/:category?/:user?', {
             controller : 'viewController',
             templateUrl : 'static/tpl/view_tpl.html'
+        }).when('/image/generator', {
+            controller : 'imageGeneratorController',
+            templateUrl : 'static/tpl/image_generator.html'
         }).when('/image/:context?', {
             controller : 'imageViewController',
             templateUrl : 'static/tpl/image_view_page.html'

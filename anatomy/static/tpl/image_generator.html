@@ -1,0 +1,14 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-default">
+        <div class="panel panel-body">
+          <div ng-repeat="context in contexts">
+            <span anatomy-image code="{{context.identifier}}" ng-if="context.content" ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
