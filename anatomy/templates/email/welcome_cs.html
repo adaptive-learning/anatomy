@@ -1,0 +1,39 @@
+{% extends 'email/base_cs.html' %}
+{% block main_content %}
+<div class="content">
+	<h1>Vítej!<h1>
+	<p class="lead">Děkujeme, že ses rozhodl používat naši aplikaci na procvičování anatomie.</p>
+	<p><img src="https://practiceanatomy.com/static/img/select-cs.png" /></p>
+</div>
+<!-- content -->
+<div class="content">
+	<table bgcolor="">
+		<tr>
+			<td class="small" width="20%" style="vertical-align: top; padding-right:10px;"><img src="https://practiceanatomy.com/media/tile-thumbs/krajiny-hlavy-a-krkusvg.png" /></td>
+			<td>
+				<h4>Obrázky <small>Kde se nachází trigonum caroticum?</small></h4>
+				<p class="">
+					Spolupracujeme s autory <a href="http://www.anatomie.memorix.cz/">učebnice Memorix</a>,
+					odkud čerpáme obrázky, které používáme na procvičování polohy pojmů.
+				</p>
+				<a href="https://anatom.cz/practice/images" class="btn">Procvičuj &raquo;</a>
+			</td>
+		</tr>
+	</table>
+</div><!-- /content -->
+<!-- content -->
+<div class="content">
+	<table bgcolor="">
+		<tr>
+			<td class="small" width="20%" style="vertical-align: top; padding-right:10px;"><img src="https://practiceanatomy.com/media/tile-thumbs/nodi-lymphoidei-axillaressvg.png" /></td>
+			<td>
+				<h4>Souvislosti <small>Co je antagonistou svalu m. serratus anterior?</small></h4>
+				<p class="">
+					Budujeme síť vztahů různých anatomických pojmů a z této sítě generujeme otázky na souvislosti.
+				</p>
+				<a href="https://anatom.cz/practice/relations" class="btn">Procvičuj &raquo;</a>
+			</td>
+		</tr>
+	</table>
+</div><!-- /content -->
+{% endblock %}
