@@ -66,7 +66,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       template: '<div class="alert alert-info" ng-if="alert">{{alert}}</div>',
       link: function(scope, element, attrs) {
           element.parent().addClass('anatomy-image');
-          element.parent().addClass(attrs.code);
+          element.parent().addClass('image-' + attrs.code);
 
           function setMinImageHeight() {
             angular.element('body').removeClass('horizontal');
@@ -1174,7 +1174,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           if (screenshotTaken && !force) {
             return;
           }
-          var allSvg = document.querySelectorAll(".anatomy-image." + identifier.split('--') + " svg");
+          var allSvg = document.querySelectorAll(".image-" + identifier.split('--') + " svg");
           var lastSvg = allSvg[allSvg.length - 1];
           var svgData = new XMLSerializer().serializeToString(lastSvg);
           var canvas = document.getElementById("screen-shot");

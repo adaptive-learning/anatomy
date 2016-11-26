@@ -3,13 +3,15 @@ from proso_flashcards.models import Context
 from django.conf import settings
 import os
 from wand.image import Image, Color
+from clint.textui import progress
 
 
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
         contexts = Context.objects.filter(lang='cs')
-        for c in contexts:
+        print("Generating thumbnails")
+        for c in progress.bar(contexts, every=max(1, len(contexts) // 100)):
             self.generate_thumbnail(c)
 
     def generate_thumbnail(self, context):
@@ -29,6 +31,4 @@ class Command(BaseCommand):
                            height=border_height)
                 img.alpha = True
                 img.modulate(saturation=0.5)
-                print(border_width, border_height, img.size)
-                print("Saving", new_path)
                 img.save(filename=new_path)
