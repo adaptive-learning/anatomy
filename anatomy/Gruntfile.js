@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                 "maxparams": 12,
             },
             dist: {
-                src: 'static/js/*.js',
+                src: 'static/js/**/*.js',
             }
         },
         nggettext_compile: {
