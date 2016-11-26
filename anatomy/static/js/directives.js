@@ -944,7 +944,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('tile', [function() {
+  .directive('tile', ['$timeout', function($timeout) {
     return {
       restrict: 'A',
       replace: true,
@@ -955,6 +955,11 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       },
       templateUrl : 'static/tpl/tile.html',
       link: function ($scope, element) {
+        angular.element(window).bind('resize', function() {
+          $timeout(function() { }, 1); // I don't see why, but this line is necessary
+          $scope.progressRadius = getProgressRadius();
+        });
+
         $scope.progressRadius = getProgressRadius();
 
         function getProgressRadius() {
