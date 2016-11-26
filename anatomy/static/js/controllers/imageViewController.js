@@ -29,6 +29,9 @@ angular.module('proso.anatomy.controllers')
           stats : true,
           user : $routeParams.user,
         };
+        if ($scope.category) {
+          filter.filter.push(['category/' + $scope.category.identifier]);
+        }
         $scope.imageController = ic;
         flashcardService.getFlashcards(filter).then(function(data) {
           $scope.context.flashcards = data;

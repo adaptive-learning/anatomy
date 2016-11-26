@@ -760,6 +760,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       scope: {
         context: '=?context',
+        category: '=?category',
         contextId: '=?contextId',
         stats: '=stats',
       },

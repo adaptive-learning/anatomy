@@ -5,6 +5,8 @@ angular.module('proso.anatomy.controllers')
   $scope.contextId = data.contextId || data.context.identifier;
   $scope.context = data.context;
   $scope.contexts = data.contexts || [];
+  $scope.category = data.category;
+  
   prefetchContext(+1);
 
   $scope.close = function() {
@@ -20,9 +22,8 @@ angular.module('proso.anatomy.controllers')
   };
 
   function setPath() {
-    console.log('yupdate', data);
-    if (data.category) {
-      $location.update_path('/view/' + data.category.identifier +
+    if ($scope.category) {
+      $location.update_path('/view/' + $scope.category.identifier +
         ($scope.context ? '/image/' + $scope.context.identifier : ''));
     }
   }
