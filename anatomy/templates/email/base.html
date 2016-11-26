@@ -243,14 +243,16 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 
 			<!-- /content -->
 			<div class="content">
-				<table bgcolor="#8dc63f" >
-					<tr>
-						<td>
-							<img src="https://practiceanatomy.com/static/img/02_cropped.png" style="height: 100px"  />
-						</td>
-						<td align="right"><h1 class="collapse" style="color: white; font-weight: bold">{% block project_name %}{% endblock %}</h1></td>
-					</tr>
-				</table>
+				<a href="{% block main_url %}{% endblock %}" style="text-decoration: none">
+					<table bgcolor="#8dc63f" >
+						<tr>
+							<td>
+								<img src="https://practiceanatomy.com/static/img/02_cropped.png" style="height: 100px"  />
+							</td>
+							<td align="right"><h1 class="collapse" style="color: white; font-weight: bold">{% block project_name %}{% endblock %}</h1></td>
+						</tr>
+					</table>
+				</a>
 			</div><!-- /content -->
 
 		</td>
