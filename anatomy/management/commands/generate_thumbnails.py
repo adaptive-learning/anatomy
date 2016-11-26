@@ -22,8 +22,8 @@ class Command(BaseCommand):
         if os.path.isfile(path):
             with Image(filename=path) as img:
                 img.transform(resize='255x255')
-                border_width = int((300 - img.size[0]) / 2)
-                border_height = int((300 - img.size[1]) / 2)
+                border_width = int((320 - img.size[0]) / 2)
+                border_height = int((320 - img.size[1]) / 2)
                 img.border(color=Color('transparent'),
                            width=border_width,
                            height=border_height)
