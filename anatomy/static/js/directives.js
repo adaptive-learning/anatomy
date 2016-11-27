@@ -496,6 +496,17 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('progressLabels', [function() {
+    return {
+      restrict : 'A',
+      templateUrl : 'static/tpl/progress_labels.html',
+      scope : {
+        skills : '=skills',
+        hideLabels : '=hideLabels',
+      },
+    };
+  }])
+
   .directive('levelProgressBar',['userService', '$timeout', 'gettextCatalog',
       function(userService, $timeout, gettextCatalog) {
 
@@ -957,7 +968,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         practicePath: '=practicePath',
         viewPath: '=viewPath',
         thumbnailPath: '=thumbnailPath',
-        hideSelect: '=hideSelect',
+        hideSelect: '=?hideSelect',
       },
       templateUrl : 'static/tpl/tile.html',
       link: function ($scope, element) {
