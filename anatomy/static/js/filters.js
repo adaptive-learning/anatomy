@@ -108,18 +108,18 @@ angular.module('proso.anatomy.filters', [])
     };
 
     var replacements = {
-      'musculi': 'mm.',
-      'venae': 'vv.',
-      'nervi': 'nn.',
-      'arteriae': 'aa.',
-      'rami': 'rr.',
-      'ligamenta': 'ligg.',
-      'musculus': 'm.',
-      'vena': 'v.',
-      'nervus': 'n.',
-      'arteria': 'a.',
-      'ramus': 'r.',
-      'ligamentum': 'lig.',
+      'musculi ': 'mm. ',
+      'venae  ': 'vv. ',
+      'nervi ': 'nn. ',
+      'arteriae ': 'aa. ',
+      'rami ': 'rr. ',
+      'ligamenta ': 'ligg. ',
+      'musculus ': 'm. ',
+      'vena ': 'v. ',
+      'nervus ': 'n. ',
+      'arteria ': 'a. ',
+      'ramus ': 'r. ',
+      'ligamentum ': 'lig. ',
     };
     return function(name) {
       return name && name.mapReplace(replacements).split(';')[0];
