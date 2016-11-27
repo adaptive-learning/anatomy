@@ -8,7 +8,7 @@
       ng-model="answer"
       placeholder="{{'Začni psát odpověď...' | translate}}"
       typeahead="qa as qa.answer for qa in questionsAndAnswers |
-               filter:{answer: $viewValue} |
+               filter:{answer: ($viewValue | stripAlternatives)} |
                limitTo:($viewValue.length > 2 ? $viewValue.length * 2 : 6)"
       typeahead-loading="loadingLocations"
       typeahead-no-results="noResults"

@@ -108,13 +108,13 @@ angular.module('proso.anatomy.filters', [])
     };
 
     var replacements = {
-      'musculi ': 'mm. ',
+      'musculi': 'mm.',
       'venae  ': 'vv. ',
       'nervi ': 'nn. ',
       'arteriae ': 'aa. ',
       'rami ': 'rr. ',
       'ligamenta ': 'ligg. ',
-      'musculus ': 'm. ',
+      'musculus': 'm.',
       'vena ': 'v. ',
       'nervus ': 'n. ',
       'arteria ': 'a. ',
