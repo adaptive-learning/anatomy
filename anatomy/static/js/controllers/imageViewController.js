@@ -34,7 +34,9 @@ angular.module('proso.anatomy.controllers')
           filter.filter.push(['category/' + $scope.category.identifier]);
         }
         $scope.imageController = ic;
-        $scope.context.flashcards = [];
+        if ($scope.category && $scope.context.stats.number_of_items != $scope.context.flashcards.length) {
+          $scope.context.flashcards = [];
+        }
         flashcardService.getFlashcards(filter).then(function(data) {
           $scope.context.flashcards = data;
           for (var i = 0; i < $scope.context.flashcards.length; i++) {
