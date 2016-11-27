@@ -1205,7 +1205,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           if (screenshotTaken && !force) {
             return;
           }
-          var allSvg = document.querySelectorAll(".image-" + identifier.split('--') + " svg");
+          var allSvg = document.querySelectorAll(".image-" + identifier.split('--')[0] + " svg");
           var lastSvg = allSvg[allSvg.length - 1];
           var svgData = new XMLSerializer().serializeToString(lastSvg);
           var canvas = document.getElementById("screen-shot");
