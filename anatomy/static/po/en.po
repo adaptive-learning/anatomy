@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-27 09:02+0000\n"
+"PO-Revision-Date: 2016-11-27 11:08+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,7 +102,7 @@ msgid ""
 "byla špatně napsána www adresa (překlep, zastaralá oblíbená položka atp.),"
 msgstr "badly written web address (typo, outdated bookmark, etc.)"
 
-#: static/js/directives.js:866
+#: static/js/directives.js:875
 msgid "Částečně refundováno"
 msgstr "Partly refunded"
 
@@ -479,6 +479,12 @@ msgid ""
 "odpovědím."
 msgstr "Using names of asked terms you can switch between images for individual answers."
 
+#: static/tpl/relations_modal.html:5
+msgid ""
+"Pospojuj si vědomosti o svalech - začátek a úpon, funkce a antagonista, "
+"inervace a cévní zásobení."
+msgstr "Connect your knowledge of muscle anatomy. Practice origin, insertion, function, antagonist, innervation, and blood supply!"
+
 #: static/tpl/premium.html:30
 msgid ""
 "Pospojuj si vědomosti o svalech - začátek a úpon, funkce a antagonista, "
@@ -497,7 +503,7 @@ msgstr "Requested page is only available to subscribed users."
 msgid "Pravděpodobně nastala jedna z následujících situací:"
 msgstr "Probably one of the following situations happened:"
 
-#: static/js/directives.js:864
+#: static/js/directives.js:873
 msgid "Předautorizováno"
 msgstr "Pre-authorized"
 
@@ -613,7 +619,7 @@ msgid ""
 "pro sebe i ostatní uživatele."
 msgstr "We would love to hear your experiences, criticism and suggestions for improvement of this beta version. Please feel free to send us your feedback at <span class=\"email contact\">anatom{at}memorix.cz</span> at any time - you’ll help us improve the Practice Anatomy app for you and everyone else."
 
-#: static/js/directives.js:865
+#: static/js/directives.js:874
 msgid "Refundováno"
 msgstr "Refunded"
 
@@ -804,11 +810,11 @@ msgstr "Select everything"
 msgid "Výchozí"
 msgstr "Default"
 
-#: static/js/directives.js:861
+#: static/js/directives.js:870
 msgid "Vypršel časový limit na zaplacení"
 msgstr "Timeouted"
 
-#: static/js/directives.js:862 static/tpl/my_subscriptions_tpl.html:42
+#: static/js/directives.js:871 static/tpl/my_subscriptions_tpl.html:42
 msgid "Vytvořeno"
 msgstr "Created"
 
@@ -816,7 +822,12 @@ msgstr "Created"
 msgid "Vyzkoušej demo"
 msgstr "Try demo"
 
+#: static/tpl/relations_modal.html:3
+msgid "Vyzkoušej procvičování souvislostí"
+msgstr "Try practicing relations"
+
 #: static/tpl/overview_tpl.html:84 static/tpl/premium_banner.html:16
+#: static/tpl/relations_modal.html:16
 msgid "Vyzkoušet zdarma"
 msgstr "Try for free"
 
@@ -838,7 +849,7 @@ msgstr "Start practicing all"
 msgid "Začni psát odpověď..."
 msgstr "Start typing the answer..."
 
-#: static/js/directives.js:860
+#: static/js/directives.js:869
 msgid "Zaplaceno"
 msgstr "Paid"
 
@@ -868,7 +879,7 @@ msgstr "Get access to this content by purchasing a subscription."
 msgid "Zjistit více"
 msgstr "Learn more"
 
-#: static/tpl/overview_tpl.html:86
+#: static/tpl/overview_tpl.html:86 static/tpl/relations_modal.html:20
 msgid "Zjistit více o předplatném"
 msgstr "Learn more about subscription"
 
@@ -876,7 +887,7 @@ msgstr "Learn more about subscription"
 msgid "Znovu povolit"
 msgstr "Allow again"
 
-#: static/js/directives.js:863
+#: static/js/directives.js:872
 msgid "Zrušeno"
 msgstr "Canceled"
 

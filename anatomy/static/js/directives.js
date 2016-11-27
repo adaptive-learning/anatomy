@@ -767,6 +767,15 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('relationsModal', [function() {
+    return {
+      scope: {
+      },
+      restrict: 'E',
+      controller: 'relationsModalController',
+    };
+  }])
+
   .directive('imageView', [function() {
     return {
       scope: {
@@ -807,11 +816,9 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           var shouldShow = !userService.status.loading &&
             !userService.user.profile.subscribed &&
             !$scope.closed &&
-            userService.user.profile.number_of_answers >= 30;
+            userService.user.profile.number_of_answers >= 40;
           if (shouldShow) {
             $scope.show = true;
-          }
-          if (shouldShow) {
             $timeout(function() {
               $scope.class = 'alert-grow';
             }, 5000);
