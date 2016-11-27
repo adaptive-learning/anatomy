@@ -43,10 +43,6 @@ module.exports = function(grunt) {
             }
         },
         copy: {
-            'above-fold': {
-                src: 'static/dist/css/above-fold.css',
-                dest: 'templates/dist/above-fold.css'
-            },
             'images': {
                 expand: true,
                 cwd: 'static/img',
@@ -150,6 +146,18 @@ module.exports = function(grunt) {
               ],
               dest: 'templates/generated/',
             },
+            'above-fold': {
+              options: {
+                replacements: [
+                  {
+                      pattern: 'sourceMappingURL=',
+                      replacement: 'sourceMappingURL=/static/dist/css/'
+                  }
+                ]
+              },
+              src: 'static/dist/css/above-fold.css',
+              dest: 'templates/dist/above-fold.css'
+            },
         },
         uglify: {
             libs: {
@@ -214,6 +222,6 @@ module.exports = function(grunt) {
     grunt.registerTask('anatomy-js', ['static-check', 'newer:concat:anatomy', 'newer:uglify:anatomy', 'newer:nggettext_extract:pot']);
     grunt.registerTask('prepare', ['newer:nggettext_compile', 'anatomy-tpls', 'anatomy-js', 'anatomy-css', 'newer:copy:images']);
     grunt.registerTask('anatomy-tpls', ['newer:string-replace:homepage', 'newer:html2js:anatomy',  'newer:nggettext_extract:pot']);
-    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:copy:above-fold']);
+    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:string-replace:above-fold']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
 };

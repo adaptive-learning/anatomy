@@ -7,7 +7,10 @@
     <a class="tile-link"
       href="/{{viewPath}}/{{category.identifier}}/{{user}}"
       ng-click="clickFn($event)"
-      style="background-image: url('{{thumbnailPath + category.identifier}}.png');" >
+      ng-style="{
+          'background-image': 
+          'url(\'' + thumbnailPath + category.identifier + '.png\')'
+        }" >
       <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
       <div class="top" ng-if="disabled" translate>Premium obsah</div>
       <div class="dummy"></div>

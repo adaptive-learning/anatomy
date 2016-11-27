@@ -4,7 +4,6 @@ angular.module('proso.anatomy', [
     'angulartics.google.analytics',
     'angular-svg-round-progress',
     'gettext',
-    'googleExperiments',
     'infinite-scroll',
     'ngRoute',
     'ngAnimate',
@@ -27,8 +26,8 @@ angular.module('proso.anatomy', [
 
 .constant('domain', window.domain || '')
 
-.config(['$routeProvider', '$locationProvider', 'googleExperimentsProvider', '$analyticsProvider',
-    function($routeProvider, $locationProvider, googleExperimentsProvider, $analyticsProvider) {
+.config(['$routeProvider', '$locationProvider', '$analyticsProvider',
+    function($routeProvider, $locationProvider, $analyticsProvider) {
         'use strict';
         $routeProvider.when('/', {
             templateUrl : 'static/tpl/homepage.html'
@@ -113,10 +112,6 @@ angular.module('proso.anatomy', [
         }
 
         $locationProvider.html5Mode(true);
-
-        googleExperimentsProvider.configure({
-            experimentId: 'UerhSQbmRoi890TNRKcmtg'
-        });
 
         $analyticsProvider.registerPageTrack(function (path) {
 
