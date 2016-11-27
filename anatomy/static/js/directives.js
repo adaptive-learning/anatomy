@@ -1121,6 +1121,18 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/practice_header_tpl.html',
       link: function ($scope) {
         $scope.userService = userService;
+        $scope.$watch('question', function() {
+          if ($scope.question) {
+            console.log($scope.context,$scope.question.additional_info);
+            if ($scope.question.additional_info && 
+                $scope.question.additional_info.contexts) {
+              $scope.contextId = $scope.question.additional_info.contexts[
+                $scope.question.question_type];
+            } else {
+              $scope.contextId = $scope.question.context.identifier;
+            }
+          }
+        });
       }
     };
   }])

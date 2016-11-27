@@ -2,12 +2,12 @@
   <div class="col-sm-12 ">
     <h1>
       {{question.context.name}}
-      <a ng-if="userService.user.staff && categoryId"
-        href="/view/{{categoryId}}/?context={{question.context.identifier}}">
+      <a ng-if="userService.user.staff && contextId"
+        href="/image/{{contextId}}">
         <i class="glyphicon glyphicon-picture" ></i>
       </a>
-      <a ng-if="userService.user.staff"
-        href="http://znackuj.anatom.cz/image/{{question.context.identifier}}">
+      <a ng-if="userService.user.staff && contextId"
+        href="http://znackuj.anatom.cz/image/{{contextId}}">
         <i class="glyphicon glyphicon-edit" ></i>
       </a>
     </h1>
