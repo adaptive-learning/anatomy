@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2016-11-24 17:54+0000\n"
+"PO-Revision-Date: 2016-11-27 09:02+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,11 +27,11 @@ msgstr "2. Recognize the anatomical structure and its name"
 msgid "3. Sleduješ, jak ti rostou znalosti"
 msgstr "3. Watch your knowledge growing"
 
-#: static/js/directives.js:528
+#: static/js/directives.js:538
 msgid "Aktuální úroveň"
 msgstr "Current level"
 
-#: static/js/directives.js:43 static/js/filters.js:133
+#: static/js/directives.js:44 static/js/filters.js:133
 msgid "Alternativní názvy"
 msgstr "Alternative names"
 
@@ -93,26 +93,18 @@ msgstr "No code"
 msgid "Bez psaní"
 msgstr "No writing"
 
-#: static/js/directives.js:533
+#: static/js/directives.js:543
 msgid "bodů do příští úrovně"
 msgstr "points to the next level"
-
-#: static/js/controllers.js:605
-msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
-msgstr "Invalid discount code '{{discountCode}}'."
 
 #: static/tpl/404.html:14
 msgid ""
 "byla špatně napsána www adresa (překlep, zastaralá oblíbená položka atp.),"
 msgstr "badly written web address (typo, outdated bookmark, etc.)"
 
-#: static/js/directives.js:829
+#: static/js/directives.js:866
 msgid "Částečně refundováno"
 msgstr "Partly refunded"
-
-#: static/js/controllers.js:441
-msgid "Části těla"
-msgstr "Body parts"
 
 #: static/tpl/my_subscriptions_tpl.html:35
 msgid "Cena"
@@ -186,10 +178,6 @@ msgstr "Invoice"
 #: static/tpl/offer.html:4
 msgid "Hledáme dobrovolníky"
 msgstr "We are looking for volunteers"
-
-#: static/js/controllers.js:527
-msgid "Hledaný profil neexistuje."
-msgstr "The profile does not exist."
 
 #: static/tpl/premium.html:61
 msgid "Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa"
@@ -268,7 +256,7 @@ msgstr "Skull"
 msgid "Lékařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
-#: static/js/directives.js:684
+#: static/js/directives.js:694
 msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
@@ -318,7 +306,7 @@ msgid ""
 "Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD studenti FI MU)."
 msgstr "PracticeAnatomy.com and the software model is being developed mostly by <strong>Vít Stanislav</strong>, <strong>Jan Papoušek</strong> a <strong>Jiří Řihák</strong> (PhD students, Faculty of Informatics, Masaryk University)."
 
-#: static/tpl/progress_tpl.html:28
+#: static/tpl/progress_labels.html:21
 msgid ""
 "Na základě odpovědí od všech uživatelů model ví, co je jak těžké. Na těžší "
 "pojmy se Tě raději zeptá víc krát, než usoudí, že je opravdu umíš, zato "
@@ -335,7 +323,7 @@ msgstr "Report Error"
 msgid "Najdi a pojmenuj 2000 pojmů na více než 200 obrázcích."
 msgstr "Recognize and name 2000 anatomical structures in more than 200 pictures."
 
-#: static/js/directives.js:670
+#: static/js/directives.js:680
 msgid "nám napiště"
 msgstr "write to us"
 
@@ -353,12 +341,8 @@ msgstr "Adjust the difficulty of the practice, set length and type of questions 
 msgid "Nastavení"
 msgstr "Settings"
 
-#: static/js/controllers.js:685
-msgid "Nastavení bylo uloženo."
-msgstr "Settings were saved"
-
-#: static/tpl/color_scale_legend.html:18 static/tpl/progress_tpl.html:12
-#: static/tpl/progress_tpl.html:15
+#: static/tpl/color_scale_legend.html:18 static/tpl/progress_labels.html:3
+#: static/tpl/progress_labels.html:7
 msgid "Naučeno"
 msgstr "Learned"
 
@@ -386,7 +370,7 @@ msgstr "About us"
 msgid "Obličejová část hlavy"
 msgstr "Facial pat of the head"
 
-#: static/js/directives.js:665
+#: static/js/directives.js:675
 msgid "obnovit stránku"
 msgstr "refresh the page"
 
@@ -415,7 +399,7 @@ msgstr "Our users already practiced \n<strong ng-bind=\"stats.number_of_answers 
 msgid "Odhad tvých znalostí"
 msgstr "Estimate of your knowledge"
 
-#: static/js/directives.js:34
+#: static/js/directives.js:35
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
 
@@ -435,10 +419,6 @@ msgstr "We are sorry, the requested page is not found, unfortunately."
 msgid "Opakování lékařské anatomie"
 msgstr "Review medical anatomy"
 
-#: static/js/controllers.js:447
-msgid "Orgánové systémy"
-msgstr "Organ systems"
-
 #: static/tpl/homepage.html:165
 msgid "Otázky Tobě na míru"
 msgstr "Questions fitted to your knowledge"
@@ -451,7 +431,7 @@ msgstr "Open questions were forbidden."
 msgid "Platné do"
 msgstr "Valid until"
 
-#: static/tpl/progress_tpl.html:27
+#: static/tpl/progress_labels.html:20
 msgid "Počet naučených pojmů počítá náš prediktivní model"
 msgstr "The number of learned terms is computed by our predictive model"
 
@@ -477,7 +457,7 @@ msgstr "Continue to practice"
 msgid "Pokročilé nastavení"
 msgstr "Advanced setting"
 
-#: static/js/directives.js:668
+#: static/js/directives.js:678
 msgid "Pokud problém přetrval zkuste to znovu později nebo"
 msgstr "If the problem persists try again later or"
 
@@ -517,7 +497,7 @@ msgstr "Requested page is only available to subscribed users."
 msgid "Pravděpodobně nastala jedna z následujících situací:"
 msgstr "Probably one of the following situations happened:"
 
-#: static/js/directives.js:827
+#: static/js/directives.js:864
 msgid "Předautorizováno"
 msgstr "Pre-authorized"
 
@@ -525,8 +505,7 @@ msgstr "Pre-authorized"
 msgid "Předplatné"
 msgstr "Subscription"
 
-#: static/js/controllers.js:398 static/tpl/homepage.html:109
-#: static/tpl/summary_tpl.html:48
+#: static/tpl/homepage.html:109 static/tpl/summary_tpl.html:48
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
 
@@ -538,7 +517,7 @@ msgid ""
 "          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
 msgstr "Concise anatomical pictures are from a successful textbook <a href=\"http://memorix.cz/\"> Memorix Anatomy </a>. The structures and pictures in this application represents an essential knowledge for medical students to successfully complete an anatomy exam."
 
-#: static/tpl/my_subscriptions_tpl.html:29 static/tpl/overview_tpl.html:98
+#: static/tpl/my_subscriptions_tpl.html:29 static/tpl/tile.html:12
 msgid "Premium obsah"
 msgstr "Premium content"
 
@@ -564,11 +543,11 @@ msgid ""
 "vybrat Vám následující otázku adekvátní obtížnosti."
 msgstr "Our mission is to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge. Reviewing and recognizing anatomical structures  and names (either in English or Latin) with pictures from Memorix Anatomy reinforces your knowledge. Our secondary goal is to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty."
 
-#: static/tpl/overview_tpl.html:97
+#: static/tpl/tile.html:11
 msgid "Připravujeme"
 msgstr "Coming soon"
 
-#: static/js/directives.js:540
+#: static/js/directives.js:550
 msgid "Příští úroveň"
 msgstr "Next level"
 
@@ -576,7 +555,7 @@ msgstr "Next level"
 msgid "Přístup zamítnut"
 msgstr "Access denied"
 
-#: static/js/directives.js:662
+#: static/js/directives.js:672
 msgid "Pro vyřešení problému zkuste"
 msgstr "To resolve the problem try to"
 
@@ -584,11 +563,11 @@ msgstr "To resolve the problem try to"
 msgid "Procvičování anatomie člověka na míru tvým znalostem."
 msgstr "Practice medical anatomy with personalized questions."
 
-#: static/tpl/progress_tpl.html:32 static/tpl/progress_tpl.html:35
+#: static/tpl/progress_labels.html:26 static/tpl/progress_labels.html:30
 msgid "Procvičováno"
 msgstr "Practiced"
 
-#: static/tpl/overview_tpl.html:130
+#: static/tpl/tile.html:48
 msgid "Procvičovat"
 msgstr "Practice"
 
@@ -634,7 +613,7 @@ msgid ""
 "pro sebe i ostatní uživatele."
 msgstr "We would love to hear your experiences, criticism and suggestions for improvement of this beta version. Please feel free to send us your feedback at <span class=\"email contact\">anatom{at}memorix.cz</span> at any time - you’ll help us improve the Practice Anatomy app for you and everyone else."
 
-#: static/js/directives.js:828
+#: static/js/directives.js:865
 msgid "Refundováno"
 msgstr "Refunded"
 
@@ -660,10 +639,6 @@ msgstr "Discount code:"
 msgid "Soukromí"
 msgstr "Privacy "
 
-#: static/js/controllers.js:406 static/js/controllers.js:453
-msgid "Souvislosti"
-msgstr "Relations"
-
 #: static/tpl/premium.html:29
 msgid "Souvislosti svalů"
 msgstr "Muscle properties"
@@ -676,7 +651,7 @@ msgstr "Correct answer"
 msgid "Srdce"
 msgstr "Hearth"
 
-#: static/js/directives.js:685
+#: static/js/directives.js:695
 msgid "str."
 msgstr "p."
 
@@ -724,14 +699,6 @@ msgstr "Sample practice"
 msgid "Ukázka znalostí"
 msgstr "Sample knowledge"
 
-#: static/js/controllers.js:688
-msgid "Ukládání nastavení selhalo."
-msgstr "Saving settings failed."
-
-#: static/js/controllers.js:659
-msgid "Ukládání změn..."
-msgstr "Saving changes..."
-
 #: static/tpl/settings.html:103
 msgid "Uložit"
 msgstr "Save"
@@ -754,7 +721,7 @@ msgstr "Success rate"
 msgid "Uvedené ceny jsou po uplatnění slevového kódu '{{discountCode}}'."
 msgstr "The prices are after applying the discount code '{{discountCode}}'."
 
-#: static/js/controllers.js:540 static/js/directives.js:659
+#: static/js/directives.js:669
 msgid "V aplikaci bohužel nastala chyba."
 msgstr "Unfortunately there has been an error in the app."
 
@@ -809,7 +776,7 @@ msgstr "Selected types of muscle properties:"
 msgid "Vybráno"
 msgstr "Selected"
 
-#: static/tpl/overview_tpl.html:140
+#: static/tpl/tile.html:59
 msgid "Vybrat"
 msgstr "Select"
 
@@ -837,11 +804,11 @@ msgstr "Select everything"
 msgid "Výchozí"
 msgstr "Default"
 
-#: static/js/directives.js:824
+#: static/js/directives.js:861
 msgid "Vypršel časový limit na zaplacení"
 msgstr "Timeouted"
 
-#: static/js/directives.js:825 static/tpl/my_subscriptions_tpl.html:42
+#: static/js/directives.js:862 static/tpl/my_subscriptions_tpl.html:42
 msgid "Vytvořeno"
 msgstr "Created"
 
@@ -871,15 +838,7 @@ msgstr "Start practicing all"
 msgid "Začni psát odpověď..."
 msgstr "Start typing the answer..."
 
-#: static/js/controllers.js:594
-msgid "Zadaný slevový kód byl již použit maximálním počtem uživatelů."
-msgstr "The specified discount code has already been used the maximum number of users."
-
-#: static/js/controllers.js:596
-msgid "Zadaný slevový kód nemůžež použít podruhé."
-msgstr "You cannot use the given discount code again."
-
-#: static/js/directives.js:823
+#: static/js/directives.js:860
 msgid "Zaplaceno"
 msgstr "Paid"
 
@@ -895,7 +854,7 @@ msgstr "Close"
 msgid "Zdarma"
 msgstr "Free"
 
-#: static/js/directives.js:682
+#: static/js/directives.js:692
 msgid "Zdroj"
 msgstr "Source"
 
@@ -917,7 +876,7 @@ msgstr "Learn more about subscription"
 msgid "Znovu povolit"
 msgstr "Allow again"
 
-#: static/js/directives.js:826
+#: static/js/directives.js:863
 msgid "Zrušeno"
 msgstr "Canceled"
 

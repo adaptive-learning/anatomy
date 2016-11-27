@@ -1,21 +1,3 @@
 @import "vars"
 @import "welcome-page"
 @import "subscription"
-
-$navBgDefault  : #337ab7
-$navHighlight  : #286090
-$navColDefault : white
-$navColHover   : white
-
-.nav
-  li.highlight
-    border-color: $navHighlight
-    background-color: $navBgDefault
-    a
-      color: $navColDefault !important
-      &:hover, &:focus
-        background-color: $navHighlight !important
-    &.active
-      a
-        background-color: $navHighlight !important
-        color: $navColHover !important

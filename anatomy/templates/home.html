@@ -96,11 +96,15 @@
                 <li is-active>
                   <a href="/overview/">{% trans "Kapitoly" %}</a>
                 </li>
-                <li is-active class="highlight">
-                  <a href="/relationsoverview/">{% trans "Souvislosti" %}</a>
+                <li is-active>
+                  <a href="/relationsoverview/">{% trans "Souvislosti" %}
+                    <span class="badge badge-new">{% trans "Nové" %}</span>
+                  </a>
                 </li>
                 <li is-active>
-                    <a href="/premium/"> {% trans "Předplatné" %}</a>
+                  <a href="/premium/"> {% trans "Předplatné" %}
+                    <span class="badge badge-new">{% trans "Nové" %}</span>
+                  </a>
                 </li>
                 <li is-active class="hidden-sm">
                     <a href="/about"> {% trans "O projektu" %}</a>

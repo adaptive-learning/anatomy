@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 15:24+0000\n"
+"POT-Creation-Date: 2016-11-27 09:02+0000\n"
 "PO-Revision-Date: 2016-10-31 08:24+0000\n"
 "Last-Translator: Jan Papoušek <jan.papousek@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/adaptive-learning/anatomcz/"
@@ -96,12 +96,12 @@ msgid "Kvalitní obrázky"
 msgstr "Kvalitní obrázky"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:133
-#: anatomy/templates/home.html:167 anatomy/templates/home.html.py:244
+#: anatomy/templates/home.html:171 anatomy/templates/home.html.py:249
 msgid "anatomie.memorix.cz"
 msgstr "anatomie.memorix.cz"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:135
-#: anatomy/templates/home.html:246
+#: anatomy/templates/home.html:251
 msgid "Memorix Anatomie"
 msgstr "Memorix Anatomie"
 
@@ -146,16 +146,6 @@ msgstr "Začít procvičovat vše"
 msgid "Procvičovat vybrané"
 msgstr ""
 
-#: anatomy/templates/generated/static/tpl/overview_tpl.html:130
-#, fuzzy
-#| msgid "Začít procvičovat"
-msgid "Procvičovat"
-msgstr "Začít procvičovat"
-
-#: anatomy/templates/generated/static/tpl/overview_tpl.html:140
-msgid "Vybrat"
-msgstr ""
-
 #: anatomy/templates/generated/static/tpl/premium.html:7
 msgid "Procvičuj si anatomii s námi"
 msgstr ""
@@ -171,7 +161,7 @@ msgid "Zdarma"
 msgstr ""
 
 #: anatomy/templates/generated/static/tpl/premium.html:17
-#: anatomy/templates/home.html:103
+#: anatomy/templates/home.html:105
 msgid "Předplatné"
 msgstr "Předplatné"
 
@@ -193,11 +183,15 @@ msgstr "Kapitoly"
 msgid "Souvislosti"
 msgstr "Souvislosti"
 
-#: anatomy/templates/home.html:106
+#: anatomy/templates/home.html:101 anatomy/templates/home.html.py:106
+msgid "Nové"
+msgstr ""
+
+#: anatomy/templates/home.html:110
 msgid "O projektu"
 msgstr "O projektu"
 
-#: anatomy/templates/home.html:117
+#: anatomy/templates/home.html:121
 msgid ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
@@ -205,43 +199,43 @@ msgstr ""
 "Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše "
 "znalosti pamatoval i příště."
 
-#: anatomy/templates/home.html:120
+#: anatomy/templates/home.html:124
 msgid "Přihlásit se"
 msgstr "Přihlásit se"
 
-#: anatomy/templates/home.html:133
+#: anatomy/templates/home.html:137
 msgid "Můj profil"
 msgstr "Můj profil"
 
-#: anatomy/templates/home.html:138
+#: anatomy/templates/home.html:142
 msgid "Nastavení"
 msgstr "Nastavení"
 
-#: anatomy/templates/home.html:143
+#: anatomy/templates/home.html:147
 msgid "Odhlásit se"
 msgstr "Odhlásit se"
 
-#: anatomy/templates/home.html:205 anatomy/templates/home.html.py:231
+#: anatomy/templates/home.html:209 anatomy/templates/home.html.py:236
 msgid "Napište nám"
 msgstr "Napiš nám"
 
-#: anatomy/templates/home.html:207
+#: anatomy/templates/home.html:211
 msgid "Skrýt tlačítko"
 msgstr "Skrýt tlačítko"
 
-#: anatomy/templates/home.html:225
+#: anatomy/templates/home.html:230
 msgid "O projeku"
 msgstr "O projeku"
 
-#: anatomy/templates/home.html:227
+#: anatomy/templates/home.html:232
 msgid "Podmínky použití"
 msgstr "Podmínky použití"
 
-#: anatomy/templates/home.html:229
+#: anatomy/templates/home.html:234
 msgid "Zásady ochrany osobních údajů"
 msgstr "Zásady ochrany osobních údajů"
 
-#: anatomy/templates/home.html:240
+#: anatomy/templates/home.html:245
 msgid "Aplikace na Google Play"
 msgstr "Aplikace na Google Play"
 
@@ -352,6 +346,11 @@ msgstr "BIC (SWIFT)"
 #: anatomy/views.py:85
 msgid "procvičování anatomie člověka v obrázcích"
 msgstr "procvičování anatomie člověka v obrázcích"
+
+#, fuzzy
+#~| msgid "Začít procvičovat"
+#~ msgid "Procvičovat"
+#~ msgstr "Začít procvičovat"
 
 #~ msgid "Vytvořit cíl"
 #~ msgstr "Vytvořit cíl"
