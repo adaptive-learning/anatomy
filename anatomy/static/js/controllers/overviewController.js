@@ -19,7 +19,7 @@ angular.module('proso.anatomy.controllers')
   } else {
     $scope.viewPath = 'relations';
     $scope.practicePath = '/practice/relations/';
-    $scope.disabled = !userService.user.profile.subscribed;
+    $scope.disabled = !userService.user.profile || !userService.user.profile.subscribed;
     $scope.allCategory = 'relations';
     $scope.defaultTab = 'relation';
     $scope.secondTab = 'location';
