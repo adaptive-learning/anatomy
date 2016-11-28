@@ -33,10 +33,18 @@ angular.module('proso.anatomy.controllers')
         context.placeTypes = [];
         var id = context.identifier;
         context.stats = data.data[id];
-        if ($routeParams.context && $routeParams.context == id) {
-          $scope.activateContext(context);
-        }
       });
+        if ($routeParams.context) {
+          var context = $scope.contexts.filter(function(c) {
+            return c.identifier == $routeParams.context;
+          })[0];
+          if (context) {
+            $scope.activateContext(context);
+          } else {
+            $location.path($location.path().replace(
+              '/view/' + $routeParams.category, ''));
+          }
+        }
     });
   }, function() {
     $scope.error = true;
