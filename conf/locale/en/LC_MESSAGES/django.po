@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-27 09:02+0000\n"
-"PO-Revision-Date: 2016-11-27 09:03+0000\n"
+"POT-Creation-Date: 2016-11-28 20:48+0000\n"
+"PO-Revision-Date: 2016-11-28 20:49+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "MIME-Version: 1.0\n"
@@ -99,12 +99,12 @@ msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:133
-#: anatomy/templates/home.html:171 anatomy/templates/home.html.py:249
+#: anatomy/templates/home.html:171 anatomy/templates/home.html.py:248
 msgid "anatomie.memorix.cz"
 msgstr "memorix.cz"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:135
-#: anatomy/templates/home.html:251
+#: anatomy/templates/home.html:250
 msgid "Memorix Anatomie"
 msgstr "Memorix Anatomy"
 
@@ -213,27 +213,31 @@ msgstr "Settings"
 msgid "Odhlásit se"
 msgstr "Sign out"
 
-#: anatomy/templates/home.html:209 anatomy/templates/home.html.py:236
+#: anatomy/templates/home.html:168
+msgid "www.facebook.com/anatom.cz"
+msgstr "www.facebook.com/PracticeAnatomy"
+
+#: anatomy/templates/home.html:207 anatomy/templates/home.html.py:235
 msgid "Napište nám"
 msgstr "Feedback"
 
-#: anatomy/templates/home.html:211
+#: anatomy/templates/home.html:209
 msgid "Skrýt tlačítko"
 msgstr "Hide button"
 
-#: anatomy/templates/home.html:230
+#: anatomy/templates/home.html:229
 msgid "O projeku"
 msgstr "About project"
 
-#: anatomy/templates/home.html:232
+#: anatomy/templates/home.html:231
 msgid "Podmínky použití"
 msgstr "Terms and Conditions of Use"
 
-#: anatomy/templates/home.html:234
+#: anatomy/templates/home.html:233
 msgid "Zásady ochrany osobních údajů"
 msgstr "Privacy policy"
 
-#: anatomy/templates/home.html:245
+#: anatomy/templates/home.html:244
 msgid "Aplikace na Google Play"
 msgstr "App on Google Play"
 
