@@ -147,7 +147,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
               context.stats = data.data[id];
             }
             contexts = contexts.filter(function(c) {
-              return c.stats.number_of_items > 0;
+              return c.stats.number_of_items > 2;
             });
             deferredContext.resolve(contexts);
           });
