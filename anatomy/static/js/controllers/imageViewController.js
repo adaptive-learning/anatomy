@@ -43,9 +43,22 @@ angular.module('proso.anatomy.controllers')
             var fc = $scope.context.flashcards[i];
             $scope.imageController.setColor(fc.description, colorScale(fc.prediction).hex());
           }
+          if (!$scope.context.stats) {
+            computeStats($scope.context); 
+          }
         });
       });
     }
   });
+
+  function computeStats(context) {
+    context.stats = {
+      number_of_items : context.flashcards.length,
+      number_of_practiced_items : context.flashcards.filter(function(fc) {
+        return fc.practiced;}).length,
+      number_of_mastered_items : context.flashcards.filter(function(fc) {
+        return fc.mastered;}).length,
+    };
+  }
 }]);
 
