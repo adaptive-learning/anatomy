@@ -974,6 +974,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         clickAction: '=clickAction',
         practicePath: '=practicePath',
         viewPath: '=viewPath',
+        disabled: '=disabled',
         thumbnailPath: '=thumbnailPath',
         hideSelect: '=?hideSelect',
       },
