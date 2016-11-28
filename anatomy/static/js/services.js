@@ -567,8 +567,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
 
     var that = {
       getThumbnail: function (path) {
-        console.log(path, 'data:image/png;base64,' + thumbnailsBase64[path]);
-        return 'data:image/png;base64,' + thumbnailsBase64[path];
+        if (thumbnailsBase64[path]) {
+          return 'data:image/png;base64,' + thumbnailsBase64[path];
+        }
       },
     };
     return that;
