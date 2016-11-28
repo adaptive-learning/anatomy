@@ -188,17 +188,15 @@
           <div class="row header">
             <div class="col-sm-12">
               <h1> {{headline}}</h1>
-              <br>
-              {% if not is_practice %}
-                <br><br><br><br><br><br>
-              {% endif %}
             </div>
             <div class="clearfix"></div>
           </div>
-          <div class="loading-indicator"></div>
         </div>
-     {% else %}
         <div class="loading-indicator"></div>
+     {% else %}
+        <div class="clearfix"></div>
+        <div class="loading-indicator"></div>
+        <div class="clearfix"></div>
      {% endif %}
     </div>
   </div>
@@ -272,7 +270,9 @@
     <div image-screen-shot></div>
 
     <script type="text/ng-template" id="loading.html">
+      <div class="clearfix"></div>
       <div class="loading-indicator"></div>
+      <div class="clearfix"></div>
     </script>
 
 

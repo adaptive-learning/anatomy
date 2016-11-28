@@ -1,7 +1,10 @@
 <div class="profile ">
   <div class="col-sm-offset-2 col-sm-8">
-    <h1 class="text-center">{{user.username}}</h1>
+    <br>
     <div class="panel panel-default" ng-hide="error">
+      <div class="panel-heading">
+        <h1 class="text-center">{{user.username}}</h1>
+      </div>
       <div class="panel-body">
         <dl ng-show="user.first_name">
           <dt>{{'Jméno' | translate }}</dt>
