@@ -556,4 +556,20 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
     };
     return that;
+  }])
+
+  .factory('thumbnailService', ["$http", function($http) {
+    var thumbnailsBase64 = {};
+    var promise = $http.get('/static/dist/thumbnails.json', {cache : true});
+    promise.success(function(data) {
+      thumbnailsBase64 = data;
+    });
+
+    var that = {
+      getThumbnail: function (path) {
+        console.log(path, 'data:image/png;base64,' + thumbnailsBase64[path]);
+        return 'data:image/png;base64,' + thumbnailsBase64[path];
+      },
+    };
+    return that;
   }]);

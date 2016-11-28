@@ -8,7 +8,7 @@ body
   background-color: #e6e7e8
 
 h1, h2, .navbar-brand
-  font-family: 'arista_2.0regular'
+  font-family: 'arista_2.0regular', 'calibri', sans-serif
 
 .welcome-page.jumbotron
   background-color: #8dc63f
@@ -231,6 +231,16 @@ img
     width: 97%
   div#footer
     text-align: center
+  .welcome-page.jumbotron
+    img
+      width: 50%
+      height: 50%
+
+@media (min-width: 467px)
+  .welcome-page.jumbotron
+    img
+      width: 228px
+      height: 228px
 
 @media (min-width: 767px)
   $huge-radius: 9px

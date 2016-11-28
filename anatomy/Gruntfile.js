@@ -5,6 +5,12 @@ module.exports = function(grunt) {
       'nggettext_compile': 'grunt-angular-gettext',
     });
 
+    try {
+      var thumbnails = grunt.file.readJSON('static/dist/thumbnails.json');
+    } catch (e) {
+      var thumbnails = {};
+    }
+
     grunt.initConfig({
         bower_concat: {
             all: {
@@ -136,6 +142,14 @@ module.exports = function(grunt) {
                   {
                       pattern: /\{\{\s*(("[^"]+")|('[^']+'))\s*\|\s*translate\s*\}\}/g,
                       replacement: '{% trans $1 %}'
+                  }, {
+                  pattern: /src="(\/static\/img\/[^"]*)"/g,
+                  replacement: function (match, p1) {
+                      if (thumbnails[p1]) {
+                        match = match.replace(p1, 'data:image/png;base64,' + thumbnails[p1]);
+                      }
+                      return match;
+                    }
                   }
                 ]
               },

@@ -965,7 +965,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('tile', ['$timeout', function($timeout) {
+  .directive('tile', ['$timeout', 'thumbnailService', function($timeout, thumbnailService) {
     return {
       restrict: 'A',
       replace: true,
@@ -980,11 +980,19 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       templateUrl : 'static/tpl/tile.html',
       link: function ($scope, element) {
         $scope.clickFn = function(event) {
-          console.log(event);
           if ($scope.clickAction) {
             $scope.clickAction($scope.category);
             event.preventDefault();
           }
+        }; 
+
+        $scope.bigThumbnail = $scope.thumbnailPath + $scope.category.identifier + '.png';
+        $scope.thumbnail = thumbnailService.getThumbnail($scope.bigThumbnail);
+
+        var img  = new Image();
+        img.src = $scope.bigThumbnail;
+        img.onload = function() {
+          $scope.thumbnail = $scope.bigThumbnail;
         };
         
         angular.element(window).bind('resize', function() {
@@ -1284,7 +1292,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $scope.questionsAndAnswers = [$scope.questionAndAnswer];
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var qaaByAnswer = {};
-          $scope.questionsAndAnswers = flashcards.filter(function(fc) {
+          $scope.dquestionsAndAnswers = flashcards.filter(function(fc) {
             return fc.term && fc.term.name;
           }).map(toQuestionAndAnswer
             ).filter(function(qaa) {
