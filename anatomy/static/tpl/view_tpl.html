@@ -64,20 +64,20 @@
       </div>
     </div>
   </div>
-</div>
-<div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
-<div class="overview view">
-  <div class="row ng-cloak">
-    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-      <span tile
-        ng-repeat="context in contexts"
-        category="context"
-        thumbnail-path="'/media/tile-thumbs/'"
-        view-path="'image'"
-        click-action="activateContext"
-        hide-select="true"
-        practice-path="userService.user.staff && '/practice/?context='">
-      </span>
+  <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
+  <div class="overview view">
+    <div class="row ng-cloak">
+      <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <span tile
+          ng-repeat="context in contexts"
+          category="context"
+          thumbnail-path="'/media/tile-thumbs/'"
+          view-path="'image'"
+          click-action="activateContext"
+          hide-select="true"
+          practice-path="userService.user.staff && '/practice/?context='">
+        </span>
+      </div>
     </div>
   </div>
 </div>
