@@ -109,7 +109,7 @@ angular.module('proso.anatomy.filters', [])
 
     var replacements = {
       'musculi': 'mm.',
-      'venae  ': 'vv. ',
+      'venae ': 'vv. ',
       'nervi ': 'nn. ',
       'arteriae ': 'aa. ',
       'rami ': 'rr. ',
