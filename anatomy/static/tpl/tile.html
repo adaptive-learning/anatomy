@@ -13,7 +13,7 @@
       <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
       <div class="top" ng-if="disabled" translate>Premium obsah</div>
       <div class="dummy"></div>
-      <div class="absolute" ng-if="showProgress">
+      <div class="absolute fade-in" ng-if="showProgress">
         <div round-progress 
             max="category.stats.number_of_items"
             current="category.stats.number_of_practiced_items"
@@ -25,7 +25,7 @@
             iterations="50"
             animation="easeInOutQuart"></div>
       </div>
-      <div class="absolute"
+      <div class="absolute fade-in"
         ng-if="category.stats.number_of_mastered_items && showProgress">
         <div round-progress
             max="category.stats.number_of_items"

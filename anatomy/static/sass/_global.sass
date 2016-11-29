@@ -171,13 +171,15 @@ div#footer
     opacity: 1
 
 
-.fade-in-one-by-one
+.fade-in-one-by-one, .fade-in
   -webkit-animation: fadeIn .5s ease-out
   -moz-animation: fadeIn .5s ease-out
   animation: fadeIn .5s ease-out
   -webkit-animation-fill-mode: both
   -moz-animation-fill-mode: both
   animation-fill-mode: both
+
+.fade-in-one-by-one
   @for $i from 1 through 11
     &:nth-child(#{$i})
       -webkit-animation-delay: .05s * $i
