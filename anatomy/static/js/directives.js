@@ -1001,18 +1001,23 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           $scope.progressRadius = getProgressRadius();
         });
 
-        element.bind("mouseover", function(){
-          if (!$scope.wasHovered) {
-            $scope.$apply(function () {
-              $scope.wasHovered = true;
-            });
-          }
+        element.bind({
+            "mouseover": wasHovered, 
+            "touch": wasHovered, 
         });
 
         $timeout(function() {
           $scope.progressRadius = getProgressRadius();
           $scope.showProgress = true;
         }, isElementInViewport(element) ? 1000 : 3000);
+
+        function wasHovered(){
+          if (!$scope.wasHovered) {
+            $scope.$apply(function () {
+              $scope.wasHovered = true;
+            });
+          }
+        }
 
         function getProgressRadius() {
           var radius =  element[0].clientWidth / 2 - 5;
