@@ -1003,7 +1003,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         element.bind({
             "mouseover": wasHovered, 
-            "touch": wasHovered, 
+            "touchstart": wasHovered, 
         });
 
         $timeout(function() {
