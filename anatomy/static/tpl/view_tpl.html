@@ -64,7 +64,8 @@
       </div>
     </div>
   </div>
-  <div ng-hide="(contexts && countsLoaded) || error" class="loading-indicator"></div>
+  <div ng-hide="contexts || error" class="loading-indicator"></div>
+  <div ng-show="error" error-message ></div>
   <div class="overview view">
     <div class="row ng-cloak">
       <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">

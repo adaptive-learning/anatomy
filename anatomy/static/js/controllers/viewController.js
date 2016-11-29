@@ -19,7 +19,6 @@ angular.module('proso.anatomy.controllers')
 
   contextService.getContexts(filter).then(function(data) {
     $scope.contexts = data;
-    $scope.countsLoaded = true;
 
     userStatsService.clean();
     for (var i = 0; i < data.length; i++) {
