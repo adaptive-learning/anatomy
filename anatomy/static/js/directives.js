@@ -1001,8 +1001,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           $scope.progressRadius = getProgressRadius();
         });
 
-        $scope.progressRadius = getProgressRadius();
-
         element.bind("mouseover", function(){
           if (!$scope.wasHovered) {
             $scope.$apply(function () {
@@ -1012,17 +1010,18 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         });
 
         $timeout(function() {
+          $scope.progressRadius = getProgressRadius();
           $scope.showProgress = true;
         }, isElementInViewport(element) ? 1000 : 3000);
 
         function getProgressRadius() {
-          var radius =  $(element).width() / 2;
+          var radius =  element[0].clientWidth / 2 - 5;
           return radius;
         }
 
         function isElementInViewport (el) {
-            var rect = el[0].getBoundingClientRect();
-            return (rect.top>-1 && rect.top <= $(window).height() + 200);
+          var top  = el[0].offsetTop;
+          return (top>-1 && top <= $(window).height());
         }
       },
     };
