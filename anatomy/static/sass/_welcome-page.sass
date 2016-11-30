@@ -47,6 +47,7 @@ h1, h2, .navbar-brand
       color: black
   .btn
     margin: 5px
+    width: 40%
 
 
 .how-it-works
@@ -102,6 +103,7 @@ img
 
 .btn-huge
   text-shadow: none
+  white-space: normal
 
 #feedback-btn
   z-index: 999
@@ -232,11 +234,11 @@ img
   animation: slideUp 1s ease-out
 
 @media (max-width: 467px)
-  .btn-huge
-    width: 97%
   div#footer
     text-align: center
   .welcome-page.jumbotron
+    .btn
+      width: 97%
     img
       width: 50%
       height: 50%
@@ -254,7 +256,6 @@ img
     -webkit-border-radius: $huge-radius
     -moz-border-radius: $huge-radius
     border-radius: $huge-radius
-    white-space: normal
   .navbar
     .container
       max-width: 1170px
