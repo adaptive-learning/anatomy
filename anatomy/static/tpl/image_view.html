@@ -37,7 +37,7 @@
         <div ng-hide="context.flashcards && context.content" class="loading-indicator">
         </div>
         <span page-number="{{context.content.meta['textbook-page']}}"></span>
-        <span anatomy-image code="{{context.identifier}}" ></span>
+        <span anatomy-image code="context.identifier" ></span>
       </span>
       <span ng-hide="loading" class="terms-container">
         <span class="label label-default"
