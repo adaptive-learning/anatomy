@@ -34,9 +34,9 @@ module.exports = function(grunt) {
         concat: {
             anatomy: {
                 src: [
-                  'static/js/**/*.js',
-                  'static/dist/js/translations.js',
-                  'static/dist/js/anatomy.html.js',
+                  '<%= jshint.dist.src %>',
+                  '<%= nggettext_compile.all.dest %>',
+                  '<%= html2js.anatomy.dest %>',
                 ],
                 dest: 'static/dist/js/anatomy.js'
             },
@@ -110,8 +110,8 @@ module.exports = function(grunt) {
         nggettext_extract: {
             pot: {
                 src: [
-                  'static/tpl/*.html',
-                  'static/js/*.js',
+                  '<%= html2js.anatomy.src %>',
+                  '<%= jshint.dist.src %>',
                 ],
                 dest: 'static/dist/client.pot'
             },
@@ -183,7 +183,7 @@ module.exports = function(grunt) {
                     sourceMapIncludeSources: true,
                     sourceMapName: 'static/dist/js/bower-libs.min.js.map'
                 },
-                src: 'static/dist/js/bower-libs.js',
+                src: '<%= bower_concat.all.dest %>',
                 dest: 'static/dist/js/bower-libs.min.js'
             },
             anatomy: {
@@ -192,7 +192,7 @@ module.exports = function(grunt) {
                     sourceMapIncludeSources: true,
                     sourceMapName: 'static/dist/js/anatomy.min.js.map'
                 },
-                src: 'static/dist/js/anatomy.js',
+                src: '<%= concat.anatomy.dest %>',
                 dest: 'static/dist/js/anatomy.min.js'
             },
             'anatomy-tpls': {
