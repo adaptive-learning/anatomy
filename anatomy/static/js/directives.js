@@ -971,6 +971,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       replace: true,
       scope: {
         category: '=category',
+        index: '=index',
         clickAction: '=clickAction',
         practicePath: '=practicePath',
         viewPath: '=viewPath',
@@ -1009,7 +1010,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         $timeout(function() {
           $scope.progressRadius = getProgressRadius();
           $scope.showProgress = true;
-        }, isElementInViewport(element) ? 1000 : 3000);
+        }, $scope.index * 100 + 1000);
 
         function wasHovered(){
           if (!$scope.wasHovered) {
@@ -1022,11 +1023,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         function getProgressRadius() {
           var radius =  element[0].clientWidth / 2 - 5;
           return radius;
-        }
-
-        function isElementInViewport (el) {
-          var top  = el[0].offsetTop;
-          return (top>-1 && top <= $(window).height());
         }
       },
     };
