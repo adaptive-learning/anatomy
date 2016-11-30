@@ -965,7 +965,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('tile', ['$timeout', 'thumbnailService', function($timeout, thumbnailService) {
+  .directive('tile', [function(){
     return {
       restrict: 'A',
       replace: true,
@@ -979,52 +979,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         thumbnailPath: '=thumbnailPath',
         hideSelect: '=?hideSelect',
       },
+      controller : 'tileController',
       templateUrl : 'static/tpl/tile.html',
-      link: function ($scope, element) {
-        $scope.clickFn = function(event) {
-          if ($scope.clickAction) {
-            $scope.clickAction($scope.category);
-            event.preventDefault();
-          }
-        }; 
-
-        $scope.bigThumbnail = $scope.thumbnailPath + $scope.category.identifier + '.png';
-        $scope.thumbnail = thumbnailService.getThumbnail($scope.bigThumbnail);
-
-        var img  = new Image();
-        img.src = $scope.bigThumbnail;
-        img.onload = function() {
-          $scope.thumbnail = $scope.bigThumbnail;
-        };
-        
-        angular.element(window).bind('resize', function() {
-          $timeout(function() { }, 1); // I don't see why, but this line is necessary
-          $scope.progressRadius = getProgressRadius();
-        });
-
-        element.bind({
-            "mouseover": wasHovered, 
-            "touchstart": wasHovered, 
-        });
-
-        $timeout(function() {
-          $scope.progressRadius = getProgressRadius();
-          $scope.showProgress = true;
-        }, $scope.index * 100 + 1000);
-
-        function wasHovered(){
-          if (!$scope.wasHovered) {
-            $scope.$apply(function () {
-              $scope.wasHovered = true;
-            });
-          }
-        }
-
-        function getProgressRadius() {
-          var radius =  element[0].clientWidth / 2 - 5;
-          return radius;
-        }
-      },
     };
   }])
 
