@@ -60,22 +60,24 @@ def home(request, hack=None):
 
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:
         environment = get_environment()
-        user = json.dumps({
-            'user': {},
+        user = {
+            'user': {
+                'username': '',
+            },
             'number_of_answers': environment.number_of_answers(user=request.user.id) if request.user.id is not None else 0,
             'number_of_correct_answers': environment.number_of_correct_answers(user=request.user.id) if request.user.id is not None else 0,
-        })
+        }
         email = ''
     else:
         if hack is None:
             return redirect('/overview/')
         user = request.user.userprofile.to_json(stats=True)
         user['subscribed'] = has_active_subscription(request)
-        user = json.dumps(user)
         email = request.user.email
         if not request.user.userprofile.public:
             request.user.userprofile.public = True
             request.user.userprofile.save()
+    user_json = json.dumps(user)
     stats = {
         'number_of_answers': FlashcardAnswer.objects.count(),
     }
@@ -88,7 +90,8 @@ def home(request, hack=None):
         'css_files': CSS_FILES,
         'js_files': JS_FILES,
         'screenshot_files': get_screenshot_files(request, hack),
-        'user_json': user,
+        'user_json': user_json,
+        'user': user,
         'email': email,
         'LANGUAGE_CODE': get_language(),
         'LANGUAGES': settings.LANGUAGES,

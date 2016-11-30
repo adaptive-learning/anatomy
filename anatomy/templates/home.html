@@ -106,14 +106,15 @@
                     <span class="badge badge-new">{% trans "Nové" %}</span>
                   </a>
                 </li>
-                <li is-active class="hidden-sm">
+                <li is-active class="hidden-sm ng-cloak">
                     <a href="/about"> {% trans "O projektu" %}</a>
                 </li>
         </ul>
           ...
-            <ul class="nav ng-cloak navbar-nav pull-right"
+            <ul class="nav navbar-nav pull-right"
                 ng-init='initUser( {{ user_json | safe }} )'>
-                <li class="dropdown" ng-show="!userService.status.logged && !userService.status.loading" >
+                <li class="{% if user.user.username != '' %}ng-cloak{% endif %} dropdown"
+                  ng-show="!userService.status.logged && !userService.status.loading" >
                   <a href=""
                      role="button"
                      track-click="login"
@@ -124,10 +125,11 @@
                     {% trans "Přihlásit se" %}
                   </a>
                 </li>
-                <li class="dropdown" ng-show="userService.status.logged">
+                <li class="{% if user.user.username == '' %}ng-cloak{% endif %} dropdown"
+                    ng-show="userService.status.logged">
                   <a id="drop1" href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="glyphicon glyphicon-user"></i>
-                    <span ng-bind="userService.user.username"></span> <b class="caret"></b>
+                    <span ng-bind="userService.user.username">{{user.user.username}}</span> <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                     <li>
