@@ -127,6 +127,19 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('trackShow', ['$analytics', function ($analytics) {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        $analytics.eventTrack('show', {
+          category: attrs.trackShow,
+          label: attrs.trackLabel,
+          value: attrs.trackValue,
+        });
+      }
+    };
+  }])
+
   .directive('trackHover', ['$analytics', function ($analytics) {
     return {
       restrict: 'A',
