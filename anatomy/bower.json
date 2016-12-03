@@ -25,6 +25,7 @@
   },
   "resolutions": {
     "angular": "1.5.9",
-    "raphael": "master"
+    "raphael": "master",
+    "angular-cookies": "1.5.9"
   }
 }
