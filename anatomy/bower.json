@@ -3,13 +3,13 @@
   "version": "dummy",
   "dependencies": {
     "proso-apps-js": "https://github.com/adaptive-learning/proso-apps-js-bower.git#version-2.2.X",
-    "angular-i18n": "~1.3.15",
-    "angular-route": "~1.3.15",
-    "angular-animate": "~1.3.15",
-    "angular-sanitize": "~1.3.15",
-    "angular-xeditable": "~0.1.9",
+    "angular-cookies": "1.5.9",
+    "angular-i18n": "1.5.9",
+    "angular-route": "1.5.9",
+    "angular-animate": "1.5.9",
+    "angular-sanitize": "1.5.9",
+    "angular-xeditable": "0.5.0",
     "chroma-js": "~0.6.1",
-    "kartograph.js": "https://github.com/adaptive-learning/kartograph.js.git",
     "angular-google-experiments": "~0.0.1",
     "bootstrap": "3.3.4",
     "raphael": "https://github.com/adaptive-learning/raphael.git#master",
@@ -18,7 +18,7 @@
     "angular-gettext": "~2.1.0",
     "angular-count-to": "https://github.com/sparkalow/angular-count-to.git#master",
     "angular-svg-round-progress": "https://github.com/crisbeto/angular-svg-round-progressbar.git#0.3.2",
-    "angular-django-csrf": "https://github.com/redapesolutions/angular-django-csrf.git#v1.0.0",
+    "angular-django-csrf": "https://github.com/adaptive-learning/angular-django-csrf.git#master",
     "ngSmoothScroll": "~2.0.0",
     "angular-location-update": "~0.0.2",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.6.0",
@@ -26,7 +26,7 @@
     "ngInfiniteScroll": "~1.3.1"
   },
   "resolutions": {
-    "angular": "~1.3.15",
+    "angular": "1.5.9",
     "raphael": "master"
   }
 }
