@@ -740,8 +740,8 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
-  .directive('openAnswer', ['flashcardService', 'configService', '$window', '$filter',
-      function(flashcardService, configService, $window, $filter) {
+  .directive('openAnswer', ['flashcardService', 'configService', '$window', '$filter', 'serverLogger',
+      function(flashcardService, configService, $window, $filter, serverLogger) {
     return {
       restrict: 'A',
       replace: true,
@@ -756,11 +756,20 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
 
         var question = angular.copy($scope.question);
         $scope.questionAndAnswer = toQuestionAndAnswer(question);
-
         $scope.questionsAndAnswers = [$scope.questionAndAnswer];
+
+        $scope.$watch('answer', function() {
+          if ($scope.answer && $scope.questionsAndAnswers.length <= 1) {
+            serverLogger.error("User typed something before typeahead loaded", {    
+               question : question,   
+               answer : $scope.answer,   
+             });
+          }
+        });
+
         flashcardService.getFlashcards({}).then(function(flashcards) {
           var qaaByAnswer = {};
-          $scope.dquestionsAndAnswers = flashcards.filter(function(fc) {
+          $scope.questionsAndAnswers = flashcards.filter(function(fc) {
             return fc.term && fc.term.name;
           }).map(toQuestionAndAnswer
             ).filter(function(qaa) {
