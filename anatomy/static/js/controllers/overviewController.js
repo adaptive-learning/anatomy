@@ -30,7 +30,7 @@ angular.module('proso.anatomy.controllers')
     angular.forEach($scope.categoriesByType, function(ct) {
       ct.isActive = ct == categoryType;
     });
-    $cookies[activeTypeCookieName] = categoryType.categories[0] && categoryType.categories[0].type;
+    $cookies.put(activeTypeCookieName, categoryType.categories[0] && categoryType.categories[0].type);
   };
 
   $scope.toggleSelectedCategories = function(selected) {
@@ -42,15 +42,15 @@ angular.module('proso.anatomy.controllers')
 
   $scope.saveSelectedCategoriesToCookie = function() {
     var selected = $filter('getSelectedIdentifiers')($scope.categories);
-    $cookies[selectedCategoriesCookieName] = selected;
+    $cookies.put(selectedCategoriesCookieName, selected);
   };
 
   function isActive(categoryType) {
-    if ($routeParams.tab && $routeParams.tab != $cookies[activeTypeCookieName]){
-      $cookies[activeTypeCookieName] = $routeParams.tab;
+    if ($routeParams.tab && $routeParams.tab != $cookies.get('activeTypeCookieName')){
+      $cookies.put(activeTypeCookieName, $routeParams.tab);
     }
-    return $cookies[activeTypeCookieName] == categoryType ||
-      (categoryType == $scope.defaultTab && !$cookies[activeTypeCookieName]);
+    return $cookies.get(activeTypeCookieName) == categoryType ||
+      (categoryType == $scope.defaultTab && !$cookies.get(activeTypeCookieName));
   }
 
   $scope.user = $routeParams.user || '';
@@ -86,7 +86,7 @@ angular.module('proso.anatomy.controllers')
           ['category/' + $scope.allCategory],
           ['category/' + cat.identifier]]);
 
-        cat.selected = ($cookies[selectedCategoriesCookieName] + '').indexOf(id) != -1;
+        cat.selected = ($cookies.get(selectedCategoriesCookieName) + '').indexOf(id) != -1;
       }
 
       userStatsService.getStatsPost(true, $scope.user).success(processStats);

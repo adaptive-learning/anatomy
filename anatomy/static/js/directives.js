@@ -385,7 +385,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       restrict: 'A',
       link: function ($scope, element, attrs) {
         element.click(function() {
-          $cookies[attrs.setCookieOnClick] = 'true';
+          $cookies.put(attrs.setCookieOnClick, 'true');
         });
       }
     };

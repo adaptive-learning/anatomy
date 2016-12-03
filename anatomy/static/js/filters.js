@@ -243,12 +243,6 @@ angular.module('proso.anatomy.filters', [])
     };
   }])
 
-  .filter('cookieExists', ["$cookies", function ($cookies) {
-      return function(name) {
-        return $cookies[name];
-      };
-  }])
-
   .filter('currencySymbol', [function () {
       var symbols = {
         'CZK': 'Kč',

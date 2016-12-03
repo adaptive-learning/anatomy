@@ -75,6 +75,6 @@ angular.module('proso.anatomy.controllers')
   };
 
   $scope.usePracticeDwopdown = function() {
-    $cookies.practiceDropdownUsed = true;
+    $cookies.put('practiceDropdownUsed', true);
   };
 }]);

@@ -262,7 +262,7 @@ angular.module('proso.anatomy.services', ['ngCookies'])
             var id = subcategory.identifier;
             subcategory.stats = data.data[id];
           }
-          if (!$cookies.practiceDropdownUsed) {
+          if (!$cookies.get('practiceDropdownUsed')) {
             setTimeout(function() {
               angular.element('.practice-dropdown').click();
             }, 1);
@@ -299,16 +299,16 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         uiLang = lang;
         if ($location.search().termsLang) {
           termsLang = $location.search().termsLang;
-        } else if ($cookies.termsLang) {
-          termsLang = $cookies.termsLang;
+        } else if ($cookies.get('termsLang')) {
+          termsLang = $cookies.get('termsLang');
         } else {
           termsLang = lang;
         }
-        $cookies.termsLang = termsLang;
+        $cookies.put('termsLang', termsLang);
       },
       setTermsLang : function(lang) {
         termsLang = lang;
-        $cookies.termsLang = termsLang;
+        $cookies.put('termsLang', termsLang);
       },
       getTermsLang : function() {
         return termsLang;
