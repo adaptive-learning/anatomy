@@ -1,5 +1,7 @@
 {
-  "name": "proso-geography",
+  "name": "proso-anatomy",
+  "description": "Anatomy adaptice practice app",
+  "repository": "https://github.com/adaptive-learning/anatomy",
   "version": "0.0.0",
   "devDependencies": {
     "dom-js": "0.0.9",
