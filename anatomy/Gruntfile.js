@@ -49,8 +49,8 @@ module.exports = function(grunt) {
             },
             css: {
                 src: [
-                  'static/dist/css/app-with-images.css',
                   'static/dist/css/bower-libs.css',
+                  'static/dist/css/app-with-images.css',
                 ],
                 dest: 'static/dist/css/all.min.css'
             }
