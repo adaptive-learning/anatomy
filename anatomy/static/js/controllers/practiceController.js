@@ -162,11 +162,6 @@ angular.module('proso.anatomy.controllers')
                         $scope.$apply();
                     }
                 });
-                var imageName = active.context.identifier + (
-                  active.question_type == 'd2t' ? '--' + active.description : '');
-                if (!active.options || active.options.length === 0) {
-                  $rootScope.$emit('imageDisplayed', imageName);
-                }
               }
         }
 
