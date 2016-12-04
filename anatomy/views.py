@@ -53,8 +53,7 @@ def home(request, hack=None):
         "dist/js/anatomy" + min_hack + ".js",
     )
     CSS_FILES = (
-        "dist/css/bower-libs.css",
-        "dist/css/app-with-images.css",
+        "dist/css/all.min.css",
     )
 
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:

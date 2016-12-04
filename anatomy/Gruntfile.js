@@ -46,6 +46,13 @@ module.exports = function(grunt) {
                   'bower_components/angular-google-experiments/googleExperiments.min.js',
                 ],
                 dest: 'static/dist/js/unminifiable-libs.js'
+            },
+            css: {
+                src: [
+                  'static/dist/css/app-with-images.css',
+                  'static/dist/css/bower-libs.css',
+                ],
+                dest: 'static/dist/css/all.min.css'
             }
         },
         copy: {
@@ -250,6 +257,6 @@ module.exports = function(grunt) {
     grunt.registerTask('anatomy-js', ['static-check', 'newer:concat:anatomy', 'newer:uglify:anatomy', 'newer:nggettext_extract:pot']);
     grunt.registerTask('prepare', ['newer:nggettext_compile', 'anatomy-tpls', 'anatomy-js', 'anatomy-css', 'newer:copy:images']);
     grunt.registerTask('anatomy-tpls', ['newer:string-replace:homepage', 'newer:html2js:anatomy',  'newer:nggettext_extract:pot']);
-    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:string-replace:above-fold', 'cssUrlEmbed']);
+    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:string-replace:above-fold', 'cssUrlEmbed', 'concat:css']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
 };
