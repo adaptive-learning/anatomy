@@ -65,7 +65,7 @@ class Command(BaseCommand):
         for user in users:
             czech_answers = Answer.objects.filter(user_id=user.id, lang__in=['cs', 'cc']).count()
             language = 'cs' if czech_answers > 0 else 'en'
-            user_templates = list(templates[lang])
+            user_templates = list(templates[language])
             random.shuffle(user_templates)
             last_datetime = datetime.datetime.now()
             for i, template in enumerate(user_templates):
