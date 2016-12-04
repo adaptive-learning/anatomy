@@ -4,6 +4,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db.models import Q, Count, Max
 from optparse import make_option
 from proso_user.models import ScheduledEmail
+from proso_subscription.models import Subscription
 import datetime
 import os
 
@@ -65,6 +66,8 @@ class Command(BaseCommand):
         if len(users) == 0:
             return
         for user in users:
+            if Subscription.objects.is_active(user, 'full'):
+                return
             schedule_email_with_discount_code(
                 user,
                 options['discount_percentage'],
