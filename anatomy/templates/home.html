@@ -242,25 +242,24 @@
           <span class="col-sm-3">
             <a href="https://play.google.com/store/apps/details?id=martinmatko.Anatom"
                 track-click="android footer">
-              <img ng-src="{% static 'img/android.png' %}"
-                alt="{% trans "Aplikace na Google Play" %}" >
+              <span class="logo logo-android"
+                alt="{% trans "Aplikace na Google Play" %}" ></span>
             </a>
           </span>
           <span class="col-sm-3">
             <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
-              <img ng-src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
-                  alt="{% trans 'Memorix Anatomie' %}"/>
+              <span class="logo {{'memorix-logo-'|add:LANGUAGE_CODE}}"
+                  alt="{% trans 'Memorix Anatomie' %}"/></span>
             </a>
           </span>
           <span class="col-sm-3">
             <a href="http://www.fi.muni.cz/adaptivelearning/" class="">
-              <img ng-src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
+              <span class="logo logo-al-small" alt="Adaptive Learning logo"/></span>
             </a>
           </span>
           <span class="col-sm-3">
             <a href="https://vpsfree.cz/" title="vpsFree hostuje tento web">
-              <img id="imgVPS" alt="vpsFree" style="height: 50px"
-                ng-src="{% static 'img/vpsfree-logo.png' %}">
+              <span class="logo logo-vps-free" alt="vpsFree"/></span>
             </a>
           </span>
           <div class="clearfix"></div>
