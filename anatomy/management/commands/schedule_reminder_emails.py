@@ -52,6 +52,10 @@ class Command(BaseCommand):
         ).filter(
             Q(answer_count__gte=options['answer_limit']) & Q(answer_time__gte=active_from) & ~Q(email='') & ~Q(email=None)
         ))
+        already_processed = set(ScheduledEmail.objects.filter(
+            Q(subject='Anatom: Otázka dne') | Q(subject='Practice Anatomy: Today\'s question')
+        ).values_list('user_id', flat=True))
+        users = [u for u in users if u.id not in already_processed]
         if options['skip_emails_file'] is not None:
             with open(os.path.realpath(options['skip_emails_file']), 'r') as f:
                 skip_emails = set(f.readlines())
