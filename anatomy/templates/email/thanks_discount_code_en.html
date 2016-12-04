@@ -1,0 +1,25 @@
+{% extends 'email/base_en.html' %}
+{% block main_content %}
+<div class="content">
+	<h1>Hello!<h1>
+	<p class="lead">
+		It looks like you really use our app to practice anatomy. It's our pleasure.
+		We think it is important to practice not only questions with images, but
+		also questions focused on relations between terms. You know &#8212 nerve
+		supply, arterial supply etc. This is exactly what our applications provides
+		in its <a href="https://practiceanatomy.com/premium/?discount_code={{ discount_code.code }}&utm_source=thanks+letter&utm_medium=e-mail&utm_content=premium&utm_campaign=Thank+you">premium version</a>.
+	</p>
+	<p>
+		As a gift based on you extensively use our app, we give you a discount of
+		{{ discount_code.discount_percentage }}% on the premium version. Just use this
+		discount code <strong>{{ discount_code.code }}</strong>, or the following link:
+	</p>
+	<p>
+	<a href="https://practiceanatomy.com/premium/?discount_code={{ discount_code.code }}&utm_source=thanks+letter&utm_medium=e-mail&utm_content=premium&utm_campaign=Thank+you" class="btn">See the subscription plans</a>
+	</p>
+	<p>
+	Good luck in learning of anatomy, <br />
+	Practice Anatomy team
+	</p>
+</div>
+{% endblock %}

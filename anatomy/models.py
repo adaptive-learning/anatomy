@@ -1,9 +1,67 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from proso_user.models import UserProfile, ScheduledEmail
+from proso_subscription.models import DiscountCode, Subscription
+from proso_models.models import Answer
 from proso.django.request import get_current_request, get_language
 from django.conf import settings
+import glob
 import os
+import random
+import datetime
+
+
+def canonize_language_for_email(lang):
+    if lang in {'cs', 'cc'}:
+        return 'cs'
+    else:
+        return 'en'
+
+
+def schedule_email_with_discount_code(user, discount_percentage=50, dry=False, output_dir=None):
+    discount_code = DiscountCode.objects.filter(identifier='email_user_discount_code_{}'.format(user.id)).first()
+    if discount_code is None:
+        discount_code = DiscountCode.objects.create(
+            identifier='email_user_discount_code_{}'.format(user.id),
+            usage_limit=1,
+            code=DiscountCode.objects.generate_code(),
+            discount_percentage=discount_percentage
+        )
+    request = get_current_request(force=False)
+    if request is not None:
+        language = get_language(request)
+    else:
+        last_answer = Answer.objects.filter(user=user).order_by('-id').first()
+        language = last_answer.lang if last_answer is not None else 'en'
+    language = canonize_language_for_email(language)
+    ScheduledEmail.objects.schedule_more(
+        'info@anatom.cz',
+        'Anatom: Děkujeme, že sis vybral(a) nás' if language == 'cs' else 'Practice Anatomy: Thank you chose us',
+        os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'email', 'thanks_discount_code_{}.html'.format(language)),
+        users=[user],
+        template_kwargs={'discount_code': discount_code},
+        dry=dry,
+        output_dir=output_dir
+    )
+
+
+@receiver(post_save)
+def schedule_email_with_discount_code_after_long_practice(sender, instance, created=False, **kwargs):
+    if not issubclass(sender, Answer):
+        return
+    if not created:
+        return
+    request = get_current_request(force=False)
+    if request is None:
+        return
+    if not request.user.is_authenticated() or not request.user.email:
+        return
+    answer_count = Answer.objects.filter(user=request.user).count()
+    if answer_count != 200:
+        return
+    if Subscription.objects.is_active(request.user, 'full'):
+        return
+    schedule_email_with_discount_code(request.user)
 
 
 @receiver(post_save, sender=UserProfile)
@@ -16,11 +74,25 @@ def schedule_welcome_email(sender, instance, created=False, **kwargs):
     if request is None:
         return
     language = get_language(request)
-    if language != 'cs':
-        language = 'en'
+    language = canonize_language_for_email(language)
     ScheduledEmail.objects.schedule_more(
         'info@anatom.cz',
         'Anatom: Vítej' if language == 'cs' else 'Practice Anatomy: Welcome',
         os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'email', 'welcome_{}.html'.format(language)),
-        [instance.user.email]
+        users=[instance.user]
     )
+    # reminder e-mails
+    templates = glob.glob(os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'email', 'relation_question_{}_*.html'.format(language)))
+    random.shuffle(templates)
+    shifts = [1, 3, 7]
+    last_datetime = datetime.datetime.now()
+    for i, template in enumerate(templates):
+        shift = shifts[min(i, len(shifts) - 1)]
+        last_datetime = last_datetime + datetime.timedelta(days=shift)
+        ScheduledEmail.objects.schedule_more(
+            'info@anatom.cz',
+            'Anatom: Otázka dne' if language == 'cs' else 'Practice Anatomy: Today\'s question',
+            template,
+            users=[instance.user],
+            scheduled=last_datetime
+        )
