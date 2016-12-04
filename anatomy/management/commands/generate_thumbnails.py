@@ -18,14 +18,15 @@ class Command(BaseCommand):
         for c in progress.bar(contexts, every=max(1, len(contexts) // 100)):
             self.generate_thumbnail(c)
 
-        path = "anatomy/static/img/"
+        path = "anatomy/static/img/category/"
         for image in os.listdir(path):
             if image.endswith('.png'):
-                self.add_to_tiny_thumbnails(path + image, image, '/static/img/')
+                self.add_to_tiny_thumbnails(path + image, image, '/static/img/category/')
 
         thumbnails_json_file = 'anatomy/static/dist/thumbnails.json'
         with open(thumbnails_json_file, 'w') as outfile:
             json.dump(self.tiny_thumbnails, outfile)
+        print("Generated to file '%s'" % thumbnails_json_file)
 
     def add_to_tiny_thumbnails(self, file_path, file_name, online_path):
         with Image(filename=file_path) as img:

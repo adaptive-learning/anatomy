@@ -171,9 +171,9 @@
               </li>
               <li class="hidden-xs">
                 <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
-                  <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
-                  class="menu-logo"
+                  <span class="{{ 'memorix-logo-'|add:LANGUAGE_CODE }}"
                   alt="Memorix Anatomie"/>
+                  </span>
                 </a>
               </li>
             </ul>
@@ -223,7 +223,7 @@
   <div sign-in-banner></div>
   <div premium-banner></div>
 
-    <div class="" id="footer" ng-show="!isPractice">
+    <div class="" id="footer" ng-if="!isPractice">
       <div class="col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
         <div class="row">
           <div class="col-sm-12 text-center">
@@ -242,25 +242,25 @@
           <span class="col-sm-3">
             <a href="https://play.google.com/store/apps/details?id=martinmatko.Anatom"
                 track-click="android footer">
-              <img src="{% static 'img/android.png' %}"
+              <img ng-src="{% static 'img/android.png' %}"
                 alt="{% trans "Aplikace na Google Play" %}" >
             </a>
           </span>
           <span class="col-sm-3">
             <a href="http://{% trans 'anatomie.memorix.cz' %}" class="">
-              <img src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
+              <img ng-src="{% static 'img/memorix-logo-'|add:LANGUAGE_CODE|add:'.png' %}"
                   alt="{% trans 'Memorix Anatomie' %}"/>
             </a>
           </span>
           <span class="col-sm-3">
             <a href="http://www.fi.muni.cz/adaptivelearning/" class="">
-              <img src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
+              <img ng-src="{% static 'img/al-logo-small.png' %}" alt="Adaptive Learning logo"/>
             </a>
           </span>
           <span class="col-sm-3">
             <a href="https://vpsfree.cz/" title="vpsFree hostuje tento web">
               <img id="imgVPS" alt="vpsFree" style="height: 50px"
-                src="{% static 'img/vpsfree-logo.png' %}">
+                ng-src="{% static 'img/vpsfree-logo.png' %}">
             </a>
           </span>
           <div class="clearfix"></div>
