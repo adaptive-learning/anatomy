@@ -12,8 +12,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.core.cache import cache
 import os
 from proso_models.models import get_environment
-from proso_flashcards.models import FlashcardAnswer, Flashcard
-from datetime import datetime, timedelta
+from proso_flashcards.models import FlashcardAnswer
 import random
 import base64
 from proso_subscription.models import Subscription
@@ -55,7 +54,7 @@ def home(request, hack=None):
     )
     CSS_FILES = (
         "dist/css/bower-libs.css",
-        "dist/css/app.css",
+        "dist/css/app-with-images.css",
     )
 
     if not hasattr(request.user, "userprofile") or request.user.userprofile is None:

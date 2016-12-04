@@ -135,6 +135,20 @@ module.exports = function(grunt) {
                 command: 'node_modules/bower/bin/bower install'
             }
         },
+        cssUrlEmbed: {
+          encodeDirectly: {
+            options: {
+              baseDir: './',
+              skipUrlsLargerThan: '40 KB',
+            },
+            files: {
+              'static/dist/css/app-with-images.css': [
+                'static/dist/css/app.css'],
+              'templates/dist/above-fold-with-images.css': [
+                'templates/dist/above-fold.css'],
+            }
+          }
+        },
         'string-replace': {
             homepage: {
               options: {
@@ -236,6 +250,6 @@ module.exports = function(grunt) {
     grunt.registerTask('anatomy-js', ['static-check', 'newer:concat:anatomy', 'newer:uglify:anatomy', 'newer:nggettext_extract:pot']);
     grunt.registerTask('prepare', ['newer:nggettext_compile', 'anatomy-tpls', 'anatomy-js', 'anatomy-css', 'newer:copy:images']);
     grunt.registerTask('anatomy-tpls', ['newer:string-replace:homepage', 'newer:html2js:anatomy',  'newer:nggettext_extract:pot']);
-    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:string-replace:above-fold']);
+    grunt.registerTask('anatomy-css', ['sass:anatomy', 'newer:string-replace:above-fold', 'cssUrlEmbed']);
     grunt.registerTask('default', ['prepare-libs', 'prepare']);
 };
