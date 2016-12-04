@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand, CommandError
-from django.db.models import Q, Count
+from django.db.models import Q, Count, Max
 from optparse import make_option
 from anatomy.models import schedule_email_with_discount_code
+import datetime
 import os
 
 
@@ -45,7 +46,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if options['active_from'] is None:
             raise CommandError('The "active-from" option has to be specified.')
-        users = list(User.objects.annotate(answer_count=Count('answer')).filter(Q(answer_count__gte=options['answer_limit']) & ~Q(email='') & ~Q(email=None)))
+        active_from = datetime.datetime.strptime(options['active_from'], '%Y-%m-%d')
+        users = list(User.objects.annotate(
+            answer_count=Count('answer'),
+            answer_time=Max('answer__time')
+        ).filter(
+            Q(answer_count__gte=options['answer_limit']) & Q(answer_time__gte=active_from) & ~Q(email='') & ~Q(email=None)
+        ))
         if options['skip_emails_file'] is not None:
             with open(os.path.realpath(options['skip_emails_file']), 'r') as f:
                 skip_emails = set(f.readlines())
