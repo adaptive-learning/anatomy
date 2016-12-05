@@ -8,11 +8,11 @@ from proso_common.models import get_global_config
 from proso_flashcards.models import Category
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import management
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from django.core.cache import cache
 import os
 from proso_models.models import get_environment
-from proso_flashcards.models import FlashcardAnswer
+from proso_flashcards.models import FlashcardAnswer, Flashcard
 import random
 import base64
 from proso_subscription.models import Subscription
@@ -20,6 +20,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from gopay.enums import PaymentStatus
 from django.db.models import Q
+from django.views.decorators.cache import cache_page
 
 
 @login_required
@@ -246,3 +247,33 @@ def get_invoice_number(subscription):
         )
     ).count()
     return '{}1{}'.format(subscription.payment.updated.year, str(before + 1).zfill(5))
+
+
+@cache_page(60 * 60 * 24)
+def all_flashcards(request):
+    def term_to_json_optimized(term):
+        data = {
+            'name': term.name,
+        }
+        return data
+
+    def fc_to_json_optimized(fc):
+        data = {
+            'item_id': fc.item_id,
+        }
+        if fc.description is not None:
+            data['description'] = fc.description
+        if fc.term is not None:
+            data['term'] = term_to_json_optimized(fc.term)
+        if fc.term_secondary is not None:
+            data['term_secondary'] = term_to_json_optimized(fc.term_secondary)
+
+        return data
+
+    flashcards = Flashcard.objects.select_related(
+        'term', 'term_secondary').filter(
+        active=True, lang=request.GET.get('language', get_language()))
+    response = {
+        'data': [fc_to_json_optimized(fc) for fc in flashcards],
+    }
+    return JsonResponse(response)

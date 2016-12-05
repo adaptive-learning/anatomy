@@ -346,6 +346,20 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         });
         return deferredFlashcards.promise;
       },
+      getAllFlashcards: function () {
+        var deferredFlashcards = $q.defer();
+        var filter = {};
+        filter.language = termsLanguageService.getTermsLang();
+        $http.get('/all_flashcards/', {
+          params: filter,
+          cache: true,
+        }).success(function(data) {
+          deferredFlashcards.resolve(data.data);
+        }).error(function(data) {
+          deferredFlashcards.reject(data);
+        });
+        return deferredFlashcards.promise;
+      },
     };
     return that;
   }])

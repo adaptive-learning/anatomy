@@ -767,7 +767,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           }
         });
 
-        flashcardService.getFlashcards({}).then(function(flashcards) {
+        flashcardService.getAllFlashcards().then(function(flashcards) {
           var qaaByAnswer = {};
           $scope.questionsAndAnswers = flashcards.filter(function(fc) {
             return fc.term && fc.term.name;

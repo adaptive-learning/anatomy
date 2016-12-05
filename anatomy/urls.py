@@ -33,6 +33,7 @@ urlpatterns = patterns(
         "User-agent: *\nDisallow: /terms-of-use-*", content_type="text/plain")),
     url(r'^load_flashcards/', 'anatomy.views.load_flashcards', name='load_flashcards'),
     url(r'^savescreenshot/', 'anatomy.views.save_screenshot', name='save_screenshot'),
+    url(r'^all_flashcards/', 'anatomy.views.all_flashcards', name='all_flashcards'),
 
     url(r'^user/', include('proso_user.urls')),
     url(r'^models/', include('proso_models.urls')),
