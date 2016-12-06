@@ -82,6 +82,9 @@ def home(request, hack=None):
     }
     if hack == 'home':
         hack = None
+    categories = [c.to_json() for c in Category.objects.filter(
+        lang=get_language(), active=True)]
+
     c = {
         'title': _('Anatom.cz') + ' - ' + _('procvičování anatomie člověka v obrázcích'),
         'headline': get_headline_from_url(hack),
@@ -105,6 +108,7 @@ def home(request, hack=None):
         'canonical_url': 'https://' + request.META['HTTP_HOST'] + request.get_full_path().split('?')[0].replace('//', '/'),
         'base': '//' + request.META['HTTP_HOST'],
         'canonical_path':  request.get_full_path().split('?')[0][1:].replace('//', '/'),
+        'categories_json': json.dumps({'data': categories}),
     }
     return render_to_response('home.html', c)
 

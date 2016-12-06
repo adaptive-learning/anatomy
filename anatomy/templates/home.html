@@ -74,6 +74,10 @@
     {% endif %}
   <span ng-init='configService.processConfig({{ config_json | safe }});
   setStats({{ stats_json | safe}})'></span>
+  <div class="ng-cloak"
+  preload-resource="/flashcards/categorys?all=True&db_orderby=identifier">
+    {{ categories_json | safe}}
+  </div>
   <div id="wrap">
     <!-- <span set-place-type-names='{{placeTypeNames | safe}}'></span>-->
     <!-- Navbar

@@ -196,8 +196,9 @@ angular.module('proso.anatomy.services', ['ngCookies'])
     return that;
   }])
 
-  .factory('categoryService', ["$http", "$q", "userStatsService", "$cookies",
-      function ($http, $q, userStatsService, $cookies) {
+  .factory('categoryService', [
+      "$http", "$q", "userStatsService", "$cookies", "resourceCache",
+      function ($http, $q, userStatsService, $cookies, resourceCache) {
     'use strict';
     var categories = [];
     var categoriesByIdentifier = {};
@@ -209,8 +210,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         all : 'True',
         db_orderby : 'identifier',
       };
-      httpPromise = $http.get('/flashcards/categorys', {params: filter, cache: true}
-      ).success(function(data) {
+      httpPromise = $http.get('/flashcards/categorys', {
+        params: filter,
+        cache: resourceCache,
+      }).success(function(data) {
         categories = data.data;
         for (var i = 0; i < data.data.length; i++) {
           categoriesByIdentifier[data.data[i].identifier] = data.data[i];
@@ -587,4 +590,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       },
     };
     return that;
-  }]);
+  }])
+
+  .factory("resourceCache",["$cacheFactory",
+    function($cacheFactory) { 
+      return $cacheFactory("resourceCache"); 
+    }
+  ]);

@@ -836,4 +836,13 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
         };
       }
     };
-  }]);
+  }])
+
+  .directive("preloadResource", ["resourceCache", 
+    function(resourceCache) {
+      return { link: function (scope, element, attrs) { 
+        resourceCache.put(attrs.preloadResource, element.html()); 
+        element.html('');
+      }};
+    }
+  ]);
