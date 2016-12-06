@@ -61,6 +61,7 @@
 
         </script>
 
+      {% if show_inspectlet  %}
         <!-- Begin Inspectlet Embed Code -->
         <script type="text/javascript" id="inspectletjs">
         window.__insp = window.__insp || [];
@@ -71,11 +72,12 @@
         })();
         </script>
         <!-- End Inspectlet Embed Code -->
+      {% endif %}
     {% endif %}
   <span ng-init='configService.processConfig({{ config_json | safe }});
   setStats({{ stats_json | safe}})'></span>
   <div class="ng-cloak"
-  preload-resource="/flashcards/categorys?all=True&db_orderby=identifier">
+    preload-resource="/flashcards/categorys?all=True&db_orderby=identifier">
     {{ categories_json | safe}}
   </div>
   <div id="wrap">
