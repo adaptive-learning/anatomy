@@ -575,7 +575,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
             'term' : 'term_secondary';
           var answer = $scope.question.question_type == 'ts2t' ?
             'term' : 'term_secondary';
-          flashcardService.getFlashcards({}).then(function(flashcards) {
+          flashcardService.getAllFlashcards().then(function(flashcards) {
             $scope.wrongAnswers = flashcards.filter(function(fc) {
               return fc.context_id == $scope.question.context.id &&
                 fc[question] && fc[question].id == $scope.question[question].id &&

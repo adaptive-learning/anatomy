@@ -259,12 +259,14 @@ def all_flashcards(request):
     def term_to_json_optimized(term):
         data = {
             'name': term.name,
+            'id': term.id,
         }
         return data
 
     def fc_to_json_optimized(fc):
         data = {
             'item_id': fc.item_id,
+            'context_id': fc.context_id,
         }
         if fc.description is not None:
             data['description'] = fc.description
