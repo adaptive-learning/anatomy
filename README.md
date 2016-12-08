@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/adaptive-learning/anatomy.png?label=ready&title=Ready)](https://waffle.io/adaptive-learning/anatomy)
 # anatomy
 An intelligent application for practicing human anatomy. 
 
