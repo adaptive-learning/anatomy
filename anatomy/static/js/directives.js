@@ -35,18 +35,6 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   })
 
-  .directive('atooltip', function() {
-    return {
-      restrict : 'C',
-      link : function($scope, elem, attrs) {
-        elem.tooltip({
-          'placement' : attrs.placement || 'bottom',
-          'container' : attrs.container,
-        });
-      }
-    };
-  })
-
   .directive('categoryProgress', [function() {
     return {
       restrict : 'A',
