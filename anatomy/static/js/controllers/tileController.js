@@ -14,11 +14,6 @@ angular.module('proso.anatomy.controllers')
     }
   }
 
-  $scope.getProgressRadius = function() {
-    var radius =  Math.max(0, $element[0].clientWidth / 2 - 5);
-    return radius;
-  };
-
   $scope.clickFn = function(event) {
     if ($scope.clickAction) {
       $scope.clickAction($scope.category);
@@ -34,15 +29,8 @@ angular.module('proso.anatomy.controllers')
   img.onload = function() {
     $scope.thumbnail = $scope.bigThumbnail;
   };
-  
-  angular.element(window).bind('resize', function() {
-    $scope.$apply(function () {
-      $scope.progressRadius = $scope.getProgressRadius();
-    });
-  });
 
   $timeout(function() {
-    $scope.progressRadius = $scope.getProgressRadius();
     $scope.showProgress = true;
   }, $scope.index * 100 + 1000);
 }]);

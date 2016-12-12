@@ -2,7 +2,7 @@
 angular.module('proso.anatomy', [
     'angulartics',
     'angulartics.google.analytics',
-    'angular-svg-round-progress',
+    'angular-svg-round-progressbar',
     'gettext',
     'infinite-scroll',
     'ngRoute',

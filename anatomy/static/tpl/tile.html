@@ -13,13 +13,14 @@
       <div class="top" ng-if="category['not-in-model']" translate>Připravujeme</div>
       <div class="top" ng-if="disabled" translate>Premium obsah</div>
       <div class="dummy"></div>
-      <div class="absolute fade-in" ng-if="showProgress">
+      <div class="absolute fade-in"
+        ng-if="category.stats.number_of_items && showProgress">
         <div round-progress 
             max="category.stats.number_of_items"
             current="category.stats.number_of_practiced_items"
             color="#fe3"
             bgcolor="rgba(190,190,190,0.5)"
-            radius="{{progressRadius}}"
+            responsive="true"
             stroke="15"
             rounded="true"
             iterations="50"
@@ -32,7 +33,7 @@
             current="category.stats.number_of_mastered_items"
             color="#5CA03C"
             bgcolor="rgba(0,0,0,0)"
-            radius="{{progressRadius}}"
+            responsive="true"
             stroke="15"
             rounded="true"
             iterations="50"
