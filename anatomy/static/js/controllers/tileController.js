@@ -3,10 +3,8 @@ angular.module('proso.anatomy.controllers')
 .controller('tileController', ['$scope', '$element', '$timeout', 'thumbnailService',
     function($scope, $element, $timeout, thumbnailService) {
     'use strict';
-  $element.bind({
-      "mouseover": wasHovered, 
-      "touchstart": wasHovered, 
-  });
+  $element.bind("mouseover", wasHovered);
+  $element.bind("touchstart", wasHovered);
 
   function wasHovered(){
     if (!$scope.wasHovered) {

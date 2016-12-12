@@ -372,7 +372,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict: 'A',
       link: function ($scope, element, attrs) {
-        element.click(function() {
+        element.bind('click', function(){
           $cookies.put(attrs.setCookieOnClick, 'true');
         });
       }
@@ -717,7 +717,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     return {
       restrict: 'A',
       link: function ($scope, element) {
-        element.click(function() {
+        element.bind('click', function(){
           var elem = document.getElementById('wrap');
           smoothScroll(elem, {
             offset: 10,
