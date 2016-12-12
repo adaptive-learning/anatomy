@@ -15,7 +15,7 @@
     "raphael": "https://github.com/adaptive-learning/raphael.git#master",
     "angular-gettext": "~2.1.0",
     "angular-count-to": "https://github.com/sparkalow/angular-count-to.git#master",
-    "angular-svg-round-progress": "https://github.com/crisbeto/angular-svg-round-progressbar.git#0.3.2",
+    "angular-svg-round-progressbar": "0.4.6",
     "angular-django-csrf": "https://github.com/adaptive-learning/angular-django-csrf.git#master",
     "ngSmoothScroll": "~2.0.0",
     "angular-location-update": "~0.0.2",
