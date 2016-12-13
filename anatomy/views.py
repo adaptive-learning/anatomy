@@ -109,7 +109,7 @@ def home(request, hack=None):
         'base': '//' + request.META['HTTP_HOST'],
         'canonical_path':  request.get_full_path().split('?')[0][1:].replace('//', '/'),
         'categories_json': json.dumps({'data': categories}),
-        'show_inspectlet': random.randrange(70) < 1,
+        'show_inspectlet': random.randrange(40) < 1,
     }
     return render_to_response('home.html', c)
 
