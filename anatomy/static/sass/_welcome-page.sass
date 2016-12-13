@@ -229,6 +229,9 @@ img
     transform-origin: 0px 5.1em
     -webkit-animation: load2 2s infinite ease
     animation: load2 2s infinite ease
+.loading-indicator.white-bg
+  &:before, &:after
+    background: white
 
 @-webkit-keyframes load2
   0%
@@ -249,12 +252,17 @@ img
     -webkit-transform: rotate(360deg)
     transform: rotate(360deg)
 
-.loading-indicator.overlay
+.overlay
   padding-top: 30px
   padding-bottom: 60px
   position: absolute
   margin: -30px -20px
   background-color: rgba(255,255,255, 0.7)
+  width: 100%
+  height: 100%
+  .loading-indicator
+    &:before, &:after
+      background-color: rgba(255,255,255, 0.7)
 
 #ng-view>.loading-indicator
   margin-top: 210px
