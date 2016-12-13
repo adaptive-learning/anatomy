@@ -148,6 +148,7 @@ angular.module('proso.anatomy.controllers')
             }
 
             function setImageCallback(ic) {
+              if (ic) {
                 $scope.imageController = ic;
 
                 $scope.imageController.clearHighlights();
@@ -163,6 +164,7 @@ angular.module('proso.anatomy.controllers')
                     }
                 });
               }
+            }
         }
 
         function categoryToFilter(c) {
