@@ -250,10 +250,10 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           subcategories = angular.copy(categoriesByType.location);
         } else if (category.type == "location") {
           subcategories = angular.copy(categoriesByType.system);
-        } else if (category.identifier == "relations") {
-          subcategories = angular.copy(
-            categoriesByType.relation.concat(
-            categoriesByType.subrelation));
+        } else if (category.identifier == "foramina") {
+          subcategories = angular.copy(categoriesByType.subrelation);
+        } else if (category.type == "relation") {
+          subcategories = angular.copy(categoriesByType.location);
         }
         userStatsService.clean();
         for (var i = 0; i < subcategories.length; i++) {
