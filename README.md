@@ -91,3 +91,34 @@ To pull translated stings
 ```
 tx pull -a
 ```
+
+### End-2-end tests
+#### Initial setup
+Install dependencies from package.json
+```
+npm install
+```
+
+Install Google Chrome (if not already)
+https://www.google.com/chrome/browser/desktop/index.html
+
+Install Webdriver Manager
+see
+https://www.npmjs.com/package/webdriver-manager
+or run 
+```
+sudo npm install -g webdriver-manager
+webdriver-manager update
+```
+
+#### Daily bread'n'butter
+
+Start up a Selenium Server in a separate terminal or in background
+```
+webdriver-manager start --standalone
+```
+
+Run end-to-end tests
+```
+grunt protractor 
+```
