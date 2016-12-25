@@ -229,6 +229,20 @@ angular.module('proso.anatomy.services', ['ngCookies'])
       });
     }
     init();
+
+    function mapSubcategories(category) {
+      var subcategories = [];
+      if (category.type == "system") {
+        subcategories = angular.copy(categoriesByType.location);
+      } else if (category.type == "location") {
+        subcategories = angular.copy(categoriesByType.system);
+      } else if (category.identifier == "foramina") {
+        subcategories = angular.copy(categoriesByType.subrelation);
+      } else if (category.type == "relation") {
+        subcategories = angular.copy(categoriesByType.location);
+      }
+      return subcategories;
+    }
     var that = {
       getCategory: function (identifier) {
         return categoriesByIdentifier[identifier];
@@ -246,15 +260,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
           filter : identifier ? ['category/' + identifier] : [],
         };
 
-        if (category.type == "system") {
-          subcategories = angular.copy(categoriesByType.location);
-        } else if (category.type == "location") {
-          subcategories = angular.copy(categoriesByType.system);
-        } else if (category.identifier == "foramina") {
-          subcategories = angular.copy(categoriesByType.subrelation);
-        } else if (category.type == "relation") {
-          subcategories = angular.copy(categoriesByType.location);
-        }
+        subcategories = mapSubcategories(category);
+
         userStatsService.clean();
         for (var i = 0; i < subcategories.length; i++) {
           var id = subcategories[i].identifier;
