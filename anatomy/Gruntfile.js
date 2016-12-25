@@ -99,7 +99,7 @@ module.exports = function(grunt) {
                     "$": false,
                     "Raphael": false,
                 },
-                "maxcomplexity": 7,
+                "maxcomplexity": 8,
                 "indent": 2,
                 "maxdepth" : 3,
                 "maxparams": 12,
