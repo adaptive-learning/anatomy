@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     require('jit-grunt')(grunt, {
       'nggettext_extract': 'grunt-angular-gettext',
       'nggettext_compile': 'grunt-angular-gettext',
+      'protractor': 'grunt-protractor-runner',
     });
 
     try {
@@ -123,6 +124,18 @@ module.exports = function(grunt) {
                 dest: 'static/dist/client.pot'
             },
         },
+        protractor: {
+          options: {
+            configFile: 'node_modules/protractor/example/conf.js',
+            args: {}, 
+          },  
+          e2e: {
+            options: {
+              configFile: 'protractor.conf.js',
+              args: {}, 
+            },
+          },  
+        },  
         sass: {
             options: {
                 style: "compressed"
