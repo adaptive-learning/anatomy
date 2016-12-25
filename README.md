@@ -102,9 +102,12 @@ npm install
 Install Google Chrome (if not already)
 https://www.google.com/chrome/browser/desktop/index.html
 
+
 Install Webdriver Manager
+
 see
 https://www.npmjs.com/package/webdriver-manager
+
 or run 
 ```
 sudo npm install -g webdriver-manager
