@@ -18,7 +18,7 @@ proso_models:
       condition_key: practice_filter_contains
       condition_value: category/relations
 proso_flashcards:
-  direction:
+  direction.class:
     - value: proso_flashcards.flashcard_construction.OnlyFromTermDirection
       condition_key: selected_item_has_parent
       condition_value: en@context/cranialfossa
