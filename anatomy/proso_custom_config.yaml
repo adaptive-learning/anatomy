@@ -3,7 +3,6 @@ proso_models:
     - value: true
       condition_key: practice_filter_contains
       condition_value: category/relations
-  options_count.parameters.allow_zero_options_restriction:
     - value: true
       condition_key: device
       condition_value: touchscreen
