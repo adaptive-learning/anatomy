@@ -21,7 +21,10 @@ angular.module('proso.anatomy.controllers')
       $scope.subcategory = categoryService.getCategory(subcategory);
     }
 
-    $scope.subcategories = categoryService.getSubcategories(subcategory || category);
+    $scope.subcategories = categoryService.getSubcategories(
+      (subcategory == 'foramina') ?
+      subcategory :
+      category);
 
     flashcardService.getFlashcards(
             angular.extend(filter, {with_contexts:true})).then(function(data) {

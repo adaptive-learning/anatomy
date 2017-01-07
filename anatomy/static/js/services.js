@@ -238,6 +238,8 @@ angular.module('proso.anatomy.services', ['ngCookies'])
         subcategories = angular.copy(categoriesByType.system);
       } else if (category.identifier == "foramina") {
         subcategories = angular.copy(categoriesByType.subrelation);
+      } else if (category.identifier == "relations") {
+        subcategories = angular.copy(categoriesByType.relation);
       } else if (category.type == "relation") {
         subcategories = angular.copy(categoriesByType.location);
       }
