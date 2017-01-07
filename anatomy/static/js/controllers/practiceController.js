@@ -31,19 +31,22 @@ angular.module('proso.anatomy.controllers')
               if ($scope.checking) {
                 return;
               }
+              $scope.checking = true;
+
               var selectedFC;
               if (selected && (selected.description || selected.term_secondary)) {
                 selectedFC = selected;
                 selected = selected.description;
               }
               $scope.question.selectedFC = selectedFC;
-              $scope.checking = true;
-              var asked = $scope.question.description;
               $scope.question.isCorrect = (selected && $scope.question.description == selected) || $scope.question.id == (selectedFC && selectedFC.id);
+              saveAnswer(selected, keyboardUsed, selectedFC);
+              controller._postProcessAnswer(selected, keyboardUsed);
+          },
+          _postProcessAnswer : function(selected) {
               if ($scope.imageController) {
                 $scope.imageController.highlightAnswer($scope.question, selected);
               }
-              saveAnswer(selected, keyboardUsed, selectedFC);
               $scope.progress = 100 * (
                 practiceService.getSummary().count /
                 practiceService.getConfig().set_length);
@@ -57,7 +60,7 @@ angular.module('proso.anatomy.controllers')
                   $scope.checking = false;
                   $scope.canNext = true;
               }
-              addAnswerToUser(asked == selected);
+              addAnswerToUser($scope.question.isCorrect);
               $rootScope.$emit('questionAnswered');
           },
           next : function(callback) {
