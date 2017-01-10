@@ -1,0 +1,14 @@
+<div class="alert alert-info click-help"
+   ng-if="question.question_type == 't2d' &&
+     userService.user.profile.number_of_answers <= 20 && 
+     timeouted &&
+     !cookieSet">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+      set-cookie-on-click="imageHelpClosed"
+      track-click="close image click help banner">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only" translate>Zavřít</span>
+  </button>
+  <span translate>Odpověď můžeš vybrat kliknutím na příslušnou část na obrázku.</span>
+ </div>
+

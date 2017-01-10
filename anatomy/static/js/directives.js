@@ -261,6 +261,24 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('imageClickHelp', ['userService', '$cookies', '$timeout',
+      function(userService, $cookies, $timeout) {
+    return {
+      scope: {
+        question: '=question',
+      },
+      restrict: 'A',
+      link: function ($scope) {
+        $scope.userService = userService;
+        $scope.cookieSet = $cookies.get('imageHelpClosed');
+        $timeout(function() {
+          $scope.timeouted = true;
+        }, 5000);
+      },
+      templateUrl: 'static/tpl/image_click_help.html',
+    };
+  }])
+
   .directive('imageView', [function() {
     return {
       scope: {

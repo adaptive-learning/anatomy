@@ -9,6 +9,7 @@
       ng-show="question.description == activeQuestion.description &&
         question.startTime == activeQuestion.startTime">
     <span page-number="{{question.context.content.meta['textbook-page']}}"></span>
+    <div image-click-help question="question"></div>
     <div anatomy-image code="question.context.identifier" practice="true">
       <div class="loading-indicator white-bg"> </div>
     </div>
