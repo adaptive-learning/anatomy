@@ -1,14 +1,20 @@
+from collections import namedtuple
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.db.models import Q
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from proso_user.models import UserProfile, ScheduledEmail
-from proso_subscription.models import DiscountCode, Subscription
-from proso_models.models import Answer
+from django.utils import translation
+from gopay.enums import PaymentStatus
+from gopay_django_api.signals import payment_changed
 from proso.django.request import get_current_request, get_language
-from django.conf import settings
+from proso_models.models import Answer
+from proso_subscription.models import DiscountCode, Subscription
+from proso_user.models import UserProfile, ScheduledEmail
+import datetime
 import glob
 import os
 import random
-import datetime
 
 
 def canonize_language_for_email(lang):
@@ -16,6 +22,51 @@ def canonize_language_for_email(lang):
         return 'cs'
     else:
         return 'en'
+
+
+def get_invoice_number(subscription):
+    if subscription.payment_id is None or subscription.payment.state != PaymentStatus.PAID:
+        return None
+    before = Subscription.objects.filter(
+        Q(payment__state=PaymentStatus.PAID, payment__updated__year=subscription.payment.updated.year) & (
+            Q(payment__updated__lt=subscription.payment.updated) |
+            Q(payment__updated=subscription.payment.updated, payment__pk__lt=subscription.payment.pk)
+        )
+    ).count()
+    return '{}1{}'.format(subscription.payment.updated.year, str(before + 1).zfill(5))
+
+
+def schedule_invoice_email(subscription):
+    language = subscription.plan_description.lang
+    translation.activate(language)
+    DummyRequest = namedtuple('DummyRequest', 'scheme get_host')
+    request = DummyRequest(
+        scheme='https',
+        get_host=settings.LANGUAGE_DOMAINS[language]
+    )
+    data = {
+        'request': request,
+        'subscription': subscription,
+        'user': subscription.user,
+        'invoice_number': get_invoice_number(subscription),
+    }
+    template = os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'invoice.html')
+    ScheduledEmail.objects.schedule_more(
+        'info@anatom.cz',
+        ('Anatom: Faktura {}' if language == 'cs' else 'Practice Anatomy: Invoice {}').format(data['invoice_number']) + ' [STAGING]' if settings.ON_STAGING else '',
+        template,
+        users=[subscription.user],
+        template_kwargs=data
+    )
+    staff_users = User.objects.filter(is_staff=True)
+    translation.activate('cs')
+    ScheduledEmail.objects.schedule_more(
+        'info@anatom.cz',
+        'Anatom: Faktura {} [ADMIN]'.format(data['invoice_number']) + ' [STAGING]' if settings.ON_STAGING else '',
+        template,
+        users=list(staff_users),
+        template_kwargs=data
+    )
 
 
 def schedule_email_with_discount_code(user, discount_percentage=50, dry=False, output_dir=None):
@@ -96,3 +147,11 @@ def schedule_welcome_email(sender, instance, created=False, **kwargs):
             users=[instance.user],
             scheduled=last_datetime
         )
+
+
+@receiver(payment_changed)
+def schedule_invoice(sender, instance, previous_status, **kwargs):
+    if previous_status['state'] == PaymentStatus.PAID or instance.state != PaymentStatus.PAID:
+        return
+    subscription = Subscription.objects.select_related('user', 'plan_description').get(payment=instance)
+    schedule_invoice_email(subscription)

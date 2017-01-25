@@ -1,26 +1,26 @@
 # -*- coding: utf-8 -*-
+from .models import get_invoice_number
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core import management
+from django.core.cache import cache
+from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response, redirect
-import json
-from django.utils.translation import ugettext as _
 from django.utils.translation import get_language
+from django.utils.translation import ugettext as _
+from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import ensure_csrf_cookie
+from gopay.enums import PaymentStatus
 from proso_common.models import get_global_config
 from proso_flashcards.models import Category
-from django.views.decorators.csrf import ensure_csrf_cookie
-from django.core import management
-from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
-from django.core.cache import cache
-import os
-from proso_models.models import get_environment
 from proso_flashcards.models import FlashcardAnswer, Flashcard
-import random
-import base64
+from proso_models.models import get_environment
 from proso_subscription.models import Subscription
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from gopay.enums import PaymentStatus
-from django.db.models import Q
-from django.views.decorators.cache import cache_page
+import base64
+import json
+import os
+import random
 
 
 @login_required
@@ -240,18 +240,6 @@ def strip_non_ascii(string):
 
 def has_active_subscription(request):
     return Subscription.objects.is_active(request.user, 'full')
-
-
-def get_invoice_number(subscription):
-    if subscription.payment_id is None or subscription.payment.state != PaymentStatus.PAID:
-        return None
-    before = Subscription.objects.filter(
-        Q(payment__state=PaymentStatus.PAID, payment__updated__year=subscription.payment.updated.year) & (
-            Q(payment__updated__lt=subscription.payment.updated) |
-            Q(payment__updated=subscription.payment.updated, payment__pk__lt=subscription.payment.pk)
-        )
-    ).count()
-    return '{}1{}'.format(subscription.payment.updated.year, str(before + 1).zfill(5))
 
 
 @cache_page(60 * 60 * 24)
