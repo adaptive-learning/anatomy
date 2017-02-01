@@ -47,13 +47,12 @@ def schedule_invoice_email(subscription):
     data = {
         'request': request,
         'subscription': subscription,
-        'user': subscription.user,
         'invoice_number': get_invoice_number(subscription),
     }
     template = os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'invoice.html')
     ScheduledEmail.objects.schedule_more(
         'info@anatom.cz',
-        ('Anatom: Faktura {}' if language == 'cs' else 'Practice Anatomy: Invoice {}').format(data['invoice_number']) + ' [STAGING]' if settings.ON_STAGING else '',
+        ('Anatom: Faktura {}' if language == 'cs' else 'Practice Anatomy: Invoice {}').format(data['invoice_number']) + (' [STAGING]' if settings.ON_STAGING else ''),
         template,
         users=[subscription.user],
         template_kwargs=data
@@ -62,7 +61,7 @@ def schedule_invoice_email(subscription):
     translation.activate('cs')
     ScheduledEmail.objects.schedule_more(
         'info@anatom.cz',
-        'Anatom: Faktura {} [ADMIN]'.format(data['invoice_number']) + ' [STAGING]' if settings.ON_STAGING else '',
+        'Anatom: Faktura {} [ADMIN]'.format(data['invoice_number']) + (' [STAGING]' if settings.ON_STAGING else ''),
         template,
         users=list(staff_users),
         template_kwargs=data

@@ -125,13 +125,13 @@
                             </td>
 
                             <td>
-                                {% if first_name %}{{ first_name }}{% else %}{{ user.first_name }}{% endif %}
-                                {% if last_name %}{{ last_name }}{% else %}{{ user.last_name }}{% endif %}<br>
+                                {% if first_name %}{{ first_name }}{% else %}{{ subscription.user.first_name }}{% endif %}
+                                {% if last_name %}{{ last_name }}{% else %}{{ subscription.user.last_name }}{% endif %}<br>
                                 {% if address_1 %}{{ address_1 }}<br>{% endif %}
                                 {% if address_2 %}{{ address_2 }}<br>{% endif %}
                                 {% if address_3 %}{{ address_3 }}<br>{% endif %}
                                 {% if ic %}{% trans "IČ" %}: {{ ic }}{% endif %}{%if dic %}, {% trans "DIČ" %}: {{ dic }}<br>{% endif %}
-                                {{ user.email }}
+                                {{ subscription.user.email }}
                             </td>
                         </tr>
                     </table>
