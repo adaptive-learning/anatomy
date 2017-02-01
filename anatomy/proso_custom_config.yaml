@@ -1,8 +1,8 @@
 proso_models:
   options_count.parameters.allow_zero_options_restriction:
     - value: true
-      condition_key: practice_filter_contains
-      condition_value: category/relations
+      condition_key: selected_item_has_parent
+      condition_value: en@category/relations
     - value: true
       condition_key: device
       condition_value: touchscreen
