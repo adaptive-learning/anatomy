@@ -1,7 +1,7 @@
 default:
     proso_models:
         environment:
-          class: proso_flashcards.environment.DatabaseEnvironment
+            class: proso_flashcards.environment.DatabaseEnvironment
         predictive_model:
             class: proso.models.prediction.PFAEStaircase
             parameters:
