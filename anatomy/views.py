@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from .models import get_invoice_number
+from .models import get_invoice_number, canonize_language_for_email
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core import management
@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response, redirect
 from django.utils.translation import get_language
+from proso.django.request import get_language as get_language_from_request
 from django.utils.translation import ugettext as _
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -35,6 +36,7 @@ def invoice(request, subscription_id):
         'subscription': subscription,
         'user': subscription.user,
         'invoice_number': get_invoice_number(subscription),
+        'lang': canonize_language_for_email(get_language_from_request(request)),
     }
     if request.user.is_staff:
         other_keys = ['first_name', 'last_name', 'ic', 'dic', 'address_1', 'address_2', 'address_3']

@@ -48,6 +48,7 @@ def schedule_invoice_email(subscription):
         'request': request,
         'subscription': subscription,
         'invoice_number': get_invoice_number(subscription),
+        'lang': language,
     }
     template = os.path.join(settings.BASE_DIR, 'anatomy', 'templates', 'invoice.html')
     ScheduledEmail.objects.schedule_more(

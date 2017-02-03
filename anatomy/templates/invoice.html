@@ -96,7 +96,9 @@
                     <table>
                         <tr>
                             <td class="title" width="40%">
-                                <img src="{{ request.scheme }}://{{ request.get_host }}{% static 'img/anatom.png' %}" style="width:100%; max-width:300px;"/>
+                              {% with 'img/logo-'|add:lang|add:'.png' as logo_static %}
+                                <img src="{{ request.scheme }}://{{ request.get_host }}{% static logo_static %}" style="width:100%; max-width:300px;"/>
+                              {% endwith %}
                             </td>
 
                             <td>
