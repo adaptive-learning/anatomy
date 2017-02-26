@@ -1,13 +1,12 @@
 <div> 
   <div image-view context-id="contextId" stats="context.stats" category="category"></div> 
   <div class="modal-footer" ng-if="contexts.length">
-    <a href="/practice/{{category.identifier}}/"
+    <a href="/practice/{{category.identifier}}/?context={{context.identifier}}"
         ng-click="close()"
-        ng-if="category"
-        track-click="image modal practice"
+        track-click="image modal single practice"
         class="btn btn-primary pull-left"> 
       <i class="glyphicon glyphicon-play"></i>
-      <span translate>Procvičovat kapitolu</span>
+      <span translate>Procvičovat obrázek</span>
     </a>
     <a ng-click="setNextContext(-1)" class="btn btn-default">
       <i class="glyphicon glyphicon-arrow-left"></i>
