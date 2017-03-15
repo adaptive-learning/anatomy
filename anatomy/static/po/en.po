@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: anatom.cz\n"
-"PO-Revision-Date: 2017-01-10 09:20+0000\n"
+"PO-Revision-Date: 2017-03-15 20:28+0000\n"
 "Last-Translator: Vít Stanislav <slaweet@seznam.cz>\n"
 "Language-Team: English (http://www.transifex.com/adaptive-learning/anatomcz/language/en/)\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,10 +59,6 @@ msgid ""
 "    Podrobné <a href=\"/terms-of-use-cs\" rel=\"nofollow\">právní podmínky užití Anatoma najdete tady</a>."
 msgstr "All pictures and drawings and other content are protected by the authors. Copying, downloading, or distribution is prohibited. Please see our <a href=\"/terms-of-use-en\" rel=\"nofollow\">terms of use</a> for details. In the case you would be interested in the use of the website content in a different way than simply using this online application, please contact the owner of the author's rights (most frequently Dr. Radovan Hudak)."
 
-#: static/tpl/homepage.html:138
-msgid "anatomie.memorix.cz"
-msgstr "memorix.cz"
-
 #: static/tpl/confirm_modal.html:12
 msgid "Ano"
 msgstr "Yes"
@@ -92,11 +88,6 @@ msgstr "No writing"
 #: static/js/controllers/premiumController.js:22
 msgid "Byl zadán neplatný slevový kód '{{discountCode}}'."
 msgstr "Invalid discount code '{{discountCode}}'."
-
-#: static/tpl/404.html:14
-msgid ""
-"byla špatně napsána www adresa (překlep, zastaralá oblíbená položka atp.),"
-msgstr "badly written web address (typo, outdated bookmark, etc.)"
 
 #: static/js/directives.js:376
 msgid "Částečně refundováno"
@@ -187,10 +178,6 @@ msgstr "The profile does not exist."
 msgid "Hodně zdaru při učení anatomie,<br>Honza, Linda, Marek a Víťa"
 msgstr "Good luck with practicing anatomy, <br>Honza, Linda, Marek a Víťa"
 
-#: static/tpl/404.html:16
-msgid "interní odkaz v rámci aktuálního webu byl neplatný,"
-msgstr "internal link in the current site was invalid,"
-
 #: static/tpl/color_scale_legend.html:8
 msgid "Jak se počítá odhad znalostí?"
 msgstr "How is the estimate of knowledge calculated?"
@@ -260,12 +247,12 @@ msgstr "Skull"
 msgid "Lékařská fakulta Masarykovy univerzity"
 msgstr "Medical Faculty of Masaryk University"
 
-#: static/js/directives.js:200
-msgid "Memorix anatomie"
-msgstr "Memorix Anatomy"
-
 #: static/tpl/homepage.html:140
 msgid "Memorix Anatomie"
+msgstr "Memorix Anatomy"
+
+#: static/js/directives.js:200
+msgid "Memorix anatomie"
 msgstr "Memorix Anatomy"
 
 #: static/tpl/about.html:26
@@ -323,10 +310,6 @@ msgstr "Report Error"
 msgid "Najdi a pojmenuj 2000 pojmů na více než 200 obrázcích."
 msgstr "Recognize and name 2000 anatomical structures in more than 200 pictures."
 
-#: static/js/directives.js:186
-msgid "nám napiště"
-msgstr "write to us"
-
 #: static/tpl/about.html:55
 msgid "Náměty a připomínky"
 msgstr "Feedback"
@@ -374,10 +357,6 @@ msgstr "About us"
 msgid "Obličejová část hlavy"
 msgstr "Facial pat of the head"
 
-#: static/js/directives.js:181
-msgid "obnovit stránku"
-msgstr "refresh the page"
-
 #: static/tpl/settings.html:15
 msgid "Obtížnost otázek"
 msgstr "Questions' difficulty"
@@ -406,14 +385,6 @@ msgstr "Estimate of your knowledge"
 #: static/js/controllers/termLabelController.js:33
 msgid "Odhad znalosti"
 msgstr "Knowledge estimate"
-
-#: static/tpl/404.html:17
-msgid "odkaz z jiného webu byl zastaralý nebo neplatný."
-msgstr "link from another site was outdated or invalid."
-
-#: static/tpl/404.html:15
-msgid "odkaz z výsledků vyhledávače byl zastaralý,"
-msgstr "link from the search results was outdated,"
 
 #: static/tpl/image_click_help.html:12
 msgid "Odpověď můžeš vybrat kliknutím na příslušnou část na obrázku."
@@ -586,6 +557,10 @@ msgstr "Practice"
 msgid "Procvičovat kapitolu"
 msgstr "Practice chapter"
 
+#: static/tpl/image_modal.html:9
+msgid "Procvičovat obrázek"
+msgstr "Practice image"
+
 #: static/tpl/relations.html:46 static/tpl/view_tpl.html:45
 msgid "Procvičovat podkapitolu"
 msgstr "Practice subchapter"
@@ -666,10 +641,6 @@ msgstr "Correct answer"
 #: static/tpl/homepage.html:22
 msgid "Srdce"
 msgstr "Hearth"
-
-#: static/js/directives.js:201
-msgid "str."
-msgstr "p."
 
 #: static/tpl/404.html:6
 msgid "Stránka nebyla nalezena"
@@ -921,3 +892,36 @@ msgstr "Canceled"
 #: static/tpl/selected_practice_button.html:36
 msgid "Zrušit výběr"
 msgstr "Cancel selection"
+
+#: static/tpl/homepage.html:138
+msgid "anatomie.memorix.cz"
+msgstr "memorix.cz"
+
+#: static/tpl/404.html:14
+msgid ""
+"byla špatně napsána www adresa (překlep, zastaralá oblíbená položka atp.),"
+msgstr "badly written web address (typo, outdated bookmark, etc.)"
+
+#: static/tpl/404.html:16
+msgid "interní odkaz v rámci aktuálního webu byl neplatný,"
+msgstr "internal link in the current site was invalid,"
+
+#: static/js/directives.js:186
+msgid "nám napiště"
+msgstr "write to us"
+
+#: static/js/directives.js:181
+msgid "obnovit stránku"
+msgstr "refresh the page"
+
+#: static/tpl/404.html:17
+msgid "odkaz z jiného webu byl zastaralý nebo neplatný."
+msgstr "link from another site was outdated or invalid."
+
+#: static/tpl/404.html:15
+msgid "odkaz z výsledků vyhledávače byl zastaralý,"
+msgstr "link from the search results was outdated,"
+
+#: static/js/directives.js:201
+msgid "str."
+msgstr "p."
