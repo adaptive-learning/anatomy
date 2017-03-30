@@ -202,14 +202,15 @@ def save_screenshot(request):
         data = json.loads(request.body.decode("utf-8"))
         image = data['image']
         data['name'] = strip_non_ascii(data['name'])
+        extension = '.svg' if '<svg' in image[0:10] else '.png'
         filename = os.path.join(
-            settings.MEDIA_ROOT, 'thumbs', data['name'] + '.png')
+            settings.MEDIA_ROOT, 'thumbs', data['name'] + extension)
         save_base64_to_file(filename, image)
         if hasattr(request.user, "username"):
             filename = os.path.join(
                 settings.MEDIA_ROOT,
                 'userthumbs',
-                request.user.username + '--' + data['name'] + '.png')
+                request.user.username + '--' + data['name'] + extension)
             save_base64_to_file(filename, image)
 
         response = """{
@@ -232,6 +233,10 @@ def save_base64_to_file(filename, image):
             fh = open(filename, "wb")
             fh.write(image_encoded)
             fh.close()
+    elif '<svg' in image:
+        fh = open(filename, "w")
+        fh.write(image)
+        fh.close()
 
 
 def strip_non_ascii(string):

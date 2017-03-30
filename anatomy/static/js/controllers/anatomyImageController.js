@@ -2,7 +2,7 @@ angular.module('proso.anatomy.controllers')
 
 .controller('anatomyImageController', ['$scope', '$element', 'imageService', '$window', '$', 'colorService', '$timeout', '$filter', 'colors',
     function($scope, $element, imageService, $window, $, colorService, $timeout, $filter, colors) {
-  var ANIMATION_TIME_MS = 1000;
+  var ANIMATION_TIME_MS = 1;
   $element.parent().addClass('anatomy-image');
   $element.parent().addClass('image-' + $scope.code);
 

@@ -695,7 +695,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
           var imgSrc    = canvas.toDataURL("image/png");
           var data = {
             name : identifier,
-            image : imgSrc,
+            image : svgData,
           };
           $http.post('/savescreenshot/', data);
           screenshotTaken = true;

@@ -5,7 +5,16 @@
       <div class="panel panel-default">
         <div class="panel panel-body">
           <div ng-repeat="context in contexts">
-            <span anatomy-image code="{{context.identifier}}" ng-if="context.content" ></span>
+            <div>
+              <h2>{{context.name}}</h2>
+            </div>
+            <div ng-repeat="fc in context.flashcards">
+              <div>
+                <h3>{{fc.term.name}}</h3>
+              </div>
+              <div>{{fc.classSaveIdentifier}}</div>
+              <div anatomy-image code="fc.classSaveIdentifier" ng-if="context.content && fc.processed" ></div>
+            </div>
           </div>
         </div>
       </div>
