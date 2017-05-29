@@ -6,7 +6,7 @@ angular.module('proso.anatomy.controllers')
     targetDifficulty: "item_selector.parameters.target_probability",
     setLength: 'practice.common.set_length',
     allowOpenQuestions: "options_count.parameters.allow_zero_options",
-    allowWriting: "options_count.parameters.allow_zero_options_restriction",
+    forbidWriting: "options_count.parameters.allow_zero_options_restriction",
   };
   $scope.form = {
     targetDifficulty: configService.getConfig("proso_models", keys.targetDifficulty, 65),
@@ -40,8 +40,8 @@ angular.module('proso.anatomy.controllers')
 
     customConfigService.setConfig({
       app_name: 'proso_models',
-      key : keys.allowWriting,
-      value: $scope.form.questionType == 'all',
+      key : keys.forbidWriting,
+      value: $scope.form.questionType != 'all',
     }).success(function () {
       $scope.message = gettextCatalog.getString('Nastavení bylo uloženo.');
       $scope.messageType = 'success';
@@ -53,10 +53,10 @@ angular.module('proso.anatomy.controllers')
 
   function getQuestionType() {
     var allowOpenQuestions = configService.getConfig("proso_models", keys.allowOpenQuestions);
-    var allowWriting = configService.getConfig("proso_models", keys.allowWriting);
+    var forbidWriting = configService.getConfig("proso_models", keys.forbidWriting);
     if (allowOpenQuestions === false) {
       return 'options-only';
-    } else if (allowWriting === true) {
+    } else if (forbidWriting === true) {
       return 'no-write';
     } else {
       return 'all';
