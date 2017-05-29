@@ -25,13 +25,13 @@
             "months-referral": 1,
             "featured": true,
             "description-en": {
-                "price": 39,
+                "price": 24,
                 "currency": "EUR",
                 "name": " Half-year",
                 "description": "Go through one semester of anatomy with us."
             },
             "description-cs": {
-                "price": 989,
+                "price": 589,
                 "currency": "CZK",
                 "name": "Půl roku",
                 "description": "Absolvuj s námi jeden semestr anatomie."
@@ -43,13 +43,13 @@
             "months-validity": 12,
             "months-referral": 2,
             "description-en": {
-                "price": 64,
+                "price": 35,
                 "currency": "EUR",
                 "name": "Year",
                 "description": "Go through a whole year of anatomy with us."
             },
             "description-cs": {
-                "price": 1589,
+                "price": 889,
                 "currency": "CZK",
                 "name": "Rok",
                 "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
