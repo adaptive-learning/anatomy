@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from .models import get_invoice_number, canonize_language_for_email
 from django.conf import settings
+from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.core import management
 from django.core.cache import cache
@@ -8,20 +9,40 @@ from django.http import HttpResponse, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response, redirect
 from django.utils.translation import get_language
-from proso.django.request import get_language as get_language_from_request
 from django.utils.translation import ugettext as _
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import ensure_csrf_cookie
 from gopay.enums import PaymentStatus
+from proso.django.request import get_language as get_language_from_request
 from proso_common.models import get_global_config
 from proso_flashcards.models import Category
 from proso_flashcards.models import FlashcardAnswer, Flashcard
 from proso_models.models import get_environment
 from proso_subscription.models import Subscription
+from proso_user.views import profile
+from social.apps.django_app.utils import psa
 import base64
 import json
 import os
 import random
+
+
+@psa('social:complete')
+def auth_by_access_token(request, backend):
+    # This view expects an access_token GET parameter, if it's needed,
+    # request.backend and request.strategy will be loaded with the current
+    # backend and strategy.
+    if 'access_token' not in request.GET:
+        return HttpResponseBadRequest("GET parameter access_token is required.")
+    user = request.backend.do_auth(request.GET.get('access_token'))
+    if user:
+        login(request, user)
+        return profile(request)
+    else:
+        return JsonResponse({
+            'error': _('The access token deos not match any user.'),
+            'error_type': 'access_token_failed',
+        }, status=401)
 
 
 @login_required
