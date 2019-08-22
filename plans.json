@@ -16,7 +16,8 @@
                 "currency": "CZK",
                 "name": "Měsíc",
                 "description": "Vyzkoušej si naši službu na jeden měsíc."
-            }
+            },
+            "disabled": true
         },
         {
             "id": "halfyearly",
@@ -35,7 +36,8 @@
                 "currency": "CZK",
                 "name": "Půl roku",
                 "description": "Absolvuj s námi jeden semestr anatomie."
-            }
+            },
+            "disabled": true
         },
         {
             "id": "yearly",
@@ -50,6 +52,62 @@
             },
             "description-cs": {
                 "price": 889,
+                "currency": "CZK",
+                "name": "Rok",
+                "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
+            },
+            "disabled": true
+        },
+        {
+            "id": "mothly-2019",
+            "type": "full",
+            "months-validity": 1,
+            "months-referral": 0,
+            "description-en": {
+                "price": 4,
+                "currency": "EUR",
+                "name": "Month",
+                "description": "Try out our service for one month."
+            },
+            "description-cs": {
+                "price": 89,
+                "currency": "CZK",
+                "name": "Měsíc",
+                "description": "Vyzkoušej si naši službu na jeden měsíc."
+            }
+        },
+        {
+            "id": "halfyearly-2019",
+            "type": "full",
+            "months-validity": 6,
+            "months-referral": 1,
+            "featured": true,
+            "description-en": {
+                "price": 12,
+                "currency": "EUR",
+                "name": " Half-year",
+                "description": "Go through one semester of anatomy with us."
+            },
+            "description-cs": {
+                "price": 289,
+                "currency": "CZK",
+                "name": "Půl roku",
+                "description": "Absolvuj s námi jeden semestr anatomie."
+            }
+        },
+        {
+            "id": "yearly-2019",
+            "type": "full",
+            "months-validity": 12,
+            "months-referral": 2,
+            "description-en": {
+                "price": 16,
+                "currency": "EUR",
+                "name": "Year",
+                "description": "Go through a whole year of anatomy with us."
+            },
+            "description-cs": {
+                "price": 389,
                 "currency": "CZK",
                 "name": "Rok",
                 "description": "Absolvuj s námi celou anatomii, od začátku až do konce."
