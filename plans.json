@@ -142,6 +142,13 @@
             "discount-percentage": 50,
             "usage-limit": 100,
             "code": "srdcemanatom"
+        },
+        {
+            "id": "covid-2020",
+            "discount-percentage": 100,
+            "usage-limit": 1000,
+            "code": "staysafe2020",
+            "plan": "mothly-2019"
         }
 
     ]

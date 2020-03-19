@@ -307,6 +307,27 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
     };
   }])
 
+  .directive('covidBanner', ['userService', '$location',
+      function(userService, $location) {
+    return {
+      restrict: 'A',
+      templateUrl : 'static/tpl/covid_banner.html',
+      link: function ($scope) {
+        $scope.show = !userService.status.loading && !userService.user.profile.subscribed && !$scope.closed;
+
+        $scope.close = function() {
+          $scope.closed = true;
+        };
+
+        $scope.goto = function(link) {
+          $scope.closed = true;
+          $scope.show = false;
+          $location.url(link);
+        };
+      }
+    };
+  }])
+
   .directive('premiumBanner', ['userService', '$timeout', '$rootScope', '$location',
       function(userService, $timeout, $rootScope, $location) {
     return {

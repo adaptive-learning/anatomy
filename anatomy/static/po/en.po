@@ -200,6 +200,12 @@ msgid ""
 "  odpovědí. Ulož si svůj postup, aby aplikace mohla dlouhodobě přizpůsobovat otázky Tvým znalostem."
 msgstr "You have already answered <b>{{userService.user.profile.number_of_answers}}</b>\nquestions. Save your progress, so that the app can adapt the questions to your knowledge in long term."
 
+
+#: static/tpl/covid_banner.html:9
+msgid ""
+"Abychom vám pomohli strávit smysluplně volné chvíle při stávající situaci okolo pandemie způsobené virem SARS-CoV-2, rozhodli jsme se vám poskytnout měsíční předplatné zdarma."
+msgstr "To help you spend meaningful moments in the current pandemic situation caused by SARS-CoV-2, we've decided to give you a free monthly subscription."
+
 #: static/tpl/user_tpl.html:10
 msgid "Jméno"
 msgstr "First name"

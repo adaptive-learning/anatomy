@@ -1,0 +1,16 @@
+<div class="beta-alert text-center alert alert-info"
+    ng-if="show">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+      track-click="close covid banner">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only" translate>Zavřít</span>
+  </button>
+  <span track-show="covid banner" translate>
+    Abychom vám pomohli strávit smysluplně volné chvíle při stávající situaci okolo pandemie způsobené virem SARS-CoV-2, rozhodli jsme se vám poskytnout měsíční předplatné zdarma.
+  </span>
+  <a class="btn btn-default"
+     track-click="covid banner"
+     ng-click="goto('/premium/?discount_code=staysafe2020')"
+     translate
+    >Zjistit více</a>
+</div>
