@@ -3,11 +3,7 @@ default:
         environment:
             class: proso_flashcards.environment.DatabaseEnvironment
         predictive_model:
-            class: proso.models.prediction.PFAEStaircase
-            parameters:
-              elo_alpha: 0.4
-              pfae_good: 2.6
-              pfae_bad: 0.7
+            class: proso.models.prediction.PriorCurrentPredictiveModel
         option_selector:
             class: proso.models.option_selection.AdjustedOptionSelection
         options_count:
