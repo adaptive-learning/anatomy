@@ -250,7 +250,7 @@ msgstr "Zásady ochrany osobních údajů"
 
 #: anatomy/templates/home.html:249
 msgid "Aplikace Anatomyka"
-msgstr "Aplikace Anatomyka"
+msgstr "Aplikace Anatomyka: 3D anatomický atlas v češtině"
 
 #: anatomy/templates/home.html:246
 msgid "URL_Aplikace_Anatomyka"
