@@ -184,7 +184,7 @@ msgstr "How is the estimate of knowledge calculated?"
 
 #: static/tpl/homepage.html:72
 msgid "Jak to funguje?"
-msgstr "How does it work?"
+msgstr "How does practiceanatomy.com work?"
 
 #: static/tpl/practice_setting_tpl.html:9
 msgid "Jazyk terminologie"
