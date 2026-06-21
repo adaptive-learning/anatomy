@@ -275,4 +275,4 @@ msgstr "chat.anatomytutor.ai/cs"
 
 #: static/tpl/homepage.html:83
 msgid "ANATOMYTUTOR.LOGO_ALT"
-msgstr "Anatomy Tutor kombinuje E-Book a AI lektora odpovídajícího na otázky a servírujícího flashcards a otázky."
+msgstr "Anatomy Tutor: E-Book a AI lektor"
