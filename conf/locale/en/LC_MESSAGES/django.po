@@ -246,9 +246,13 @@ msgstr "Terms and Conditions of Use"
 msgid "Zásady ochrany osobních údajů"
 msgstr "Privacy policy"
 
+#: anatomy/templates/home.html:249
+msgid "Aplikace Anatomyka"
+msgstr "One of the most detailed 3D anatomical atlas in the world!"
+
 #: anatomy/templates/home.html:246
-msgid "Aplikace na Google Play"
-msgstr "App on Google Play"
+msgid "URL_Aplikace_Anatomyka"
+msgstr "www.memorixanatomy.com/anatomyka"
 
 #: anatomy/templates/invoice.html:103
 msgid "Faktura - Daňový doklad číslo"
