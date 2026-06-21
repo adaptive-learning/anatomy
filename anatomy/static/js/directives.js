@@ -196,7 +196,7 @@ angular.module('proso.anatomy.directives', ['proso.anatomy.templates'])
       scope : true,
       template: '<span ng-show="pageNumber" class="page-number" > ' +
                 gettextCatalog.getString('Zdroj') + ': ' +
-                  ' <a href="http://anatomie.memorix.cz">' +
+                  ' <a href="https://www.memorix.cz">' +
                   gettextCatalog.getString('Memorix anatomie') + '</a>, ' +
                   gettextCatalog.getString('str.') + ' {{pageNumber}}' +
                 ' </span>',
