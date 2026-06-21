@@ -66,7 +66,7 @@ msgstr "Zjistit více"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:72
 msgid "Jak to funguje?"
-msgstr "Jak to funguje?"
+msgstr "Jak Anatom.cz funguje?"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:76
 msgid "1. Vybereš si orgánový systém nebo část těla"
