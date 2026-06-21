@@ -44,7 +44,7 @@ msgstr "PracticeAnatomy.com is being developed at <a href=\"http://www.fi.muni.c
 
 #: static/tpl/about.html:62
 msgid ""
-"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://anatomie.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
+"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
 "    medicínskou správnost zodpovídá: MUDr. <strong>Linda\n"
 "    Kašičková</strong> (koordinátorka, lékařka FN Ostrava), MUDr. <strong>Marek\n"
 "    Čierny</strong> (lékař Medical College of Wisconsin), MUDr. <strong>Ondřej Volný</strong>\n"
