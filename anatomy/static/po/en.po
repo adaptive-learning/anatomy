@@ -953,5 +953,5 @@ msgstr "chat.anatomytutor.ai"
 
 #: static/tpl/homepage.html:83
 msgid "ANATOMYTUTOR.LOGO_ALT"
-msgstr "Anatomy Tutor combines an E-Book and AI tutor answering your questions and serving flashcards and questions."
+msgstr "Anatomy Tutor: an E-Book and AI tutor"
 
