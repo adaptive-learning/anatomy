@@ -947,6 +947,9 @@ msgstr "chat.anatomytutor.ai"
 msgid "ANATOMYTUTOR.LOGO_ALT"
 msgstr "Anatomy Tutor: an E-Book and AI tutor"
 
+#: static/tpl/about.html:87 static/tpl/homepage.html:155
+msgid "www.memorix.cz"
+msgstr "www.memorixanatomy.com"
 
 # High quality pictures section - Memorix
 #: static/tpl/homepage.html:130
