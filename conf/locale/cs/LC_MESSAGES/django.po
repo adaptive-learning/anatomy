@@ -248,9 +248,13 @@ msgstr "Podmínky použití"
 msgid "Zásady ochrany osobních údajů"
 msgstr "Zásady ochrany osobních údajů"
 
+#: anatomy/templates/home.html:249
+msgid "Aplikace Anatomyka"
+msgstr "Aplikace Anatomyka"
+
 #: anatomy/templates/home.html:246
-msgid "Aplikace na Google Play"
-msgstr "Aplikace na Google Play"
+msgid "URL_Aplikace_Anatomyka"
+msgstr "www.memorix.cz/anatomyka"
 
 #: anatomy/templates/invoice.html:103
 msgid "Faktura - Daňový doklad číslo"
