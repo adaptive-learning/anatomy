@@ -259,7 +259,7 @@ msgstr "Žádné časté chyby nebyly nalezeny"
 # ANATOMYTUTOR block
 #: static/tpl/homepage.html:73
 msgid "ANATOMYTUROR.HEADING"
-msgstr "Pozor, je tu ANATOMY TUTOR"
+msgstr "Pozor, je tu ANATOMY TUTOR!"
 
 #: static/tpl/homepage.html:78
 msgid "ANATOMYTUROR.H3_ONE"
