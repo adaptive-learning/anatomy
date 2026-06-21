@@ -277,4 +277,4 @@ msgstr "www.memorix.cz"
 # High quality pictures section - Memorix
 #: static/tpl/homepage.html:152
 msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
-msgstr "Přehledná anatomické schémata z úspěšné učebnice <a href=\"https://{{ memorixUrl }}\">Memorix Anatomie</a>. Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
+msgstr "Přehledná anatomická schémata z úspěšné učebnice <a href=\"https://{{ memorixUrl }}\">Memorix Anatomie</a>. Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
