@@ -68,7 +68,7 @@ msgstr "Learn more"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:72
 msgid "Jak to funguje?"
-msgstr "How does it work?"
+msgstr "How does practiceanatomy.com work?"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:76
 msgid "1. Vybereš si orgánový systém nebo část těla"
