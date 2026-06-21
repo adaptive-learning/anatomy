@@ -102,9 +102,12 @@ msgid "Kvalitní obrázky"
 msgstr "Kvalitní obrázky"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:138
-#: anatomy/templates/home.html:173 anatomy/templates/home.html.py:250
-msgid "anatomie.memorix.cz"
-msgstr "anatomie.memorix.cz"
+#: anatomy/templates/home.html:173 
+#: anatomy/templates/home.html:173
+#: anatomy/templates/home.html.py:250
+#: anatomy/static/tpl/about.html:87
+msgid "www.memorix.cz"
+msgstr "www.memorix.cz"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:140
 #: anatomy/templates/home.html:252
