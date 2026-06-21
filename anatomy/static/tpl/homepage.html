@@ -68,6 +68,28 @@
       </div>
   </div>
 
+
+<div class="how-it-works container-fluid exceptional">
+<h2>{{"ANATOMYTUTOR.HEADING" | translate }}</h2>
+
+<div class="row works-div">
+  <div class="col-sm-offset-1 col-sm-10 col-lg-offset-3 col-lg-6">
+    <div class="row">
+      <div class="col-sm-7" >
+        <h3>{{"ANATOMYTUTOR.H3_ONE" | translate }}</h3>
+        <p>{{"ANATOMYTUTOR.PARAGRAPH_ONE" | translate }}</p>
+      </div>
+      <a href="https://{{'ANATOMYTUTOR.URL' | translate }}">
+        <img ng-src="/static/img/anatomytutor-logo.png"
+            alt="{{'ANATOMYTUTOR.LOGO_ALT' | translate}}"/>
+      </a>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+</div>
+
 <div class="how-it-works container-fluid">
 <h2>{{"Jak to funguje?" | translate }}</h2>
 
@@ -127,15 +149,10 @@
     <div class="row">
       <div class="col-sm-7" >
         <h3>{{"Kvalitní obrázky" | translate }}</h3>
-        <p translate>
-          Přehledná anatomické schámata z úspěšné učebnice 
-          <a href="http://memorix.cz/">Memorix Anatomie</a>.
-          Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které
-          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie.
-        </p>
+        <p translate translate-values="{memorixUrl: ('www.memorix.cz' | translate)}">HOMEPAGE.UNIQUE.MEMORIXPICTURES</p>
       </div>
       <div class="col-sm-4 col-sm-offset-1" >
-        <a href="http://{{'anatomie.memorix.cz' | translate}}">
+        <a href="https://{{'www.memorix.cz' | translate}}">
           <img ng-src="/static/img/book-{{LANGUAGE_CODE}}.png"
             alt="{{'Memorix Anatomie' | translate}}"/>
         </a>

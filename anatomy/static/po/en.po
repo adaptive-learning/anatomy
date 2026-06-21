@@ -44,14 +44,14 @@ msgstr "PracticeAnatomy.com is being developed at <a href=\"http://www.fi.muni.c
 
 #: static/tpl/about.html:62
 msgid ""
-"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"http://anatomie.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
+"Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a\n"
 "    medicínskou správnost zodpovídá: MUDr. <strong>Linda\n"
 "    Kašičková</strong> (koordinátorka, lékařka FN Ostrava), MUDr. <strong>Marek\n"
 "    Čierny</strong> (lékař Medical College of Wisconsin), MUDr. <strong>Ondřej Volný</strong>\n"
 "    (anatom, lékař NK FN u Sv. Anny). Na tvorbě obsahu Anatoma se významně podílejí následující studenti léařství LF MU v Brně: \n"
 "      <strong>David Dufek, Lýdia Nováková, Adriana Slaníková, Albert Štěrba, a Magda Šubrtová.</strong>           \n"
 "    Děkujeme studentům a studentkám, kteří s tvorbou Anatoma pomáhali v minulosti: Veronice Puchnerové, Michaele Janákové a Karolíně Svobodové."
-msgstr "Anatomical drawings were kindly provided by authors of a successful textbook <a href=\"http://anatomy.memorix.cz/\">Memorix Anatomy</a>. \nThe medical precision is a work and responsibility of: Dr. <strong>Linda Kašičková</strong> (coordinator, resident at Univeristy Hospital Ostrava), Dr. <strong>Marek Čierny</strong> (resident at Medical College of Wisconsin Affil. hospitals), Dr. <strong>Ondřej Volný</strong>  (anatomist, physician at St. Anne's Univeristy Hospital Brno).  The content of Practice Anatomy would not be made possible without the contribution of the following medical students of Medical Faculty of Masaryk University in Brno:  <strong>David Dufek, Lýdia Nováková, Adriana Slaníková, Albert Štěrba, a Magda Šubrtová.</strong> Thank you!\nWe would like to thank also to our previous collaborators: Veronika Puchnerová, Michaela Janáková and Karolína Svobodová."
+msgstr "Anatomical drawings were kindly provided by authors of a successful textbook <a href=\"https://www.memorixanatomy.com/\">Memorix Anatomy</a>. \nThe medical precision is a work and responsibility of: Dr. <strong>Linda Kašičková</strong> (coordinator, resident at University Hospital Ostrava), Dr. <strong>Marek Čierny</strong> (resident at Medical College of Wisconsin Affil. hospitals), Dr. <strong>Ondřej Volný</strong>  (anatomist, physician at St. Anne's University Hospital Brno).  The content of Practice Anatomy would not be made possible without the contribution of the following medical students of Medical Faculty of Masaryk University in Brno:  <strong>David Dufek, Lýdia Nováková, Adriana Slaníková, Albert Štěrba, a Magda Šubrtová.</strong> Thank you!\nWe would like to thank also to our previous collaborators: Veronika Puchnerová, Michaela Janáková and Karolína Svobodová."
 
 #: static/tpl/about.html:91
 msgid ""
@@ -184,7 +184,7 @@ msgstr "How is the estimate of knowledge calculated?"
 
 #: static/tpl/homepage.html:72
 msgid "Jak to funguje?"
-msgstr "How does it work?"
+msgstr "How does practiceanatomy.com work?"
 
 #: static/tpl/practice_setting_tpl.html:9
 msgid "Jazyk terminologie"
@@ -504,14 +504,6 @@ msgstr "Subscription"
 #: static/tpl/summary_tpl.html:48
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
-
-#: static/tpl/homepage.html:130
-msgid ""
-"Přehledná anatomické schámata z úspěšné učebnice \n"
-"          <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
-"          Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
-"          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
-msgstr "Concise anatomical pictures are from a successful textbook <a href=\"http://memorix.cz/\"> Memorix Anatomy </a>. The structures and pictures in this application represents an essential knowledge for medical students to successfully complete an anatomy exam."
 
 #: static/tpl/my_subscriptions_tpl.html:29 static/tpl/tile.html:14
 msgid "Premium obsah"
@@ -931,3 +923,35 @@ msgstr "link from the search results was outdated,"
 #: static/js/directives.js:201
 msgid "str."
 msgstr "p."
+
+
+
+# ANATOMYTUTOR block
+#: static/tpl/homepage.html:73
+msgid "ANATOMYTUTOR.HEADING"
+msgstr "ANATOMY TUTOR is here!"
+
+#: static/tpl/homepage.html:78
+msgid "ANATOMYTUTOR.H3_ONE"
+msgstr "Ace your anatomy exam with the Anatomy Tutor app"
+
+#: static/tpl/homepage.html:79
+msgid "ANATOMYTUTOR.PARAGRAPH_ONE"
+msgstr "Ask anything, study smarter, remember longer."
+
+#: static/tpl/homepage.html:81
+msgid "ANATOMYTUTOR.URL"
+msgstr "chat.anatomytutor.ai"
+
+#: static/tpl/homepage.html:83
+msgid "ANATOMYTUTOR.LOGO_ALT"
+msgstr "Anatomy Tutor: an E-Book and AI tutor"
+
+#: static/tpl/about.html:87 static/tpl/homepage.html:155
+msgid "www.memorix.cz"
+msgstr "www.memorixanatomy.com"
+
+# High quality pictures section - Memorix
+#: static/tpl/homepage.html:130
+msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
+msgstr "Concise anatomical pictures are from a successful textbook <a href=\"https://{{ memorixUrl }}\">Memorix Anatomy</a>. The structures and pictures in this application represent essential knowledge that may be required from medical students at their anatomy exam."

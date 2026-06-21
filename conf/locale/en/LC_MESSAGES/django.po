@@ -68,7 +68,7 @@ msgstr "Learn more"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:72
 msgid "Jak to funguje?"
-msgstr "How does it work?"
+msgstr "How does practiceanatomy.com work?"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:76
 msgid "1. Vybereš si orgánový systém nebo část těla"
@@ -104,12 +104,16 @@ msgid "Kvalitní obrázky"
 msgstr "High quality pictures"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:138
-#: anatomy/templates/home.html:173 anatomy/templates/home.html.py:250
-msgid "anatomie.memorix.cz"
-msgstr "memorix.cz"
+#: anatomy/templates/home.html:173
+#: anatomy/templates/home.html.py:250
+#: anatomy/static/tpl/about.html:87
+msgid "www.memorix.cz"
+msgstr "www.memorixanatomy.com"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:140
 #: anatomy/templates/home.html:252
+#: anatomy/templates/home.html:178
+#: anatomy/static/tpl/about.html:88
 msgid "Memorix Anatomie"
 msgstr "Memorix Anatomy"
 
@@ -242,9 +246,13 @@ msgstr "Terms and Conditions of Use"
 msgid "Zásady ochrany osobních údajů"
 msgstr "Privacy policy"
 
+#: anatomy/templates/home.html:249
+msgid "Aplikace Anatomyka"
+msgstr "One of the most detailed 3D anatomical atlases in the world!"
+
 #: anatomy/templates/home.html:246
-msgid "Aplikace na Google Play"
-msgstr "App on Google Play"
+msgid "URL_Aplikace_Anatomyka"
+msgstr "www.memorixanatomy.com/anatomyka"
 
 #: anatomy/templates/invoice.html:103
 msgid "Faktura - Daňový doklad číslo"

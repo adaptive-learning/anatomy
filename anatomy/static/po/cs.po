@@ -72,7 +72,7 @@ msgstr "Heslo znovu"
 
 #: static/tpl/homepage.html:39
 msgid "Jak to funguje?"
-msgstr "Jak to funguje?"
+msgstr "Jak Anatom.cz funguje?"
 
 #: static/tpl/user_tpl.html:22
 msgid "Jméno"
@@ -145,13 +145,6 @@ msgstr "Přehled znalostí"
 msgid "Přehled znalostí uživatele"
 msgstr "Přehled znalostí uživatele"
 
-#: static/tpl/homepage.html:87
-msgid ""
-"Přehledná anatomické schámata z úspěšné učebnice \n"
-"        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
-"        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
-"        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
-msgstr "Přehledná anatomické schémata z úspěšné učebnice \n        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
 
 #: static/tpl/map_tpl.html:24
 msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
@@ -254,3 +247,34 @@ msgstr "Úspěšnost"
 #: static/tpl/confused_tpl.html:8
 msgid "Žádné časté chyby nebyly nalezeny"
 msgstr "Žádné časté chyby nebyly nalezeny"
+
+
+# ANATOMYTUTOR block
+#: static/tpl/homepage.html:73
+msgid "ANATOMYTUTOR.HEADING"
+msgstr "Pozor, je tu ANATOMY TUTOR!"
+
+#: static/tpl/homepage.html:78
+msgid "ANATOMYTUTOR.H3_ONE"
+msgstr "Zvládněte zkoušku z anatomie pomocí Anatomy Tutor aplikace"
+
+#: static/tpl/homepage.html:79
+msgid "ANATOMYTUTOR.PARAGRAPH_ONE"
+msgstr "Zeptej se na cokoliv, uč se chytře, pamatuj si déle."
+
+#: static/tpl/homepage.html:81
+msgid "ANATOMYTUTOR.URL"
+msgstr "chat.anatomytutor.ai/cs"
+
+#: static/tpl/homepage.html:83
+msgid "ANATOMYTUTOR.LOGO_ALT"
+msgstr "Anatomy Tutor: E-Book a AI lektor"
+
+#: static/tpl/about.html:87 static/tpl/homepage.html:155
+msgid "www.memorix.cz"
+msgstr "www.memorix.cz"
+
+# High quality pictures section - Memorix
+#: static/tpl/homepage.html:152
+msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
+msgstr "Přehledná anatomická schémata z úspěšné učebnice <a href=\"https://{{ memorixUrl }}\">Memorix Anatomie</a>. Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
