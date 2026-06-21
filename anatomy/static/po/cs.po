@@ -270,6 +270,9 @@ msgstr "chat.anatomytutor.ai/cs"
 msgid "ANATOMYTUTOR.LOGO_ALT"
 msgstr "Anatomy Tutor: E-Book a AI lektor"
 
+#: static/tpl/about.html:87 static/tpl/homepage.html:155
+msgid "www.memorix.cz"
+msgstr "www.memorix.cz"
 
 # High quality pictures section - Memorix
 #: static/tpl/homepage.html:152
