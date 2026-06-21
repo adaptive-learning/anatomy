@@ -145,13 +145,6 @@ msgstr "Přehled znalostí"
 msgid "Přehled znalostí uživatele"
 msgstr "Přehled znalostí uživatele"
 
-#: static/tpl/homepage.html:87
-msgid ""
-"Přehledná anatomické schámata z úspěšné učebnice \n"
-"        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
-"        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
-"        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
-msgstr "Přehledná anatomické schémata z úspěšné učebnice \n        <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n        Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n        mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
 
 #: static/tpl/map_tpl.html:24
 msgid "Přiblížit mapu můžete i kolečkem myši nebo dotykovým gestem."
@@ -276,3 +269,9 @@ msgstr "chat.anatomytutor.ai/cs"
 #: static/tpl/homepage.html:83
 msgid "ANATOMYTUTOR.LOGO_ALT"
 msgstr "Anatomy Tutor: E-Book a AI lektor"
+
+
+# High quality pictures section - Memorix
+#: static/tpl/homepage.html:152
+msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
+msgstr "Přehledná anatomické schémata z úspěšné učebnice <a href=\"https://{{ memorixUrl }}\">Memorix Anatomie</a>. Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
