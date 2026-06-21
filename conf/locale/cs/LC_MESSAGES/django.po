@@ -103,7 +103,6 @@ msgstr "Kvalitní obrázky"
 
 #: anatomy/templates/generated/static/tpl/homepage.html:138
 #: anatomy/templates/home.html:173 
-#: anatomy/templates/home.html:173
 #: anatomy/templates/home.html.py:250
 #: anatomy/static/tpl/about.html:87
 msgid "www.memorix.cz"
