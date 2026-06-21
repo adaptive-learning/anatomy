@@ -254,3 +254,25 @@ msgstr "Úspěšnost"
 #: static/tpl/confused_tpl.html:8
 msgid "Žádné časté chyby nebyly nalezeny"
 msgstr "Žádné časté chyby nebyly nalezeny"
+
+
+# ANATOMYTUTOR block
+#: static/tpl/homepage.html:73
+msgid "ANATOMYTUROR.HEADING"
+msgstr "Pozor, je tu ANATOMY TUTOR"
+
+#: static/tpl/homepage.html:78
+msgid "ANATOMYTUROR.H3_ONE"
+msgstr "Zvládněte zkoušku z anatomie pomocí Anatomy Tutor aplikace"
+
+#: static/tpl/homepage.html:79
+msgid "ANATOMYTUROR.PARAGRAPH_ONE"
+msgstr "Zeptej se na cokoliv, uč se chytře, pamatuj si déle."
+
+#: static/tpl/homepage.html:81
+msgid "ANATOMYTUROR.URL"
+msgstr "chat.anatomytutor.ai/cs"
+
+#: static/tpl/homepage.html:83
+msgid "ANATOMYTUROR.LOGO_ALT"
+msgstr "Anatomy Tutor kombinuje E-Book a AI lektora odpovídajícího na otázky a servírujícího flashcards a otázky."
