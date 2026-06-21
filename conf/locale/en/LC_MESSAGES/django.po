@@ -248,7 +248,7 @@ msgstr "Privacy policy"
 
 #: anatomy/templates/home.html:249
 msgid "Aplikace Anatomyka"
-msgstr "One of the most detailed 3D anatomical atlas in the world!"
+msgstr "One of the most detailed 3D anatomical atlases in the world!"
 
 #: anatomy/templates/home.html:246
 msgid "URL_Aplikace_Anatomyka"
