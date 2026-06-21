@@ -936,22 +936,22 @@ msgstr "p."
 
 # ANATOMYTUTOR block
 #: static/tpl/homepage.html:73
-msgid "ANATOMYTUROR.HEADING"
+msgid "ANATOMYTUTOR.HEADING"
 msgstr "ANATOMY TUTOR is here!"
 
 #: static/tpl/homepage.html:78
-msgid "ANATOMYTUROR.H3_ONE"
+msgid "ANATOMYTUTOR.H3_ONE"
 msgstr "Ace your anatomy exam with the Anatomy Tutor app"
 
 #: static/tpl/homepage.html:79
-msgid "ANATOMYTUROR.PARAGRAPH_ONE"
+msgid "ANATOMYTUTOR.PARAGRAPH_ONE"
 msgstr "Ask anything, study smarter, remember longer."
 
 #: static/tpl/homepage.html:81
-msgid "ANATOMYTUROR.URL"
+msgid "ANATOMYTUTOR.URL"
 msgstr "chat.anatomytutor.ai"
 
 #: static/tpl/homepage.html:83
-msgid "ANATOMYTUROR.LOGO_ALT"
+msgid "ANATOMYTUTOR.LOGO_ALT"
 msgstr "Anatomy Tutor combines an E-Book and AI tutor answering your questions and serving flashcards and questions."
 
