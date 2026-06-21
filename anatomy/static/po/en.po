@@ -505,14 +505,6 @@ msgstr "Subscription"
 msgid "Přehled znalostí"
 msgstr "Knowledge Overview"
 
-#: static/tpl/homepage.html:130
-msgid ""
-"Přehledná anatomické schámata z úspěšné učebnice \n"
-"          <a href=\"http://memorix.cz/\">Memorix Anatomie</a>.\n"
-"          Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které\n"
-"          mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
-msgstr "Concise anatomical pictures are from a successful textbook <a href=\"http://memorix.cz/\"> Memorix Anatomy </a>. The structures and pictures in this application represents an essential knowledge for medical students to successfully complete an anatomy exam."
-
 #: static/tpl/my_subscriptions_tpl.html:29 static/tpl/tile.html:14
 msgid "Premium obsah"
 msgstr "Premium content"
@@ -955,3 +947,8 @@ msgstr "chat.anatomytutor.ai"
 msgid "ANATOMYTUTOR.LOGO_ALT"
 msgstr "Anatomy Tutor: an E-Book and AI tutor"
 
+
+# High quality pictures section - Memorix
+#: static/tpl/homepage.html:130
+msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
+msgstr "Concise anatomical pictures are from a successful textbook <a href=\"https://{{ memorixUrl }}\">Memorix Anatomy</a>. The structures and pictures in this application represent essential knowledge that may be required from medical students at their anatomy exam."
