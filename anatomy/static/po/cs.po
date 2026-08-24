@@ -292,7 +292,7 @@ msgstr "2015-2026"
 
 #: static/tpl/about.html:14
 msgid "ABOUTUS.PARAGRAPH_ONE"
-msgstr "Primárním cílem projektu Anatom.cz bylo usnadnit studentům medicíny, antropologie a dalším zájemcům o anatomii procvičování svých znalostí na přehledných schémat z <a href='https://www.memorix.cz/'>Memorixu Anatomie</a>. Sekundárním cílem bylo vyzkoušet přínos inovativního softwarového modelu, který se na základě předchozích odpovědí snaží vybrat Vám následující otázku adekvátní obtížnosti. Během 11 let jsme zaznamenali 9.976 registrovaných uživatelů a 14,5 milionů odpovědí na 5.503 strukturách, 267 obrázcích a ve 12 typech vztahů. Více v <a href='rozlouceni.anatom.cz'>rozloučení</a>. "
+msgstr "Primárním cílem projektu Anatom.cz bylo usnadnit studentům medicíny, antropologie a dalším zájemcům o anatomii procvičování svých znalostí na přehledných schémat z <a href='https://www.memorix.cz/'>Memorixu Anatomie</a>. Sekundárním cílem bylo vyzkoušet přínos inovativního softwarového modelu, který se na základě předchozích odpovědí snaží vybrat Vám následující otázku adekvátní obtížnosti. Během 11 let jsme zaznamenali 9.976 registrovaných uživatelů a 14,5 milionů odpovědí na 5.503 strukturách, 267 obrázcích a ve 12 typech vztahů. Více v <a href='https://rozlouceni.anatom.cz'>rozloučení</a>. "
 
 
 #: static/tpl/about.html:17
