@@ -1023,9 +1023,14 @@ msgstr "book-en.png"
 msgid "ABOUTUS.H3_TWO.H4_TWO.PARAGRAPH_ONE"
 msgstr "Studying anatomy requires more than just memorization; it is essential to truly understand, connect, and commit the material to memory so that it becomes an integral and natural part of clinical reasoning. The Memorix Anatomy textbook is specifically designed to help students master thousands of anatomical structures quickly, effectively, and intelligibly. <a href='https://www.memorixanatomy.com'>Memorix Anatomy</a> clearly covers general, special, and topographical anatomy. The text is accompanied by 1,500 illustrative images and diagrams that facilitate understanding of all structures. In addition, Memorix Anatomy contains hundreds of mnemonics and clinical notes. These elements not only make learning more interesting, but also connect theoretical knowledge with practical clinical use. Thanks to its comprehensive and didactically thoughtful approach, Memorix Anatomy is used by more than 40,000 students worldwide."
 
-#: static/tpl/about.html:70
+#: static/tpl/about.html:69
 msgid "ABOUTUS.H3_TWO.H4_THREE"
 msgstr "Anatomyka – 3D anatomical atlas"
+
+#: static/tpl/about.html:70
+msgid "ABOUTUS.H3_TWO.H4_THREE.ANATOMYKA_URL"
+msgstr "www.memorixanatomy.com/anatomyka"
+
 
 #: static/tpl/about.html:75
 msgid "ABOUTUS.H3_TWO.H4_THREE.PARAGRAPH_ONE"
