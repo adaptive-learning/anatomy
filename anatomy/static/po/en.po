@@ -1013,7 +1013,7 @@ msgstr "Learn anatomy with an AI Tutor, practice with flashcards and questions."
 
 #: static/tpl/about.html:62
 msgid "ABOUTUS.H3_TWO.H4_TWO"
-msgstr "Memorix Anatomy
+msgstr "Memorix Anatomy"
 
 #: static/tpl/about.html:64
 msgid "ABOUTUS.H3_TWO.H4_TWO.IMGSRC"
