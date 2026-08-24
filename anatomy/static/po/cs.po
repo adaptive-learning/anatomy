@@ -292,7 +292,7 @@ msgstr "2015-2026"
 
 #: static/tpl/about.html:14
 msgid "ABOUTUS.PARAGRAPH_ONE"
-msgstr "Primárním cílem projektu Anatom.cz bylo usnadnit studentům medicíny, antropologie a dalším zájemcům o anatomii procvičování svých znalostí na přehledných schémat z <a href='https://www.memorix.cz/'>Memorixu Anatomie</a>. Sekundárním cílem bylo vyzkoušet přínos inovativního softwarového modelu, který se na základě předchozích odpovědí snaží vybrat Vám následující otázku adekvátní obtížnosti. Během 11 let jsme zaznamenali 9.976 registrovaných uživatelů a 14,5 milionů odpovědí na 5.503 strukturách, 267 obrázcích a ve 12 typech vztahů. Více v <a href='https://rozlouceni.anatom.cz'>rozloučení</a>. "
+msgstr "Primárním cílem projektu Anatom.cz bylo usnadnit studentům medicíny, antropologie a dalším zájemcům o anatomii procvičování svých znalostí na přehledných schématech z <a href='https://www.memorix.cz/'>Memorixu Anatomie</a>. Sekundárním cílem bylo vyzkoušet přínos inovativního softwarového modelu, který se na základě předchozích odpovědí snaží vybrat Vám následující otázku adekvátní obtížnosti. Během 11 let jsme zaznamenali 9.976 registrovaných uživatelů a 14,5 milionů odpovědí na 5.503 strukturách, 267 obrázcích a ve 12 typech vztahů. Více v <a href='https://rozlouceni.anatom.cz'>rozloučení</a>. "
 
 
 #: static/tpl/about.html:17
@@ -334,7 +334,7 @@ msgstr "Anatomy Tutor"
 
 #: static/tpl/about.html:59
 msgid "ABOUTUS.H3_TWO.H4_ONE.PARAGRAPH_ONE"
-msgstr "Učte se anotmii s AI Tutorem, opakujte pomocí flashcards a ověřujte své znalosti v kvízech."
+msgstr "Učte se anatomii s AI Tutorem, opakujte pomocí flashcards a ověřujte své znalosti v kvízech."
 
 
 #: static/tpl/about.html:62
@@ -370,7 +370,7 @@ msgstr "Soukromí"
 
 #: static/tpl/about.html:71
 msgid "ABOUTUS.H3_PRIVACY.PARAGRAPH_ONE"
-msgstr "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity při opakovaných návštěvách, jinak se s nimi nepracuje. \n Podrobné informace najdete v <a href=\"/privacy-policy-cs\" rel=\"nofollow\">Zásadách ochrany osobních údajú</a>.  Souhrnné anonymizované údaje (do 7/2026, bez identifikátorů uživatelů) mohou být poskytnuta pro nekomerční účely, více v <a href='https://rozlouceni.anatom.cz'>našem rozloučení</a>."
+msgstr "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity při opakovaných návštěvách, jinak se s nimi nepracuje. \n Podrobné informace najdete v <a href=\"/privacy-policy-cs\" rel=\"nofollow\">Zásadách ochrany osobních údajů</a>.  Souhrnné anonymizované údaje (do 7/2026, bez identifikátorů uživatelů) mohou být poskytnuta pro nekomerční účely, více v <a href='https://rozlouceni.anatom.cz'>našem rozloučení</a>."
 
 
 #: static/tpl/about.html:73
@@ -379,7 +379,7 @@ msgstr "Ochrana díla"
 
 #: static/tpl/about.html:78
 msgid "ABOUTUS.H3_CONTENTPROTECTION.PARAGRAPH_ONE"
-msgstr "Anatomické obrázky a schémata jsou autorsky chráněna, a jejich kopírování, stahování, nebo dokonce distribuce jsou zakázány. V případě, že byste je chtěli využít jakkoli jinak než k prostému užití, jak nabízí aplikace, je nutné mít písemné svolení držitele autorskách práv (Radovan Hudák).\n Podrobné <a href=\"/terms-of-use-cs\" rel=\"nofollow\">právní podmínky užití Anatoma najdete tady</a>."
+msgstr "Anatomické obrázky a schémata jsou autorsky chráněna, a jejich kopírování, stahování, nebo dokonce distribuce jsou zakázány. V případě, že byste je chtěli využít jakkoli jinak než k prostému užití, jak nabízí aplikace, je nutné mít písemné svolení držitele autorských práv (Radovan Hudák).\n Podrobné <a href=\"/terms-of-use-cs\" rel=\"nofollow\">právní podmínky užití Anatoma najdete tady</a>."
 
 
 
