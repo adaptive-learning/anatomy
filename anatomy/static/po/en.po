@@ -969,7 +969,7 @@ msgstr "2015-2026"
 
 #: static/tpl/about.html:14
 msgid "ABOUTUS.PARAGRAPH_ONE"
-msgstr "Our mission was to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge with pictures from <a href='https://www.memorixanatomy.com/'>Memorix Anatomy</a>. Our secondary goal was to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty. In 11 years, 9.976 registered users answered 14,5 milion responses on 5.503 structures, comprising 267 images and 12 types of relations. Read more at <a href='https://rozlouceni.anatom.cz'>our farewell</a>."
+msgstr "Our mission was to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge with pictures from <a href='https://www.memorixanatomy.com/'>Memorix Anatomy</a>. Our secondary goal was to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty. In 11 years, 9,976 registered users answered 14.5 million responses on 5,503 structures, comprising 267 images and 12 types of relations. Read more at <a href='https://rozlouceni.anatom.cz'>our farewell</a>."
 
 #: static/tpl/about.html:17
 msgid "ABOUTUS.H3_ONE.H4_ONE"
