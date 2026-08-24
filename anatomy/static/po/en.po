@@ -1035,7 +1035,6 @@ msgstr "The ANATOMYKA app takes the study of anatomy to a whole new level. Using
 
 #: static/tpl/about.html:69
 msgid "ABOUTUS.H3_PRIVACY"
-msgstr "Soukromí"
 msgstr "Privacy"
 
 #: static/tpl/about.html:71
