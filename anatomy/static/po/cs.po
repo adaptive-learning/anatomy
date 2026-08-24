@@ -318,7 +318,7 @@ msgstr "Kdo stál za obsahem"
 
 #: static/tpl/about.html:42
 msgid "ABOUTUS.H3_ONE.H4_TWO.PARAGRAPH_ONE"
-msgstr "Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a medicínskou správnost zodpovídá: MUDr. <strong>Marek Čierny</strong> (neurolog), MUDr. <strong>Linda Kašičková</strong> (neuroložka). Na tvorbě obsahu Anatoma se významně podíleli následující studenti léařství LF MU v Brně: Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, a Lýdia Nováková. Děkujeme také studentům a studentkám, kteří s tvorbou Anatoma pomáhali v minulosti: Davidu Dufkovi, Adrianě Slaníkové, Albertovi Štěrbovi, Veronice Puchnerové, Michaele Janákové a Karolíně Svobodové."
+msgstr "Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a medicínskou správnost zodpovídá: MUDr. <strong>Marek Čierny</strong> (neurolog), MUDr. <strong>Linda Kašičková</strong> (neuroložka). Na tvorbě obsahu Anatoma se významně podíleli následující studenti lékařství LF MU v Brně: Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, a Lýdia Nováková. Děkujeme také studentům a studentkám, kteří s tvorbou Anatoma pomáhali v minulosti: Davidu Dufkovi, Adrianě Slaníkové, Albertovi Štěrbovi, Veronice Puchnerové, Michaele Janákové a Karolíně Svobodové."
 
 #: static/tpl/about.html:48
 msgid "ABOUTUS.H3_TWO"
