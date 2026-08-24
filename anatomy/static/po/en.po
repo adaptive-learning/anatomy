@@ -993,7 +993,7 @@ msgstr "Content"
 
 #: static/tpl/about.html:42
 msgid "ABOUTUS.H3_ONE.H4_TWO.PARAGRAPH_ONE"
-msgstr "Anatomical drawings were kindly provided by authors of the successful textbook <a href=\"https://www.memorixanatomy.com/\">Memorix Anatomy</a>. \nThe medical precision is a work and responsibility of Dr. <strong>Marek Čierny</strong> (neurologist) and Dr. <strong>Linda Kašičková</strong> (neurologist). The content of Practice Anatomy would not be made possible without the contribution of the following medical students of Medical Faculty of Masaryk University in Brno:  <strong>Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, and Lýdia Nováková</strong>.  Thank you! \nWe would like to thank also to our previous collaborators: David Dufek, Adriana Slaníková, Albert Štěrba, Veronika Puchnerová, Michaela Janáková a Karolína Svobodová. " 
+msgstr "Anatomical drawings were kindly provided by the authors of the successful textbook <a href=\"https://www.memorixanatomy.com/\">Memorix Anatomy</a>. \nThe medical accuracy is the work and responsibility of Dr. <strong>Marek Čierny</strong> (neurologist) and Dr. <strong>Linda Kašičková</strong> (neurologist). The content of Practice Anatomy would not have been possible without contributions from the following medical students at the Medical Faculty of Masaryk University in Brno: <strong>Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, and Lýdia Nováková</strong>. Thank you! \nWe would also like to thank our previous collaborators: David Dufek, Adriana Slaníková, Albert Štěrba, Veronika Puchnerová, Michaela Janáková and Karolína Svobodová."
 
 #: static/tpl/about.html:48
 msgid "ABOUTUS.H3_TWO"
