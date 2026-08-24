@@ -278,3 +278,104 @@ msgstr "www.memorix.cz"
 #: static/tpl/homepage.html:152
 msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
 msgstr "Přehledná anatomická schémata z úspěšné učebnice <a href=\"https://{{ memorixUrl }}\">Memorix Anatomie</a>. Obrázky byly vybrány tak, aby reprezentovaly základní znalosti, které mohou být u studentů medicíny vyžadovány u zkoušky z anatomie."
+
+
+
+#: new 2026-8
+#: static/tpl/about.html:10
+msgid "ABOUTUS.INTRO"
+msgstr "Projekt Anatom.cz vznikl ve spolupráci skupiny Adaptive learning z FI MU a skupiny lékařů a studentů LF MU v Brně v roce 2015, a byl ukončen v červenci 2026."
+
+#: static/tpl/about.html:12
+msgid "ABOUTUS.H3_ONE"
+msgstr "2015-2026"
+
+#: static/tpl/about.html:14
+msgid "ABOUTUS.PARAGRAPH_ONE"
+msgstr "Primárním cílem projektu Anatom.cz bylo usnadnit studentům medicíny, antropologie a dalším zájemcům o anatomii procvičování svých znalostí na přehledných schémat z <a href='https://www.memorix.cz/'>Memorixu Anatomie</a>. Sekundárním cílem bylo vyzkoušet přínos inovativního softwarového modelu, který se na základě předchozích odpovědí snaží vybrat Vám následující otázku adekvátní obtížnosti. Během 11 let jsme zaznamenali 9.976 registrovaných uživatelů a 14,5 milionů odpovědí na 5.503 strukturách, 267 obrázcích a ve 12 typech vztahů. Více v <a href='rozlouceni.anatom.cz'>rozloučení</a>. "
+
+
+#: static/tpl/about.html:17
+msgid "ABOUTUS.H3_ONE.H4_ONE"
+msgstr "Vývoj aplikace"
+
+#: static/tpl/about.html:23
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_ONE"
+msgstr "Anatom.cz byl vyvíjen na <a href='http://www.fi.muni.cz/'>Fakultě informatiky Masarykovy univerzity</a>, konkrétně v rámci skupiny <a href='http://www.fi.muni.cz/adaptivelearning/'>Adaptive Learning</a>. "
+
+#: static/tpl/about.html:26
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_TWO"
+msgstr "Mezi další projekty naší skupiny patří:"
+
+
+#: static/tpl/about.html:35
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_THREE"
+msgstr "Na vývoji aplikace anatom.cz a modelu, který vybírá otázky na míru, se podíleli především <strong>Vít Stanislav</strong>, <strong>Jan Papoušek</strong> a <strong>Jiří Řihák</strong> (absolventi PhD na FI MU)."
+
+#: static/tpl/about.html:38
+msgid "ABOUTUS.H3_ONE.H4_TWO"
+msgstr "Kdo stál za obsahem"
+
+#: static/tpl/about.html:42
+msgid "ABOUTUS.H3_ONE.H4_TWO.PARAGRAPH_ONE"
+msgstr "Anatomická schémata laskavě poskytli autoři úspěšné učebnice <a href=\"https://www.memorix.cz/\">Memorix Anatomie</a>. Za zpracování obrázků a medicínskou správnost zodpovídá: MUDr. <strong>Marek Čierny</strong> (neurolog), MUDr. <strong>Linda Kašičková</strong> (neuroložka). Na tvorbě obsahu Anatoma se významně podíleli následující studenti léařství LF MU v Brně: Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, a Lýdia Nováková. Děkujeme také studentům a studentkám, kteří s tvorbou Anatoma pomáhali v minulosti: Davidu Dufkovi, Adrianě Slaníkové, Albertovi Štěrbovi, Veronice Puchnerové, Michaele Janákové a Karolíně Svobodové."
+
+#: static/tpl/about.html:48
+msgid "ABOUTUS.H3_TWO"
+msgstr "Kam dál?"
+
+#: static/tpl/about.html:50
+msgid "ABOUTUS.H3_TWO.PARAGRAPH_ONE"
+msgstr "Zatímco Anatom.cz byl ukončen, existuje mnoho skvělých moderních zdrojů pro učení anatomie, které jsou rozvíjeny dále a které Vám doporučujeme."
+
+#: static/tpl/about.html:53
+msgid "ABOUTUS.H3_TWO.H4_ONE"
+msgstr "Anatomy Tutor"
+
+#: static/tpl/about.html:59
+msgid "ABOUTUS.H3_TWO.H4_ONE.PARAGRAPH_ONE"
+msgstr "Učte se anotmii s AI Tutorem, opakujte pomocí flashcards a ověřujte své znalosti v kvízech."
+
+
+#: static/tpl/about.html:62
+msgid "ABOUTUS.H3_TWO.H4_TWO"
+msgstr "Memorix Anatomie"
+
+#: static/tpl/about.html:64
+msgid "ABOUTUS.H3_TWO.H4_TWO.IMGSRC"
+msgstr "book-cs.png"
+
+#: static/tpl/about.html:68
+msgid "ABOUTUS.H3_TWO.H4_TWO.PARAGRAPH_ONE"
+msgstr "Studium anatomie vyžaduje více než jen pouhé memorování; je nezbytné látku skutečně pochopit, propojit a uložit do paměti tak, aby se stala integrální a přirozenou součástí klinického uvažování. Učebnice Memorix anatomie je speciálně navržena tak, aby studentům pomohla rychle, efektivně a srozumitelně zvládnout tisíce anatomických struktur. <a href='https://www.memorix.cz'>Memorix anatomie</a> přehledně pokrývá obecnou, speciální a topografickou anatomii. Text je doprovázen 1 500 názornými obrázky a schématy, které usnadňují pochopení všech struktur.  Kromě toho Memorix anatomie obsahuje stovky mnemotechnických pomůcek a klinických poznámek. Tyto prvky nejen činí učení zajímavějším, ale také propojují teoretické znalosti s praktickým klinickým využitím. Díky komplexnímu a didakticky promyšlenému přístupu Memorix anatomie používá více než 40 000 studentů po celém světě. "
+
+#: static/tpl/about.html:70
+msgid "ABOUTUS.H3_TWO.H4_THREE"
+msgstr "3D anatomický atlas Anatomyka"
+
+#: static/tpl/about.html:75
+msgid "ABOUTUS.H3_TWO.H4_THREE.PARAGRAPH_ONE"
+msgstr "Aplikace ANATOMYKA posouvá studium anatomie na zcela novou úroveň. Pomocí špičkového 3D modelu, který je jedním z nejpodrobnějších anatomických atlasů na světě, vám aplikace umožní ponořit se do anatomie v celé její dechberoucí složitosti a prostorových souvislostech. U každého orgánu a struktury jsou popisky převzaté z revoluční učebnice Memorix Anatomie, takže jsou snadno pochopitelné a představují vynikající výukový nástroj v každém mobilu, tabletu nebo počítači."
+
+
+
+#: static/tpl/about.html:69
+msgid "ABOUTUS.H3_PRIVACY"
+msgstr "Soukromí"
+
+#: static/tpl/about.html:71
+msgid "ABOUTUS.H3_PRIVACY.PARAGRAPH_ONE"
+msgstr "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity při opakovaných návštěvách, jinak se s nimi nepracuje. \n Podrobné informace najdete v <a href=\"/privacy-policy-cs\" rel=\"nofollow\">Zásadách ochrany osobních údajú</a>.  Souhrnné anonymizované údaje (do 7/2026, bez identifikátorů uživatelů) mohou být poskytnuta pro nekomerční účely, více v <a href='https://rozlouceni.anatom.cz'>našem rozloučení</a>."
+
+
+#: static/tpl/about.html:73
+msgid "ABOUTUS.H3_CONTENTPROTECTION"
+msgstr "Ochrana díla"
+
+#: static/tpl/about.html:78
+msgid "ABOUTUS.H3_CONTENTPROTECTION.PARAGRAPH_ONE"
+msgstr "Anatomické obrázky a schémata jsou autorsky chráněna, a jejich kopírování, stahování, nebo dokonce distribuce jsou zakázány. V případě, že byste je chtěli využít jakkoli jinak než k prostému užití, jak nabízí aplikace, je nutné mít písemné svolení držitele autorskách práv (Radovan Hudák).\n Podrobné <a href=\"/terms-of-use-cs\" rel=\"nofollow\">právní podmínky užití Anatoma najdete tady</a>."
+
+
+
+
