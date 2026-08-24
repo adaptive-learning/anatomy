@@ -370,7 +370,7 @@ msgstr "Soukromí"
 
 #: static/tpl/about.html:71
 msgid "ABOUTUS.H3_PRIVACY.PARAGRAPH_ONE"
-msgstr "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity při opakovaných návštěvách, jinak se s nimi nepracuje. \n Podrobné informace najdete v <a href=\"/privacy-policy-cs\" rel=\"nofollow\">Zásadách ochrany osobních údajů</a>.  Souhrnné anonymizované údaje (do 7/2026, bez identifikátorů uživatelů) mohou být poskytnuta pro nekomerční účely, více v <a href='https://rozlouceni.anatom.cz'>našem rozloučení</a>."
+msgstr "Data o odpovědích jsou ukládána a jsou využívána pro výběr vhodných otázek a pro výzkumné účely. Všechna tato data jsou zpracovávána anonymně. Přihlašovací údaje (Facebook, Google) jsou použity pouze pro určení identity při opakovaných návštěvách, jinak se s nimi nepracuje. \n Podrobné informace najdete v <a href=\"/privacy-policy-cs\" rel=\"nofollow\">Zásadách ochrany osobních údajů</a>.  Souhrnné anonymizované údaje (do 7/2026, bez identifikátorů uživatelů) mohou být poskytnuty pro nekomerční účely, více v <a href='https://rozlouceni.anatom.cz'>našem rozloučení</a>."
 
 
 #: static/tpl/about.html:73
