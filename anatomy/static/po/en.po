@@ -955,3 +955,101 @@ msgstr "www.memorixanatomy.com"
 #: static/tpl/homepage.html:130
 msgid "HOMEPAGE.UNIQUE.MEMORIXPICTURES"
 msgstr "Concise anatomical pictures are from a successful textbook <a href=\"https://{{ memorixUrl }}\">Memorix Anatomy</a>. The structures and pictures in this application represent essential knowledge that may be required from medical students at their anatomy exam."
+
+
+
+#: new - updated 2026-8
+#: static/tpl/about.html:10
+msgid "ABOUTUS.INTRO"
+msgstr "Practice Anatomy was a joint project of research group Adaptive Learning at Faculty of Informatics of Masaryk University, and a group of clinicians and medical students at Medical Faculty of Masaryk University, Brno, Czech republic. It was founded in 2015 and discontinued in 2026."
+
+#: static/tpl/about.html:12
+msgid "ABOUTUS.H3_ONE"
+msgstr "2015-2026"
+
+#: static/tpl/about.html:14
+msgid "ABOUTUS.PARAGRAPH_ONE"
+msgstr "Our mission was to help students of medicine, anthropology or just anyone interested in human anatomy to practice their knowledge with pictures from <a href='https://www.memorixanatomy.com/'>Memorix Anatomy</a>. Our secondary goal was to examine the benefit of an innovative software model, which based on previous answers chooses the next question of the appropriate difficulty. In 11 years, 9,976 registered users answered 14.5 million responses on 5,503 structures, comprising 267 images and 12 types of relations. Read more at <a href='https://rozlouceni.anatom.cz'>our farewell</a>."
+
+#: static/tpl/about.html:17
+msgid "ABOUTUS.H3_ONE.H4_ONE"
+msgstr "Development"
+
+#: static/tpl/about.html:23
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_ONE"
+msgstr "PracticeAnatomy.com was  developed at <a href=\"http://www.fi.muni.cz/\">Faculty of Informatics of Masaryk University</a> (Brno, Czech republic) by  <a href=\"http://www.fi.muni.cz/adaptivelearning/\">Adaptive Learning research group</a>."
+
+#: static/tpl/about.html:26
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_TWO"
+msgstr "Other projects by our group include:"
+
+#: static/tpl/about.html:35
+msgid "ABOUTUS.H3_ONE.H4_ONE.PARAGRAPH_THREE"
+msgstr "PracticeAnatomy.com and the software model were developed mostly by <strong>Vít Stanislav</strong>, <strong>Jan Papoušek</strong> and <strong>Jiří Řihák</strong> (PhD graduates at Faculty of Informatics, Masaryk University)."
+
+#: static/tpl/about.html:38
+msgid "ABOUTUS.H3_ONE.H4_TWO"
+msgstr "Content"
+
+#: static/tpl/about.html:42
+msgid "ABOUTUS.H3_ONE.H4_TWO.PARAGRAPH_ONE"
+msgstr "Anatomical drawings were kindly provided by the authors of the successful textbook <a href=\"https://www.memorixanatomy.com/\">Memorix Anatomy</a>. \nThe medical accuracy is the work and responsibility of Dr. <strong>Marek Čierny</strong> (neurologist) and Dr. <strong>Linda Kašičková</strong> (neurologist). The content of Practice Anatomy would not have been possible without contributions from the following medical students at the Medical Faculty of Masaryk University in Brno: <strong>Samuel Bakoš, Mirka Marková, Markéta Setničková, Magda Šubrtová, Šárka Tomková, and Lýdia Nováková</strong>. Thank you! \nWe would also like to thank our previous collaborators: David Dufek, Adriana Slaníková, Albert Štěrba, Veronika Puchnerová, Michaela Janáková and Karolína Svobodová."
+
+#: static/tpl/about.html:48
+msgid "ABOUTUS.H3_TWO"
+msgstr "Where next?"
+
+#: static/tpl/about.html:50
+msgid "ABOUTUS.H3_TWO.PARAGRAPH_ONE"
+msgstr "Although PracticeAnatomy.com has been discontinued, there are many excellent resources for studying anatomy we'd like to recommend to you."
+
+#: static/tpl/about.html:53
+msgid "ABOUTUS.H3_TWO.H4_ONE"
+msgstr "Anatomy Tutor"
+
+#: static/tpl/about.html:59
+msgid "ABOUTUS.H3_TWO.H4_ONE.PARAGRAPH_ONE"
+msgstr "Learn anatomy with an AI Tutor, practice with flashcards and questions."
+
+#: static/tpl/about.html:62
+msgid "ABOUTUS.H3_TWO.H4_TWO"
+msgstr "Memorix Anatomy"
+
+#: static/tpl/about.html:64
+msgid "ABOUTUS.H3_TWO.H4_TWO.IMGSRC"
+msgstr "book-en.png"
+
+#: static/tpl/about.html:68
+msgid "ABOUTUS.H3_TWO.H4_TWO.PARAGRAPH_ONE"
+msgstr "Studying anatomy requires more than just memorization; it is essential to truly understand, connect, and commit the material to memory so that it becomes an integral and natural part of clinical reasoning. The Memorix Anatomy textbook is specifically designed to help students master thousands of anatomical structures quickly, effectively, and intelligibly. <a href='https://www.memorixanatomy.com'>Memorix Anatomy</a> clearly covers general, special, and topographical anatomy. The text is accompanied by 1,500 illustrative images and diagrams that facilitate understanding of all structures. In addition, Memorix Anatomy contains hundreds of mnemonics and clinical notes. These elements not only make learning more interesting, but also connect theoretical knowledge with practical clinical use. Thanks to its comprehensive and didactically thoughtful approach, Memorix Anatomy is used by more than 40,000 students worldwide."
+
+#: static/tpl/about.html:69
+msgid "ABOUTUS.H3_TWO.H4_THREE"
+msgstr "Anatomyka – 3D anatomical atlas"
+
+#: static/tpl/about.html:70
+msgid "ABOUTUS.H3_TWO.H4_THREE.ANATOMYKA_URL"
+msgstr "www.memorixanatomy.com/anatomyka"
+
+
+#: static/tpl/about.html:75
+msgid "ABOUTUS.H3_TWO.H4_THREE.PARAGRAPH_ONE"
+msgstr "The ANATOMYKA app takes the study of anatomy to a whole new level. Using a cutting-edge 3D model, which is one of the most detailed anatomical atlases in the world, the app allows you to immerse yourself in anatomy in all its breathtaking complexity and spatial context. For each organ and structure, the labels are taken from the revolutionary Memorix Anatomy textbook, making them easy to understand and an excellent learning tool on any mobile phone, tablet or computer."
+
+
+
+#: static/tpl/about.html:69
+msgid "ABOUTUS.H3_PRIVACY"
+msgstr "Privacy"
+
+#: static/tpl/about.html:71
+msgid "ABOUTUS.H3_PRIVACY.PARAGRAPH_ONE"
+msgstr "Data about your responses are being saved and used in order to improve user experience (select the most appropriate next question) and research purposes. All research analyses are performed on anonymized data. The data from registration (Facebook, Google) are used only for identification during recurrent visits. We will not provide user identification data to a third party.\nFor details, see <a href=\"/privacy-policy-en\" rel=\"nofollow\">Privacy Policy</a>. Aggregate data (until 7/2026, without user identifiers) may be available upon request, see our <a href='https://rozlouceni.anatom.cz'>farewell message</a>. "
+
+#: static/tpl/about.html:73
+msgid "ABOUTUS.H3_CONTENTPROTECTION"
+msgstr "Content protection"
+
+#: static/tpl/about.html:78
+msgid "ABOUTUS.H3_CONTENTPROTECTION.PARAGRAPH_ONE"
+msgstr "All pictures and drawings and other content are protected by the authors. Copying, downloading, or distribution is prohibited. Please see our <a href=\"/terms-of-use-en\" rel=\"nofollow\">terms of use</a> for details. In the case you would be interested in the use of the website content in a different way than simply using this online application, please contact the owner of the author's rights (most frequently Dr. Radovan Hudak)."

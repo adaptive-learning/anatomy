@@ -172,7 +172,9 @@ angular.module('proso.anatomy', [
       $location.replace();
       $location.path('/unauthorized/');
     }
-    $rootScope.isPractice = next.indexOf('/practice') !== -1;
+    // Extract only the route path from an absolute or relative URL
+    var path = (next || '').replace(/^https?:\/\/[^\/]+/, '').split(/[?#]/)[0];
+    $rootScope.isPractice = /^\/practice(?:\/|$)/.test(path);
   });
 }])
 
