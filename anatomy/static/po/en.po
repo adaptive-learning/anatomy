@@ -1001,7 +1001,7 @@ msgstr "Where next?"
 
 #: static/tpl/about.html:50
 msgid "ABOUTUS.H3_TWO.PARAGRAPH_ONE"
-msgstr "Although PracticeAnatomy.com have been suspended, there are many excellent resources for studying anatomy we'd like to recommend to you."
+msgstr "Although PracticeAnatomy.com has been discontinued, there are many excellent resources for studying anatomy we'd like to recommend to you."
 
 #: static/tpl/about.html:53
 msgid "ABOUTUS.H3_TWO.H4_ONE"
